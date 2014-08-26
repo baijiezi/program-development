@@ -1,0 +1,91 @@
+<html>
+<head>
+	<title>不曾完美，唯有爆破！全网最好玩的消消看宝石游戏，六种宝石五种宝箱坐等您来爆破！</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<style type="text/css">
+		body {
+			margin: 0 auto;
+			background-color: #ff9024;
+			font: normal 100% Helvetica, Arial, sans-serif;
+		}
+		#main {
+			/*width: 469px;*/
+			min-height: 200px;
+			padding: 1.25em;
+		}
+		#main img {
+		}
+
+		#main textarea {
+			padding: 0.2em;
+			width: 100%;
+			height: 92px;
+			/*border: 2px dotted;*/
+			background-color: #ff9024;
+			font-size: 1.2em;
+			margin-bottom: 0.5em;
+		}
+		textarea::-webkit-input-placeholder {
+			color: #000000;
+		}
+		textarea:-moz-placeholder { 
+			color: #000000;
+		}
+		textarea::-moz-placeholder { 
+		    color: #000000;
+		}
+		textarea:-ms-input-placeholder { 
+		    color: #000000;
+		}
+
+		.innerText {
+			/*border: 2px dotted; */
+			/*width: 196px;*/
+			width: 100%;
+			font-size: 1em;
+			color: #ccc;
+		}
+
+		#shareBtn {
+			text-align: center;
+			margin-top: 30px;
+		}
+	</style>
+	<script type="text/javascript">
+		function updateTitle(){
+			var t = document.getElementById('what_to_say');
+			document.title = t.value  + ' 不曾完美，唯有爆破！全网最好玩的消消看宝石游戏，六种宝石五种宝箱坐等您来爆破！';
+
+			console.log('aaaa' + t.innerHTML );
+		}
+	</script>
+
+</head>
+<body>
+	<form action="share_submit.php" method="post" name="share_form">
+		<div id="main">
+			<div style="text-align: center; margin-bottom: 30px;"><img src="images/share_word.png" /></div>
+			<div>
+				<div style="float: left; width: 40%"><img src="images/gems.png" width="100%"></div>
+				<div style="float: right; width: 55%; padding-left: 10px;">
+					<textarea placeholder="说点什么吧..." name="what_to_say" id="what_to_say" onblur="updateTitle();"></textarea>
+					<div class="innerText">不曾完美，唯有爆破！全网最好玩的消消看宝石游戏，六种宝石五种宝箱坐等您来爆破！</div>
+				</div>
+				<div style="clear: both;"></div>
+			</div>
+			<!-- <div id="shareBtn"><img src="images/share.png"></div> -->
+			<div style="margin-top: 30px;">
+				<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more">分享到：</a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a></div>
+				<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"http://jgled88.com/_games/images/gems.png","bdStyle":"1","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+			</div>
+		</div>
+	</form>
+	<script type="text/javascript">
+		// var btn = document.getElementById('shareBtn');
+		// btn.onclick = function(){
+		// 	console.log(btn);
+		// }
+	</script>
+</body>
+</html>

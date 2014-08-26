@@ -1,0 +1,17 @@
+{
+    "name": "Andy/PestMVC",
+    "require": {
+        "php-activerecord/php-activerecord": "dev-master",
+        "fzaninotto/faker": "1.1.*@dev",
+        "phpunit/phpunit": "3.7.*@dev"
+    },
+    "autoload": {
+        "psr-0": {
+            "PestMVC": "vendor/Andy/",
+            "Controller": "app/",
+            "Model": "app/",
+            "View": "app/",
+            "Utils": "app/"
+        }
+    }
+}
