@@ -1,3 +1,16 @@
 西部数码空间
 用户名：baijiezi
 密码：afaqa5es
+
+
+数据库Mysql
+远程连接时使用域名: juguang.gotoftp4.com
+数据库名：juguang
+密码：jgled88
+
+
+FTP地址:	juguang.gotoftp4.com
+FTP用户名:	juguang
+FTP密码:	jgled88
+产品型号:	LinuxA[b030]	独享IP:	无
+空间大小:	240M ,标配:200M,附赠:40M
