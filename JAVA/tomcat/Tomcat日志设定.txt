@@ -1,0 +1,293 @@
+1    Tomcat 日志概述
+
+Tomcat 日志信息分 为 两 类 ：
+
+一是运行中的日志，它主要 记录 运行的一些信息，尤其是一些异常 错误 日志信息 。
+二是 访问 日志信息，它 记录 的 访问 的 时间 ， IP ， 访问 的 资 料等相 关 信息。
+
+2    Tomcat 日志配置
+2.1  访问日志的配置
+
+默认 tomcat 不记录访问日志，如下方法可以使 tomcat 记录访问日志
+
+编辑 ${catalina}/conf/server.xml 文件 . 注 :${catalina} 是 tomcat 的安装目录
+
+把以下的注释 (<!-- -->) 去掉即可。
+ <!--
+        <Valve className="org.apache.catalina.valves.AccessLogValve"
+         directory="logs"  prefix="localhost_access_log." suffix=".txt"
+         pattern="common" resolveHosts="false"/>
+  -->
+2.2  配置 tomcat 写出更详细的日志
+
+通过对 2.1 示例中 pattern 项的修改，可以改变日志输出的内容。
+
+该项值可以为： common 与 combined ，这两个 预 先 设 置好的 格式对应的日志输出内容如下：
+
+common 的值： %h %l %u %t %r %s %b
+combined 的值： %h %l %u %t %r %s %b %{Referer}i %{User-Agent}i
+
+pattern 也可以根据需要自由 组 合 , 例如 pattern="%h %l"
+
+对 于各 fields 字段的含 义请 参照 :
+
+http://tomcat.apache.org/tomcat-6.0-doc/config/valve.html 中的 Access Log Valve 项
+3    修改 Tomcat 运行日志的等级
+3.1  日志类型与级别
+
+Tomcat 日志分为下面５类：
+
+catalina 、 localhost 、 manager 、 admin 、 host-manager
+
+每类日志的级别分为如下 7 种：
+
+SEVERE (highest value) > WARNING > INFO > CONFIG > FINE > FINER > FINEST (lowest value)
+3.2  日志级别的设定方法
+
+修改 conf/logging.properties 中的内容，设定某类日志的级别
+
+示例：
+
+设置 catalina 日志的级别为： FINE
+
+1catalina.org.apache.juli.FileHandler.level = FINE
+
+禁用 catalina 日志的输出：
+
+1catalina.org.apache.juli.FileHandler.level = OFF
+
+输出 catalina 所有的日志消息均输出：
+
+1catalina.org.apache.juli.FileHandler.level = ALL
+4    使用 log4j 记录应用程序日志或 系 统 日志
+4.1  使用 Log4j 输 出 详细 系 统 日志信息，快速 诊 断启 动 故障
+
+此例可弥 补 tomcat 启 动 异常 时输 出的 错误 信息不足的 问题 ，使用 commons-logging 和 log4j 搭配 输 出 详 尽的日志信 息 。
+
+以 window 环境下 tomcat5.5.27 为例：
+
+1、 tomcat 解压目录为：
+
+E: \tomcat5.5
+
+2、 设置环境变量：
+
+CATALINA_HOME=E: \tomcat5.5
+
+3、 下载 log4j 与 commons-logging
+
+Log4j 下载地址：
+
+http://logging.apache.org/log4j/1.2/download.html
+
+Commons-logging 下载地址：
+
+http://apache.freelamp.com/commons/logging/binaries/commons-logging-1.1.1-bin.zip
+
+4、 本例将 commons-logging-1.1.1.jar 与 log4j-1.2.15.jar 放在 %TOMCAT_HOME%\bin 目录下（可根据需要放置在其位置）
+
+5、 在 %TOMCAT_HOME%\bin 目录下新建两个文件 commons-logging.properties 、 log4j.properties
+
+commons-logging.properties 文件内容如下：
+
+org.apache.commons.logging.Log=org.apache.commons.logging.impl.Log4JLogger
+
+log4j.properties 文件内容如下：
+
+log4j.rootLogger=WARN,stdout,file
+
+ 
+
+## 日志直接输出到控制台 ###
+
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+
+log4j.appender.stdout.Target=System.out
+
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+
+log4j.appender.stdout.layout.ConversionPattern=%d{ABSOLUTE} %l - %m%n
+
+ 
+
+## 日志输出到文件 SystemOut.log ###
+
+log4j.appender.file=org.apache.log4j.FileAppender
+
+log4j.appender.file.File=E: /tomcat5.5/ logs/SystemOut.log
+
+log4j.appender.file.Append=false
+
+log4j.appender.file.layout=org.apache.log4j.PatternLayout
+
+log4j.appender.file.layout.ConversionPattern=%d{ABSOLUTE} %l - %m%n
+
+ 
+
+该配置文件可详细参照：
+
+http://www.minaret.biz/tips/tomcatLogging.html#log4j_properties
+
+ 
+
+6、 修改 catalina.bat 文件
+
+将
+
+set CLASSPATH=%CLASSPATH%;%CATALINA_HOME%\bin\bootstrap.jar
+
+替 换为
+
+set CLASSPATH=%CLASSPATH%;%CATALINA_HOME%\bin\bootstrap.jar;%CATALINA_HOME%\bin\commons-logging-1.1.jar;%CATALINA_HOME%\bin\log4j-1.2.13.jar;%CATALINA_HOME%\bin
+
+7、 通 过 startup.bat 启 动 就会用 log4j 来 输 出启 动 日志了 。
+
+8、 在 E: /tomcat5.5/ logs/SystemOut.log 文件中 查 看 输 出的日志
+4.2  应 用程序中 使用 log4j 使用方法
+
+1、 从如下网址下 载 log4j ：
+
+http://logging.apache.org/log4j/1.2/download.html
+
+2、 创 建 Java 工程。
+
+3、 添加 log4j.jar 到工程的 编译 路径下 。
+
+4、 创 建名称 为 log4j.properties 的文件，写入如下内容：
+
+### direct log messages to stdout ###
+
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+
+log4j.appender.stdout.Target=System.out
+
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+
+log4j.appender.stdout.layout.ConversionPattern=%d{ABSOLUTE} %5p %c{1}:%L - %m%n
+
+log4j.rootLogger=debug, stdout
+
+5、 创 建 类 并添加如下内容：
+
+import org.apache.log4j.Logger;
+
+ 
+
+public class LogClass {
+
+        private static org.apache.log4j.Logger log = Logger
+
+                        .getLogger (LogClass. class );
+
+ 
+
+        public static void main(String[] args) {
+
+                log .trace( "Trace" );
+
+                log .debug( "Debug" );
+
+                log .info( "Info" );
+
+                log .warn( "Warn" );
+
+                log .error( "Error" );
+
+                log .fatal( "Fatal" );
+
+        }
+
+}
+
+6、 编译 运行，可在控制台中看到如下内容 ：
+
+10:38:24,797 DEBUG LogClass:11 - Debug
+
+10:38:24,812  INFO LogClass:12 - Info
+
+10:38:24,812  WARN LogClass:13 - Warn
+
+10:38:24,812 ERROR LogClass:14 - Error
+
+10:38:24,812 FATAL LogClass:15 - Fatal
+
+7、 根据 级别 控制日志 输 出内容：
+
+将 log4j.rootLogger= debug , stdout 变 更 为 log4j.rootLogger=Warn, stdout
+
+输 出内容如下：
+
+10:41:15,488  WARN LogClass:13 - Warn
+
+10:41:15,504 ERROR LogClass:14 - Error
+
+10:41:15,504 FATAL LogClass:15 – Fatal
+4.3  配置 log4j.properties 更改日志 输 出内容
+
+1 、 log4j.rootCategory=INFO, stdout , R
+
+此句 为 将等 级为 INFO 的日志信息 输 出到 stdout 和 R 这 两个目的地。等 级 可分 为 OFF 、 FATAL 、 ERROR 、 WARN 、 INFO 、 DEBUG 、 ALL ，如果配置 OFF 则 不打出任何信息，如果配置 为 INFO 这样 只 显 示 INFO, WARN, ERROR 的 log 信息，而 DEBUG 信息不会被 显 示。
+
+2 、 log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+
+此句 为 定 义 名 为 stdout 的 输 出端是哪 种类 型，可以是
+
+?  org.apache.log4j.ConsoleAppender （控制台），
+
+?  org.apache.log4j.FileAppender （文件），
+
+?  org.apache.log4j.DailyRollingFileAppender （ 每 天 产 生一个日志文件），
+
+?  org.apache.log4j.RollingFileAppender （文件大小到达指定尺寸的 时 候 产 生一个新的文件）
+
+?  org.apache.log4j.WriterAppender （将日志信息以流格式 发 送到任意指定的地方 ）
+
+3 、 log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+
+此句 为 定 义 名 为 stdout 的 输 出端的 layout 是哪 种类 型
+
+?  org.apache.log4j.HTMLLayout （以HTML 表格形式布局），
+
+?  org.apache.log4j.PatternLayout （可以灵活地指定布局模式），
+
+?  org.apache.log4j.SimpleLayout （包含日志信息的 级别 和信息字符串），
+
+?  org.apache.log4j.TTCCLayout （包含日志 产 生的 时间 、 线 程、 类别 等等信息 ）
+
+4 、 log4j.appender.stdout.layout.ConversionPattern= [QC] %p [%t] %C.%M(%L) | %m%n
+
+如果使用 pattern 布局就要指定的打印信息的具体格式 ConversionPattern ，打印参数如下：
+
+具体的设定参照：
+
+http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/PatternLayout.html
+
+?  %m 输 出代 码 中指定的消息
+
+?  %p 输 出 优 先 级 ，即 DEBUG ， INFO ， WARN ， ERROR ， FATAL
+
+?  %r 输 出自 应 用启 动 到 输 出 该 log 信息耗 费 的毫秒数
+
+?  %c 输 出所属的 类 目，通常就是所在 类 的全名
+
+?  %t 输 出 产 生 该 日志事件的 线 程名
+
+?  %n 输 出一个回 车换 行符， Windows 平台 为 “rn” ， Unix 平台 为 “n”
+
+?  %d 输 出日志 时间 点的日期或 时间 ，默 认 格式 为 ISO8601 ，也可以在其后指定格式，比如： %d{yyyy mm dd HH:mm:ss,SSS} ， 输 出 类 似： 2002 年 10 月 18 日 22 ： 10 ： 28 ， 921
+
+?  %l 输 出日志事件的 发 生位置，包括 类 目名、 发 生的 线 程，以及在代 码 中的行数。
+
+?  [QC] 是 log 信息的 开头 ，可以 为 任意 字符，一般 为项 目 简 称 。
+5       Log4j 相 关资 料
+
+以下网址提供了 log4j 的介 绍 ：
+
+http://logging.apache.org/log4j/1.2/manual.html
+
+以下网址提供的 log4j 的使用示例：
+
+http://www.laliluna.de/log4j-tutorial.html
+
+
+本文来自CSDN博客，转载请标明出处：http://blog.csdn.net/lk_cool/archive/2009/09/17/4561306.aspx
