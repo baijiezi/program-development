@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+<html>
+<head>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <style type="text/css">
+        .dp-highlighter {
+            width:95% !important;
+        }
+    </style>
+    <style type="text/css">
+        .footer {
+            background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+            background-repeat:     repeat-x;
+            background-position:   left top;
+            padding-top:           4px;
+            color:                 #666;
+        }
+    </style>
+    <script type="text/javascript" language="javascript">
+        var hide = null;
+        var show = null;
+        var children = null;
+
+        function init() {
+            /* Search form initialization */
+            var form = document.forms['search'];
+            if (form != null) {
+                form.elements['domains'].value = location.hostname;
+                form.elements['sitesearch'].value = location.hostname;
+            }
+
+            /* Children initialization */
+            hide = document.getElementById('hide');
+            show = document.getElementById('show');
+            children = document.all != null ?
+                    document.all['children'] :
+                    document.getElementById('children');
+            if (children != null) {
+                children.style.display = 'none';
+                show.style.display = 'inline';
+                hide.style.display = 'none';
+            }
+        }
+
+        function showChildren() {
+            children.style.display = 'block';
+            show.style.display = 'none';
+            hide.style.display = 'inline';
+        }
+
+        function hideChildren() {
+            children.style.display = 'none';
+            show.style.display = 'inline';
+            hide.style.display = 'none';
+        }
+    </script>
+    <title>Annotations</title>
+</head>
+<body onload="init()">
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr class="topBar">
+        <td align="left" valign="middle" class="topBarDiv" align="left" nowrap>
+            &nbsp;<a href="home.html">Home</a>&nbsp;&gt;&nbsp;<a href="guides.html">Guides</a>&nbsp;&gt;&nbsp;<a href="core-developers-guide.html">Core Developers Guide</a>&nbsp;&gt;&nbsp;<a href="annotations.html">Annotations</a>
+        </td>
+        <td align="right" valign="middle" nowrap>
+            <form name="search" action="http://www.google.com/search" method="get">
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="hidden" name="oe" value="UTF-8" />
+                <input type="hidden" name="domains" value="" />
+                <input type="hidden" name="sitesearch" value="" />
+                <input type="text" name="q" maxlength="255" value="" />
+                <input type="submit" name="btnG" value="Google Search" />
+            </form>
+        </td>
+    </tr>
+</table>
+
+<div id="PageContent">
+    <div class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <div style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</div>
+        <div style="margin: 0px 10px 8px 10px"  class="pagetitle">Annotations</div>
+
+        <div class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14017">
+                <img src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Edit Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14017">Edit Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+                <img src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14017">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14017">Add Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14017">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add News"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14017">Add News</a>
+        </div>
+    </div>
+
+    <div class="pagecontent">
+        <div class="wiki-content">
+            <div id="ConfluenceContent"><p>In many places, applications can use Java 5 annotations as an alternative to XML and Java properties configuration.  This page serves as a reference for all annotations across the framework.</p>
+
+<h2><a shape="rect" name="Annotations-ActionAnnotations"></a>Action Annotations</h2>
+
+<div class="panelMacro"><table class="noteMacro"><colgroup span="1"><col span="1" width="24"><col span="1"></colgroup><tr><td colspan="1" rowspan="1" valign="top"><img align="middle" src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" alt="" border="0"></td><td colspan="1" rowspan="1">Since 2.1, these annotations are provided by the <a shape="rect" href="convention-plugin.html" title="Convention Plugin">Convention Plugin</a>. Codebehind and Zero Config plugins are deprecated from 2.1 on.</td></tr></table></div>
+
+<p>Action annotations are available when the framework scans the classpath for Action classes, rather than specifying individual mappings through XML configuration. See the <a shape="rect" href="convention-plugin.html" title="Convention Plugin">Convention Plugin</a> page for information on how to set up classpath scanning to allow the use of Action annotations.</p>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><th colspan="1" rowspan="1" class="confluenceTh"> Annotation </th><th colspan="1" rowspan="1" class="confluenceTh"> Description </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="convention-plugin.html#ConventionPlugin-Actionannotation">Actions Annotation</a></td><td colspan="1" rowspan="1" class="confluenceTd"> Group of @Action annotations, maps multiple URLs to the same action </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="convention-plugin.html#ConventionPlugin-Actionannotation">Action Annotation</a></td><td colspan="1" rowspan="1" class="confluenceTd"> Defines the URL of an action </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="convention-plugin.html#ConventionPlugin-InterceptorRefannotation">InterceptorRefs Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> Gropup of @InterceptorRef annotations </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="convention-plugin.html#ConventionPlugin-InterceptorRefannotation">InterceptorRef Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd">Interceptor, or interceptor stack to be applied to at action </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="convention-plugin.html#ConventionPlugin-Resultannotation">Results Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> Group of @Result annotations </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="convention-plugin.html#ConventionPlugin-Resultannotation">Result Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd">Defines a result for an action</td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="convention-plugin.html#ConventionPlugin-Namespaceannotation">Namespace Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd">Set the path of the action URL (used to overwrite the default)</td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="convention-plugin.html#ConventionPlugin-ResultPathannotation">ResultPath Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd">Set where the results are located (used to overwrite the default)</td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="convention-plugin.html#ConventionPlugin-ParentPackageannotation">ParentPackage Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd">Set the parent package of the actions (used to overwrite the default)</td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="convention-plugin.html#ConventionPlugin-ExceptionMappingannotations">ExceptionMappings</a></td><td colspan="1" rowspan="1" class="confluenceTd">Group of @ExceptionMapping annotations</td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="convention-plugin.html#ConventionPlugin-ExceptionMappingannotations">ExceptionMapping</a></td><td colspan="1" rowspan="1" class="confluenceTd">Defines an exception mapping</td></tr></tbody></table>
+</div>
+
+
+<h2><a shape="rect" name="Annotations-WorkflowAnnotations"></a>Workflow Annotations</h2>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><th colspan="1" rowspan="1" class="confluenceTh"> Annotation </th><th colspan="1" rowspan="1" class="confluenceTh"> Description </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"><a shape="rect" href="inputconfig-annotation.html" title="InputConfig Annotation">InputConfig Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd">Defines what method to execute, or result to be returned if there are validation errors </td></tr></tbody></table>
+</div>
+
+
+<h2><a shape="rect" name="Annotations-InterceptorAnnotations"></a>Interceptor Annotations</h2>
+
+<p>To use these annotations, you have to specify the <a shape="rect" href="annotationworkflowinterceptor.html" title="AnnotationWorkflowInterceptor">AnnotationWorkflowInterceptor</a> to your interceptor stack.</p>
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><th colspan="1" rowspan="1" class="confluenceTh"> Annotation </th><th colspan="1" rowspan="1" class="confluenceTh"> Description </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="after-annotation.html" title="After Annotation">After Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> Marks a action method that needs to be executed after the result. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="before-annotation.html" title="Before Annotation">Before Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> Marks a action method that needs to be executed before the main action method. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="beforeresult-annotation.html" title="BeforeResult Annotation">BeforeResult Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> Marks a action method that needs to be executed before the result. </td></tr></tbody></table>
+</div>
+
+
+<h2><a shape="rect" name="Annotations-ValidationAnnotations"></a>Validation Annotations</h2>
+
+<p>To use annotation-based validation, annotate the class or interface with <a shape="rect" href="validation-annotation.html" title="Validation Annotation">Validation Annotation</a>.</p>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><th colspan="1" rowspan="1" class="confluenceTh"> Annotation </th><th colspan="1" rowspan="1" class="confluenceTh"> Description </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="conversionerrorfieldvalidator-annotation.html" title="ConversionErrorFieldValidator Annotation">ConversionErrorFieldValidator Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> Checks if there are any conversion errors for a field. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="daterangefieldvalidator-annotation.html" title="DateRangeFieldValidator Annotation">DateRangeFieldValidator Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> Checks that a date field has a value within a specified range. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="doublerangefieldvalidator-annotation.html" title="DoubleRangeFieldValidator Annotation">DoubleRangeFieldValidator Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> Checks that a double field has a value within a specified range. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="emailvalidator-annotation.html" title="EmailValidator Annotation">EmailValidator Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> Checks that a field is a valid e-mail address. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="expressionvalidator-annotation.html" title="ExpressionValidator Annotation">ExpressionValidator Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> Validates an expression. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="fieldexpressionvalidator-annotation.html" title="FieldExpressionValidator Annotation">FieldExpressionValidator Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> Uses an OGNL expression to perform its validator. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="intrangefieldvalidator-annotation.html" title="IntRangeFieldValidator Annotation">IntRangeFieldValidator Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> Checks that a numeric field has a value within a specified range. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="regexfieldvalidator-annotation.html" title="RegexFieldValidator Annotation">RegexFieldValidator Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> Validates a regular expression for a field. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="requiredfieldvalidator-annotation.html" title="RequiredFieldValidator Annotation">RequiredFieldValidator Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> Checks that a field is non-null. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="requiredstringvalidator-annotation.html" title="RequiredStringValidator Annotation">RequiredStringValidator Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> Checks that a String field is not empty. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="stringlengthfieldvalidator-annotation.html" title="StringLengthFieldValidator Annotation">StringLengthFieldValidator Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> Checks that a String field is of the right length. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="urlvalidator-annotation.html" title="UrlValidator Annotation">UrlValidator Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> Checks that a field is a valid URL. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="validation-annotation.html" title="Validation Annotation">Validation Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> Marker annotation for validation at Type level. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="validations-annotation.html" title="Validations Annotation">Validations Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> Used to group validation annotations. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="visitorfieldvalidator-annotation.html" title="VisitorFieldValidator Annotation">VisitorFieldValidator Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> Invokes the validation for a property's object type. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="customvalidator-annotation.html" title="CustomValidator Annotation">CustomValidator Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> Use this annotation for your custom validator types. </td></tr></tbody></table>
+</div>
+
+
+<h3><a shape="rect" name="Annotations-Resources"></a>Resources </h3>
+<ul><li><a shape="rect" class="external-link" href="http://arsenalist.com/2007/05/10/struts-2-validation-using-annotations/" rel="nofollow">Validation using Annotations</a> (arsenalist)</li></ul>
+
+
+<h2><a shape="rect" name="Annotations-TypeConversionAnnotations"></a>Type Conversion Annotations</h2>
+
+<p>By default, type conversion for Maps and Collections using generics is directly supported.</p>
+
+<p>In short, instead of specifying the types found in collections and maps as documented in <a shape="rect" href="type-conversion.html" title="Type Conversion">Type Conversion</a>, <b>the  collection's generic type is used</b>. By using annotations, an application should be able to avoid using any <tt>ClassName-conversion.properties</tt> files.</p>
+
+<p>To use annotation-based type conversion, annotate the class or interface with the <a shape="rect" href="conversion-annotation.html" title="Conversion Annotation">Conversion Annotation</a>.</p>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><th colspan="1" rowspan="1" class="confluenceTh"> Annotation </th><th colspan="1" rowspan="1" class="confluenceTh"> Description </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="conversion-annotation.html" title="Conversion Annotation">Conversion Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> Marker annotation for type conversions at Type level. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="createifnull-annotation.html" title="CreateIfNull Annotation">CreateIfNull Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> For Collection and Map types: Create the types within the Collection or Map, if null. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="element-annotation.html" title="Element Annotation">Element Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> For Generic types: Specify the element type for Collection types and Map values. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="key-annotation.html" title="Key Annotation">Key Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> For Generic types: Specify the key type for Map keys. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="keyproperty-annotation.html" title="KeyProperty Annotation">KeyProperty Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> For Generic types: Specify the key property name value. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="typeconversion-annotation.html" title="TypeConversion Annotation">TypeConversion Annotation</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> Used for class and application wide conversion rules. </td></tr></tbody></table>
+</div>
+
+
+<h2><a shape="rect" name="Annotations-Next%3AConfigurationElements"></a>Next: <a shape="rect" href="configuration-elements.html" title="Configuration Elements">Configuration Elements</a></h2></div>
+        </div>
+
+                    <div class="tabletitle">
+                Children
+            <span class="smalltext" id="show" style="display: inline;">
+              <a href="javascript:showChildren()">Show Children</a></span>
+            <span class="smalltext" id="hide" style="display: none;">
+              <a href="javascript:hideChildren()">Hide Children</a></span>
+            </div>
+            <div class="greybox" id="children" style="display: none;">
+                                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                            </div>
+        
+    </div>
+</div>
+<div class="footer">
+    Generated by CXF SiteExporter
+</div>
+</body>
+</html>

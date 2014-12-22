@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>阳光医疗网</title>
+<link href="userCenter_data/usercenter.css" rel="stylesheet" type="text/css">
+<link href="userCenter_data/usermain.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="userCenter_data/jquery-1.js"></script>
+<script type="text/javascript" src="cms_files/WdatePicker.js"></script><link type="text/css" rel="stylesheet" href="cms_files/WdatePicker.css">
+<style>
+</style>
+
+<script type="text/javascript">
+var WEB_URL = 'http://www.sun309.com/';
+var SEO_URL = "http://www.sun309.com/?q=";
+var UI_URL = 'http://sun309.com/usercenter//images';
+var HTML = '.html';
+var URL_DOT = '&';
+var is_login = "";
+var currentPageCode = "";
+</script></head><body>
+<script language="javascript">
+var currentPageCode = 104;
+
+function checkfrom(f)
+{
+	if(f.startDate.value=='选择开始时间') f.startDate.value='';
+	if(f.endDate.value=='选择结束时间') f.endDate.value='';
+	rp = /^\d{4}\-[012]?\d\-[0123]?\d$/i;
+	if( f.startDate.value && !rp.test(f.startDate.value) ) { alert('开始日期格式错误'); return false; }
+	if( f.endDate.value && !rp.test(f.endDate.value) ) { alert('结束日期格式错误'); return false; }
+	return true;
+}
+
+function beforeSubmit(obj)
+{
+	var url = obj.href + "&startDate=" + document.getElementById("startDate").value + "&endDate=" + document.getElementById("endDate").value;
+	obj.href = url;
+}
+</script>
+
+<style type="text/css">
+ul,li {list-style:none;}
+.hot{width:720px;height:32px; background:url(sun309/images/de.gif) repeat-x; margin-top:15px}
+.hot li{float:left;}
+.hot li a{ display:block;width:100px;height:25px; background:url(sun309/images/down.gif) repeat-x;line-height:25px;_line-height:25px; text-align:center;margin:auto 4px; border:#ddd 1px solid; border-bottom:none; font-size:14px; color:#339999; text-decoration:none}
+.hot li a:hover{ display:block;width:100px;height:25px; background:url(sun309/images/down.gif) repeat-x;line-height:25px;_line-height:25px; text-align:center;margin:auto 4px; border:#ddd 1px solid; border-bottom:none; font-size:14px; color:#339999; text-decoration:none}
+.hot li a.current{ display:block;width:100px;height:25px;font-weight:bold;font-size:14px; line-height:25px;_line-height:25px; background:url(sun309/images/upang.gif) repeat-x; border:#ddd 1px solid; border-bottom:none; color:#339999; text-decoration:none}
+</style>
+
+<!--产品-->
+<div class="user_border2 m_t8 user_minheight680" style="height:970px;">
+       <div class="user_box_padd user_border3">
+	        <div class="user_bg8 ">
+	             <b class="blue2 font14 m_le10">阳光医疗卡网上交易记录</b>
+			</div>
+	   </div>
+      <div class="user_box03_1 user_boxmain">
+	         <!--查询-->
+			<div class="user_border2 m_t8 user_box_padd">
+			<form method="post" action="http://v14.968309.com/userCenter.php?c=kz/SunCardTrans" onsubmit="return checkfrom(this);">
+					<input name="type" id="type" value="1" type="hidden">
+					<div class="user_notes font14 blue2 u_m_t8">
+						   <span class="padd_le15">请选择查询日期</span>
+						   <input name="startDate" id="startDate" class="imgalign txt_input" value="2011-05-15" onfocus="if(this.value=='选择开始时间') this.value='';WdatePicker();" onblur="if(this.value=='') this.value='选择开始时间';" type="text"> 至 <input name="endDate" id="endDate" class="imgalign txt_input" value="2011-08-15" onfocus="if(this.value=='选择结束时间') this.value='';WdatePicker();" onblur="if(this.value=='') this.value='选择结束时间';" type="text">
+						   <input name="submit" src="userCenter_data/an03.gif" class="imgalign" type="image">
+					</div>
+			</form>
+			</div>
+			 <!--查询结束-->
+
+			<!-- 标签头部 -->
+			<div id="tab-header" class="hot">
+				<ul>
+					<li><a id="all" name="all" class="current" onclick="beforeSubmit(this);" href="http://v14.968309.com/userCenter.php?c=kz/SunCardTrans&amp;type=1">全部记录</a></li>
+					<li><a id="consume" name="consume" onclick="beforeSubmit(this);" href="http://v14.968309.com/userCenter.php?c=kz/SunCardTrans&amp;type=2">消费记录</a></li>
+					<li><a id="charge" name="charge" onclick="beforeSubmit(this);" href="http://v14.968309.com/userCenter.php?c=kz/SunCardTrans&amp;type=3">充值记录</a></li>
+				</ul>
+			</div>
+			<!-- 标签头部结束 -->
+			
+			 <!--列表-->
+			 <div style="height:800px;overflow-y:auto;overflow-x:hidden;">
+		    <table class="m_t8 txt-align" bgcolor="#cfd8df" border="0" cellpadding="0" cellspacing="1" width="100%">
+			  <tbody><tr>
+				<td class="font14 blue2 user_bg8" bgcolor="#FFFFFF" nowrap="nowrap" width="5%">序号</td>
+				<td class="font14 blue2 user_bg8" bgcolor="#FFFFFF" nowrap="nowrap" width="24%">订单号</td>
+				<td class="font14 blue2 user_bg8" bgcolor="#FFFFFF" nowrap="nowrap" width="13%">交易类型</td>
+			    <td class="font14 blue2 user_bg8" bgcolor="#FFFFFF" nowrap="nowrap" width="25%">卡号</td>
+			    <td class="font14 blue2 user_bg8" bgcolor="#FFFFFF" nowrap="nowrap" width="13%">金额</td>
+			    <td class="font14 blue2 user_bg8" bgcolor="#FFFFFF" nowrap="nowrap" width="20%">交易时间</td>
+			  </tr>
+
+					  <tr>
+			    <td class="font12 blue2 u_padd3 user_minheight22" bgcolor="#FFFFFF"></td>
+			    <td class="font12 blue2 u_padd3 user_minheight22" bgcolor="#FFFFFF"></td>
+			    <td class="font12 blue2 u_padd3 user_minheight22" bgcolor="#FFFFFF"></td>
+			    <td class="font12 blue2 u_padd3 user_minheight22" bgcolor="#FFFFFF"></td>
+			    <td class="font14 blue2 u_padd3 user_minheight22" bgcolor="#FFFFFF"></td>
+			    <td class="font12 blue2 u_padd3 user_minheight22" bgcolor="#FFFFFF"></td>
+		      </tr>
+		
+		</tbody></table>
+				<div class="m_t15 txt-align">
+		      <b class="font14 user_red3 ">您的账户 在 2011-05-15 ~ 2011-08-15 内您的账户在这段时间内没有任何交易记录</b>
+		</div>
+				</div>
+        <!--列表结束-->
+
+		
+
+
+		<div class="m_t15 user_tb4 m_le15" style="display:none;">
+		      请注意：此交易记录仅能查询网上交易记录，医院或是线下交易记录均无法查到。
+		</div>
+
+
+		<div class="clear"></div>
+  </div>
+</div>
+<!--产品结束-->
+
+
+
+
+</body></html>

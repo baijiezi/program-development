@@ -1,0 +1,58 @@
+<html >
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>级联效果</title>
+<script language="javascript">
+  function selectProvinces(){
+  var province= document.selectForm.selectProvince.value;
+  alert(province);
+  var newPotion1,newPotion2;
+  switch(province){
+  case "四川省":
+     newPotion1=new Option("成都市","chengdushi");
+     newPotion2=new Option("绵阳市","mianyangshi");
+  break;
+  case "云南省":
+     newPotion1=new Option("昆明市","kunmingshi");
+     newPotion2=new Option("丽江市","lijiangshi");
+  break;
+  case "浙江省":
+     newPotion1=new Option("杭州市","hangzhoushi");
+     newPotion2=new Option("嘉兴市","jiaxingshi");
+  break;
+  }
+  var selectCity = document.getElementById("selectCity");
+  selectCity.options.length=0;;
+  selectCity.options.add(newPotion1);
+  selectCity.options.add(newPotion2);
+  }
+</script>
+</head>
+
+<body bgColor="yellow">
+<form id="selectForm" name="selectForm">
+<center>
+<table border="0" bgcolor="#00FF66">
+<tr>
+    <td height="102">&nbsp;</td>
+    <td>
+ <select id="selectProvince" name="selectProvince" onChange="selectProvinces()">
+ <option>--请选择所在省份--</option>
+ <option value="四川省">四川省</option>
+ <option value="云南省">云南省</option>
+ <option value="浙江省">浙江省</option></select></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="152">&nbsp;</td>
+    <td><select id="selectCity" name="selectCity">
+ <option>--请选择所在城市--</option>
+ </select></td>
+    <td>&nbsp;</td>
+  </tr>
+  </table>
+  </center>
+  </form>
+</body>
+</html>

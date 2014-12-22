@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+<html>
+<head>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <style type="text/css">
+        .dp-highlighter {
+            width:95% !important;
+        }
+    </style>
+    <style type="text/css">
+        .footer {
+            background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+            background-repeat:     repeat-x;
+            background-position:   left top;
+            padding-top:           4px;
+            color:                 #666;
+        }
+    </style>
+    <link href='http://struts.apache.org/highlighter/styles/shCoreStruts.css' rel='stylesheet' type='text/css' />
+    <link href='http://struts.apache.org/highlighter/styles/shThemeStruts.css' rel='stylesheet' type='text/css' />
+    <script src='http://struts.apache.org/highlighter/js/shCore.js' type='text/javascript'></script>
+            <script src='http://struts.apache.org/highlighter/js/shBrushJava.js' type='text/javascript'></script>
+    
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
+    <script type="text/javascript" language="javascript">
+        var hide = null;
+        var show = null;
+        var children = null;
+
+        function init() {
+            /* Search form initialization */
+            var form = document.forms['search'];
+            if (form != null) {
+                form.elements['domains'].value = location.hostname;
+                form.elements['sitesearch'].value = location.hostname;
+            }
+
+            /* Children initialization */
+            hide = document.getElementById('hide');
+            show = document.getElementById('show');
+            children = document.all != null ?
+                    document.all['children'] :
+                    document.getElementById('children');
+            if (children != null) {
+                children.style.display = 'none';
+                show.style.display = 'inline';
+                hide.style.display = 'none';
+            }
+        }
+
+        function showChildren() {
+            children.style.display = 'block';
+            show.style.display = 'none';
+            hide.style.display = 'inline';
+        }
+
+        function hideChildren() {
+            children.style.display = 'none';
+            show.style.display = 'inline';
+            hide.style.display = 'none';
+        }
+    </script>
+    <title>Simple Setup</title>
+</head>
+<body onload="init()">
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr class="topBar">
+        <td align="left" valign="middle" class="topBarDiv" align="left" nowrap>
+            &nbsp;<a href="home.html">Home</a>&nbsp;&gt;&nbsp;<a href="tutorials.html">Tutorials</a>&nbsp;&gt;&nbsp;<a href="bootstrap.html">Bootstrap</a>&nbsp;&gt;&nbsp;<a href="ready-set-go.html">Ready, Set, Go!</a>&nbsp;&gt;&nbsp;<a href="simple-setup.html">Simple Setup</a>
+        </td>
+        <td align="right" valign="middle" nowrap>
+            <form name="search" action="http://www.google.com/search" method="get">
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="hidden" name="oe" value="UTF-8" />
+                <input type="hidden" name="domains" value="" />
+                <input type="hidden" name="sitesearch" value="" />
+                <input type="text" name="q" maxlength="255" value="" />
+                <input type="submit" name="btnG" value="Google Search" />
+            </form>
+        </td>
+    </tr>
+</table>
+
+<div id="PageContent">
+    <div class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <div style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</div>
+        <div style="margin: 0px 10px 8px 10px"  class="pagetitle">Simple Setup</div>
+
+        <div class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14183">
+                <img src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Edit Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14183">Edit Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+                <img src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14183">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14183">Add Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14183">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add News"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14183">Add News</a>
+        </div>
+    </div>
+
+    <div class="pagecontent">
+        <div class="wiki-content">
+            <div id="ConfluenceContent"><p>If for some reason the blank template or archetype doesn't work out, we can just setup an application from scratch.</p>
+
+<h2><a shape="rect" name="SimpleSetup-SetuptheWebApplicationFileStructure"></a>Setup the Web Application File Structure</h2>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: java; gutter: false" type="syntaxhighlighter"><![CDATA[
+/tutorial/
+/tutorial/META-INF/
+/tutorial/WEB-INF/
+/tutorial/WEB-INF/classes/struts.xml
+/tutorial/WEB-INF/lib/
+/tutorial/WEB-INF/lib/minimum JARs + any plugin JARs + plugin dependencies
+/tutorial/WEB-INF/web.xml
+]]></script>
+</div></div>
+<ul><li>Copy to your <tt>webapp/lib</tt> directory
+	<ul><li>the required JARs (see next section),</li><li>any Struts plugin JARs,</li><li>any plugin dependencies.</li></ul>
+	</li></ul>
+
+
+<div class="panelMacro"><table class="tipMacro"><colgroup span="1"><col span="1" width="24"><col span="1"></colgroup><tr><td colspan="1" rowspan="1" valign="top"><img align="middle" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" alt="" border="0"></td><td colspan="1" rowspan="1">To customize the Struts templates (how HTML is rendered from the tags), copy into the application's <tt>webapp</tt> directory the framework's <tt>/src/java/template</tt> directory.</td></tr></table></div>
+
+<h2><a shape="rect" name="SimpleSetup-InstalltheMinimumSetofLibrariesandConfigurationFiles"></a>Install the Minimum Set of Libraries and Configuration Files</h2>
+
+<p>The following files are a minium requirement for your application.</p>
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><th colspan="1" rowspan="1" class="confluenceTh"> Filename </th><th colspan="1" rowspan="1" class="confluenceTh"> Description </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <tt>struts2-core.jar</tt> </td><td colspan="1" rowspan="1" class="confluenceTd"> Framework library itself, found in distribution root directory </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <tt>xwork.jar</tt> </td><td colspan="1" rowspan="1" class="confluenceTd"> XWork 2 library on which Struts 2 is built (version 2.0 or later) </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <tt>ognl.jar</tt> </td><td colspan="1" rowspan="1" class="confluenceTd"> Object Graph Navigation Language (OGNL), the expression language used throughout the framework </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <tt>javassist.jar</tt> </td><td colspan="1" rowspan="1" class="confluenceTd"> Java bytecode manipulation library used by OGNL </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <tt>freemarker.jar</tt> </td><td colspan="1" rowspan="1" class="confluenceTd"> All UI tag templates are written in Freemarker (also a good option for your own views) </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <tt>commons-logging.jar</tt> </td><td colspan="1" rowspan="1" class="confluenceTd"> Commons logging, which the framework uses to support transparently logging to either Log4J or JDK 1.4+ </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <tt>commons-fileupload.jar</tt> </td><td colspan="1" rowspan="1" class="confluenceTd"> The Commons FileUpload package makes it easy to add robust, high-performance, file upload capability to your servlets and web applications. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <tt>commons-io.jar</tt> </td><td colspan="1" rowspan="1" class="confluenceTd"> Commons IO is a library of utilities to assist with developing IO functionality. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <tt>commons-lang3.jar</tt> </td><td colspan="1" rowspan="1" class="confluenceTd"> Commons Lang3 is used to simplify usage of common tasks and code shortcuts to to stay DRY </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <tt>web.xml</tt> </td><td colspan="1" rowspan="1" class="confluenceTd"> Java web application configuration file that defines the filters (and other components) for your web application </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <tt>struts.xml</tt> </td><td colspan="1" rowspan="1" class="confluenceTd"> Framework configuration file that defines the actions, results, and interceptors for your application </td></tr></tbody></table>
+</div>
+
+
+<p>If any Struts 2 Plugins are included, then other JARs may be needed too. For example, the optional Spring Plugin requires the Spring JARs to be present.</p>
+
+<h2><a shape="rect" name="SimpleSetup-SetuptheWebApplicationDeploymentDescriptor%28%7B%7Bweb.xml%7D%7D%29"></a>Setup the Web Application Deployment Descriptor (<tt>web.xml</tt>)</h2>
+
+<p>Create an <tt>web.xml</tt> file in <tt>[webapp]/WEB-INF</tt> (or merge into it the framework resources).</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>web.xml</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: java; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+"http://java.sun.com/dtd/web-app_2_3.dtd"&gt;
+
+&lt;web-app&gt;
+  &lt;display-name&gt;My Application&lt;/display-name&gt;
+  &lt;filter&gt;
+    &lt;filter-name&gt;struts2&lt;/filter-name&gt;
+    &lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsExecuteFilter&lt;/filter-class&gt;
+  &lt;/filter&gt;
+
+  &lt;filter-mapping&gt;
+    &lt;filter-name&gt;struts2&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+  &lt;/filter-mapping&gt;
+&lt;/web-app&gt;
+
+]]></script>
+</div></div>
+<p>The standard <tt>web.xml</tt> registers a FilterDispatcher to enable framework functionality for your requests. </p>
+
+<p>If other packages are being used, like SiteMesh or Spring, then other filters may need to be configured too </p>
+
+<p><img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb_on.gif" height="16" width="16" alt="" border="0"> See also: <a shape="rect" href="webxml.html" title="web.xml">web.xml</a></p>
+
+<h2><a shape="rect" name="SimpleSetup-SetuptheStrutsConfiguration%28%7B%7Bstruts.xml%7D%7D%29"></a>Setup the Struts Configuration (<tt>struts.xml</tt>)</h2>
+
+<p>Create a skeleton <tt>struts.xml</tt> file in <tt>/$APP/WEB-INF/classes</tt>.</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>struts.xml</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: java; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd"&gt;
+
+&lt;struts&gt;&lt;!-- Configuration for the default package. --&gt;
+	&lt;package name="default" extends="struts-default"&gt;
+         ...
+	&lt;/package&gt;
+&lt;/struts&gt;
+]]></script>
+</div></div>
+<p>For now, the <tt>struts.xml</tt> just defines a default package (with the &lt;package&gt; section) where framework elements like <tt>actions</tt>, <tt>results</tt> and <tt>interceptors</tt> are registered.</p>
+
+<p><img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb_on.gif" height="16" width="16" alt="" border="0"> See also: <a shape="rect" href="strutsxml.html" title="struts.xml">struts.xml</a></p>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><th colspan="1" rowspan="1" class="confluenceTh"> Next </th><td colspan="1" rowspan="1" class="confluenceTd"> Onward to <a shape="rect" href="hello-world.html" title="Hello World">Hello World</a> </td></tr><tr><th colspan="1" rowspan="1" class="confluenceTh"> Prev </th><td colspan="1" rowspan="1" class="confluenceTd"> Return to <a shape="rect" href="ready-set-go.html" title="Ready, Set, Go!">Ready, Set, Go!</a> </td></tr></tbody></table>
+</div>
+</div>
+        </div>
+
+        
+    </div>
+</div>
+<div class="footer">
+    Generated by CXF SiteExporter
+</div>
+</body>
+</html>

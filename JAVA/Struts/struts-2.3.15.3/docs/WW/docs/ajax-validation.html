@@ -1,0 +1,402 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+<html>
+<head>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <style type="text/css">
+        .dp-highlighter {
+            width:95% !important;
+        }
+    </style>
+    <style type="text/css">
+        .footer {
+            background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+            background-repeat:     repeat-x;
+            background-position:   left top;
+            padding-top:           4px;
+            color:                 #666;
+        }
+    </style>
+    <link href='http://struts.apache.org/highlighter/styles/shCoreStruts.css' rel='stylesheet' type='text/css' />
+    <link href='http://struts.apache.org/highlighter/styles/shThemeStruts.css' rel='stylesheet' type='text/css' />
+    <script src='http://struts.apache.org/highlighter/js/shCore.js' type='text/javascript'></script>
+            <script src='http://struts.apache.org/highlighter/js/shBrushJava.js' type='text/javascript'></script>
+            <script src='http://struts.apache.org/highlighter/js/shBrushXml.js' type='text/javascript'></script>
+            <script src='http://struts.apache.org/highlighter/js/shBrushJScript.js' type='text/javascript'></script>
+    
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
+    <script type="text/javascript" language="javascript">
+        var hide = null;
+        var show = null;
+        var children = null;
+
+        function init() {
+            /* Search form initialization */
+            var form = document.forms['search'];
+            if (form != null) {
+                form.elements['domains'].value = location.hostname;
+                form.elements['sitesearch'].value = location.hostname;
+            }
+
+            /* Children initialization */
+            hide = document.getElementById('hide');
+            show = document.getElementById('show');
+            children = document.all != null ?
+                    document.all['children'] :
+                    document.getElementById('children');
+            if (children != null) {
+                children.style.display = 'none';
+                show.style.display = 'inline';
+                hide.style.display = 'none';
+            }
+        }
+
+        function showChildren() {
+            children.style.display = 'block';
+            show.style.display = 'none';
+            hide.style.display = 'inline';
+        }
+
+        function hideChildren() {
+            children.style.display = 'none';
+            show.style.display = 'inline';
+            hide.style.display = 'none';
+        }
+    </script>
+    <title>AJAX Validation</title>
+</head>
+<body onload="init()">
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr class="topBar">
+        <td align="left" valign="middle" class="topBarDiv" align="left" nowrap>
+            &nbsp;<a href="home.html">Home</a>&nbsp;&gt;&nbsp;<a href="guides.html">Guides</a>&nbsp;&gt;&nbsp;<a href="core-developers-guide.html">Core Developers Guide</a>&nbsp;&gt;&nbsp;<a href="validation.html">Validation</a>&nbsp;&gt;&nbsp;<a href="client-side-validation.html">Client Side Validation</a>&nbsp;&gt;&nbsp;<a href="pure-javascript-client-side-validation.html">Pure JavaScript Client Side Validation</a>&nbsp;&gt;&nbsp;<a href="ajax-client-side-validation.html">AJAX Client Side Validation</a>&nbsp;&gt;&nbsp;<a href="ajax-validation.html">AJAX Validation</a>
+        </td>
+        <td align="right" valign="middle" nowrap>
+            <form name="search" action="http://www.google.com/search" method="get">
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="hidden" name="oe" value="UTF-8" />
+                <input type="hidden" name="domains" value="" />
+                <input type="hidden" name="sitesearch" value="" />
+                <input type="text" name="q" maxlength="255" value="" />
+                <input type="submit" name="btnG" value="Google Search" />
+            </form>
+        </td>
+    </tr>
+</table>
+
+<div id="PageContent">
+    <div class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <div style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</div>
+        <div style="margin: 0px 10px 8px 10px"  class="pagetitle">AJAX Validation</div>
+
+        <div class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13850">
+                <img src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Edit Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13850">Edit Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+                <img src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13850">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13850">Add Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13850">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add News"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13850">Add News</a>
+        </div>
+    </div>
+
+    <div class="pagecontent">
+        <div class="wiki-content">
+            <div id="ConfluenceContent"><div class="panelMacro"><table class="warningMacro"><colgroup span="1"><col span="1" width="24"><col span="1"></colgroup><tr><td colspan="1" rowspan="1" valign="top"><img align="middle" src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" alt="" border="0"></td><td colspan="1" rowspan="1">2.0.x releases of Struts 2 use DWR for AJAX validation. This documentation refers to version <b>2.1</b>.</td></tr></table></div>
+
+<h2><a shape="rect" name="AJAXValidation-Description"></a>Description</h2>
+
+<p>Struts provides <a shape="rect" href="client-validation.html" title="Client Validation">client side validation</a>(using JavaScript) for a few validators. Using AJAX validation, all <a shape="rect" href="validation.html" title="Validation">validators</a> available to the application on the server side can be used without forcing the page to reload, just to show validation errors. AJAX validation has a server side, which is in included the Struts core jar (an interceptor and some utility JavaScript files), and a client side, which is included in the Dojo plugin.</p>
+
+<div class="panelMacro"><table class="noteMacro"><colgroup span="1"><col span="1" width="24"><col span="1"></colgroup><tr><td colspan="1" rowspan="1" valign="top"><img align="middle" src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" alt="" border="0"></td><td colspan="1" rowspan="1">To use AJAX validation out of the box, install the Dojo plugin. An example is provided on how to use AJAX validation with Prototype, in this case the Dojo plugin is not required.</td></tr></table></div>
+
+<h2><a shape="rect" name="AJAXValidation-Outofthebox"></a>Out of the box</h2>
+
+<h3><a shape="rect" name="AJAXValidation-Createtheactionclass"></a>Create the action class</h3>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: java; gutter: false" type="syntaxhighlighter"><![CDATA[
+
+public class QuizAction extends ActionSupport {
+
+	private static final long serialVersionUID = -7505437345373234225L;
+
+	String name;
+	int age;
+	String answer;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+}
+
+]]></script>
+</div></div>
+
+<h3><a shape="rect" name="AJAXValidation-Createthevalidation.xml"></a>Create the validation.xml</h3>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd"&gt;
+&lt;validators&gt;
+    &lt;field name="name"&gt;
+        &lt;field-validator type="requiredstring"&gt;
+            &lt;message&gt;You must enter a name&lt;/message&gt;
+        &lt;/field-validator&gt;
+    &lt;/field&gt;
+    &lt;field name="age"&gt;
+        &lt;field-validator type="int"&gt;
+            &lt;param name="min"&gt;13&lt;/param&gt;
+            &lt;param name="max"&gt;19&lt;/param&gt;
+            &lt;message&gt;Only people ages 13 to 19 may take this quiz&lt;/message&gt;
+        &lt;/field-validator&gt;
+    &lt;/field&gt;
+&lt;/validators&gt;
+]]></script>
+</div></div>
+
+<h3><a shape="rect" name="AJAXValidation-MaptheAction"></a>Map the Action</h3>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd"&gt;
+	
+&lt;struts&gt;
+    &lt;package&gt;
+         &lt;action name="quizAjax" class="org.apache.struts2.showcase.validation.QuizAction"&gt;
+             &lt;interceptor-ref name="jsonValidationWorkflowStack"/&gt;
+             &lt;result name="input"&gt;quiz-ajax.jsp&lt;/result&gt;
+             &lt;result&gt;quiz-success.jsp&lt;/result&gt;
+         &lt;/action&gt;
+    &lt;/package&gt;
+]]></script>
+</div></div>
+
+<p>AJAX validation is performed by the <em>jsonValidation</em> interceptor. This interceptor is included in the <em>jsonValidationWorkflowStack</em>, and is required in order to perform AJAX validation. Normal results(input, success, etc) should be provided for the action in the case that someone tries to access the action directly, in which case normal validation will be triggered. So, how does the <em>jsonValidation</em> know that it must perform AJAX validation vs regular validation? We will see that in a minute, but you don't need to know that in order to use AJAX validation.</p>
+
+<h3><a shape="rect" name="AJAXValidation-CreatetheJSP"></a>Create the JSP </h3>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: html; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;%@ taglib prefix="s" uri="/struts-tags" %&gt;
+&lt;%@ taglib prefix="sx" uri="/struts-dojo-tags" %&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Validation - AJAX&lt;/title&gt;
+    &lt;sx:head /&gt;
+&lt;/head&gt;
+
+&lt;s:url id="url" namespace="/validation" action="quizAjax"/&gt;
+
+&lt;body&gt;
+&lt;s:form method="post" theme="xhtml" namespace="/nodecorate" action="quizAjax" id="form"&gt;
+    &lt;s:textfield label="Name" name="name" /&gt;
+    &lt;s:textfield label="Age" name="age" /&gt;
+    &lt;s:textfield label="Favorite color" name="answer"/&gt;
+    &lt;sx:submit validate="true" /&gt;
+&lt;/s:form&gt;
+]]></script>
+</div></div>
+
+<p>Things to note on this JSP:</p>
+<ul><li>&lt;sx:head /&gt; must be in the page, to be able to use AJAX functionality.</li><li>The <em>form</em> tag <b>does not</b> have <em>validate</em> set to <em>true</em>, which would perform client validation before the AJAX validation.</li><li>The <em>submit</em> tag <b>must</b> have <em>validate</em> set to <em>true</em> in order to perform AJAX validation.</li></ul>
+
+
+<p>If validation succeeds, the form will be submitted to the action (where it will be validated again, this time using regular validation). If you want to make this request(the request after validation succeeded) using AJAX (instead of a regular submit), then set the <em>ajaxAfterValidation</em> attribute to <em>true</em> in the submit tag.</p>
+
+<div class="panelMacro"><table class="noteMacro"><colgroup span="1"><col span="1" width="24"><col span="1"></colgroup><tr><td colspan="1" rowspan="1" valign="top"><img align="middle" src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" alt="" border="0"></td><td colspan="1" rowspan="1">Setting <em>validate</em> to <em>true</em> in the <em>form</em> tag will enable client side, JavaScript validation, which can be used along with AJAX validation (runs before the AJAX validation).</td></tr></table></div>
+
+<div class="panelMacro"><table class="noteMacro"><colgroup span="1"><col span="1" width="24"><col span="1"></colgroup><tr><td colspan="1" rowspan="1" valign="top"><img align="middle" src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" alt="" border="0"></td><td colspan="1" rowspan="1">Setting <em>validate</em> to <em>true</em> in the tag that will submit the form  will enable AJAX validation. The tag in this example is <em>submit</em>, but it could be <em>a</em>, or <em>bind</em>.</td></tr></table></div>
+
+<h2><a shape="rect" name="AJAXValidation-Howitworks"></a>How it works</h2>
+<p>This interceptor must be placed on a stack, following the <em>validation</em> interceptor. The interceptor itself won't perform any validation, but will check for validation errors on the action being invoked (assuming that the action is ValidationAware).</p>
+
+<p>If you just want to use AJAX validation, without knowing the implementation details, you can skip this section. </p>
+
+<p>When the <em>jsonValidation</em> interceptor is invoked, it will look for a parameter named <em>struts.enableJSONValidation</em>, this parameter <b>must</b> be set to <em>true</em>, otherwise the interceptor won't do anything. Then the interceptor will look for a parameter named <em>struts.validateOnly</em>, if this parameter exists, is set to <em>true</em>, and there are validation errors (o action errors) they will be serialized into JSON  in the form:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: javascript; gutter: false" type="syntaxhighlighter"><![CDATA[
+{
+    "errors": ["Global Error 1", "Global Error 2"],
+    "fieldErrors": {
+        "field1": ["Field 1 Error 1", "Field 1 Error 2"],
+        "field1": ["Field 2 Error 1", "Field 2 Error 2"]  
+    }
+}
+]]></script>
+</div></div>
+
+<p>If the action implements the <em>ModelDrive</em> interface, "model." will be stripped from the field names in the returned JSON. If validation succeeds, an empty JSON string will be returned:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: javascript; gutter: false" type="syntaxhighlighter"><![CDATA[
+{}
+]]></script>
+</div></div>
+
+<div class="panelMacro"><table class="warningMacro"><colgroup span="1"><col span="1" width="24"><col span="1"></colgroup><tr><td colspan="1" rowspan="1" valign="top"><img align="middle" src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" alt="" border="0"></td><td colspan="1" rowspan="1">Remember to set struts.enableJSONValidation=true in the request to enable AJAX validation</td></tr></table></div>
+
+<p>To process this response on the client, the file utils.js distributed with Struts defines an object called <em>StrutsUtils</em> whith the following functions (which will work with the "xhtml" and "css_xhtml" themes):</p>
+
+<ul><li>getValidationErrors(stringData) : Processes response String and returns a JavaScript object with the validation errors</li><li>clearValidationErrors(formNode) : Removes validation errors from a form</li><li>showValidationErrors(formNode, errorObject) : Shows validation errors on a form, the errorObject parameter is the return value of getValidationErrors</li></ul>
+
+
+<p>The file utils.js will be included on the page by the <em>head</em> on the Dojo plugin, if you are using another library for AJAX validation (see Prototype example below), then you need to include this file:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Include utils.js</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: javascript; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;script language="JavaScript" src="${pageContext.request.contextPath}/struts/utils.js" type="text/javascript"&gt;&lt;/script&gt;
+]]></script>
+</div></div>
+
+<p>and then the validation file specific to the theme being used:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Include validation.js fo the xhtml theme</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: javascript; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;script language="JavaScript" src="${pageContext.request.contextPath}/struts/xhtml/validation.js" type="text/javascript"&gt;&lt;/script&gt;
+]]></script>
+</div></div>
+
+<p>or</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Include validation.js for the css_xhtml theme</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: javascript; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;script language="JavaScript" src="${pageContext.request.contextPath}/struts/css_xhtml/validation.js" type="text/javascript"&gt;&lt;/script&gt;
+]]></script>
+</div></div>
+
+
+<div class="panelMacro"><table class="noteMacro"><colgroup span="1"><col span="1" width="24"><col span="1"></colgroup><tr><td colspan="1" rowspan="1" valign="top"><img align="middle" src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" alt="" border="0"></td><td colspan="1" rowspan="1">Include utils.js and validation.js(the one for the theme being used), if you are not using the Dojo plugin.</td></tr></table></div>
+
+<h2><a shape="rect" name="AJAXValidation-ExampleusingPrototype"></a>Example using Prototype</h2>
+<p>In this example we will rewrite the JSP to use Prototype, instead of the Dojo plugin.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: html; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;%@ taglib prefix="s" uri="/struts-tags" %&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Validation - Ajax&lt;/title&gt;
+    &lt;!-- Don't forget these 2 files!! --&gt;
+    &lt;script language="JavaScript" src="${pageContext.request.contextPath}/struts/utils.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script language="JavaScript" src="${pageContext.request.contextPath}/struts/xhtml/validation.js" type="text/javascript"&gt;&lt;/script&gt;
+    
+    &lt;!-- Prototype --&gt;
+    &lt;script src="${pageContext.request.contextPath}/js/prototype.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;s:head theme="xhtml" /&gt;
+&lt;/head&gt;
+
+&lt;s:url id="url" namespace="/validation" action="quizAjax"/&gt;
+
+&lt;body&gt;
+
+&lt;s:form method="post" theme="xhtml" namespace="/nodecorate" action="quizAjax" id="form" onsubmit="validate(); return false"&gt;
+    &lt;s:textfield label="Name" name="name" /&gt;
+    &lt;s:textfield label="Age" name="age" /&gt;
+    &lt;s:textfield label="Favorite color" name="answer"/&gt;
+    &lt;s:submit /&gt;
+&lt;/s:form&gt;
+
+
+&lt;script type="text/javascript"&gt;
+  function validate() {
+     var url = '${url}';
+     
+     new Ajax.Request(
+        url, 
+        {
+            method: 'get', 
+            parameters: Form.serialize($('form')) + '&amp;struts.enableJSONValidation=true&amp;struts.validateOnly=true', 
+            onComplete: postValidation
+        }
+     );
+  }
+  
+  function postValidation(request) {
+     var form = $('form');
+     
+     //clear previous validation errors, if any
+     StrutsUtils.clearValidationErrors(form);
+     
+     //get errors from response
+     var text = request.responseText;
+     var errorsObject = StrutsUtils.getValidationErrors(text);
+     
+     //show errors, if any
+     if(errorsObject.fieldErrors) {
+       StrutsUtils.showValidationErrors(form, errorsObject);
+     } else {
+       //good to go, regular submit
+       form.submit();
+     }
+  }
+&lt;/script&gt;
+]]></script>
+</div></div>
+
+<h2><a shape="rect" name="AJAXValidation-FlowchartofAJAXvalidation"></a>Flow chart of AJAX validation</h2>
+
+<p><span class="image-wrap" style=""><img src="ajax-validation.data/ValidationClientAjax.jpg" style="border: 0px solid black"></span></p></div>
+        </div>
+
+        
+    </div>
+</div>
+<div class="footer">
+    Generated by CXF SiteExporter
+</div>
+</body>
+</html>

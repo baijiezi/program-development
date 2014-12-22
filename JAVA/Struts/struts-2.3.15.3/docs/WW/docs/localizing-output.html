@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+<html>
+<head>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <style type="text/css">
+        .dp-highlighter {
+            width:95% !important;
+        }
+    </style>
+    <style type="text/css">
+        .footer {
+            background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+            background-repeat:     repeat-x;
+            background-position:   left top;
+            padding-top:           4px;
+            color:                 #666;
+        }
+    </style>
+    <link href='http://struts.apache.org/highlighter/styles/shCoreStruts.css' rel='stylesheet' type='text/css' />
+    <link href='http://struts.apache.org/highlighter/styles/shThemeStruts.css' rel='stylesheet' type='text/css' />
+    <script src='http://struts.apache.org/highlighter/js/shCore.js' type='text/javascript'></script>
+            <script src='http://struts.apache.org/highlighter/js/shBrushJava.js' type='text/javascript'></script>
+            <script src='http://struts.apache.org/highlighter/js/shBrushXml.js' type='text/javascript'></script>
+    
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
+    <script type="text/javascript" language="javascript">
+        var hide = null;
+        var show = null;
+        var children = null;
+
+        function init() {
+            /* Search form initialization */
+            var form = document.forms['search'];
+            if (form != null) {
+                form.elements['domains'].value = location.hostname;
+                form.elements['sitesearch'].value = location.hostname;
+            }
+
+            /* Children initialization */
+            hide = document.getElementById('hide');
+            show = document.getElementById('show');
+            children = document.all != null ?
+                    document.all['children'] :
+                    document.getElementById('children');
+            if (children != null) {
+                children.style.display = 'none';
+                show.style.display = 'inline';
+                hide.style.display = 'none';
+            }
+        }
+
+        function showChildren() {
+            children.style.display = 'block';
+            show.style.display = 'none';
+            hide.style.display = 'inline';
+        }
+
+        function hideChildren() {
+            children.style.display = 'none';
+            show.style.display = 'inline';
+            hide.style.display = 'none';
+        }
+    </script>
+    <title>Localizing Output</title>
+</head>
+<body onload="init()">
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr class="topBar">
+        <td align="left" valign="middle" class="topBarDiv" align="left" nowrap>
+            &nbsp;<a href="home.html">Home</a>&nbsp;&gt;&nbsp;<a href="tutorials.html">Tutorials</a>&nbsp;&gt;&nbsp;<a href="bootstrap.html">Bootstrap</a>&nbsp;&gt;&nbsp;<a href="localizing-output.html">Localizing Output</a>
+        </td>
+        <td align="right" valign="middle" nowrap>
+            <form name="search" action="http://www.google.com/search" method="get">
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="hidden" name="oe" value="UTF-8" />
+                <input type="hidden" name="domains" value="" />
+                <input type="hidden" name="sitesearch" value="" />
+                <input type="text" name="q" maxlength="255" value="" />
+                <input type="submit" name="btnG" value="Google Search" />
+            </form>
+        </td>
+    </tr>
+</table>
+
+<div id="PageContent">
+    <div class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <div style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</div>
+        <div style="margin: 0px 10px 8px 10px"  class="pagetitle">Localizing Output</div>
+
+        <div class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=23507">
+                <img src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Edit Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=23507">Edit Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+                <img src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=23507">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=23507">Add Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=23507">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add News"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=23507">Add News</a>
+        </div>
+    </div>
+
+    <div class="pagecontent">
+        <div class="wiki-content">
+            <div id="ConfluenceContent"><p>In the <a shape="rect" href="validating-input.html" title="Validating Input">Validating Input</a> lesson, we used the validation framework to verify data submitted from a form. In the <em>Localizing Output</em> lesson, we move the validation messages to a message resource bundle. </p>
+
+<p>When creating web applications, we often find ourselves using the same messages or field labels on multiple pages. We may also want to localize the messages if the application is going to be used by people of different languages. </p>
+
+<h2><a shape="rect" name="LocalizingOutput-LocalizingValidationMessagesandFields"></a>Localizing Validation Messages and Fields</h2>
+
+<p>Let's add a message resource bundle and move into it the validation messages and field labels.</p>
+
+<h3><a shape="rect" name="LocalizingOutput-TheCode"></a>The Code </h3>
+
+<p>The framework associates message resources to classes. To add a message resource for the Logon action, we could just name the resource <tt>Logon.properties</tt> and set it on the classpath next to the Logon Action. </p>
+
+<p>But, most people find it counter-productive to use separate message resource bundles for each class. Instead, many people prefer to add a bundle for an entire package of classes. To do this, simply add a <tt>package.properties</tt> file to the package. In our case, it would be the tutorial package.</p>
+
+<div class="code panel" style="border-style: solid;border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><b>tutorial/package.properties</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: java; gutter: false" type="syntaxhighlighter"><![CDATA[
+requiredstring = ${getText(fieldName)} is required.
+password = Password
+username = User Name
+]]></script>
+</div></div> 
+
+<p>We also need to make changes to the validator and Logon page. As you see a value in resource bundle can also be specified as an expression.</p>
+
+<h2><a shape="rect" name="LocalizingOutput-Logonvalidation.xml"></a>Logon-validation.xml </h2>
+
+<p><img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" height="16" width="16" alt="" border="0"> &lt;message&gt;Username is required&lt;/message&gt;<br clear="none">
+<img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/add.gif" height="16" width="16" alt="" border="0"> &lt;message key="requiredstring"/&gt;</p>
+
+<p><img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" height="16" width="16" alt="" border="0"> &lt;message&gt;Password is required&lt;/message&gt;<br clear="none">
+<img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/add.gif" height="16" width="16" alt="" border="0"> &lt;message key="requiredstring"/&gt;</p>
+
+<h2><a shape="rect" name="LocalizingOutput-Logon.jsp"></a>Logon.jsp </h2>
+
+<p><img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" height="16" width="16" alt="" border="0"> &lt;s:textfield label="User Name" name="username"/&gt;<br clear="none">
+<img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/add.gif" height="16" width="16" alt="" border="0"> &lt;s:textfield label="%{getText('username')}" name="username"/&gt;</p>
+
+<p><img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" height="16" width="16" alt="" border="0"> &lt;s:password label="Password" name="password" /&gt;<br clear="none">
+<img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/add.gif" height="16" width="16" alt="" border="0"> &lt;s:password label="%{getText('password')}" name="password" /&gt;</p>
+
+<h3><a shape="rect" name="LocalizingOutput-HowtheCodeWorks"></a>How the Code Works</h3>
+
+<ul><li>The "key" attribute tells the validator to check for a message resource bundle.</li><li>In the resource bundle, the expression 
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>${getText(fieldName)}</pre>
+</div></div>
+<p> tells the framework to lookup the field name in the bundle too. This way we can use the same default message for all the <tt>requiredstring</tt> validators.</p></li><li>Likewise, in the text filed, the expression 
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>%{getText('password')}</pre>
+</div></div>
+<p> tells the framework to lookup "password" in the message resources.</p></li></ul>
+
+
+<h2><a shape="rect" name="LocalizingOutput-LocalizingOtherMessages"></a>Localizing Other Messages</h2>
+
+<p>Other page elements can be localized too. For example, we could add the "Hello World" and the "Missing page" message to the bundle. </p>
+
+<h3><a shape="rect" name="LocalizingOutput-TheCode"></a>The Code</h3>
+
+<div class="code panel" style="border-style: solid;border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><b>tutorial/package.properties</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: java; gutter: false" type="syntaxhighlighter"><![CDATA[
+# ... 
+HelloWorld.message = Struts is up and running ...
+Missing.message = This feature is under construction. Please try again in the next iteration.
+]]></script>
+</div></div> 
+
+<p>This will work for <tt>HelloWorld</tt> since it is already in the tutorial package. But it won't work for the default Missing action, unless we add our own base class for the tutorial package. </p>
+
+<div class="code panel" style="border-style: solid;border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><b>TutorialSupport.java</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: java; gutter: false" type="syntaxhighlighter"><![CDATA[
+package tutorial;
+import com.opensymphony.xwork2.ActionSupport;
+public class TutorialSupport extends ActionSupport {}
+]]></script>
+</div></div> 
+
+<p>And update the default wildcard mapping. </p>
+
+<div class="code panel" style="border-style: solid;border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><b>struts.xml</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: java; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;action name="*" class="tutorial.TutorialSupport"&gt;
+  &lt;result&gt;/{1}.jsp&lt;/result&gt;
+&lt;/action&gt;
+]]></script>
+</div></div>
+
+<p>Now, we can update <tt>HelloWorld.jsp</tt> and <tt>Missing.jsp</tt> to lookup the messages.</p>
+
+<h4><a shape="rect" name="LocalizingOutput-Missing.jsp"></a>Missing.jsp </h4>
+
+<p><img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" height="16" width="16" alt="" border="0"> This feature is under construction. Please try again in the next iteration. <br clear="none">
+<img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/add.gif" height="16" width="16" alt="" border="0"> &lt;s:text name="Missing.message"/&gt;</p>
+
+<p>In the case of HelloWorld, we set the message from the Action class. Let's update the class to use the message resource instead. </p>
+
+<div class="code panel" style="border-style: solid;border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><b>HelloWorld.java</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: java; gutter: false" type="syntaxhighlighter"><![CDATA[
+package tutorial;
+
+public class HelloWorld extends TutorialSupport {
+
+    public static final String MESSAGE = "HelloWorld.message";
+
+    public String execute() throws Exception {
+        setMessage(getText(MESSAGE));
+        return SUCCESS;
+    }
+
+  // ... 
+}
+]]></script>
+</div></div>
+
+<h3><a shape="rect" name="LocalizingOutput-HowtheCodeWorks"></a>How the Code Works </h3>
+
+<ul><li>For <tt>Missing.jsp</tt>, we used the <tt>text</tt> tag to lookup the message from the resource bundle.</li></ul>
+
+
+<ul><li>For HelloWorld, we use the <tt>getText</tt> method in the Action class to lookup the message.</li><li>The HelloWorld.jsp displayed the message set by the Action, so it didn't need to change at all.</li></ul>
+
+
+<h2><a shape="rect" name="LocalizingOutput-WhattoRemember"></a>What to Remember </h2>
+
+<p>The framework is internationalized. To localize an application, we add the resource bundles, and update some elements or tags to refer to the bundles instead of static text. </p>
+
+<p><img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb_on.gif" height="16" width="16" alt="" border="0"> For more, see <a shape="rect" href="localization.html" title="Localization">Localization</a> in the Core Developers Guide.</p>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><th colspan="1" rowspan="1" class="confluenceTh"> Next </th><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="flying-solo.html" title="Flying Solo">Flying Solo</a> </td></tr><tr><th colspan="1" rowspan="1" class="confluenceTh"> Prev </th><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="validating-input.html" title="Validating Input">Validating Input</a> </td></tr></tbody></table>
+</div>
+</div>
+        </div>
+
+        
+    </div>
+</div>
+<div class="footer">
+    Generated by CXF SiteExporter
+</div>
+</body>
+</html>

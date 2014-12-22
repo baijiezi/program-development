@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC  "-//W3C//DTD HTML 4.0//EN" 
+"http://www.w3.org/TR/REC-html140/strict.dtd"> 
+<html> 
+<head> 
+<meta http-equiv=content-type content="text/html; charset=gb2312"> 
+<title>Sample Page!</title> 
+</head> 
+<script language="JavaScript" type="text/javascript"> 
+<!-- 
+function nodeStatus(node) 
+{ 
+  var temp=""; 
+  if(node.nodeName!=null) 
+  { 
+    temp+="nodeName: "+node.nodeName+"\n"; 
+  } 
+  else temp+="nodeName: null!\n"; 
+  if(node.nodeType!=null) 
+  { 
+    temp+="nodeType: "+node.nodeType+"\n"; 
+  } 
+  else temp+="nodeType: null\n"; 
+  if(node.nodeValue!=null) 
+  { 
+    temp+="nodeValue: "+node.nodeValue+"\n\n"; 
+  } 
+  else temp+="nodeValue: null\n\n"; 
+  return temp; 
+} 
+function MyTest( ) 
+{ 
+  //产生p元素节点和新文本节点，并将文本节点添加为p元素节点的最后一个子节点 
+  var newParagraph = document.createElement("p"); 
+  var newTextNode= document.createTextNode(document.MyForm.MyField.value); 
+  newParagraph.appendChild(newTextNode); 
+  var myspan = document.getElementById("myspan");
+  myspan.appendChild(newTextNode); 
+  
+  var msg=nodeStatus(newParagraph); 
+  msg+=nodeStatus(newTextNode); 
+  msg+=nodeStatus(newParagraph.firstChild); 
+  alert(msg); 
+  return; 
+} 
+//--> 
+</script> 
+<body> 
+<form name="MyForm"> 
+  <input type="text" name="MyField" value="My Sample"> 
+  <input type="button" value="TestButton" onclick="MyTest()"> 
+  <span id="myspan"></span>
+</body> 
+</html> 

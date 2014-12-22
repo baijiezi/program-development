@@ -1,0 +1,36 @@
+/* CSS Document */
+.freant{ text-align:center; color:#6F6F6D; line-height:20px}
+.freant a{ padding:0 3px; color:#6F6F6D; text-decoration:none}
+.freant a:hover{ color:#DD127D; text-decoration:underline}
+.foot{ color:#898B8B;}
+.foot a{ color:#898B8B; text-decoration:none}
+.foot a:hover{ color:#DD127D; text-decoration:underline}
+
+.bomt_logo{width:240px; margin:0 auto; height:45px; line-height:45px; font-size:12px; color:#ff6600; font-weight:bold}
+.bomt_logo img{ float:left; width:151px; height:57px; }
+
+/*jio*/
+
+.jio_wind{ width:460px}
+
+.jio_head{ background:url(../images/jio_bould.gif) no-repeat left top; height:28px; line-height:28px; font-size:14px; color:#fff}
+
+.jio_head b{ padding-left:20px}
+
+.jio_head span{ width:40px; height:28px; float:right; background:url(../images/jio_bould.gif) no-repeat left -41px; text-indent:-9999px; cursor:pointer}
+
+.jio_bould{ background:url(../images/jia_bould.gif) no-repeat; height:156px;}
+
+.jio_nay{ padding-top:20px; padding-left:104px; color:#686868; font-size:12px; line-height:18px; height:100px}
+
+.jio_nay p{ font-size:12px; font-weight:bold; color:#DD147B}
+
+.jio_chend{ background:url(../images/jia_any02.gif) no-repeat; width:133px; height:29px; border:none; line-height:29px; color:#fff; font-size:14px; font-weight:bold; cursor:pointer; outline:none}
+
+.jio_nay02{height: auto; width:460px; background:url(../images/jio_cont.gif) repeat-y }
+
+.jio_bomt{ background:url(../images/jio_bomt02.gif) no-repeat; height:54px;}
+
+.jio_texet{ padding-top:20px; padding-left:130px; color:#686868; font-size:12px; line-height:18px;}
+
+.jio_texet p{ font-size:12px; font-weight:bold; color:#DD147B}

@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+/*090710_登录*/
+.boss_member_conton3{width:930px;margin:20px auto 40px auto;background:  url(../images/boss_den03.gif) no-repeat;height:333px;}
+.boss_member_conton3_login{width:270px;margin:105px auto auto 160px;_margin:105px auto auto 80px;height:230px;float:left;line-height:30px;}
+.boss_member_conton3_login ul{height:30px;width:100%;}
+.boss_member_conton3_login ul li{float:left;}
+.boss_member_conton3_login ul  .login_a{width:90px; text-align:right;  }
+.boss_member_conton3_login ul li img{ vertical-align:middle;margin-left:4px;}
+.boss_member_conton3_login  .login_b{margin-left:55px;height:30px;margin-top:40px;}
+.boss_member_conton3_login  .login_b  input{ vertical-align:middle;}
+.boss_member_conton3_login  .login_b a:link{ text-decoration:underline}
+.boss_member_conton3_login  .login_b a:visited{ text-decoration:underline}
+.boss_member_conton3_login  .login_b a:hover{ color:#ff6600}
+.boss_member_conton3_login2{width:170px;height:40px;float:left;line-height:40px;margin-top:220px;margin-left:60px;}
+
+.boss_member_conton3_password{width:930px;margin:20px auto 40px auto;border:1px solid #85b9e9;height:333px;}
+.boss_member_conton3_password_top{width:90%;margin:20px auto 0px auto;color:#ff6600;border-bottom:1px dashed #999;font-weight:bold;font-size:14px;}
+.boss_member_conton3_password_dd{width:65%;margin:30px auto auto  240px;height:220px; background:url(http://passport.sun309.com/images/boss_den05.gif) no-repeat 0px 25px;}
+.boss_member_conton3_password_dd .possword_aa{width:;float:left;margin-left:120px;_margin-left:60px;margin-top:5px;_margin-top:25px;}
+.boss_member_conton3_password_dd .possword_aa li{height:70px;line-height:70px;color:#999;}
+.boss_member_conton3_password_dd .possword_aa input{margin-right:5px;vertical-align:baseline}
+
+.boss_member_conton3_password_dd .possword_aa2{width:;float:left;margin-left:120px;_margin-left:60px;margin-top:5px;_margin-top:25px;}
+.boss_member_conton3_password_dd .possword_aa2 li{height:50px;line-height:50px;color:#999;}
+.boss_member_conton3_password_dd .possword_aa2  input{margin-right:5px; vertical-align:baseline}
+/*090710_登录*/
+

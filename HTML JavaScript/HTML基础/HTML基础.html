@@ -1,0 +1,533 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>HTML基础(用水平线划分小节)</title>
+</head>
+
+<body>
+<h3>HTML 水平线</h3>
+&lt;hr /&gt; 标签在 HTML 页面中创建水平线。<br />
+hr 元素可用于分隔内容。<br />
+提示：使用水平线 (&lt;hr&gt; 标签) 来分隔文章中的小节是一个办法，本文将采用这个办法。<br />
+<br><hr align="left" width="1000px"/>
+
+
+<h3>HTML 标题</h3>
+注释：浏览器会自动地在标题的前后添加空行。<br>
+注释：默认情况下，HTML 会自动地在块级元素前后添加一个额外的空行，比如段落、标题元素前后。<br>
+<h1>&lt;h1&gt; 这里是标题1 &lt;/h1&gt;</h1>
+<h2>&lt;h2&gt; 这里是标题2 &lt;/h2&gt;</h2>
+<h3>&lt;h3&gt; 这里是标题3 &lt;/h3&gt;</h3>
+<br><hr align="left" width="1000px"/>
+
+
+<h3>HTML 注释</h3>
+HTML注释是这样写的：<br />
+	&lt;!-- This is a comment --&gt;<br>
+<br><hr align="left" width="1000px"/>
+
+
+<h3>HTML 段落</h3>
+&lt;p&gt; 段落标签<br />
+&lt;br /&gt; 换行标签，不会产生一个新段落 <br />
+<strong>示例：</strong><br />
+&lt;p&gt; This is a paragraph&lt;/p&gt; <br />
+<br><hr align="left" width="1000px"/>
+
+
+<h3>HTML 文本格式化</h3>
+HTML 可定义很多供格式化输出的元素，比如粗体和斜体字。<br />
+<br />
+<span style="text-decoration:underline;color:#660033">文本格式化</span><br />
+<b>This text is bold</b><br />
+<strong>This text is strong</strong><br />
+<big>This text is big</big><br />
+<em>This text is emphasized</em><br />
+<i>This text is italic</i><br />
+<small>This text is small</small><br />
+This text contains(下标签)<sub>subscript</sub><br />
+This text contains(上标签)<sup>superscript</sup><br />
+<br />
+
+<span style="text-decoration:underline;color:#660033">预格式文本</span><br />
+&lt;pre&gt; 预格式文本
+<pre>
+这是
+   预格式文本。
+ 它保留了      空格
+和换行。
+</pre>
+
+<p>pre 标签很适合显示计算机代码：</p>
+<pre>
+for i = 1 to 10
+     print i
+next i
+</pre>
+
+<span style="text-decoration:underline;color:#660033">地址</span><br />
+&lt;address&gt; 地址文本格式
+<address>
+Donald Duck<br />
+BOX 555<br />
+Disneyland<br />
+USA<br />
+</address>
+<br />
+
+<span style="text-decoration:underline;color:#660033">引用</span><br />
+&lt;blockquote&gt; 长引用，浏览器会插入换行和外边距<br />
+&lt;q&gt; 短引用，浏览器不会插入换行和外边距<br />
+这是长的引用：
+<blockquote>
+这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。
+</blockquote>
+
+这是短的引用：
+<q>这是短的引用。</q><br />
+<br />
+
+<span style="text-decoration:underline;color:#660033">删除效果</span><br />
+&lt;del&gt; 显示删除效果<br />
+ <del>删除文本</del><br />
+<br><hr align="left" width="1000px"/>
+
+
+<h3>HTML 超链接</h3>
+有两种使用&lt;a &gt; 标签的方式：<br />
+1、通过使用 href 属性 - 创建指向另一个文档的链接或锚点<br />
+2、通过使用 name 属性 - 创建文档内的书签(描点)<br />
+
+<span style="text-decoration:underline;color:#660033">href 连接</span><br />
+<a href="http://www.w3school.com.cn/" target="_blank">在新窗口打开连接</a><br />
+<br />
+ 
+<span style="text-decoration:underline;color:#660033">href="#tips" 创建同一个页面的锚点</span><br />
+<a href="#tips">点击将连接到一个锚点</a><br />
+<br />
+<a name="tips">目标锚点</a><br />
+
+<br><hr align="left" width="1000px"/>
+
+
+<h3>HTML 表格</h3>
+<table border="1">
+<tr>
+<th>标题1</th>
+<th>标题2</th>
+</tr>
+<tr>
+<td>row 1, cell 1</td>
+<td>row 1, cell 2</td>
+</tr>
+<tr>
+<td>row 2, cell 1</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<br />
+<br><hr align="left" width="1000px"/>
+
+
+<h3>HTML 列表</h3>
+
+<span style="text-decoration:underline;color:#660033">ol 有序列表</span><br />
+有序列表始于 &lt;ol&gt; 标签。每个列表项始于 &lt;li&gt; 标签。<br />
+<ol>
+<li>Coffee</li>
+<li>Milk</li>
+</ol>
+
+<span style="text-decoration:underline;color:#660033">ul 无序列表</span><br />
+无序列表始于 &lt;ul&gt; 标签。每个列表项始于 &lt;li&gt;。<br />
+<ul>
+<li>Coffee</li>
+<li>Milk</li>
+</ul>
+
+<span style="text-decoration:underline;color:#660033">dl 定义列表</span><br />
+自定义列表以 &lt;dl&gt; 标签开始。每个自定义列表项以 &lt;dt&gt; 开始。每个自定义列表项的定义以 &lt;dd&gt; 开始。<br />
+<dl>
+<dt>Coffee</dt>
+<dd>Black hot drink</dd>
+<dt>Milk</dt>
+<dd>White cold drink</dd>
+</dl>
+
+<br><hr align="left" width="1000px"/>
+
+
+
+<h3>HTML 图像</h3>
+<img src="HTML基础/boat.gif" alt="图像载入失败"><br />
+
+<br><hr align="left" width="1000px"/>
+
+
+<h3>HTML 颜色</h3>
+<table border="1" width="100%">
+    <tbody><tr>
+      <td bgcolor="#000000" align="center" style="color:#ffffff">000000</td>
+      <td bgcolor="#000033" align="center" style="color:#ffffff">000033</td>
+      <td bgcolor="#000066" align="center" style="color:#ffffff">000066</td>
+      <td bgcolor="#000099" align="center" style="color:#ffffff">000099</td>
+      <td bgcolor="#0000cc" align="center" style="color:#ffffff">0000CC</td>
+      <td bgcolor="#0000ff" align="center" style="color:#ffffff">0000FF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#003300" align="center" style="color:#ffffff">003300</td>
+      <td bgcolor="#003333" align="center" style="color:#ffffff">003333</td>
+      <td bgcolor="#003366" align="center" style="color:#ffffff">003366</td>
+      <td bgcolor="#003399" align="center" style="color:#ffffff">003399</td>
+      <td bgcolor="#0033cc" align="center" style="color:#ffffff">0033CC</td>
+      <td bgcolor="#0033ff" align="center" style="color:#ffffff">0033FF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#006600" align="center" style="color:#ffffff">006600</td>
+      <td bgcolor="#006633" align="center" style="color:#ffffff">006633</td>
+      <td bgcolor="#006666" align="center" style="color:#ffffff">006666</td>
+      <td bgcolor="#006699" align="center" style="color:#ffffff">006699</td>
+      <td bgcolor="#0066cc" align="center" style="color:#ffffff">0066CC</td>
+      <td bgcolor="#0066ff" align="center" style="color:#ffffff">0066FF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#009900" align="center">009900</td>
+      <td bgcolor="#009933" align="center">009933</td>
+      <td bgcolor="#009966" align="center">009966</td>
+      <td bgcolor="#009999" align="center">009999</td>
+      <td bgcolor="#0099cc" align="center">0099CC</td>
+      <td bgcolor="#0099ff" align="center">0099FF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#00cc00" align="center">00CC00</td>
+      <td bgcolor="#00cc33" align="center">00CC33</td>
+      <td bgcolor="#00cc66" align="center">00CC66</td>
+      <td bgcolor="#00cc99" align="center">00CC99</td>
+      <td bgcolor="#00cccc" align="center">00CCCC</td>
+      <td bgcolor="#00ccff" align="center">00CCFF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#00ff00" align="center">00FF00</td>
+      <td bgcolor="#00ff33" align="center">00FF33</td>
+      <td bgcolor="#00ff66" align="center">00FF66</td>
+      <td bgcolor="#00ff99" align="center">00FF99</td>
+      <td bgcolor="#00ffcc" align="center">00FFCC</td>
+      <td bgcolor="#00ffff" align="center">00FFFF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#330000" align="center" style="color:#ffffff">330000</td>
+      <td bgcolor="#330033" align="center" style="color:#ffffff">330033</td>
+      <td bgcolor="#330066" align="center" style="color:#ffffff">330066</td>
+      <td bgcolor="#330099" align="center" style="color:#ffffff">330099</td>
+      <td bgcolor="#3300cc" align="center" style="color:#ffffff">3300CC</td>
+      <td bgcolor="#3300ff" align="center" style="color:#ffffff">3300FF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#333300" align="center" style="color:#ffffff">333300</td>
+      <td bgcolor="#333333" align="center" style="color:#ffffff">333333</td>
+      <td bgcolor="#333366" align="center" style="color:#ffffff">333366</td>
+      <td bgcolor="#333399" align="center" style="color:#ffffff">333399</td>
+      <td bgcolor="#3333cc" align="center" style="color:#ffffff">3333CC</td>
+      <td bgcolor="#3333ff" align="center" style="color:#ffffff">3333FF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#336600" align="center" style="color:#ffffff">336600</td>
+      <td bgcolor="#336633" align="center" style="color:#ffffff">336633</td>
+      <td bgcolor="#336666" align="center" style="color:#ffffff">336666</td>
+      <td bgcolor="#336699" align="center" style="color:#ffffff">336699</td>
+      <td bgcolor="#3366cc" align="center" style="color:#ffffff">3366CC</td>
+      <td bgcolor="#3366ff" align="center" style="color:#ffffff">3366FF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#339900" align="center">339900</td>
+      <td bgcolor="#339933" align="center">339933</td>
+      <td bgcolor="#339966" align="center">339966</td>
+      <td bgcolor="#339999" align="center">339999</td>
+      <td bgcolor="#3399cc" align="center">3399CC</td>
+      <td bgcolor="#3399ff" align="center">3399FF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#33cc00" align="center">33CC00</td>
+      <td bgcolor="#33cc33" align="center">33CC33</td>
+      <td bgcolor="#33cc66" align="center">33CC66</td>
+      <td bgcolor="#33cc99" align="center">33CC99</td>
+      <td bgcolor="#33cccc" align="center">33CCCC</td>
+      <td bgcolor="#33ccff" align="center">33CCFF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#33ff00" align="center">33FF00</td>
+      <td bgcolor="#33ff33" align="center">33FF33</td>
+      <td bgcolor="#33ff66" align="center">33FF66</td>
+      <td bgcolor="#33ff99" align="center">33FF99</td>
+      <td bgcolor="#33ffcc" align="center">33FFCC</td>
+      <td bgcolor="#33ffff" align="center">33FFFF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#660000" align="center" style="color:#ffffff">660000</td>
+      <td bgcolor="#660033" align="center" style="color:#ffffff">660033</td>
+      <td bgcolor="#660066" align="center" style="color:#ffffff">660066</td>
+      <td bgcolor="#660099" align="center" style="color:#ffffff">660099</td>
+      <td bgcolor="#6600cc" align="center" style="color:#ffffff">6600CC</td>
+      <td bgcolor="#6600ff" align="center" style="color:#ffffff">6600FF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#663300" align="center" style="color:#ffffff">663300</td>
+      <td bgcolor="#663333" align="center" style="color:#ffffff">663333</td>
+      <td bgcolor="#663366" align="center" style="color:#ffffff">663366</td>
+      <td bgcolor="#663399" align="center" style="color:#ffffff">663399</td>
+      <td bgcolor="#6633cc" align="center" style="color:#ffffff">6633CC</td>
+      <td bgcolor="#6633ff" align="center" style="color:#ffffff">6633FF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#666600" align="center" style="color:#ffffff">666600</td>
+      <td bgcolor="#666633" align="center" style="color:#ffffff">666633</td>
+      <td bgcolor="#666666" align="center" style="color:#ffffff">666666</td>
+      <td bgcolor="#666699" align="center" style="color:#ffffff">666699</td>
+      <td bgcolor="#6666cc" align="center" style="color:#ffffff">6666CC</td>
+      <td bgcolor="#6666ff" align="center" style="color:#ffffff">6666FF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#669900" align="center">669900</td>
+      <td bgcolor="#669933" align="center">669933</td>
+      <td bgcolor="#669966" align="center">669966</td>
+      <td bgcolor="#669999" align="center">669999</td>
+      <td bgcolor="#6699cc" align="center">6699CC</td>
+      <td bgcolor="#6699ff" align="center">6699FF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#66cc00" align="center">66CC00</td>
+      <td bgcolor="#66cc33" align="center">66CC33</td>
+      <td bgcolor="#66cc66" align="center">66CC66</td>
+      <td bgcolor="#66cc99" align="center">66CC99</td>
+      <td bgcolor="#66cccc" align="center">66CCCC</td>
+      <td bgcolor="#66ccff" align="center">66CCFF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#66ff00" align="center">66FF00</td>
+      <td bgcolor="#66ff33" align="center">66FF33</td>
+      <td bgcolor="#66ff66" align="center">66FF66</td>
+      <td bgcolor="#66ff99" align="center">66FF99</td>
+      <td bgcolor="#66ffcc" align="center">66FFCC</td>
+      <td bgcolor="#66ffff" align="center">66FFFF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#990000" align="center" style="color:#ffffff">990000</td>
+      <td bgcolor="#990033" align="center" style="color:#ffffff">990033</td>
+      <td bgcolor="#990066" align="center" style="color:#ffffff">990066</td>
+      <td bgcolor="#990099" align="center" style="color:#ffffff">990099</td>
+      <td bgcolor="#9900cc" align="center" style="color:#ffffff">9900CC</td>
+      <td bgcolor="#9900ff" align="center" style="color:#ffffff">9900FF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#993300" align="center" style="color:#ffffff">993300</td>
+      <td bgcolor="#993333" align="center" style="color:#ffffff">993333</td>
+      <td bgcolor="#993366" align="center" style="color:#ffffff">993366</td>
+      <td bgcolor="#993399" align="center" style="color:#ffffff">993399</td>
+      <td bgcolor="#9933cc" align="center" style="color:#ffffff">9933CC</td>
+      <td bgcolor="#9933ff" align="center" style="color:#ffffff">9933FF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#996600" align="center" style="color:#ffffff">996600</td>
+      <td bgcolor="#996633" align="center" style="color:#ffffff">996633</td>
+      <td bgcolor="#996666" align="center" style="color:#ffffff">996666</td>
+      <td bgcolor="#996699" align="center" style="color:#ffffff">996699</td>
+      <td bgcolor="#9966cc" align="center" style="color:#ffffff">9966CC</td>
+      <td bgcolor="#9966ff" align="center" style="color:#ffffff">9966FF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#999900" align="center">999900</td>
+      <td bgcolor="#999933" align="center">999933</td>
+      <td bgcolor="#999966" align="center">999966</td>
+      <td bgcolor="#999999" align="center">999999</td>
+      <td bgcolor="#9999cc" align="center">9999CC</td>
+      <td bgcolor="#9999ff" align="center">9999FF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#99cc00" align="center">99CC00</td>
+      <td bgcolor="#99cc33" align="center">99CC33</td>
+      <td bgcolor="#99cc66" align="center">99CC66</td>
+      <td bgcolor="#99cc99" align="center">99CC99</td>
+      <td bgcolor="#99cccc" align="center">99CCCC</td>
+      <td bgcolor="#99ccff" align="center">99CCFF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#99ff00" align="center">99FF00</td>
+      <td bgcolor="#99ff33" align="center">99FF33</td>
+      <td bgcolor="#99ff66" align="center">99FF66</td>
+      <td bgcolor="#99ff99" align="center">99FF99</td>
+      <td bgcolor="#99ffcc" align="center">99FFCC</td>
+      <td bgcolor="#99ffff" align="center">99FFFF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#cc0000" align="center" style="color:#ffffff">CC0000</td>
+      <td bgcolor="#cc0033" align="center" style="color:#ffffff">CC0033</td>
+      <td bgcolor="#cc0066" align="center" style="color:#ffffff">CC0066</td>
+      <td bgcolor="#cc0099" align="center" style="color:#ffffff">CC0099</td>
+      <td bgcolor="#cc00cc" align="center" style="color:#ffffff">CC00CC</td>
+      <td bgcolor="#cc00ff" align="center" style="color:#ffffff">CC00FF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#cc3300" align="center" style="color:#ffffff">CC3300</td>
+      <td bgcolor="#cc3333" align="center" style="color:#ffffff">CC3333</td>
+      <td bgcolor="#cc3366" align="center" style="color:#ffffff">CC3366</td>
+      <td bgcolor="#cc3399" align="center" style="color:#ffffff">CC3399</td>
+      <td bgcolor="#cc33cc" align="center" style="color:#ffffff">CC33CC</td>
+      <td bgcolor="#cc33ff" align="center" style="color:#ffffff">CC33FF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#cc6600" align="center" style="color:#ffffff">CC6600</td>
+      <td bgcolor="#cc6633" align="center" style="color:#ffffff">CC6633</td>
+      <td bgcolor="#cc6666" align="center" style="color:#ffffff">CC6666</td>
+      <td bgcolor="#cc6699" align="center" style="color:#ffffff">CC6699</td>
+      <td bgcolor="#cc66cc" align="center" style="color:#ffffff">CC66CC</td>
+      <td bgcolor="#cc66ff" align="center" style="color:#ffffff">CC66FF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#cc9900" align="center">CC9900</td>
+      <td bgcolor="#cc9933" align="center">CC9933</td>
+      <td bgcolor="#cc9966" align="center">CC9966</td>
+      <td bgcolor="#cc9999" align="center">CC9999</td>
+      <td bgcolor="#cc99cc" align="center">CC99CC</td>
+      <td bgcolor="#cc99ff" align="center">CC99FF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#cccc00" align="center">CCCC00</td>
+      <td bgcolor="#cccc33" align="center">CCCC33</td>
+      <td bgcolor="#cccc66" align="center">CCCC66</td>
+      <td bgcolor="#cccc99" align="center">CCCC99</td>
+      <td bgcolor="#cccccc" align="center">CCCCCC</td>
+      <td bgcolor="#ccccff" align="center">CCCCFF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#ccff00" align="center">CCFF00</td>
+      <td bgcolor="#ccff33" align="center">CCFF33</td>
+      <td bgcolor="#ccff66" align="center">CCFF66</td>
+      <td bgcolor="#ccff99" align="center">CCFF99</td>
+      <td bgcolor="#ccffcc" align="center">CCFFCC</td>
+      <td bgcolor="#ccffff" align="center">CCFFFF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#ff0000" align="center" style="color:#ffffff">FF0000</td>
+      <td bgcolor="#ff0033" align="center" style="color:#ffffff">FF0033</td>
+      <td bgcolor="#ff0066" align="center" style="color:#ffffff">FF0066</td>
+      <td bgcolor="#ff0099" align="center" style="color:#ffffff">FF0099</td>
+      <td bgcolor="#ff00cc" align="center" style="color:#ffffff">FF00CC</td>
+      <td bgcolor="#ff00ff" align="center" style="color:#ffffff">FF00FF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#ff3300" align="center" style="color:#ffffff">FF3300</td>
+      <td bgcolor="#ff3333" align="center" style="color:#ffffff">FF3333</td>
+      <td bgcolor="#ff3366" align="center" style="color:#ffffff">FF3366</td>
+      <td bgcolor="#ff3399" align="center" style="color:#ffffff">FF3399</td>
+      <td bgcolor="#ff33cc" align="center" style="color:#ffffff">FF33CC</td>
+      <td bgcolor="#ff33ff" align="center" style="color:#ffffff">FF33FF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#ff6600" align="center" style="color:#ffffff">FF6600</td>
+      <td bgcolor="#ff6633" align="center" style="color:#ffffff">FF6633</td>
+      <td bgcolor="#ff6666" align="center" style="color:#ffffff">FF6666</td>
+      <td bgcolor="#ff6699" align="center" style="color:#ffffff">FF6699</td>
+      <td bgcolor="#ff66cc" align="center" style="color:#ffffff">FF66CC</td>
+      <td bgcolor="#ff66ff" align="center" style="color:#ffffff">FF66FF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#ff9900" align="center">FF9900</td>
+      <td bgcolor="#ff9933" align="center">FF9933</td>
+      <td bgcolor="#ff9966" align="center">FF9966</td>
+      <td bgcolor="#ff9999" align="center">FF9999</td>
+      <td bgcolor="#ff99cc" align="center">FF99CC</td>
+      <td bgcolor="#ff99ff" align="center">FF99FF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#ffcc00" align="center">FFCC00</td>
+      <td bgcolor="#ffcc33" align="center">FFCC33</td>
+      <td bgcolor="#ffcc66" align="center">FFCC66</td>
+      <td bgcolor="#ffcc99" align="center">FFCC99</td>
+      <td bgcolor="#ffcccc" align="center">FFCCCC</td>
+      <td bgcolor="#ffccff" align="center">FFCCFF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#ffff00" align="center">FFFF00</td>
+      <td bgcolor="#ffff33" align="center">FFFF33</td>
+      <td bgcolor="#ffff66" align="center">FFFF66</td>
+      <td bgcolor="#ffff99" align="center">FFFF99</td>
+      <td bgcolor="#ffffcc" align="center">FFFFCC</td>
+      <td bgcolor="#ffffff" align="center">FFFFFF</td>
+    </tr>
+</tbody></table>
+<br />
+<br><hr align="left" width="1000px"/>
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

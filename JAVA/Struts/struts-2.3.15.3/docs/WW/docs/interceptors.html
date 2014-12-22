@@ -1,0 +1,846 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+<html>
+<head>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <style type="text/css">
+        .dp-highlighter {
+            width:95% !important;
+        }
+    </style>
+    <style type="text/css">
+        .footer {
+            background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+            background-repeat:     repeat-x;
+            background-position:   left top;
+            padding-top:           4px;
+            color:                 #666;
+        }
+    </style>
+    <link href='http://struts.apache.org/highlighter/styles/shCoreStruts.css' rel='stylesheet' type='text/css' />
+    <link href='http://struts.apache.org/highlighter/styles/shThemeStruts.css' rel='stylesheet' type='text/css' />
+    <script src='http://struts.apache.org/highlighter/js/shCore.js' type='text/javascript'></script>
+            <script src='http://struts.apache.org/highlighter/js/shBrushJava.js' type='text/javascript'></script>
+            <script src='http://struts.apache.org/highlighter/js/shBrushXml.js' type='text/javascript'></script>
+    
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
+    <script type="text/javascript" language="javascript">
+        var hide = null;
+        var show = null;
+        var children = null;
+
+        function init() {
+            /* Search form initialization */
+            var form = document.forms['search'];
+            if (form != null) {
+                form.elements['domains'].value = location.hostname;
+                form.elements['sitesearch'].value = location.hostname;
+            }
+
+            /* Children initialization */
+            hide = document.getElementById('hide');
+            show = document.getElementById('show');
+            children = document.all != null ?
+                    document.all['children'] :
+                    document.getElementById('children');
+            if (children != null) {
+                children.style.display = 'none';
+                show.style.display = 'inline';
+                hide.style.display = 'none';
+            }
+        }
+
+        function showChildren() {
+            children.style.display = 'block';
+            show.style.display = 'none';
+            hide.style.display = 'inline';
+        }
+
+        function hideChildren() {
+            children.style.display = 'none';
+            show.style.display = 'inline';
+            hide.style.display = 'none';
+        }
+    </script>
+    <title>Interceptors</title>
+</head>
+<body onload="init()">
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr class="topBar">
+        <td align="left" valign="middle" class="topBarDiv" align="left" nowrap>
+            &nbsp;<a href="home.html">Home</a>&nbsp;&gt;&nbsp;<a href="guides.html">Guides</a>&nbsp;&gt;&nbsp;<a href="core-developers-guide.html">Core Developers Guide</a>&nbsp;&gt;&nbsp;<a href="interceptors.html">Interceptors</a>
+        </td>
+        <td align="right" valign="middle" nowrap>
+            <form name="search" action="http://www.google.com/search" method="get">
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="hidden" name="oe" value="UTF-8" />
+                <input type="hidden" name="domains" value="" />
+                <input type="hidden" name="sitesearch" value="" />
+                <input type="text" name="q" maxlength="255" value="" />
+                <input type="submit" name="btnG" value="Google Search" />
+            </form>
+        </td>
+    </tr>
+</table>
+
+<div id="PageContent">
+    <div class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <div style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</div>
+        <div style="margin: 0px 10px 8px 10px"  class="pagetitle">Interceptors</div>
+
+        <div class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13941">
+                <img src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Edit Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13941">Edit Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+                <img src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13941">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13941">Add Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13941">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add News"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13941">Add News</a>
+        </div>
+    </div>
+
+    <div class="pagecontent">
+        <div class="wiki-content">
+            <div id="ConfluenceContent"><div class="panelMacro"><table class="tipMacro"><colgroup span="1"><col span="1" width="24"><col span="1"></colgroup><tr><td colspan="1" rowspan="1" valign="top"><img align="middle" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" alt="" border="0"></td><td colspan="1" rowspan="1">The default Interceptor stack is designed to serve the needs of most applications. Most applications will <b>not</b> need to add Interceptors or change the Interceptor stack.</td></tr></table></div>
+
+<p>Many Actions share common concerns. Some Actions need input validated. Other Actions may need a file upload to be pre-processed. Another Action might need protection from a double submit. Many Actions need drop-down lists and other controls pre-populated before the page displays.</p>
+
+<p>The framework makes it easy to share solutions to these concerns using an "Interceptor" strategy. When you request a resource that maps to an "action", the framework invokes the Action object. But, before the Action is executed, the invocation can be intercepted by another object. After the Action executes, the invocation could be intercepted again. Unsurprisingly, we call these objects "Interceptors."</p>
+
+<div>
+<ul><li><a shape="rect" href="#Interceptors-UnderstandingInterceptors">Understanding Interceptors</a></li><li><a shape="rect" href="#Interceptors-ConfiguringInterceptors">Configuring Interceptors</a></li><li><a shape="rect" href="#Interceptors-StackingInterceptors">Stacking Interceptors</a></li><ul><li><a shape="rect" href="#Interceptors-TheDefaultConfiguration">The Default Configuration</a></li></ul><li><a shape="rect" href="#Interceptors-FrameworkInterceptors">Framework Interceptors</a></li><ul><li><a shape="rect" href="#Interceptors-MethodFiltering">Method Filtering</a></li><li><a shape="rect" href="#Interceptors-InterceptorParameterOverriding">Interceptor Parameter Overriding</a></li><li><a shape="rect" href="#Interceptors-InterceptorParameterOverridingInheritance">Interceptor Parameter Overriding Inheritance</a></li><li><a shape="rect" href="#Interceptors-OrderofInterceptorExecution">Order of Interceptor Execution</a></li></ul><li><a shape="rect" href="#Interceptors-FAQ">FAQ</a></li><li><a shape="rect" href="#Interceptors-Next%3AWritingInterceptors">Next: Writing Interceptors</a></li></ul></div>
+
+<h2><a shape="rect" name="Interceptors-UnderstandingInterceptors"></a>Understanding Interceptors </h2>
+
+<p>Interceptors can execute code before and after an Action is invoked. Most of the framework's core functionality is implemented as Interceptors. Features like double-submit guards, type conversion, object population, validation, file upload, page preparation, and more, are all implemented with the help of Interceptors. Each and every Interceptor is pluggable, so you can decide exactly which features an Action needs to support.</p>
+
+<p>Interceptors can be configured on a per-action basis. Your own custom Interceptors can be mixed-and-matched with the Interceptors bundled with the framework. Interceptors "set the stage" for the Action classes, doing much of the "heavy lifting" before the Action executes.</p>
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><th colspan="1" rowspan="1" class="confluenceTh"> Action Lifecyle </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <span class="image-wrap" style=""><img src="interceptors.data/overview.png" style="border: 0px solid black"></span> </td></tr></tbody></table>
+</div>
+
+<p>In some cases, an Interceptor might keep an Action from firing, because of a double-submit or because validation failed. Interceptors can also change the state of an Action before it executes.</p>
+
+<p>The Interceptors are defined in a stack that specifies the execution order. In some cases, the order of the Interceptors on the stack can be very important.</p>
+
+<h2><a shape="rect" name="Interceptors-ConfiguringInterceptors"></a>Configuring Interceptors</h2>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>struts.xml</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;package name="default" extends="struts-default"&gt;
+   &lt;interceptors&gt;
+       &lt;interceptor name="timer" class=".."/&gt;
+       &lt;interceptor name="logger" class=".."/&gt;
+   &lt;/interceptors&gt;
+
+   &lt;action name="login"
+      class="tutorial.Login"&gt;
+        &lt;interceptor-ref name="timer"/&gt;
+        &lt;interceptor-ref name="logger"/&gt;
+         &lt;result name="input"&gt;login.jsp&lt;/result&gt;
+         &lt;result name="success"
+            type="redirectAction"&gt;/secure/home&lt;/result&gt;
+   &lt;/action&gt;
+&lt;/package&gt;
+]]></script>
+</div></div>
+
+<h2><a shape="rect" name="Interceptors-StackingInterceptors"></a>Stacking Interceptors</h2>
+
+<p>With most web applications, we find ourselves wanting to apply the same set of Interceptors over and over again. Rather than reiterate the same list of Interceptors, we can bundle these Interceptors together using an Interceptor Stack.</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>struts.xml</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;package name="default" extends="struts-default"&gt;
+   &lt;interceptors&gt;
+        &lt;interceptor name="timer" class=".."/&gt;
+        &lt;interceptor name="logger" class=".."/&gt;
+        &lt;interceptor-stack name="myStack"&gt;
+           &lt;interceptor-ref name="timer"/&gt;
+           &lt;interceptor-ref name="logger"/&gt;
+        &lt;/interceptor-stack&gt;
+    &lt;/interceptors&gt;
+
+&lt;action name="login"
+     class="tutuorial.Login"&gt;
+         &lt;interceptor-ref name="myStack"/&gt;
+         &lt;result name="input"&gt;login.jsp&lt;/result&gt;
+         &lt;result name="success"
+             type="redirectAction"&gt;/secure/home&lt;/result&gt;
+&lt;/action&gt;
+&lt;/package&gt;
+]]></script>
+</div></div>
+<p>Looking inside <tt>struts-default.xml</tt>, we can see how it's done.</p>
+
+<h3><a shape="rect" name="Interceptors-TheDefaultConfiguration"></a>The Default Configuration</h3>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;!--
+/*
+ * $Id$
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+--&gt;
+&lt;!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd"&gt;
+
+&lt;struts&gt;
+    &lt;bean class="com.opensymphony.xwork2.ObjectFactory" name="xwork" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.ObjectFactory" name="struts" class="org.apache.struts2.impl.StrutsObjectFactory" /&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.factory.ResultFactory" name="xwork" class="org.apache.struts2.factory.StrutsResultFactory" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.factory.ResultFactory" name="struts" class="org.apache.struts2.factory.StrutsResultFactory" /&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.factory.ActionFactory" name="xwork" class="com.opensymphony.xwork2.factory.DefaultActionFactory" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.factory.ActionFactory" name="struts" class="com.opensymphony.xwork2.factory.DefaultActionFactory" /&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.factory.ConverterFactory" name="xwork" class="com.opensymphony.xwork2.factory.DefaultConverterFactory" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.factory.ConverterFactory" name="struts" class="com.opensymphony.xwork2.factory.DefaultConverterFactory" /&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.factory.InterceptorFactory" name="xwork" class="com.opensymphony.xwork2.factory.DefaultInterceptorFactory" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.factory.InterceptorFactory" name="struts" class="com.opensymphony.xwork2.factory.DefaultInterceptorFactory" /&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.factory.ValidatorFactory" name="xwork" class="com.opensymphony.xwork2.factory.DefaultValidatorFactory" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.factory.ValidatorFactory" name="struts" class="com.opensymphony.xwork2.factory.DefaultValidatorFactory" /&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.FileManager" class="com.opensymphony.xwork2.util.fs.DefaultFileManager" name="system" scope="singleton"/&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.FileManagerFactory" class="com.opensymphony.xwork2.util.fs.DefaultFileManagerFactory" name="xwork" scope="singleton"/&gt;
+    &lt;bean type="com.opensymphony.xwork2.FileManagerFactory" class="com.opensymphony.xwork2.util.fs.DefaultFileManagerFactory" name="struts" scope="singleton"/&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.ActionProxyFactory" name="xwork" class="com.opensymphony.xwork2.DefaultActionProxyFactory"/&gt;
+    &lt;bean type="com.opensymphony.xwork2.ActionProxyFactory" name="struts" class="org.apache.struts2.impl.StrutsActionProxyFactory"/&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.conversion.ObjectTypeDeterminer" name="tiger" class="com.opensymphony.xwork2.conversion.impl.DefaultObjectTypeDeterminer"/&gt;
+    &lt;bean type="com.opensymphony.xwork2.conversion.ObjectTypeDeterminer" name="notiger" class="com.opensymphony.xwork2.conversion.impl.DefaultObjectTypeDeterminer"/&gt;
+    &lt;bean type="com.opensymphony.xwork2.conversion.ObjectTypeDeterminer" name="struts" class="com.opensymphony.xwork2.conversion.impl.DefaultObjectTypeDeterminer"/&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.util.PatternMatcher" name="struts" class="com.opensymphony.xwork2.util.WildcardHelper" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.util.PatternMatcher" name="namedVariable" class="com.opensymphony.xwork2.util.NamedVariablePatternMatcher"/&gt;
+    &lt;bean type="com.opensymphony.xwork2.util.PatternMatcher" name="regex" class="org.apache.struts2.util.RegexPatternMatcher"/&gt;
+
+    &lt;bean type="org.apache.struts2.dispatcher.mapper.ActionMapper" name="struts" class="org.apache.struts2.dispatcher.mapper.DefaultActionMapper" /&gt;
+    &lt;bean type="org.apache.struts2.dispatcher.mapper.ActionMapper" name="composite" class="org.apache.struts2.dispatcher.mapper.CompositeActionMapper" /&gt;
+    &lt;bean type="org.apache.struts2.dispatcher.mapper.ActionMapper" name="restful" class="org.apache.struts2.dispatcher.mapper.RestfulActionMapper" /&gt;
+    &lt;bean type="org.apache.struts2.dispatcher.mapper.ActionMapper" name="restful2" class="org.apache.struts2.dispatcher.mapper.Restful2ActionMapper" /&gt;
+
+    &lt;bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest" name="struts" class="org.apache.struts2.dispatcher.multipart.JakartaMultiPartRequest" scope="default"/&gt;
+    &lt;bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest" name="jakarta" class="org.apache.struts2.dispatcher.multipart.JakartaMultiPartRequest" scope="default" /&gt;
+    &lt;constant name="struts.multipart.parser" value="jakarta" /&gt;
+
+    &lt;bean type="org.apache.struts2.views.TagLibrary" name="s" class="org.apache.struts2.views.DefaultTagLibrary" /&gt;
+
+    &lt;bean class="org.apache.struts2.views.freemarker.FreemarkerManager" name="struts" /&gt;
+    &lt;bean class="org.apache.struts2.views.velocity.VelocityManager" name="struts" optional="true" /&gt;
+
+    &lt;bean class="org.apache.struts2.components.template.TemplateEngineManager" /&gt;
+    &lt;bean type="org.apache.struts2.components.template.TemplateEngine" name="ftl" class="org.apache.struts2.components.template.FreemarkerTemplateEngine" /&gt;
+    &lt;bean type="org.apache.struts2.components.template.TemplateEngine" name="vm" class="org.apache.struts2.components.template.VelocityTemplateEngine" /&gt;
+    &lt;bean type="org.apache.struts2.components.template.TemplateEngine" name="jsp" class="org.apache.struts2.components.template.JspTemplateEngine" /&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.conversion.impl.XWorkConverter" name="struts" class="com.opensymphony.xwork2.conversion.impl.XWorkConverter" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.conversion.ConversionPropertiesProcessor" name="struts" class="com.opensymphony.xwork2.conversion.impl.DefaultConversionPropertiesProcessor" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.conversion.ConversionFileProcessor" name="struts" class="com.opensymphony.xwork2.conversion.impl.DefaultConversionFileProcessor" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.conversion.ConversionAnnotationProcessor" name="struts" class="com.opensymphony.xwork2.conversion.impl.DefaultConversionAnnotationProcessor" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.conversion.TypeConverterCreator" name="struts" class="com.opensymphony.xwork2.conversion.impl.DefaultTypeConverterCreator" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.conversion.TypeConverterHolder" name="struts" class="com.opensymphony.xwork2.conversion.impl.DefaultTypeConverterHolder" /&gt;
+
+    &lt;bean class="com.opensymphony.xwork2.conversion.impl.XWorkBasicConverter" /&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.conversion.impl.CollectionConverter" name="struts" class="com.opensymphony.xwork2.conversion.impl.CollectionConverter" scope="singleton"/&gt;
+    &lt;bean type="com.opensymphony.xwork2.conversion.impl.ArrayConverter" name="struts" class="com.opensymphony.xwork2.conversion.impl.ArrayConverter" scope="singleton"/&gt;
+    &lt;bean type="com.opensymphony.xwork2.conversion.impl.DateConverter" name="struts" class="com.opensymphony.xwork2.conversion.impl.DateConverter" scope="singleton"/&gt;
+    &lt;bean type="com.opensymphony.xwork2.conversion.impl.NumberConverter" name="struts" class="com.opensymphony.xwork2.conversion.impl.NumberConverter" scope="singleton"/&gt;
+    &lt;bean type="com.opensymphony.xwork2.conversion.impl.StringConverter" name="struts" class="com.opensymphony.xwork2.conversion.impl.StringConverter" scope="singleton"/&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.TextProvider" name="struts" class="com.opensymphony.xwork2.TextProviderSupport" scope="default" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.LocaleProvider" name="struts" class="com.opensymphony.xwork2.DefaultLocaleProvider" scope="singleton" /&gt;
+
+    &lt;bean type="org.apache.struts2.components.UrlRenderer" name="struts" class="org.apache.struts2.components.ServletUrlRenderer"/&gt;
+    &lt;bean type="org.apache.struts2.views.util.UrlHelper" name="struts" class="org.apache.struts2.views.util.DefaultUrlHelper"/&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.util.ValueStackFactory" name="struts" class="com.opensymphony.xwork2.ognl.OgnlValueStackFactory" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.util.reflection.ReflectionProvider" name="struts" class="com.opensymphony.xwork2.ognl.OgnlReflectionProvider" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.util.reflection.ReflectionContextFactory" name="struts" class="com.opensymphony.xwork2.ognl.OgnlReflectionContextFactory" /&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.TextProvider" name="system" class="com.opensymphony.xwork2.DefaultTextProvider" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.conversion.NullHandler" name="java.lang.Object" class="com.opensymphony.xwork2.conversion.impl.InstantiatingNullHandler" /&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.validator.ActionValidatorManager" name="struts" class="com.opensymphony.xwork2.validator.AnnotationActionValidatorManager" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.validator.ActionValidatorManager" name="no-annotations" class="com.opensymphony.xwork2.validator.DefaultActionValidatorManager" /&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.validator.ValidatorFactory" class="com.opensymphony.xwork2.validator.DefaultValidatorFactory"/&gt;
+    &lt;bean type="com.opensymphony.xwork2.validator.ValidatorFileParser" class="com.opensymphony.xwork2.validator.DefaultValidatorFileParser" /&gt;
+
+    &lt;bean class="com.opensymphony.xwork2.ognl.OgnlUtil" /&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.util.TextParser" name="struts" class="com.opensymphony.xwork2.util.OgnlTextParser" scope="singleton"/&gt;
+
+    &lt;bean type="ognl.PropertyAccessor" name="com.opensymphony.xwork2.util.CompoundRoot" class="com.opensymphony.xwork2.ognl.accessor.CompoundRootAccessor" /&gt;
+    &lt;bean type="ognl.PropertyAccessor" name="java.lang.Object" class="com.opensymphony.xwork2.ognl.accessor.ObjectAccessor" /&gt;
+    &lt;bean type="ognl.PropertyAccessor" name="java.util.Iterator" class="com.opensymphony.xwork2.ognl.accessor.XWorkIteratorPropertyAccessor" /&gt;
+    &lt;bean type="ognl.PropertyAccessor" name="java.util.Enumeration" class="com.opensymphony.xwork2.ognl.accessor.XWorkEnumerationAccessor" /&gt;
+    &lt;bean type="ognl.PropertyAccessor" name="java.util.List" class="com.opensymphony.xwork2.ognl.accessor.XWorkListPropertyAccessor" /&gt;
+    &lt;bean type="ognl.PropertyAccessor" name="java.util.Set" class="com.opensymphony.xwork2.ognl.accessor.XWorkCollectionPropertyAccessor" /&gt;
+    &lt;bean type="ognl.PropertyAccessor" name="java.util.Map" class="com.opensymphony.xwork2.ognl.accessor.XWorkMapPropertyAccessor" /&gt;
+    &lt;bean type="ognl.PropertyAccessor" name="java.util.Collection" class="com.opensymphony.xwork2.ognl.accessor.XWorkCollectionPropertyAccessor" /&gt;
+    &lt;bean type="ognl.PropertyAccessor" name="com.opensymphony.xwork2.ognl.ObjectProxy" class="com.opensymphony.xwork2.ognl.accessor.ObjectProxyPropertyAccessor" /&gt;
+
+    &lt;bean type="ognl.MethodAccessor" name="java.lang.Object" class="com.opensymphony.xwork2.ognl.accessor.XWorkMethodAccessor" /&gt;
+    &lt;bean type="ognl.MethodAccessor" name="com.opensymphony.xwork2.util.CompoundRoot" class="com.opensymphony.xwork2.ognl.accessor.CompoundRootAccessor" /&gt;
+
+    &lt;bean class="org.apache.struts2.views.jsp.ui.OgnlTool" /&gt;
+
+    &lt;bean type="org.apache.struts2.dispatcher.StaticContentLoader" class="org.apache.struts2.dispatcher.DefaultStaticContentLoader" name="struts" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.UnknownHandlerManager" class="com.opensymphony.xwork2.DefaultUnknownHandlerManager" name="struts" /&gt;
+
+    &lt;!--  Silly workarounds for OGNL since there is currently no way to flush its internal caches --&gt;
+    &lt;bean type="ognl.PropertyAccessor" name="java.util.ArrayList" class="com.opensymphony.xwork2.ognl.accessor.XWorkListPropertyAccessor" /&gt;
+    &lt;bean type="ognl.PropertyAccessor" name="java.util.HashSet" class="com.opensymphony.xwork2.ognl.accessor.XWorkCollectionPropertyAccessor" /&gt;
+    &lt;bean type="ognl.PropertyAccessor" name="java.util.HashMap" class="com.opensymphony.xwork2.ognl.accessor.XWorkMapPropertyAccessor" /&gt;
+
+    &lt;package name="struts-default" abstract="true"&gt;
+        &lt;result-types&gt;
+            &lt;result-type name="chain" class="com.opensymphony.xwork2.ActionChainResult"/&gt;
+            &lt;result-type name="dispatcher" class="org.apache.struts2.dispatcher.ServletDispatcherResult" default="true"/&gt;
+            &lt;result-type name="freemarker" class="org.apache.struts2.views.freemarker.FreemarkerResult"/&gt;
+            &lt;result-type name="httpheader" class="org.apache.struts2.dispatcher.HttpHeaderResult"/&gt;
+            &lt;result-type name="redirect" class="org.apache.struts2.dispatcher.ServletRedirectResult"/&gt;
+            &lt;result-type name="redirectAction" class="org.apache.struts2.dispatcher.ServletActionRedirectResult"/&gt;
+            &lt;result-type name="stream" class="org.apache.struts2.dispatcher.StreamResult"/&gt;
+            &lt;result-type name="velocity" class="org.apache.struts2.dispatcher.VelocityResult"/&gt;
+            &lt;result-type name="xslt" class="org.apache.struts2.views.xslt.XSLTResult"/&gt;
+            &lt;result-type name="plainText" class="org.apache.struts2.dispatcher.PlainTextResult" /&gt;
+        &lt;/result-types&gt;
+
+        &lt;interceptors&gt;
+            &lt;interceptor name="alias" class="com.opensymphony.xwork2.interceptor.AliasInterceptor"/&gt;
+            &lt;interceptor name="autowiring" class="com.opensymphony.xwork2.spring.interceptor.ActionAutowiringInterceptor"/&gt;
+            &lt;interceptor name="chain" class="com.opensymphony.xwork2.interceptor.ChainingInterceptor"/&gt;
+            &lt;interceptor name="conversionError" class="org.apache.struts2.interceptor.StrutsConversionErrorInterceptor"/&gt;
+            &lt;interceptor name="cookie" class="org.apache.struts2.interceptor.CookieInterceptor"/&gt;
+            &lt;interceptor name="cookieProvider" class="org.apache.struts2.interceptor.CookieProviderInterceptor"/&gt;
+            &lt;interceptor name="clearSession" class="org.apache.struts2.interceptor.ClearSessionInterceptor" /&gt;
+            &lt;interceptor name="createSession" class="org.apache.struts2.interceptor.CreateSessionInterceptor" /&gt;
+            &lt;interceptor name="debugging" class="org.apache.struts2.interceptor.debugging.DebuggingInterceptor" /&gt;
+            &lt;interceptor name="execAndWait" class="org.apache.struts2.interceptor.ExecuteAndWaitInterceptor"/&gt;
+            &lt;interceptor name="exception" class="com.opensymphony.xwork2.interceptor.ExceptionMappingInterceptor"/&gt;
+            &lt;interceptor name="fileUpload" class="org.apache.struts2.interceptor.FileUploadInterceptor"/&gt;
+            &lt;interceptor name="i18n" class="com.opensymphony.xwork2.interceptor.I18nInterceptor"/&gt;
+            &lt;interceptor name="logger" class="com.opensymphony.xwork2.interceptor.LoggingInterceptor"/&gt;
+            &lt;interceptor name="modelDriven" class="com.opensymphony.xwork2.interceptor.ModelDrivenInterceptor"/&gt;
+            &lt;interceptor name="scopedModelDriven" class="com.opensymphony.xwork2.interceptor.ScopedModelDrivenInterceptor"/&gt;
+            &lt;interceptor name="params" class="com.opensymphony.xwork2.interceptor.ParametersInterceptor"/&gt;
+            &lt;interceptor name="actionMappingParams" class="org.apache.struts2.interceptor.ActionMappingParametersInteceptor"/&gt;
+            &lt;interceptor name="prepare" class="com.opensymphony.xwork2.interceptor.PrepareInterceptor"/&gt;
+            &lt;interceptor name="staticParams" class="com.opensymphony.xwork2.interceptor.StaticParametersInterceptor"/&gt;
+            &lt;interceptor name="scope" class="org.apache.struts2.interceptor.ScopeInterceptor"/&gt;
+            &lt;interceptor name="servletConfig" class="org.apache.struts2.interceptor.ServletConfigInterceptor"/&gt;
+            &lt;interceptor name="timer" class="com.opensymphony.xwork2.interceptor.TimerInterceptor"/&gt;
+            &lt;interceptor name="token" class="org.apache.struts2.interceptor.TokenInterceptor"/&gt;
+            &lt;interceptor name="tokenSession" class="org.apache.struts2.interceptor.TokenSessionStoreInterceptor"/&gt;
+            &lt;interceptor name="validation" class="org.apache.struts2.interceptor.validation.AnnotationValidationInterceptor"/&gt;
+            &lt;interceptor name="workflow" class="com.opensymphony.xwork2.interceptor.DefaultWorkflowInterceptor"/&gt;
+            &lt;interceptor name="store" class="org.apache.struts2.interceptor.MessageStoreInterceptor" /&gt;
+            &lt;interceptor name="checkbox" class="org.apache.struts2.interceptor.CheckboxInterceptor" /&gt;
+            &lt;interceptor name="profiling" class="org.apache.struts2.interceptor.ProfilingActivationInterceptor" /&gt;
+            &lt;interceptor name="roles" class="org.apache.struts2.interceptor.RolesInterceptor" /&gt;
+            &lt;interceptor name="annotationWorkflow" class="com.opensymphony.xwork2.interceptor.annotations.AnnotationWorkflowInterceptor" /&gt;
+            &lt;interceptor name="multiselect" class="org.apache.struts2.interceptor.MultiselectInterceptor" /&gt;
+
+            &lt;!-- Basic stack --&gt;
+            &lt;interceptor-stack name="basicStack"&gt;
+                &lt;interceptor-ref name="exception"/&gt;
+                &lt;interceptor-ref name="servletConfig"/&gt;
+                &lt;interceptor-ref name="prepare"/&gt;
+                &lt;interceptor-ref name="checkbox"/&gt;
+                &lt;interceptor-ref name="multiselect"/&gt;
+                &lt;interceptor-ref name="actionMappingParams"/&gt;
+                &lt;interceptor-ref name="params"&gt;
+                    &lt;param name="excludeParams"&gt;dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*&lt;/param&gt;
+                &lt;/interceptor-ref&gt;
+                &lt;interceptor-ref name="conversionError"/&gt;
+            &lt;/interceptor-stack&gt;
+
+            &lt;!-- Sample validation and workflow stack --&gt;
+            &lt;interceptor-stack name="validationWorkflowStack"&gt;
+                &lt;interceptor-ref name="basicStack"/&gt;
+                &lt;interceptor-ref name="validation"/&gt;
+                &lt;interceptor-ref name="workflow"/&gt;
+            &lt;/interceptor-stack&gt;
+
+            &lt;!-- Sample file upload stack --&gt;
+            &lt;interceptor-stack name="fileUploadStack"&gt;
+                &lt;interceptor-ref name="fileUpload"/&gt;
+                &lt;interceptor-ref name="basicStack"/&gt;
+            &lt;/interceptor-stack&gt;
+
+            &lt;!-- Sample model-driven stack  --&gt;
+            &lt;interceptor-stack name="modelDrivenStack"&gt;
+                &lt;interceptor-ref name="modelDriven"/&gt;
+                &lt;interceptor-ref name="basicStack"/&gt;
+            &lt;/interceptor-stack&gt;
+
+            &lt;!-- Sample action chaining stack --&gt;
+            &lt;interceptor-stack name="chainStack"&gt;
+                &lt;interceptor-ref name="chain"/&gt;
+                &lt;interceptor-ref name="basicStack"/&gt;
+            &lt;/interceptor-stack&gt;
+
+            &lt;!-- Sample i18n stack --&gt;
+            &lt;interceptor-stack name="i18nStack"&gt;
+                &lt;interceptor-ref name="i18n"/&gt;
+                &lt;interceptor-ref name="basicStack"/&gt;
+            &lt;/interceptor-stack&gt;
+
+            &lt;!-- An example of the paramsPrepareParams trick. This stack
+                 is exactly the same as the defaultStack, except that it
+                 includes one extra interceptor before the prepare interceptor:
+                 the params interceptor.
+
+                 This is useful for when you wish to apply parameters directly
+                 to an object that you wish to load externally (such as a DAO
+                 or database or service layer), but can't load that object
+                 until at least the ID parameter has been loaded. By loading
+                 the parameters twice, you can retrieve the object in the
+                 prepare() method, allowing the second params interceptor to
+                 apply the values on the object. --&gt;
+            &lt;interceptor-stack name="paramsPrepareParamsStack"&gt;
+                &lt;interceptor-ref name="exception"/&gt;
+                &lt;interceptor-ref name="alias"/&gt;
+                &lt;interceptor-ref name="i18n"/&gt;
+                &lt;interceptor-ref name="checkbox"/&gt;
+                &lt;interceptor-ref name="multiselect"/&gt;
+                &lt;interceptor-ref name="params"&gt;
+                    &lt;param name="excludeParams"&gt;dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*&lt;/param&gt;
+                &lt;/interceptor-ref&gt;
+                &lt;interceptor-ref name="servletConfig"/&gt;
+                &lt;interceptor-ref name="prepare"/&gt;
+                &lt;interceptor-ref name="chain"/&gt;
+                &lt;interceptor-ref name="modelDriven"/&gt;
+                &lt;interceptor-ref name="fileUpload"/&gt;
+                &lt;interceptor-ref name="staticParams"/&gt;
+                &lt;interceptor-ref name="actionMappingParams"/&gt;
+                &lt;interceptor-ref name="params"&gt;
+                    &lt;param name="excludeParams"&gt;dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*&lt;/param&gt;
+                &lt;/interceptor-ref&gt;
+                &lt;interceptor-ref name="conversionError"/&gt;
+                &lt;interceptor-ref name="validation"&gt;
+                    &lt;param name="excludeMethods"&gt;input,back,cancel,browse&lt;/param&gt;
+                &lt;/interceptor-ref&gt;
+                &lt;interceptor-ref name="workflow"&gt;
+                    &lt;param name="excludeMethods"&gt;input,back,cancel,browse&lt;/param&gt;
+                &lt;/interceptor-ref&gt;
+            &lt;/interceptor-stack&gt;
+
+            &lt;!-- A complete stack with all the common interceptors in place.
+                 Generally, this stack should be the one you use, though it
+                 may do more than you need. Also, the ordering can be
+                 switched around (ex: if you wish to have your servlet-related
+                 objects applied before prepare() is called, you'd need to move
+                 servletConfig interceptor up.
+
+                 This stack also excludes from the normal validation and workflow
+                 the method names input, back, and cancel. These typically are
+                 associated with requests that should not be validated.
+                 --&gt;
+            &lt;interceptor-stack name="defaultStack"&gt;
+                &lt;interceptor-ref name="exception"/&gt;
+                &lt;interceptor-ref name="alias"/&gt;
+                &lt;interceptor-ref name="servletConfig"/&gt;
+                &lt;interceptor-ref name="i18n"/&gt;
+                &lt;interceptor-ref name="prepare"/&gt;
+                &lt;interceptor-ref name="chain"/&gt;
+                &lt;interceptor-ref name="scopedModelDriven"/&gt;
+                &lt;interceptor-ref name="modelDriven"/&gt;
+                &lt;interceptor-ref name="fileUpload"/&gt;
+                &lt;interceptor-ref name="checkbox"/&gt;
+                &lt;interceptor-ref name="multiselect"/&gt;
+                &lt;interceptor-ref name="staticParams"/&gt;
+                &lt;interceptor-ref name="actionMappingParams"/&gt;
+                &lt;interceptor-ref name="params"&gt;
+                    &lt;param name="excludeParams"&gt;dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*&lt;/param&gt;
+                &lt;/interceptor-ref&gt;
+                &lt;interceptor-ref name="conversionError"/&gt;
+                &lt;interceptor-ref name="validation"&gt;
+                    &lt;param name="excludeMethods"&gt;input,back,cancel,browse&lt;/param&gt;
+                &lt;/interceptor-ref&gt;
+                &lt;interceptor-ref name="workflow"&gt;
+                    &lt;param name="excludeMethods"&gt;input,back,cancel,browse&lt;/param&gt;
+                &lt;/interceptor-ref&gt;
+                &lt;interceptor-ref name="debugging"/&gt;
+            &lt;/interceptor-stack&gt;
+
+            &lt;!-- The completeStack is here for backwards compatibility for
+                 applications that still refer to the defaultStack by the
+                 old name --&gt;
+            &lt;interceptor-stack name="completeStack"&gt;
+                &lt;interceptor-ref name="defaultStack"/&gt;
+            &lt;/interceptor-stack&gt;
+
+            &lt;!-- Sample execute and wait stack.
+                 Note: execAndWait should always be the *last* interceptor. --&gt;
+            &lt;interceptor-stack name="executeAndWaitStack"&gt;
+                &lt;interceptor-ref name="execAndWait"&gt;
+                    &lt;param name="excludeMethods"&gt;input,back,cancel&lt;/param&gt;
+                &lt;/interceptor-ref&gt;
+                &lt;interceptor-ref name="defaultStack"/&gt;
+                &lt;interceptor-ref name="execAndWait"&gt;
+                    &lt;param name="excludeMethods"&gt;input,back,cancel&lt;/param&gt;
+                &lt;/interceptor-ref&gt;
+            &lt;/interceptor-stack&gt;
+
+       &lt;/interceptors&gt;
+
+        &lt;default-interceptor-ref name="defaultStack"/&gt;
+
+        &lt;default-class-ref class="com.opensymphony.xwork2.ActionSupport" /&gt;
+    &lt;/package&gt;
+
+&lt;/struts&gt;
+]]></script>
+</div></div>
+
+<p>Since the <tt>struts-default.xml</tt> is included in the application's configuration by default, all of the predefined interceptors and stacks are available "out of the box".</p>
+
+<h2><a shape="rect" name="Interceptors-FrameworkInterceptors"></a>Framework Interceptors</h2>
+
+<p>Interceptor classes are also defined using a key-value pair specified in the Struts  configuration file.  The names specified below come specified in <a shape="rect" href="struts-defaultxml.html" title="struts-default.xml">struts-default.xml</a>. If you extend the <tt>struts-default</tt> package, then you can use the names below. Otherwise, they must be defined in your package with a name-class pair specified in the &lt;interceptors&gt; tag.</p>
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><th colspan="1" rowspan="1" class="confluenceTh"> Interceptor </th><th colspan="1" rowspan="1" class="confluenceTh"> Name </th><th colspan="1" rowspan="1" class="confluenceTh"> Description </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="alias-interceptor.html" title="Alias Interceptor">Alias Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> alias </td><td colspan="1" rowspan="1" class="confluenceTd"> Converts similar parameters that may be named differently between requests. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="chaining-interceptor.html" title="Chaining Interceptor">Chaining Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> chain </td><td colspan="1" rowspan="1" class="confluenceTd"> Makes the previous Action's properties available to the current Action. Commonly used together with &lt;result type="chain"&gt; (in the previous Action). </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="checkbox-interceptor.html" title="Checkbox Interceptor">Checkbox Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> checkbox </td><td colspan="1" rowspan="1" class="confluenceTd"> Adds automatic checkbox handling code that detect an unchecked checkbox and add it as a parameter with a default (usually 'false') value.  Uses a specially named hidden field to detect unsubmitted checkboxes.  The default unchecked value is overridable for non-boolean value'd checkboxes. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="cookie-interceptor.html" title="Cookie Interceptor">Cookie Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> cookie </td><td colspan="1" rowspan="1" class="confluenceTd"> Inject cookie with a certain configurable name / value into action. (Since 2.0.7.) </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="cookieprovider-interceptor.html" title="CookieProvider Interceptor">CookieProvider Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> cookieProvider </td><td colspan="1" rowspan="1" class="confluenceTd"> Transfer cookies from action to response (Since 2.3.15.) </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="conversion-error-interceptor.html" title="Conversion Error Interceptor">Conversion Error Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> conversionError </td><td colspan="1" rowspan="1" class="confluenceTd"> Adds conversion errors from the ActionContext to the Action's field errors </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="create-session-interceptor.html" title="Create Session Interceptor">Create Session Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> createSession </td><td colspan="1" rowspan="1" class="confluenceTd"> Create an HttpSession automatically, useful with certain Interceptors that require a HttpSession to work properly (like the TokenInterceptor) </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="debugginginterceptor.html" title="DebuggingInterceptor">DebuggingInterceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> debugging </td><td colspan="1" rowspan="1" class="confluenceTd"> Provides several different debugging screens to provide insight into the data behind the page. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="execute-and-wait-interceptor.html" title="Execute and Wait Interceptor">Execute and Wait Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> execAndWait </td><td colspan="1" rowspan="1" class="confluenceTd"> Executes the Action in the background and then sends the user off to an intermediate waiting page. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="exception-interceptor.html" title="Exception Interceptor">Exception Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> exception </td><td colspan="1" rowspan="1" class="confluenceTd"> Maps exceptions to a result. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="file-upload-interceptor.html" title="File Upload Interceptor">File Upload Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> fileUpload </td><td colspan="1" rowspan="1" class="confluenceTd"> An Interceptor that adds easy access to file upload support. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="i18n-interceptor.html" title="I18n Interceptor">I18n Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> i18n </td><td colspan="1" rowspan="1" class="confluenceTd"> Remembers the locale selected for a user's session. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="logger-interceptor.html" title="Logger Interceptor">Logger Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> logger </td><td colspan="1" rowspan="1" class="confluenceTd"> Outputs the name of the Action. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="message-store-interceptor.html" title="Message Store Interceptor">Message Store Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> store </td><td colspan="1" rowspan="1" class="confluenceTd"> Store and retrieve action messages / errors / field errors for action that implements ValidationAware interface into session. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="model-driven-interceptor.html" title="Model Driven Interceptor">Model Driven Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> modelDriven </td><td colspan="1" rowspan="1" class="confluenceTd"> If the Action implements ModelDriven, pushes the <tt>getModel</tt> Result onto the Value Stack. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="scoped-model-driven-interceptor.html" title="Scoped Model Driven Interceptor">Scoped Model Driven Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> scopedModelDriven </td><td colspan="1" rowspan="1" class="confluenceTd"> If the Action implements ScopedModelDriven, the interceptor retrieves and stores the model from a scope and sets it on the action calling <tt>setModel</tt>. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="parameters-interceptor.html" title="Parameters Interceptor">Parameters Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> params </td><td colspan="1" rowspan="1" class="confluenceTd"> Sets the request parameters onto the Action. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="prepare-interceptor.html" title="Prepare Interceptor">Prepare Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> prepare </td><td colspan="1" rowspan="1" class="confluenceTd"> If the Action implements Preparable, calls its <tt>prepare</tt> method. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="scope-interceptor.html" title="Scope Interceptor">Scope Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> scope </td><td colspan="1" rowspan="1" class="confluenceTd"> Simple mechanism for storing Action state in the session or application scope. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="servlet-config-interceptor.html" title="Servlet Config Interceptor">Servlet Config Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> servletConfig </td><td colspan="1" rowspan="1" class="confluenceTd"> Provide access to Maps representing HttpServletRequest and HttpServletResponse. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="static-parameters-interceptor.html" title="Static Parameters Interceptor">Static Parameters Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> staticParams </td><td colspan="1" rowspan="1" class="confluenceTd"> Sets the <tt>struts.xml</tt> defined parameters onto the action. These are the &lt;param&gt; tags that are direct children of the &lt;action&gt; tag. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="roles-interceptor.html" title="Roles Interceptor">Roles Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> roles </td><td colspan="1" rowspan="1" class="confluenceTd"> Action will only be executed if the user has the correct JAAS role. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="timer-interceptor.html" title="Timer Interceptor">Timer Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> timer </td><td colspan="1" rowspan="1" class="confluenceTd"> Outputs how long the Action takes to execute (including nested Interceptors and View) </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="token-interceptor.html" title="Token Interceptor">Token Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> token </td><td colspan="1" rowspan="1" class="confluenceTd"> Checks for valid token presence in Action, prevents duplicate form submission. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="token-session-interceptor.html" title="Token Session Interceptor">Token Session Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> tokenSession </td><td colspan="1" rowspan="1" class="confluenceTd"> Same as Token Interceptor, but stores the submitted data in session when handed an invalid token </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="validation-interceptor.html" title="Validation Interceptor">Validation Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> validation </td><td colspan="1" rowspan="1" class="confluenceTd"> Performs validation using the validators defined in <em>action</em>-validation.xml </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="default-workflow-interceptor.html" title="Default Workflow Interceptor">Default Workflow Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> workflow </td><td colspan="1" rowspan="1" class="confluenceTd"> Calls the <tt>validate</tt> method in your Action class. If Action errors are created then it returns the <tt>INPUT</tt> view. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="parameter-filter-interceptor.html" title="Parameter Filter Interceptor">Parameter Filter Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> N/A </td><td colspan="1" rowspan="1" class="confluenceTd"> Removes parameters from the list of those available to Actions </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="profiling-interceptor.html" title="Profiling Interceptor">Profiling Interceptor</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> profiling </td><td colspan="1" rowspan="1" class="confluenceTd"> Activate profiling through parameter </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="multiselect-interceptor.html" title="Multiselect Interceptor">Multiselect Interceptor</a></td><td colspan="1" rowspan="1" class="confluenceTd"> multiselect </td><td colspan="1" rowspan="1" class="confluenceTd"> Like the checkbox interceptor detects that no value was selected for a field with multiple values (like a select) and adds an empty parameter  </td></tr></tbody></table>
+</div>
+
+
+<div class="panelMacro"><table class="warningMacro"><colgroup span="1"><col span="1" width="24"><col span="1"></colgroup><tr><td colspan="1" rowspan="1" valign="top"><img align="middle" src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" alt="" border="0"></td><td colspan="1" rowspan="1">Since 2.0.7, Interceptors and Results with hyphenated names were converted to camelCase. (The former model-driven is now modelDriven.) The original hyphenated names are retained as "aliases" until Struts 2.1.0. For clarity, the hyphenated versions are not listed here, but might be referenced in prior versions of the documentation.</td></tr></table></div>
+
+<h3><a shape="rect" name="Interceptors-MethodFiltering"></a>Method Filtering</h3>
+
+
+<p>MethodFilterInterceptor is an abstract <code>Interceptor</code> used as
+a base class for interceptors that will filter execution based on method 
+names according to specified included/excluded method lists.</p>
+
+<p></p><p></p>
+
+<p>Settable parameters are as follows:</p>
+
+<p></p><ul><li>excludeMethods - method names to be excluded from interceptor processing</li><li>includeMethods - method names to be included in interceptor processing</li></ul>
+
+<p></p><p></p>
+
+<p><b>NOTE:</b> If method name are available in both includeMethods and 
+excludeMethods, it will be considered as an included method: 
+includeMethods takes precedence over excludeMethods.</p>
+
+<p></p><p></p>
+
+<p>Interceptors that extends this capability include:</p>
+
+<p></p><ul><li>TokenInterceptor</li><li>TokenSessionStoreInterceptor</li><li>DefaultWorkflowInterceptor</li><li>ValidationInterceptor</li></ul>
+
+
+<h3><a shape="rect" name="Interceptors-InterceptorParameterOverriding"></a>Interceptor Parameter Overriding</h3>
+<p>Interceptor's parameter could be overridden through the following ways :</p>
+
+<p><b>Method 1</b>: </p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;action name="myAction" class="myActionClass"&gt;
+    &lt;interceptor-ref name="exception"/&gt;
+    &lt;interceptor-ref name="alias"/&gt;
+    &lt;interceptor-ref name="params"/&gt;
+    &lt;interceptor-ref name="servletConfig"/&gt;
+    &lt;interceptor-ref name="prepare"/&gt;
+    &lt;interceptor-ref name="i18n"/&gt;
+    &lt;interceptor-ref name="chain"/&gt;
+    &lt;interceptor-ref name="modelDriven"/&gt;
+    &lt;interceptor-ref name="fileUpload"/&gt;
+    &lt;interceptor-ref name="staticParams"/&gt;
+    &lt;interceptor-ref name="params"/&gt;
+    &lt;interceptor-ref name="conversionError"/&gt;
+    &lt;interceptor-ref name="validation"&gt;
+        &lt;param name="excludeMethods"&gt;myValidationExcudeMethod&lt;/param&gt;
+    &lt;/interceptor-ref&gt;
+    &lt;interceptor-ref name="workflow"&gt;
+        &lt;param name="excludeMethods"&gt;myWorkflowExcludeMethod&lt;/param&gt;
+    &lt;/interceptor-ref&gt;
+&lt;/action&gt;
+]]></script>
+</div></div>
+
+<p><b>Method 2</b>:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;action name="myAction" class="myActionClass"&gt;
+    &lt;interceptor-ref name="defaultStack"&gt;
+        &lt;param name="validation.excludeMethods"&gt;myValidationExcludeMethod&lt;/param&gt;
+        &lt;param name="workflow.excludeMethods"&gt;myWorkflowExcludeMethod&lt;/param&gt;
+    &lt;/interceptor-ref&gt;
+&lt;/action&gt;
+]]></script>
+</div></div>
+
+<p>In the first method, the whole default stack is copied and the parameter then changed accordingly.</p>
+
+<p>In the second method, the <tt>interceptor-ref</tt> refers to an existing interceptor-stack, namely <tt>defaultStack</tt> in this example, and override the <tt>validator</tt> and <tt>workflow</tt> interceptor <tt>excludeMethods</tt> attribute. Note that in the <tt>param</tt> tag, the name attribute contains a dot (.) the word before the dot(.) specifies the interceptor name whose parameter is to be overridden and the word after the dot (.) specifies the parameter itself. The syntax is as follows:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: java; gutter: false" type="syntaxhighlighter"><![CDATA[
+   &lt;interceptor-name&gt;.&lt;parameter-name&gt;
+]]></script>
+</div></div>
+<p>Note also that in this case the <tt>interceptor-ref</tt> name attribute is used to indicate an interceptor stack which makes sense as if it is referring to the interceptor itself it would be just using Method 1 describe above. </p>
+
+<p><b>Method 3</b>:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;interceptors&gt;
+    &lt;interceptor-stack name="parentStack"&gt;
+        &lt;interceptor-ref name="defaultStack"&gt;
+            &lt;param name="params.excludeParams"&gt;token&lt;/param&gt;
+        &lt;/interceptor-ref&gt;
+    &lt;/interceptor-stack&gt;
+&lt;/interceptors&gt;
+
+&lt;default-interceptor-ref name="parentStack"/&gt;
+]]></script>
+</div></div>
+
+<h3><a shape="rect" name="Interceptors-InterceptorParameterOverridingInheritance"></a>Interceptor Parameter Overriding Inheritance</h3>
+
+<p>Parameters override are not inherited in interceptors, meaning that the last set of overridden parameters will be used. For example, if a stack overrides the parameter "defaultBlock" for the "postPrepareParameterFilter" interceptor as:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;interceptor-stack name="parentStack"&gt;
+  &lt;interceptor-ref name="postPrepareParameterFilter"&gt;
+    &lt;param name="defaultBlock"&gt;true&lt;/param&gt;
+  &lt;/interceptor-ref&gt;
+&lt;/interceptor-stack&gt; 
+]]></script>
+</div></div> 
+<p>and an action overrides the "allowed" for "postPrepareParameterFilter":</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;package name="child2" namespace="/child" extends="parentPackage"&gt;
+  &lt;action name="list" class="SomeAction"&gt;
+    &lt;interceptor-ref name="parentStack"&gt;
+      &lt;param name="postPrepareParameterFilter.allowed"&gt;myObject.name&lt;/param&gt;
+    &lt;/interceptor-ref&gt;
+  &lt;/action&gt;
+&lt;/package&gt; 
+]]></script>
+</div></div>
+
+<p>Then, only "allowed" will be overridden for the "postPrepareParameterFilter" interceptor in that action, the other params will be null.</p>
+
+<h3><a shape="rect" name="Interceptors-OrderofInterceptorExecution"></a>Order of Interceptor Execution</h3>
+
+<p>Interceptors provide an excellent means to wrap before/after processing. The concept reduces code duplication (think AOP).</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;interceptor-stack name="xaStack"&gt;
+  &lt;interceptor-ref name="thisWillRunFirstInterceptor"/&gt;
+  &lt;interceptor-ref name="thisWillRunNextInterceptor"/&gt;
+  &lt;interceptor-ref name="followedByThisInterceptor"/&gt;
+  &lt;interceptor-ref name="thisWillRunLastInterceptor"/&gt;
+&lt;/interceptor-stack&gt;
+]]></script>
+</div></div>
+<p><img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" height="16" width="16" alt="" border="0"> Note that some Interceptors will interrupt the stack/chain/flow ... so the order is very important.</p>
+
+<p>Interceptors implementing <tt>com.opensymphony.xwork2.interceptor.PreResultListener</tt> will run after the Action executes but before the Result executes.</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: java; gutter: false" type="syntaxhighlighter"><![CDATA[
+thisWillRunFirstInterceptor
+  thisWillRunNextInterceptor
+    followedByThisInterceptor
+      thisWillRunLastInterceptor
+        MyAction1
+        MyAction2 (chain)
+        MyPreResultListener
+        MyResult (result)
+      thisWillRunLastInterceptor
+    followedByThisInterceptor
+  thisWillRunNextInterceptor
+thisWillRunFirstInterceptor
+]]></script>
+</div></div>
+
+<h2><a shape="rect" name="Interceptors-FAQ"></a>FAQ </h2>
+
+<ul><li><a shape="rect" href="how-do-we-configure-an-interceptor-to-be-used-with-every-action.html" title="How do we configure an Interceptor to be used with every Action">How do we configure an Interceptor to be used with every Action</a>?</li><li><a shape="rect" href="how-do-we-get-access-to-the-session.html" title="How do we get access to the session">How do we get access to the session</a>?</li><li><a shape="rect" href="how-can-we-access-the-httpservletrequest.html" title="How can we access the HttpServletRequest">How can we access the HttpServletRequest</a>?</li><li><a shape="rect" href="how-can-we-access-the-httpservletresponse.html" title="How can we access the HttpServletResponse">How can we access the HttpServletResponse</a>?</li><li><a shape="rect" href="how-can-we-access-request-parameters-passed-into-an-action.html" title="How can we access request parameters passed into an Action">How can we access request parameters passed into an Action</a>?</li><li><a shape="rect" href="how-do-we-access-static-parameters-from-an-action.html" title="How do we access static parameters from an Action">How do we access static parameters from an Action</a>?</li><li><a shape="rect" href="can-we-access-an-actions-result.html" title="Can we access an Action's Result">Can we access an Action's Result</a>?</li><li><a shape="rect" href="how-do-i-obtain-security-details-jaas.html" title="How do I obtain security details (JAAS)">How do I obtain security details (JAAS)</a>?</li><li><a shape="rect" href="why-isnt-our-prepare-interceptor-being-executed.html" title="Why isn't our Prepare interceptor being executed">Why isn't our Prepare interceptor being executed</a>?</li><li><a shape="rect" href="how-do-we-upload-files.html" title="How do we upload files">How do we upload files</a>?</li></ul>
+
+
+<h2><a shape="rect" name="Interceptors-Next%3AWritingInterceptors"></a>Next: <a shape="rect" href="writing-interceptors.html" title="Writing Interceptors">Writing Interceptors</a></h2></div>
+        </div>
+
+                    <div class="tabletitle">
+                Children
+            <span class="smalltext" id="show" style="display: inline;">
+              <a href="javascript:showChildren()">Show Children</a></span>
+            <span class="smalltext" id="hide" style="display: none;">
+              <a href="javascript:hideChildren()">Hide Children</a></span>
+            </div>
+            <div class="greybox" id="children" style="display: none;">
+                                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                            </div>
+        
+    </div>
+</div>
+<div class="footer">
+    Generated by CXF SiteExporter
+</div>
+</body>
+</html>

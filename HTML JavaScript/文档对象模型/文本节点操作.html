@@ -1,0 +1,60 @@
+//源程序5.16 
+<!DOCTYPE HTML PUBLIC  "-//W3C//DTD HTML 4.0//EN" 
+"http://www.w3.org/TR/REC-html140/strict.dtd"> 
+<html> 
+<head> 
+<meta http-equiv=content-type content="text/html; charset=gb2312"> 
+<title> First Page!</title> 
+</head> 
+<body> 
+<p id="p1">Congratulations</p> 
+<script language="JavaScript" type="text/javascript"> 
+<!-- 
+function nodeStatus(node) 
+{ 
+  var temp=""; 
+  if(node.length!=0) 
+  { 
+    temp+="nodeLength: "+node.length+"\n"; 
+  } 
+  else temp+="nodeLength: 0\n\n"; 
+   if(node.data!="") 
+  { 
+    temp+="nodeData: "+node.data+"\n\n"; 
+  } 
+  else temp+="nodeData: null\n\n"; 
+  return temp; 
+} 
+//返回id属性值为p1的元素节点 
+var parentElement=document.getElementById('p1'); 
+//返回p1的第一个孩子，即文本节点“Congratulations”，并输出其信息 
+var targetElement=parentElement.firstChild; 
+var msg="●原始文本节点内容:\n"+nodeStatus(targetElement); 
+//使用targetElement 的 data 属性直接修改其内容 
+targetElement.data="Welcome you"; 
+msg+="●使用targetElement.data=''Welcome you'':\n"+nodeStatus(targetElement); 
+//使用appendData( )方法在文本节点内容后面添加字符串 
+targetElement.appendData(' to NUDT!'); 
+msg+="●使用targetElement.appendData(' to NUDT!'):\n"+nodeStatus(targetElement); 
+//使用insertData( )方法在文本节点内容某个位置添加字符串 
+targetElement.insertData(0,'YSQ '); 
+msg+="●使用targetElement.insertData(0,'YSQ '):\n"+nodeStatus(targetElement); 
+//使用deleteData( )方法在文本节点内容中指定位置删除指定长度的字符串 
+targetElement.deleteData(0,4); 
+msg+="●使用targetElement.deleteData(0,4):\n"+nodeStatus(targetElement); 
+//使用replaceData( )方法用指定字符串替换文本节点内容指定位置和长度的字符串 
+targetElement.replaceData(0,7,'JHX Let'); 
+msg+="●使用targetElement.replaceData(0,7,'JHX Let'):\n"+nodeStatus(targetElement); 
+//使用splitText( )方法将文本节点内容从指定位置分为两部分，左边为原始节点，右边赋值给新节点 
+var tempNode=targetElement.splitText(8); 
+msg+="●使用targetElement.splitText(8):\n"; 
+msg+="原始文本节点: \n"+nodeStatus(targetElement); 
+msg+="新的文本节点: \n"+nodeStatus(tempNode); 
+//使用substringData( )方法返回文本节点内容中指定位置和长度的字符串 
+msg+="●使用targetElement.substringData(0,3):\n"+targetElement.substringData(0,3); 
+//输出文本节点属性变化过程 
+alert(msg); 
+//--> 
+</script> 
+</body> 
+</html> 

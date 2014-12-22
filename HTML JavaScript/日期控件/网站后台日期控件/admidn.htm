@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<title>平台管理中心</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link href="admin_files/admin.css" type="text/css" rel="stylesheet">
+<link href="admin_files/style_calendar.css" rel="stylesheet" type="text/css"></head>
+
+<body class="mbody"><div style="position: absolute; z-index: 19700; top: -1970px; left: -1970px; display: none;"><iframe style="width: 186px; height: 199px;" src="admin_files/My97DatePicker.htm" border="0" frameborder="0" scrolling="no"></iframe></div>
+<div id="msg"></div>
+<script type="text/javascript" src="admin_files/searcher.js"></script>
+
+<script type="text/JavaScript">
+var IMGDIR = 'http://www.sun309.com/images/default//calendar';
+var VERHASH = 'Hwa';
+</script>
+
+<script src="admin_files/common.js" language="javascript" type="text/javascript"></script>
+<div id="append_parent"><div><div id="calendar" style="display:none; position:absolute; z-index:100000;" onclick="doane(event)"><div style="width: 210px;"><table style="text-align: center;" cellpadding="0" cellspacing="0" width="100%"><tbody><tr id="calendar_week" align="center"><td><a href="###" onclick="refreshcalendar(yy, mm-1)" title="上一月">《</a></td><td colspan="5" style="text-align: center;"><a href="###" onclick="showdiv('year');doane(event)" class="dropmenu" title="点击选择年份" id="year"></a>&nbsp; - &nbsp;<a id="month" class="dropmenu" title="点击选择月份" href="###" onclick="showdiv('month');doane(event)"></a></td><td><a href="###" onclick="refreshcalendar(yy, mm+1)" title="下一月">》</a></td></tr><tr id="calendar_header"><td>日</td><td>一</td><td>二</td><td>三</td><td>四</td><td>五</td><td>六</td></tr><tr><td id="d1" height="19">0</td><td id="d2" height="19">0</td><td id="d3" height="19">0</td><td id="d4" height="19">0</td><td id="d5" height="19">0</td><td id="d6" height="19">0</td><td id="d7" height="19">0</td></tr><tr><td id="d8" height="19">0</td><td id="d9" height="19">0</td><td id="d10" height="19">0</td><td id="d11" height="19">0</td><td id="d12" height="19">0</td><td id="d13" height="19">0</td><td id="d14" height="19">0</td></tr><tr><td id="d15" height="19">0</td><td id="d16" height="19">0</td><td id="d17" height="19">0</td><td id="d18" height="19">0</td><td id="d19" height="19">0</td><td id="d20" height="19">0</td><td id="d21" height="19">0</td></tr><tr><td id="d22" height="19">0</td><td id="d23" height="19">0</td><td id="d24" height="19">0</td><td id="d25" height="19">0</td><td id="d26" height="19">0</td><td id="d27" height="19">0</td><td id="d28" height="19">0</td></tr><tr><td id="d29" height="19">0</td><td id="d30" height="19">0</td><td id="d31" height="19">0</td><td id="d32" height="19">0</td><td id="d33" height="19">0</td><td id="d34" height="19">0</td><td id="d35" height="19">0</td></tr><tr><td id="d36" height="19">0</td><td id="d37" height="19">0</td><td id="d38" height="19">0</td><td id="d39" height="19">0</td><td id="d40" height="19">0</td><td id="d41" height="19">0</td><td id="d42" height="19">0</td></tr><tr id="hourminute"><td colspan="7" align="center"><input size="2" id="hour" class="txt" onkeyup='this.value=this.value > 23 ? 23 : zerofill(this.value);controlid.value=controlid.value.replace(/\d+(:\d+)/ig, this.value+"$1")' type="text"> 点 <input size="2" id="minute" class="txt" onkeyup='this.value=this.value > 59 ? 59 : zerofill(this.value);controlid.value=controlid.value.replace(/(\d+:)\d+/ig, "$1"+this.value)' type="text"> 分</td></tr></tbody></table></div></div><div id="calendar_year" onclick="doane(event)" style="display: none;z-index:100001;"><div class="col"><a href="###" onclick="refreshcalendar(2020, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_2020">2020</span></a><br><a href="###" onclick="refreshcalendar(2019, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_2019">2019</span></a><br><a href="###" onclick="refreshcalendar(2018, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_2018">2018</span></a><br><a href="###" onclick="refreshcalendar(2017, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_2017">2017</span></a><br><a href="###" onclick="refreshcalendar(2016, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_2016">2016</span></a><br><a href="###" onclick="refreshcalendar(2015, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_2015">2015</span></a><br><a href="###" onclick="refreshcalendar(2014, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_2014">2014</span></a><br><a href="###" onclick="refreshcalendar(2013, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_2013">2013</span></a><br><a href="###" onclick="refreshcalendar(2012, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_2012">2012</span></a><br><a href="###" onclick="refreshcalendar(2011, mm);sun$('calendar_year').style.display='none'"><span class="calendar_today" id="calendar_year_2011">2011</span></a><br></div><div class="col"><a href="###" onclick="refreshcalendar(2010, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_2010">2010</span></a><br><a href="###" onclick="refreshcalendar(2009, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_2009">2009</span></a><br><a href="###" onclick="refreshcalendar(2008, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_2008">2008</span></a><br><a href="###" onclick="refreshcalendar(2007, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_2007">2007</span></a><br><a href="###" onclick="refreshcalendar(2006, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_2006">2006</span></a><br><a href="###" onclick="refreshcalendar(2005, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_2005">2005</span></a><br><a href="###" onclick="refreshcalendar(2004, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_2004">2004</span></a><br><a href="###" onclick="refreshcalendar(2003, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_2003">2003</span></a><br><a href="###" onclick="refreshcalendar(2002, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_2002">2002</span></a><br><a href="###" onclick="refreshcalendar(2001, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_2001">2001</span></a><br></div><div class="col"><a href="###" onclick="refreshcalendar(2000, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_2000">2000</span></a><br><a href="###" onclick="refreshcalendar(1999, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1999">1999</span></a><br><a href="###" onclick="refreshcalendar(1998, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1998">1998</span></a><br><a href="###" onclick="refreshcalendar(1997, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1997">1997</span></a><br><a href="###" onclick="refreshcalendar(1996, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1996">1996</span></a><br><a href="###" onclick="refreshcalendar(1995, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1995">1995</span></a><br><a href="###" onclick="refreshcalendar(1994, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1994">1994</span></a><br><a href="###" onclick="refreshcalendar(1993, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1993">1993</span></a><br><a href="###" onclick="refreshcalendar(1992, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1992">1992</span></a><br><a href="###" onclick="refreshcalendar(1991, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1991">1991</span></a><br></div><div class="col"><a href="###" onclick="refreshcalendar(1990, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1990">1990</span></a><br><a href="###" onclick="refreshcalendar(1989, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1989">1989</span></a><br><a href="###" onclick="refreshcalendar(1988, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1988">1988</span></a><br><a href="###" onclick="refreshcalendar(1987, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1987">1987</span></a><br><a href="###" onclick="refreshcalendar(1986, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1986">1986</span></a><br><a href="###" onclick="refreshcalendar(1985, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1985">1985</span></a><br><a href="###" onclick="refreshcalendar(1984, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1984">1984</span></a><br><a href="###" onclick="refreshcalendar(1983, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1983">1983</span></a><br><a href="###" onclick="refreshcalendar(1982, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1982">1982</span></a><br><a href="###" onclick="refreshcalendar(1981, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1981">1981</span></a><br></div><div class="col"><a href="###" onclick="refreshcalendar(1980, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1980">1980</span></a><br><a href="###" onclick="refreshcalendar(1979, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1979">1979</span></a><br><a href="###" onclick="refreshcalendar(1978, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1978">1978</span></a><br><a href="###" onclick="refreshcalendar(1977, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1977">1977</span></a><br><a href="###" onclick="refreshcalendar(1976, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1976">1976</span></a><br><a href="###" onclick="refreshcalendar(1975, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1975">1975</span></a><br><a href="###" onclick="refreshcalendar(1974, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1974">1974</span></a><br><a href="###" onclick="refreshcalendar(1973, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1973">1973</span></a><br><a href="###" onclick="refreshcalendar(1972, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1972">1972</span></a><br><a href="###" onclick="refreshcalendar(1971, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1971">1971</span></a><br></div><div class="col"><a href="###" onclick="refreshcalendar(1970, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1970">1970</span></a><br><a href="###" onclick="refreshcalendar(1969, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1969">1969</span></a><br><a href="###" onclick="refreshcalendar(1968, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1968">1968</span></a><br><a href="###" onclick="refreshcalendar(1967, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1967">1967</span></a><br><a href="###" onclick="refreshcalendar(1966, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1966">1966</span></a><br><a href="###" onclick="refreshcalendar(1965, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1965">1965</span></a><br><a href="###" onclick="refreshcalendar(1964, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1964">1964</span></a><br><a href="###" onclick="refreshcalendar(1963, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1963">1963</span></a><br><a href="###" onclick="refreshcalendar(1962, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1962">1962</span></a><br><a href="###" onclick="refreshcalendar(1961, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1961">1961</span></a><br></div><div class="col"><a href="###" onclick="refreshcalendar(1960, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1960">1960</span></a><br><a href="###" onclick="refreshcalendar(1959, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1959">1959</span></a><br><a href="###" onclick="refreshcalendar(1958, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1958">1958</span></a><br><a href="###" onclick="refreshcalendar(1957, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1957">1957</span></a><br><a href="###" onclick="refreshcalendar(1956, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1956">1956</span></a><br><a href="###" onclick="refreshcalendar(1955, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1955">1955</span></a><br><a href="###" onclick="refreshcalendar(1954, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1954">1954</span></a><br><a href="###" onclick="refreshcalendar(1953, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1953">1953</span></a><br><a href="###" onclick="refreshcalendar(1952, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1952">1952</span></a><br><a href="###" onclick="refreshcalendar(1951, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1951">1951</span></a><br></div><div class="col"><a href="###" onclick="refreshcalendar(1950, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1950">1950</span></a><br><a href="###" onclick="refreshcalendar(1949, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1949">1949</span></a><br><a href="###" onclick="refreshcalendar(1948, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1948">1948</span></a><br><a href="###" onclick="refreshcalendar(1947, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1947">1947</span></a><br><a href="###" onclick="refreshcalendar(1946, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1946">1946</span></a><br><a href="###" onclick="refreshcalendar(1945, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1945">1945</span></a><br><a href="###" onclick="refreshcalendar(1944, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1944">1944</span></a><br><a href="###" onclick="refreshcalendar(1943, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1943">1943</span></a><br><a href="###" onclick="refreshcalendar(1942, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1942">1942</span></a><br><a href="###" onclick="refreshcalendar(1941, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1941">1941</span></a><br></div><div class="col"><a href="###" onclick="refreshcalendar(1940, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1940">1940</span></a><br><a href="###" onclick="refreshcalendar(1939, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1939">1939</span></a><br><a href="###" onclick="refreshcalendar(1938, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1938">1938</span></a><br><a href="###" onclick="refreshcalendar(1937, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1937">1937</span></a><br><a href="###" onclick="refreshcalendar(1936, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1936">1936</span></a><br><a href="###" onclick="refreshcalendar(1935, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1935">1935</span></a><br><a href="###" onclick="refreshcalendar(1934, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1934">1934</span></a><br><a href="###" onclick="refreshcalendar(1933, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1933">1933</span></a><br><a href="###" onclick="refreshcalendar(1932, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1932">1932</span></a><br><a href="###" onclick="refreshcalendar(1931, mm);sun$('calendar_year').style.display='none'"><span id="calendar_year_1931">1931</span></a><br></div></div><div id="calendar_month" onclick="doane(event)" style="display: none;z-index:100001;"><a href="###" onclick="refreshcalendar(yy, 0);sun$('calendar_month').style.display='none'"><span id="calendar_month_1">1&nbsp; 月</span></a><br><a href="###" onclick="refreshcalendar(yy, 1);sun$('calendar_month').style.display='none'"><span id="calendar_month_2">2&nbsp; 月</span></a><br><a href="###" onclick="refreshcalendar(yy, 2);sun$('calendar_month').style.display='none'"><span id="calendar_month_3">3&nbsp; 月</span></a><br><a href="###" onclick="refreshcalendar(yy, 3);sun$('calendar_month').style.display='none'"><span id="calendar_month_4">4&nbsp; 月</span></a><br><a href="###" onclick="refreshcalendar(yy, 4);sun$('calendar_month').style.display='none'"><span id="calendar_month_5">5&nbsp; 月</span></a><br><a href="###" onclick="refreshcalendar(yy, 5);sun$('calendar_month').style.display='none'"><span id="calendar_month_6">6&nbsp; 月</span></a><br><a href="###" onclick="refreshcalendar(yy, 6);sun$('calendar_month').style.display='none'"><span id="calendar_month_7">7&nbsp; 月</span></a><br><a href="###" onclick="refreshcalendar(yy, 7);sun$('calendar_month').style.display='none'"><span class="calendar_today" id="calendar_month_8">8&nbsp; 月</span></a><br><a href="###" onclick="refreshcalendar(yy, 8);sun$('calendar_month').style.display='none'"><span id="calendar_month_9">9&nbsp; 月</span></a><br><a href="###" onclick="refreshcalendar(yy, 9);sun$('calendar_month').style.display='none'"><span id="calendar_month_10">10 月</span></a><br><a href="###" onclick="refreshcalendar(yy, 10);sun$('calendar_month').style.display='none'"><span id="calendar_month_11">11 月</span></a><br><a href="###" onclick="refreshcalendar(yy, 11);sun$('calendar_month').style.display='none'"><span id="calendar_month_12">12 月</span></a><br></div></div></div>
+
+<script src="admin_files/calendar.js" language="javascript" type="text/javascript"></script>
+
+<table width="99%">
+	<tbody><tr>
+		<td class="mainTable">
+		
+		<form name="form1" id="form1" action="http://opc.sun309.com/admin.php?c=booking/OrderManager" method="post">
+		<input name="order_type" value="1" type="hidden">
+		<table class="listHeader" border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody><tr>
+				<td class="searchBar">
+					<table class="form_table">
+					<tbody>
+					<tr>
+					  <td class="formLabel">订单创建开始日期：</td>
+					  <td>
+						  <input name="order_start_date_day" size="10" onclick="showcalendar(event, this)" type="text">
+						  <select name="order_start_date_hour">
+							  							  <option selected="selected" value="00">00</option>
+							  							  <option value="01">01</option>
+							  							  <option value="02">02</option>
+							  							  <option value="03">03</option>
+							  							  <option value="04">04</option>
+							  							  <option value="05">05</option>
+							  							  <option value="06">06</option>
+							  							  <option value="07">07</option>
+							  							  <option value="08">08</option>
+							  							  <option value="09">09</option>
+							  							  <option value="10">10</option>
+							  							  <option value="11">11</option>
+							  							  <option value="12">12</option>
+							  							  <option value="13">13</option>
+							  							  <option value="14">14</option>
+							  							  <option value="15">15</option>
+							  							  <option value="16">16</option>
+							  							  <option value="17">17</option>
+							  							  <option value="18">18</option>
+							  							  <option value="19">19</option>
+							  							  <option value="20">20</option>
+							  							  <option value="21">21</option>
+							  							  <option value="22">22</option>
+							  							  <option value="23">23</option>
+							  						  </select>
+						  时
+						  <select name="order_start_date_minute">
+						      							  <option selected="selected" value="00">00</option>
+							  							  <option value="05">05</option>
+							  							  <option value="10">10</option>
+							  							  <option value="15">15</option>
+							  							  <option value="20">20</option>
+							  							  <option value="25">25</option>
+							  							  <option value="30">30</option>
+							  							  <option value="35">35</option>
+							  							  <option value="40">40</option>
+							  							  <option value="45">45</option>
+							  							  <option value="50">50</option>
+							  							  <option value="55">55</option>
+							  						  </select>
+						  分
+					  </td>
+					  <td class="formLabel">订单创建结束日期：</td>
+					  <td>
+						  <input name="order_end_date_day" size="10" onclick="showcalendar(event, this)" type="text">
+						  <select name="order_end_date_hour">
+							  							  <option selected="selected" value="00">00</option>
+							  							  <option value="01">01</option>
+							  							  <option value="02">02</option>
+							  							  <option value="03">03</option>
+							  							  <option value="04">04</option>
+							  							  <option value="05">05</option>
+							  							  <option value="06">06</option>
+							  							  <option value="07">07</option>
+							  							  <option value="08">08</option>
+							  							  <option value="09">09</option>
+							  							  <option value="10">10</option>
+							  							  <option value="11">11</option>
+							  							  <option value="12">12</option>
+							  							  <option value="13">13</option>
+							  							  <option value="14">14</option>
+							  							  <option value="15">15</option>
+							  							  <option value="16">16</option>
+							  							  <option value="17">17</option>
+							  							  <option value="18">18</option>
+							  							  <option value="19">19</option>
+							  							  <option value="20">20</option>
+							  							  <option value="21">21</option>
+							  							  <option value="22">22</option>
+							  							  <option value="23">23</option>
+							  						  </select>
+						  时
+						  <select name="order_end_date_minute">
+							  							  <option selected="selected" value="00">00</option>
+							  							  <option value="05">05</option>
+							  							  <option value="10">10</option>
+							  							  <option value="15">15</option>
+							  							  <option value="20">20</option>
+							  							  <option value="25">25</option>
+							  							  <option value="30">30</option>
+							  							  <option value="35">35</option>
+							  							  <option value="40">40</option>
+							  							  <option value="45">45</option>
+							  							  <option value="50">50</option>
+							  							  <option value="55">55</option>
+							  						  </select>
+						  分
+					  </td>
+					</tr>
+				
+				</tbody></table>
+				</td>
+			</tr>
+		</tbody></table>
+
+		</form>
+
+</td></tr>
+</tbody></table>
+
+</body></html>

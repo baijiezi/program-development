@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+<html>
+<head>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <style type="text/css">
+        .dp-highlighter {
+            width:95% !important;
+        }
+    </style>
+    <style type="text/css">
+        .footer {
+            background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+            background-repeat:     repeat-x;
+            background-position:   left top;
+            padding-top:           4px;
+            color:                 #666;
+        }
+    </style>
+    <link href='http://struts.apache.org/highlighter/styles/shCoreStruts.css' rel='stylesheet' type='text/css' />
+    <link href='http://struts.apache.org/highlighter/styles/shThemeStruts.css' rel='stylesheet' type='text/css' />
+    <script src='http://struts.apache.org/highlighter/js/shCore.js' type='text/javascript'></script>
+            <script src='http://struts.apache.org/highlighter/js/shBrushXml.js' type='text/javascript'></script>
+    
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
+    <script type="text/javascript" language="javascript">
+        var hide = null;
+        var show = null;
+        var children = null;
+
+        function init() {
+            /* Search form initialization */
+            var form = document.forms['search'];
+            if (form != null) {
+                form.elements['domains'].value = location.hostname;
+                form.elements['sitesearch'].value = location.hostname;
+            }
+
+            /* Children initialization */
+            hide = document.getElementById('hide');
+            show = document.getElementById('show');
+            children = document.all != null ?
+                    document.all['children'] :
+                    document.getElementById('children');
+            if (children != null) {
+                children.style.display = 'none';
+                show.style.display = 'inline';
+                hide.style.display = 'none';
+            }
+        }
+
+        function showChildren() {
+            children.style.display = 'block';
+            show.style.display = 'none';
+            hide.style.display = 'inline';
+        }
+
+        function hideChildren() {
+            children.style.display = 'none';
+            show.style.display = 'inline';
+            hide.style.display = 'none';
+        }
+    </script>
+    <title>ajax head template</title>
+</head>
+<body onload="init()">
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr class="topBar">
+        <td align="left" valign="middle" class="topBarDiv" align="left" nowrap>
+            &nbsp;<a href="home.html">Home</a>&nbsp;&gt;&nbsp;<a href="guides.html">Guides</a>&nbsp;&gt;&nbsp;<a href="tag-developers-guide.html">Tag Developers Guide</a>&nbsp;&gt;&nbsp;<a href="struts-tags.html">Struts Tags</a>&nbsp;&gt;&nbsp;<a href="ui-tags.html">UI Tags</a>&nbsp;&gt;&nbsp;<a href="themes-and-templates.html">Themes and Templates</a>&nbsp;&gt;&nbsp;<a href="ajax-theme.html">ajax theme</a>&nbsp;&gt;&nbsp;<a href="ajax-head-template.html">ajax head template</a>
+        </td>
+        <td align="right" valign="middle" nowrap>
+            <form name="search" action="http://www.google.com/search" method="get">
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="hidden" name="oe" value="UTF-8" />
+                <input type="hidden" name="domains" value="" />
+                <input type="hidden" name="sitesearch" value="" />
+                <input type="text" name="q" maxlength="255" value="" />
+                <input type="submit" name="btnG" value="Google Search" />
+            </form>
+        </td>
+    </tr>
+</table>
+
+<div id="PageContent">
+    <div class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <div style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</div>
+        <div style="margin: 0px 10px 8px 10px"  class="pagetitle">ajax head template</div>
+
+        <div class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13858">
+                <img src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Edit Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13858">Edit Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+                <img src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13858">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13858">Add Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13858">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add News"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13858">Add News</a>
+        </div>
+    </div>
+
+    <div class="pagecontent">
+        <div class="wiki-content">
+            <div id="ConfluenceContent"><p>The ajax <a shape="rect" href="head.html" title="head">head</a> template builds upon the <a shape="rect" href="xhtml-head-template.html" title="xhtml head template">xhtml head template</a> by providing additional JavaScript includes for the <a shape="rect" class="external-link" href="http://dojotoolkit.org" rel="nofollow">Dojo Toolkit</a>, which is used by the <a shape="rect" href="ajax-a-template.html" title="ajax a template">ajax a template</a>, <a shape="rect" href="ajax-div-template.html" title="ajax div template">ajax div template</a> , and the <a shape="rect" href="ajax-tabbedpanel-template.html" title="ajax tabbedPanel template">ajax tabbedPanel template</a>. It is required to use this tag, <tt>&lt;ww:head theme="ajax"/&gt;</tt>, in your HTML <tt>&lt;head&gt;</tt> block if you wish to use AJAX feature. The contents of <b>head.ftl</b> are:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;#--
+/*
+ * $Id$
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+--&gt;
+&lt;script language="JavaScript" type="text/javascript"&gt;
+    // Dojo configuration
+    djConfig = {
+        isDebug: ${parameters.debug?default(false)?string},
+        bindEncoding: "${parameters.encoding}"
+        &lt;#if parameters.baseRelativePath?if_exists != ""&gt;
+          ,baseRelativePath: "&lt;@s.url value='${parameters.baseRelativePath}' includeParams='none' encode='false' /&gt;"
+          ,baseScriptUri: "&lt;@s.url value='${parameters.baseRelativePath}' includeParams='none' encode='false' /&gt;"
+        &lt;#else&gt;
+          ,baseRelativePath: "${base}/struts/dojo/"
+          ,baseScriptUri: "${base}/struts/dojo/"
+        &lt;/#if&gt;  
+        &lt;#if parameters.locale?if_exists != ""&gt;
+          ,locale: "${parameters.locale}"
+        &lt;/#if&gt;
+        &lt;#if parameters.extraLocales?exists&gt;
+          ,extraLocale: [
+        	&lt;#list parameters.extraLocales as locale&gt;
+        		"${locale}"&lt;#if locale_has_next&gt;,&lt;/#if&gt;
+        	&lt;/#list&gt;
+          ]
+        &lt;/#if&gt;
+         ,parseWidgets : ${parameters.parseContent?string}
+        
+    };
+&lt;/script&gt;
+
+&lt;#if parameters.compressed?default(true)&gt;
+  &lt;#assign dojoFile="dojo.js"&gt;
+&lt;#else&gt;
+  &lt;#assign dojoFile="dojo.js.uncompressed.js"&gt;
+&lt;/#if&gt;
+
+&lt;#if parameters.cache?default(true)&gt;
+  &lt;#assign profile="struts_"&gt;
+&lt;#else&gt;
+  &lt;#assign profile=""&gt;
+&lt;/#if&gt;           
+
+&lt;#if parameters.baseRelativePath?if_exists != ""&gt;
+  &lt;script language="JavaScript" type="text/javascript"
+        src="&lt;@s.url value='${parameters.baseRelativePath}/${profile}${dojoFile}' includeParams='none' encode='false'  /&gt;"&gt;&lt;/script&gt;
+&lt;#else&gt;
+  &lt;script language="JavaScript" type="text/javascript"
+        src="${base}/struts/dojo/${profile}${dojoFile}"&gt;&lt;/script&gt;
+&lt;/#if&gt;  
+
+&lt;script language="JavaScript" type="text/javascript"
+        src="${base}/struts/ajax/dojoRequire.js"&gt;&lt;/script&gt;
+&lt;#if parameters.debug?default(false)&gt;
+&lt;script language="JavaScript" type="text/javascript"&gt;
+    dojo.hostenv.writeIncludes(true);
+&lt;/script&gt;     
+&lt;/#if&gt;        
+&lt;link rel="stylesheet" href="${base}/struts/xhtml/styles.css" type="text/css"/&gt;
+
+&lt;script language="JavaScript" src="${base}/struts/utils.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script language="JavaScript" src="${base}/struts/xhtml/validation.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script language="JavaScript" src="${base}/struts/css_xhtml/validation.js" type="text/javascript"&gt;&lt;/script&gt;
+]]></script>
+</div></div>
+
+<div class="panelMacro"><table class="noteMacro"><colgroup span="1"><col span="1" width="24"><col span="1"></colgroup><tr><td colspan="1" rowspan="1" valign="top"><img align="middle" src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" alt="" border="0"></td><td colspan="1" rowspan="1">If you are having trouble getting the AJAX theme to work, you should include the above JavaScript in your page manually, changing "isDebug: false" to "isDebug: true".  This will log out debugging information directly to the screen.</td></tr></table></div>
+
+<p>Note that Dojo is configured to use the same character encoding specified in <a shape="rect" href="strutsproperties.html" title="struts.properties">struts.properties</a>, typically UTF-8. For a simple example of how to use the <a shape="rect" href="head.html" title="head">head</a> tag with the AJAX theme, simply do the following in your HTML:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;sx:head cache="true"/&gt;
+]]></script>
+</div></div>
+
+<div class="panelMacro"><table class="infoMacro"><colgroup span="1"><col span="1" width="24"><col span="1"></colgroup><tr><td colspan="1" rowspan="1" valign="top"><img align="middle" src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" alt="" border="0"></td><td colspan="1" rowspan="1">The above sample is from Struts trunk; for 2.0.6 you should use <tt>&lt;s:head debug="true"/&gt;</tt>.</td></tr></table></div></div>
+        </div>
+
+                    <div class="tabletitle">
+                Children
+            <span class="smalltext" id="show" style="display: inline;">
+              <a href="javascript:showChildren()">Show Children</a></span>
+            <span class="smalltext" id="hide" style="display: none;">
+              <a href="javascript:hideChildren()">Hide Children</a></span>
+            </div>
+            <div class="greybox" id="children" style="display: none;">
+                                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                            </div>
+        
+    </div>
+</div>
+<div class="footer">
+    Generated by CXF SiteExporter
+</div>
+</body>
+</html>

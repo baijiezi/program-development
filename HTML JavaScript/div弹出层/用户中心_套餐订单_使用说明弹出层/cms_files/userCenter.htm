@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>阳光医疗网</title>
+<link href="userCenter_data/usercenter.css" rel="stylesheet" type="text/css">
+<link href="userCenter_data/usermain.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="userCenter_data/jquery-1.js"></script>
+<script type="text/javascript" src="cms_files/WdatePicker.js"></script><link type="text/css" rel="stylesheet" href="cms_files/WdatePicker.css">
+<style>
+</style>
+
+<script type="text/javascript">
+var WEB_URL = 'http://www.sun309.com/';
+var SEO_URL = "http://www.sun309.com/?q=";
+var UI_URL = 'http://sun309.com/usercenter//images';
+var HTML = '.html';
+var URL_DOT = '&';
+var is_login = "";
+var currentPageCode = "";
+</script></head><body>
+<script language="javascript">
+var currentPageCode = 201;
+
+function checkfrom(f)
+{
+	if(f.startDate.value=='选择开始时间') f.startDate.value='';
+	if(f.endDate.value=='选择结束时间') f.endDate.value='';
+	rp = /^\d{4}\-[012]?\d\-[0123]?\d$/i;
+	if( f.startDate.value && !rp.test(f.startDate.value) ) { alert('开始日期格式错误'); return false; }
+	if( f.endDate.value && !rp.test(f.endDate.value) ) { alert('结束日期格式错误'); return false; }
+	return true;
+}
+
+function showUsedNode()
+{
+	$("#bankList").show();
+	return false;
+}
+</script>
+
+<style>
+/*分页*/
+.page{ margin:0px 3px 0px 4px; padding-left:5px; float:right; }
+.page ul{ margin:0px; padding:0px; }
+.page ul li em, .page a, .page strong{ text-decoration:none; margin-left:3px; padding:2px 5px; border:1px solid #6ea2b5; }
+.page ul li{ float:left; height:21px; line-height:21px; text-align:center; margin-right:2px;list-style:none;}
+.page ul li a{ text-decoration:none; border:1px solid #6ea2b5; background:#FFF; color:#154ba0; padding:2px 4px;  font-size:12px; font-family:Arial, Helvetica, sans-serif;}
+.page .active .now{ text-decoration:none; border:1px solid #057ead; background:#fff9ec; font-weight:bold; color:#4d4633;padding:2px 4px;  font-size:12px; font-family:Arial, Helvetica, sans-serif; }
+.page a:hover{ border:1px solid #8bb7ec; font-weight:bold; background:#f5fbff; color:#4d4633;}
+.page .total,.page .pages{  font-weight:bold; border:1px solid #8bb7ec; height:19px; line-height:19px; margin-right:0; padding:0 3px; color:#154ba0; background:#f5fbff;}
+.page ul li kbd{ float:left; }
+.page ul li kbd input{ margin-left:5px; width:30px; vertical-align:middle; }
+</style>
+
+
+<!--产品-->
+<div class="user_border2 m_t8 user_minheight680">
+       <div class="user_box_padd user_border3">
+	        <div class="user_bg8 ">
+	             <b class="blue2 font14 m_le10">康众服务套餐订单</b>
+			</div>
+	   </div>
+	   
+	   <div class="user_notes font14 blue2 u_m_t8">
+	    <form method="post" action="http://v14.968309.com/userCenter.php?c=kzService/ComboOrderManager&amp;style=1" onsubmit="return checkfrom(this);">
+		  <span class="padd_le15">请选择查询日期</span>
+		  <input name="startDate" id="startDate" class="imgalign txt_input" value="选择开始时间" onfocus="if(this.value=='选择开始时间') this.value='';WdatePicker();" onblur="if(this.value=='') this.value='选择开始时间';" type="text"> 至 <input name="endDate" id="endDate" class="imgalign txt_input" value="选择结束时间" onfocus="if(this.value=='选择结束时间') this.value='';WdatePicker();" onblur="if(this.value=='') this.value='选择结束时间';" type="text">
+		  <input name="submit" src="userCenter_data/an03.gif" class="imgalign" type="image">
+		</form>
+	   </div>
+	   <div id="bankList" class="blue_bould scheduleWND" style="margin-left: 100px; background: none repeat scroll 0% 0% rgb(236, 243, 248); overflow-y: auto; font-size: 14px; position: absolute; border: 2px double rgb(244, 156, 12); padding: 10px; width: 520px; display: none;"> <a href="javascript:void(0);" onclick="$('#bankList').hide();" style="position: absolute; right: 3px; top: 5px;">关闭</a>
+			<!--  <div class="note" style="display:none;">-->
+			 <p>使用说明</p>
+			 ① 使用阳光康众服务请拨打服务热线4008 309 309 或登录阳光医疗网www.968309.com预约<br>
+			② 套餐服务的使用时间为自激活后一年内有效<br>
+			③ 自购买当天起3个月内必须激活，过期自动激活<br>
+			④ 套餐服务过期后剩余服务次数，过期作废，不可以使用<br>
+			⑤ 服务只限申请人使用，不得转借他人<br>
+			⑥ 预约服务成功后，若要取消或更改咨询时间，请于咨询前1天下午四点钟以前拨打康众服<br>
+			   务热线（4008 309 309）告知，方便为您再次安排<br>
+			⑦ 若超过时间告知，仍当使用一次服务，以及负担全额费用
+	   </div>
+       <div class="user_boxmain">
+			<br>
+			 <!--列表-->
+		    <table class="m_t8 txt-align fontsty" bgcolor="#cfd8df" border="0" cellpadding="0" cellspacing="1" width="100%">
+			  <tbody><tr>
+				<td class=" blue2 user_bg8" bgcolor="#FFFFFF">套餐名称</td>
+				<td class=" blue2  user_bg8" bgcolor="#FFFFFF">订单号</td>
+			    <td class=" blue2  user_bg8" bgcolor="#FFFFFF">支付方式</td>
+			    <td class=" blue2  user_bg8" bgcolor="#FFFFFF">消费金额</td>
+			    <td class=" blue2  user_bg8" bgcolor="#FFFFFF">购买时间</td>
+		        <td class=" blue2  user_bg8" bgcolor="#FFFFFF">有效时间</td>
+			    <td class=" blue2  user_bg8" bgcolor="#FFFFFF">管理 </td>
+			  </tr>
+
+
+	  <tr title="订单号：" bgcolor="#ffffff">
+	    <td class=" u_padd3 user_minheight22" width="13%"><a target="_blank" href="http://v14.968309.com/default.php?c=KzService-detail&amp;combo_code=CS0003">测试套餐2</a></td>
+		<td class=" u_padd3 user_minheight22"><a href="http://v14.968309.com/userCenter.php?c=kzService/ComboOrderManager-detail&amp;order_no=COMBO2011071100000199">199...</a></td>
+		<td class=" u_padd3 user_minheight22">阳光医疗卡/康众卡/银行卡</td>
+		<td class=" u_padd3 user_minheight22">0.01</td>
+		<td class=" u_padd3 user_minheight22" width="13%">2011-07-11 15:20:49</td>
+		<td class=" u_padd3 user_minheight22"></td>
+		<td class=" u_padd3 user_minheight22" width="15%"><a href="http://v14.968309.com/userCenter.php?c=kzService/ComboOrderManager-detail&amp;order_no=COMBO2011071100000199">详细</a> | <a href="" onclick="return showUsedNode();">使用说明</a></td>
+	  </tr>
+
+	
+	  <tr title="订单号：" bgcolor="#ffffff">
+	    <td class=" u_padd3 user_minheight22" width="13%"><a target="_blank" href="http://v14.968309.com/default.php?c=KzService-detail&amp;combo_code=CS0003">测试套餐2</a></td>
+		<td class=" u_padd3 user_minheight22"><a href="http://v14.968309.com/userCenter.php?c=kzService/ComboOrderManager-detail&amp;order_no=COMBO2011071100000198">198...</a></td>
+		<td class=" u_padd3 user_minheight22">阳光医疗卡/康众卡/银行卡</td>
+		<td class=" u_padd3 user_minheight22">0.01</td>
+		<td class=" u_padd3 user_minheight22" width="13%">2011-07-11 15:20:03</td>
+		<td class=" u_padd3 user_minheight22"></td>
+		<td class=" u_padd3 user_minheight22" width="15%"><a href="http://v14.968309.com/userCenter.php?c=kzService/ComboOrderManager-detail&amp;order_no=COMBO2011071100000198">详细</a> | <a href="" onclick="return showUsedNode();">使用说明</a></td>
+	  </tr>
+
+	
+	  <tr title="订单号：" bgcolor="#ffffff">
+	    <td class=" u_padd3 user_minheight22" width="13%"><a target="_blank" href="http://v14.968309.com/default.php?c=KzService-detail&amp;combo_code=CS0003">测试套餐2</a></td>
+		<td class=" u_padd3 user_minheight22"><a href="http://v14.968309.com/userCenter.php?c=kzService/ComboOrderManager-detail&amp;order_no=COMBO2011071100000192">192...</a></td>
+		<td class=" u_padd3 user_minheight22">阳光医疗卡/康众卡/银行卡</td>
+		<td class=" u_padd3 user_minheight22">0.01</td>
+		<td class=" u_padd3 user_minheight22" width="13%">2011-07-11 15:14:44</td>
+		<td class=" u_padd3 user_minheight22"></td>
+		<td class=" u_padd3 user_minheight22" width="15%"><a href="http://v14.968309.com/userCenter.php?c=kzService/ComboOrderManager-detail&amp;order_no=COMBO2011071100000192">详细</a> | <a href="" onclick="return showUsedNode();">使用说明</a></td>
+	  </tr>
+
+	
+	  <tr title="订单号：" bgcolor="#ffffff">
+	    <td class=" u_padd3 user_minheight22" width="13%"><a target="_blank" href="http://v14.968309.com/default.php?c=KzService-detail&amp;combo_code=CS0003">测试套餐2</a></td>
+		<td class=" u_padd3 user_minheight22"><a href="http://v14.968309.com/userCenter.php?c=kzService/ComboOrderManager-detail&amp;order_no=COMBO2011071100000189">189...</a></td>
+		<td class=" u_padd3 user_minheight22">阳光医疗卡/康众卡/银行卡</td>
+		<td class=" u_padd3 user_minheight22">0.01</td>
+		<td class=" u_padd3 user_minheight22" width="13%">2011-07-11 15:11:50</td>
+		<td class=" u_padd3 user_minheight22"></td>
+		<td class=" u_padd3 user_minheight22" width="15%"><a href="http://v14.968309.com/userCenter.php?c=kzService/ComboOrderManager-detail&amp;order_no=COMBO2011071100000189">详细</a> | <a href="" onclick="return showUsedNode();">使用说明</a></td>
+	  </tr>
+
+	
+	  <tr title="订单号：" bgcolor="#ffffff">
+	    <td class=" u_padd3 user_minheight22" width="13%"><a target="_blank" href="http://v14.968309.com/default.php?c=KzService-detail&amp;combo_code=CS0002">测试套餐1</a></td>
+		<td class=" u_padd3 user_minheight22"><a href="http://v14.968309.com/userCenter.php?c=kzService/ComboOrderManager-detail&amp;order_no=COMBO2011052000000265">265...</a></td>
+		<td class=" u_padd3 user_minheight22">阳光医疗卡/康众卡/银行卡</td>
+		<td class=" u_padd3 user_minheight22">0.01</td>
+		<td class=" u_padd3 user_minheight22" width="13%">2011-05-20 17:23:24</td>
+		<td class=" u_padd3 user_minheight22"></td>
+		<td class=" u_padd3 user_minheight22" width="15%"><a href="http://v14.968309.com/userCenter.php?c=kzService/ComboOrderManager-detail&amp;order_no=COMBO2011052000000265">详细</a> | <a href="" onclick="return showUsedNode();">使用说明</a></td>
+	  </tr>
+
+	
+	  <tr title="订单号：" bgcolor="#ffffff">
+	    <td class=" u_padd3 user_minheight22" width="13%"><a target="_blank" href="http://v14.968309.com/default.php?c=KzService-detail&amp;combo_code=CS0002">测试套餐1</a></td>
+		<td class=" u_padd3 user_minheight22"><a href="http://v14.968309.com/userCenter.php?c=kzService/ComboOrderManager-detail&amp;order_no=COMBO2011052000000263">263...</a></td>
+		<td class=" u_padd3 user_minheight22">阳光医疗卡/康众卡/银行卡</td>
+		<td class=" u_padd3 user_minheight22">0.01</td>
+		<td class=" u_padd3 user_minheight22" width="13%">2011-05-20 17:22:23</td>
+		<td class=" u_padd3 user_minheight22"></td>
+		<td class=" u_padd3 user_minheight22" width="15%"><a href="http://v14.968309.com/userCenter.php?c=kzService/ComboOrderManager-detail&amp;order_no=COMBO2011052000000263">详细</a> | <a href="" onclick="return showUsedNode();">使用说明</a></td>
+	  </tr>
+
+	
+	  <tr title="订单号：" bgcolor="#ffffff">
+	    <td class=" u_padd3 user_minheight22" width="13%"><a target="_blank" href="http://v14.968309.com/default.php?c=KzService-detail&amp;combo_code=T001">单项购买测试</a></td>
+		<td class=" u_padd3 user_minheight22"><a href="http://v14.968309.com/userCenter.php?c=kzService/ComboOrderManager-detail&amp;order_no=COMBO2011051900000196">196...</a></td>
+		<td class=" u_padd3 user_minheight22">阳光医疗卡/康众卡/银行卡</td>
+		<td class=" u_padd3 user_minheight22">0.01</td>
+		<td class=" u_padd3 user_minheight22" width="13%">2011-05-19 15:11:14</td>
+		<td class=" u_padd3 user_minheight22"></td>
+		<td class=" u_padd3 user_minheight22" width="15%"><a href="http://v14.968309.com/userCenter.php?c=kzService/ComboOrderManager-detail&amp;order_no=COMBO2011051900000196">详细</a> | <a href="" onclick="return showUsedNode();">使用说明</a></td>
+	  </tr>
+
+	
+	  <tr title="订单号：" bgcolor="#ffffff">
+	    <td class=" u_padd3 user_minheight22" width="13%"><a target="_blank" href="http://v14.968309.com/default.php?c=KzService-detail&amp;combo_code=CS0002">测试套餐1</a></td>
+		<td class=" u_padd3 user_minheight22"><a href="http://v14.968309.com/userCenter.php?c=kzService/ComboOrderManager-detail&amp;order_no=COMBO2011051700000166">166...</a></td>
+		<td class=" u_padd3 user_minheight22">阳光医疗卡/康众卡/银行卡</td>
+		<td class=" u_padd3 user_minheight22">0.01</td>
+		<td class=" u_padd3 user_minheight22" width="13%">2011-05-17 14:36:34</td>
+		<td class=" u_padd3 user_minheight22"></td>
+		<td class=" u_padd3 user_minheight22" width="15%"><a href="http://v14.968309.com/userCenter.php?c=kzService/ComboOrderManager-detail&amp;order_no=COMBO2011051700000166">详细</a> | <a href="" onclick="return showUsedNode();">使用说明</a></td>
+	  </tr>
+
+	
+	  <tr title="订单号：" bgcolor="#ffffff">
+	    <td class=" u_padd3 user_minheight22" width="13%"><a target="_blank" href="http://v14.968309.com/default.php?c=KzService-detail&amp;combo_code=CS0002">测试套餐1</a></td>
+		<td class=" u_padd3 user_minheight22"><a href="http://v14.968309.com/userCenter.php?c=kzService/ComboOrderManager-detail&amp;order_no=COMBO2011051700000165">165...</a></td>
+		<td class=" u_padd3 user_minheight22">阳光医疗卡/康众卡/银行卡</td>
+		<td class=" u_padd3 user_minheight22">0.01</td>
+		<td class=" u_padd3 user_minheight22" width="13%">2011-05-17 14:36:33</td>
+		<td class=" u_padd3 user_minheight22"></td>
+		<td class=" u_padd3 user_minheight22" width="15%"><a href="http://v14.968309.com/userCenter.php?c=kzService/ComboOrderManager-detail&amp;order_no=COMBO2011051700000165">详细</a> | <a href="" onclick="return showUsedNode();">使用说明</a></td>
+	  </tr>
+
+	
+		<tr bgcolor="#ffffff"><td colspan="9" class=" blue2 user_bg8" align="right"><div class="page"><ul><li><em>&nbsp;共&nbsp;9&nbsp;条&nbsp;</em></li>
+<li class="active"><a class="now">1</a></li>
+</ul></div>
+</td></tr>
+	
+		</tbody></table>
+		        <!--列表结束-->
+        
+		<div class="clear"></div>
+  </div>
+
+</div>
+<!--产品结束-->
+
+
+
+
+</body></html>

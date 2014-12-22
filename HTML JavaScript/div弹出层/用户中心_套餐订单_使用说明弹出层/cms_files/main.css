@@ -1,0 +1,236 @@
+﻿/* CSS Document */
+body{font:12px Arial, "宋体", sans-serif;color:#4b4b4b; background-position: center top;}/*全站文字大小和颜色*/
+body, h1, h2, h3, h4, h5, h6, p, ul, dl, dt, dd, form, fieldset { margin: 0; padding: 0; }
+input,select,button,textarea{font-size:12px;}/*表单元素的文字大小*/
+div{list-style:none;
+	list-style-type: none;	margin: 0px;
+	padding: 0px}/*默认无序列表无样式*/
+ul{list-style:none;	
+	list-style-type: none;	margin: 0px;
+	padding: 0px;}/*默认无序列表无样式*/
+LI {list-style: none; 
+	margin: 0px;
+	padding: 0px;}/*默认无序列表无样式*/
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,input,em,textarea,p,th,td,span{margin:0px;padding:0px;}
+img{border:0;}
+
+h1 {font-size:3em;line-height:1;margin-bottom:0.5em;}
+h2 {font-size:13px;}
+h3 {font-size:1.5em;line-height:1.25;margin-bottom:1em;}
+h4 {font-size:1.2em;line-height:1.25;margin-bottom:1.25em; }
+h5 {font-size:1em;font-weight:bold;margin-bottom:1.5em;}
+
+a:link,a:visited{text-decoration:none; outline:none}
+a:hover {text-decoration: underline;color:#de127e; outline:none}
+
+.fl{ float:left}
+.fr{ float:right}
+.c{
+	CLEAR: both;
+}
+.tc{ text-align:center}
+.clear{
+font: 0px/0px sans-serif;
+clear:both;
+display:block;
+}
+
+.mt8{ margin-top:8px}
+.mt12{ margin-top:12px}
+.mt15{ margin-top:15px}
+.mt20{ margin-top:20px}
+.mt80{ margin-top:90px}
+.ml7{ margin-left:7px}
+.ml6{ margin-left:5px}
+.ml10{ margin-left:10px}
+.ml18{ margin-left:18px}
+.ml30{ margin-left:30px}
+.pl2{ padding-left:2px}
+.pad5{ padding:5px}
+.pad15{ padding:15px; padding-bottom:0px}
+.pl60{ padding-left:75px}
+.pl50{ padding-left:50px}
+.pl30{ padding-left:30px}
+.pl20{ padding-left:20px}
+.pl10{ padding-left:10px}
+.pt10{ padding-top:10px}
+.pt7{ padding-top:7px}
+.pt5{ padding-top:5px}
+.pt2{ padding-top:2px}
+.pt1{ padding-top:1px}
+.pand3{ padding:3px}
+.pb30{ padding-bottom:30px}
+.pb20{ padding-bottom:20px}
+.pb10{ padding-bottom:10px}
+.pb5{ padding-bottom:5px}
+.pb1{ margin-bottom:5px}
+.pl5{ padding-left:5px}
+.pl15{ padding-left:15px}
+.pl150{ padding-left:160px}
+.pt13{ padding-top:13px}
+.pt15{ padding-top:15px}
+.pr5{ padding-right:5px}
+.pr15{ padding-right:15px}
+
+/*
+.headtop{ width:100%; height:32px; background:url(../images/tip.gif) repeat-x; border-bottom:#E6E6E6 1px solid; overflow:hidden}
+.sun2010_input,sun2010_select{ vertical-align:middle; color:#979797;}
+.sun2010_input_bor{ border:#ACA899 1px solid}
+*/
+.wind{ width:960px; margin: 0px auto}
+.win140{ width:140px; height:18px; line-height:18px}
+.win94{ width:94px; height:18px; line-height:18px}
+.win46{ width:46px}
+.win188{ width:188px}
+.win590{ width:740px}
+.win370{ width:370px}
+.win255{ width:255px}
+.win300{ width:300px}
+/*
+.tiprigh{ width:250px; float:right; color:#C7C7C7; padding-top:8px}
+.tiprigh li{ float:left; padding-right:15px; line-height:15px}
+.tiprigh a{ color:#666; text-decoration:none}
+.tiprigh a:hover{ color:#DD127D; text-decoration: underline}
+.home{ background:url(../images/home.gif) no-repeat; padding-left:15px}
+.weibo{ background:url(../images/wei.gif) no-repeat; padding-left:15px}
+.bai{ background:url(../images/bai.gif) no-repeat; padding-left:15px}
+
+.logo-heig{width:569px; float:left; padding-top:22px; padding-left:20px}
+.height80{ height:75px}
+.anybould{ background:url(../images/anybould.gif) no-repeat; height:35px; line-height:29px; font-size:14px; color:#fff}
+.anybould a{ color:#fff; text-decoration:none}
+.anybould a:hover{ color:#fff; text-decoration:underline}
+.anybould ul{ margin-left:30px}
+.anybould li{ float:left; margin-right:10px; text-align:center; margin-top:4px;}
+
+
+a.sun2010_gray2:link {  color:#626262; text-decoration:none; line-height:18px}
+a.sun2010_gray2:visited {color:#626262;text-decoration:none; line-height:18px}
+a.sun2010_gray2:hover {  color:#DD127D;  text-decoration:underline; line-height:18px}
+*/
+
+.gran{ color:#C7C7C7}
+
+
+.seachrigh{width:368px; height:60px; float:right}
+/*.seachblud{background:url(../images/scheablud.gif) no-repeat; width:364px; height:40px; margin-top:5px}*/
+
+.seach-any{ height:27px;}
+.seach-any li{float:left; width:86px; margin-right:2px; text-align:center}
+.seach-any li a{ display:block; height:25px; line-height:25px;_line-height:25px; text-align:center;margin:0px; font-weight: normal; font-size:12px; color:#686868; text-decoration:none; background:url(../images/schea-any02.gif) no-repeat; padding:0;}
+
+.seach-any li a:hover{ display:block; height:27px;font-weight:bold; font-size:12px; line-height:27px;_line-height:27px; background:url(../images/schea-any.gif) no-repeat;color:#fff; text-decoration:none;}
+
+.seach-any li a.current{ display:block; height:27px;font-weight:bold;font-size:12px; line-height:27px;_line-height:27px; background:url(../images/schea-any.gif) no-repeat; color:#fff; }
+.seachwind{ width:100px; height:25px; line-height:25px; float:left}
+.inpt{ border:#2586CF 1px solid; padding-left:10px; color:#626262; height:20px; line-height:20px}
+.inpt2{ width:187px; float:left; padding-top:2px}
+.wind187{ width:170px}
+.inpt-any{ width:50px; font-size:14px; font-weight:bold; color:#fff; height:20px; text-align:center; line-height:20px; float:left; padding-top:3px}
+.inpt-any a{ width:50px; height:20px; display:block; color:#fff; text-decoration:none}
+
+.search-lish{ height:25px; margin-top:3px; padding-left:5px}
+.search-lish li{ float:left}
+.search-lish .searintup{ width:90px; border:#2586CF 1px solid; padding-left:5px; color:#626262; height:20px; line-height:20px}
+.search-lish .sear-select{ width:178px; border:#2586CF 1px solid; padding-left:10px; color:#626262; line-height:18px; height:18px}
+
+/*
+.inany-wind{ width:79px;  font-weight:bold}
+.inany-wind a.inany{ background:url(../images/inany.gif) no-repeat 0 0px; display:block; color:#474747; margin-top:2px}
+.inany-wind02{ width:110px;   font-weight:bold}
+.inany-wind02 a.inany{ background:url(../images/inany02.gif) no-repeat 0 0px; display:block; color:#474747; margin-top:3px}
+
+
+.baobould{ background:url(../images/baobould.gif) no-repeat bottom; height:33px;}
+*/
+.win754{ width:720px; float:left}
+
+.none {display:none;}
+
+.sit{ background:url(../images/sit.gif) no-repeat 2px 0; padding-left:37px; font-size:12px; color:#979797; line-height:18px; height:18px; padding-bottom:8px}
+.sit a{ text-decoration:none; color:#979797}
+.sit a:hover{ text-decoration: underline; color:#E9056B}
+/*
+.freant{ text-align:center; color:#B4AFAD; line-height:20px}
+.freant a{ padding:0 5px; color:#6F6F6D; text-decoration:none}
+.freant a:hover{ color:#DD127D; text-decoration:underline}
+.foot{ color:#898B8B;}
+.foot a{ color:#898B8B; text-decoration:none}
+.foot a:hover{ color:#DD127D; text-decoration:underline}
+*/
+
+/*font*/
+.fontblue{ color:#006699; line-height:18px;}
+.fontblue a{ color:#006699; text-decoration:none}
+.fontblue a:hover{ color:#008F00; text-decoration: underline}
+.seach_blue{ color:#006699; line-height:18px;}
+.seach_blue a{ color:#006699; text-decoration:none}
+.seach_blue a:hover{ color:#008F00; text-decoration: underline; font-weight:bold}
+.fontblue_joi{ color:#989B9C; line-height:18px;}
+.fontblue_joi a{ color:#006699; text-decoration:none}
+.fontblue_joi a:hover{ color:#008F00; text-decoration: underline}
+.blue12{ color:#184F76; font-weight:normal; font-size:12px}
+.blue-text{ color:#1B85AF; font-size:12px}
+.fontred{ color:#DD127D}
+.fontred14{ font-size:14px; font-weight:bold; color:#DD127D; padding-left:15px}
+.red18{ color:#DD127D; font-size:18px}
+
+.freatext{ font-size:14px; font-weight:bold; color:#184f76; padding-left:15px}
+.yellow{ font:14px; color:#FF6600; line-height:18px; font-weight:bold}
+.yellow a{ color:#FF6600; text-decoration:none }
+.yellow a:hover{ color:#DD127D; text-decoration: underline }
+.yellow16{ font:16px; color:#FF6600;}
+.yellow12{ font:12px; color:#FF6600;}
+.yellow12 a{ color:#FF6600; text-decoration:none}
+.yellow12 a:hover{ color:#DD127D; text-decoration: underline}
+.grea{ font-size:12px; color:#34AC2B; line-height:18px}
+.grea a{ color:#34AC2B; text-decoration:underline}
+.grea a:hover{ color:#DC3688; text-decoration: none}
+.gray14{ font-size:14px; color:#636566}
+.grayfont{ font-size:12px; color:#686868}
+.grayfont02{ font-size:12px; color:#999B9C}
+.grayfont02 a{ font-size:12px; color:#999B9C; text-decoration:underline}
+.grayfont02 a:hover{ font-size:12px; color:#E9056B; text-decoration:underline}
+.bluefont{ font-size:12px; color:#98A9B1}
+.bluefont14{ font-size:14px; color:#184F76}
+.blue_font{ color:#1B85AF}
+.blue14{ font-size:14px; color:#1B85AF}
+.digit-red{ font-size:24px; font-weight:bold; font-family:Arial; color:#DC3688}
+.font-siz14{ font-size:14px}
+.font-grea{ color:#34AC2B; line-height:18px}
+
+/*diao*/
+.border{ border:#C9D2E1 1px solid}
+.diao_bould{ background:url(../images/diao.gif) no-repeat; width:751px; height:480px; margin-left:auto; margin-right:auto; padding-top:30px; border-bottom:#CAE4F2 1px solid}
+.diao_win{ width:495px; margin-left:auto; margin-right:auto}
+.diao_win td{ padding-top:6px; padding-bottom:6px}
+.diaointup{ line-height:18px; padding-left:10px; color:#878B91}
+.diaointup02{ width:150px; ine-height:18px; padding-left:10px; color:#878B91}
+
+.niang{ background:url(../images/niang.gif) no-repeat; width:70px; height:26px; line-height:25px; font-size:12px; color:#094069; text-align:center; border:none;}
+
+/*
+.chaline{ font-size:14px; font-weight:bold; line-height:32px; padding-right:18px; text-align:right}
+.chaline a{ text-decoration:none; color:#5F5F5F}
+.chaline a:hover{ text-decoration: underline; color:#DD127D}
+
+.schaudt{ background:url(../images/in-schea.gif) no-repeat; width:240px; height:24px; border:none; padding-left:34px; color:#626262; padding-top:2px !important; line-height:24px}
+.allschany{ background:url(../images/allsch-any.gif) no-repeat; width:62px; height:24px; line-height:24px; font-size:14px; color:#000; text-align:center; border:none; font-weight:bold}
+.input-wind{ padding-left:15px; width: 345px; }
+.input-wind li{ float:left;}
+*/
+
+/**
+ * 医生列表三列
+ */
+.joi_nay02 li{ float:left; width:160px; line-height:20px; padding-left:3px; overflow: hidden; white-space:nowrap; margin-right:10px; display:inline}
+
+/**
+ * 医生表格
+ */
+.doctor_table {padding:0;}
+.doctor_table td { algin:center; border: 1px solid #4AB4E6; }
+.doctor_table tr { valgin:middle; margin:0;}
+
+.taochang03{line-height:24px; border:#dbe1e6 1px solid; margin:5px auto 0 auto; width:958px; height:27px}
+.tao{ background:url(../images/tao.gif) repeat-x; border:#fff 1px solid; height:25px; padding-left:12px} 

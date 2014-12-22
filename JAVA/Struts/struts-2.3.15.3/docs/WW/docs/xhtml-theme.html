@@ -1,0 +1,515 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+<html>
+<head>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <style type="text/css">
+        .dp-highlighter {
+            width:95% !important;
+        }
+    </style>
+    <style type="text/css">
+        .footer {
+            background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+            background-repeat:     repeat-x;
+            background-position:   left top;
+            padding-top:           4px;
+            color:                 #666;
+        }
+    </style>
+    <link href='http://struts.apache.org/highlighter/styles/shCoreStruts.css' rel='stylesheet' type='text/css' />
+    <link href='http://struts.apache.org/highlighter/styles/shThemeStruts.css' rel='stylesheet' type='text/css' />
+    <script src='http://struts.apache.org/highlighter/js/shCore.js' type='text/javascript'></script>
+            <script src='http://struts.apache.org/highlighter/js/shBrushXml.js' type='text/javascript'></script>
+    
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
+    <script type="text/javascript" language="javascript">
+        var hide = null;
+        var show = null;
+        var children = null;
+
+        function init() {
+            /* Search form initialization */
+            var form = document.forms['search'];
+            if (form != null) {
+                form.elements['domains'].value = location.hostname;
+                form.elements['sitesearch'].value = location.hostname;
+            }
+
+            /* Children initialization */
+            hide = document.getElementById('hide');
+            show = document.getElementById('show');
+            children = document.all != null ?
+                    document.all['children'] :
+                    document.getElementById('children');
+            if (children != null) {
+                children.style.display = 'none';
+                show.style.display = 'inline';
+                hide.style.display = 'none';
+            }
+        }
+
+        function showChildren() {
+            children.style.display = 'block';
+            show.style.display = 'none';
+            hide.style.display = 'inline';
+        }
+
+        function hideChildren() {
+            children.style.display = 'none';
+            show.style.display = 'inline';
+            hide.style.display = 'none';
+        }
+    </script>
+    <title>xhtml theme</title>
+</head>
+<body onload="init()">
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr class="topBar">
+        <td align="left" valign="middle" class="topBarDiv" align="left" nowrap>
+            &nbsp;<a href="home.html">Home</a>&nbsp;&gt;&nbsp;<a href="guides.html">Guides</a>&nbsp;&gt;&nbsp;<a href="tag-developers-guide.html">Tag Developers Guide</a>&nbsp;&gt;&nbsp;<a href="struts-tags.html">Struts Tags</a>&nbsp;&gt;&nbsp;<a href="ui-tags.html">UI Tags</a>&nbsp;&gt;&nbsp;<a href="themes-and-templates.html">Themes and Templates</a>&nbsp;&gt;&nbsp;<a href="xhtml-theme.html">xhtml theme</a>
+        </td>
+        <td align="right" valign="middle" nowrap>
+            <form name="search" action="http://www.google.com/search" method="get">
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="hidden" name="oe" value="UTF-8" />
+                <input type="hidden" name="domains" value="" />
+                <input type="hidden" name="sitesearch" value="" />
+                <input type="text" name="q" maxlength="255" value="" />
+                <input type="submit" name="btnG" value="Google Search" />
+            </form>
+        </td>
+    </tr>
+</table>
+
+<div id="PageContent">
+    <div class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <div style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</div>
+        <div style="margin: 0px 10px 8px 10px"  class="pagetitle">xhtml theme</div>
+
+        <div class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13834">
+                <img src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Edit Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13834">Edit Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+                <img src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13834">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13834">Add Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13834">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add News"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13834">Add News</a>
+        </div>
+    </div>
+
+    <div class="pagecontent">
+        <div class="wiki-content">
+            <div id="ConfluenceContent">
+<p>The xhtml provides all the basics that the <a shape="rect" href="simple-theme.html" title="simple theme">simple theme</a> provides and adds several features.</p>
+<ul><li>Standard two-column table layout for the HTML <a shape="rect" href="struts-tags.html" title="Struts Tags">Struts Tags</a> (<a shape="rect" href="form.html" title="form">form</a>, <a shape="rect" href="textfield.html" title="textfield">textfield</a>, <a shape="rect" href="select.html" title="select">select</a>, and so forth)</li><li>Labels for each of the HTML <a shape="rect" href="struts-tags.html" title="Struts Tags">Struts Tags</a> on the left hand side (or top, depending on the <tt>labelposition</tt> attribute)</li><li><a shape="rect" href="validation.html" title="Validation">Validation</a> and error reporting</li><li><a shape="rect" href="pure-javascript-client-side-validation.html" title="Pure JavaScript Client Side Validation">Pure JavaScript Client Side Validation</a> using 100% JavaScript on the browser</li></ul>
+
+
+<h2><a shape="rect" name="xhtmltheme-WrappingtheSimpleTheme"></a>Wrapping the Simple Theme</h2>
+
+<p>The xhtml theme uses the "wrapping" technique described by <a shape="rect" href="extending-themes.html" title="Extending Themes">Extending Themes</a>. Let's look at how the HTML tags are wrapped by a standard header and footer. For example, in the <tt>text.ftl</tt> template, the <tt>controlheader.ftl</tt> and <tt>controlfooter.ftl</tt> templates are wrapped around the simple template.</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;#--
+/*
+ * $Id$
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+--&gt;
+&lt;#include "/${parameters.templateDir}/${parameters.theme}/controlheader.ftl" /&gt;
+&lt;#include "/${parameters.templateDir}/simple/text.ftl" /&gt;
+&lt;#include "/${parameters.templateDir}/xhtml/controlfooter.ftl" /&gt;
+]]></script>
+</div></div>
+<p><img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/help_16.gif" height="16" width="16" alt="" border="0"> The <tt>controlheader.ftl</tt> is referenced using ${parameters.theme} so that the code can be reused by the <a shape="rect" href="ajax-theme.html" title="ajax theme">ajax theme</a>.</p>
+
+<h2><a shape="rect" name="xhtmltheme-XHTMLThemeHeader"></a>XHTML Theme Header</h2>
+
+<p>Now let's look at the <tt>controlheader.ftl</tt> and <tt>controlheader-core.ftl</tt>. Again, these are split up for easy re-use with the <a shape="rect" href="ajax-theme.html" title="ajax theme">ajax theme</a>) contents:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;#--
+/*
+ * $Id$
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+--&gt;
+&lt;#include "/${parameters.templateDir}/xhtml/controlheader-core.ftl" /&gt;
+    &lt;td
+&lt;#if parameters.align??&gt;
+    align="${parameters.align?html}"&lt;#t/&gt;
+&lt;/#if&gt;
+&gt;&lt;#t/&gt;
+]]></script>
+</div></div>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;#--
+/*
+ * $Id$
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+--&gt;
+&lt;#--
+	Only show message if errors are available.
+	This will be done if ActionSupport is used.
+--&gt;
+&lt;#assign hasFieldErrors = parameters.name?? &amp;&amp; fieldErrors?? &amp;&amp; fieldErrors[parameters.name]??/&gt;
+&lt;#if parameters.errorposition?default("top") == 'top'&gt;
+&lt;#if hasFieldErrors&gt;
+&lt;#list fieldErrors[parameters.name] as error&gt;
+&lt;tr errorFor="${parameters.id}"&gt;
+    &lt;td align="center" valign="top" colspan="2"&gt;&lt;#rt/&gt;
+        &lt;span class="errorMessage"&gt;${error?html}&lt;/span&gt;&lt;#t/&gt;
+    &lt;/td&gt;&lt;#lt/&gt;
+&lt;/tr&gt;
+&lt;/#list&gt;
+&lt;/#if&gt;
+&lt;/#if&gt;
+&lt;#--
+	if the label position is top,
+	then give the label it's own row in the table
+--&gt;
+&lt;tr&gt;
+&lt;#if parameters.labelposition?default("") == 'top'&gt;
+    &lt;td align="left" valign="top" colspan="2"&gt;&lt;#rt/&gt;
+&lt;#else&gt;
+    &lt;td class="tdLabel"&gt;&lt;#rt/&gt;
+&lt;/#if&gt;
+&lt;#if parameters.label??&gt;
+    &lt;label &lt;#t/&gt;
+&lt;#if parameters.id??&gt;
+        for="${parameters.id?html}" &lt;#t/&gt;
+&lt;/#if&gt;
+&lt;#if hasFieldErrors&gt;
+        class="errorLabel"&lt;#t/&gt;
+&lt;#else&gt;
+        class="label"&lt;#t/&gt;
+&lt;/#if&gt;
+    &gt;&lt;#t/&gt;
+&lt;#if parameters.required?default(false) &amp;&amp; parameters.requiredPosition?default("right") != 'right'&gt;
+        &lt;span class="required"&gt;*&lt;/span&gt;&lt;#t/&gt;
+&lt;/#if&gt;
+${parameters.label?html}&lt;#t/&gt;
+&lt;#if parameters.required?default(false) &amp;&amp; parameters.requiredPosition?default("right") == 'right'&gt;
+ &lt;span class="required"&gt;*&lt;/span&gt;&lt;#t/&gt;
+&lt;/#if&gt;
+${parameters.labelseparator?default(":")?html}&lt;#t/&gt;
+&lt;#include "/${parameters.templateDir}/xhtml/tooltip.ftl" /&gt; 
+&lt;/label&gt;&lt;#t/&gt;
+&lt;/#if&gt;
+    &lt;/td&gt;&lt;#lt/&gt;
+&lt;#-- add the extra row --&gt;
+&lt;#if parameters.labelposition?default("") == 'top'&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;/#if&gt;
+]]></script>
+</div></div>
+<p>The header used by the HTML tags in the xhtml theme is complicated. However, a close look reveals that the logic produces two behaviors: either a two-column format or a two-row format. Generally the two-column approach is what we want, so that is the default option. To use the two-row approach, change the <tt>labelposition</tt> parameter to <tt>top</tt>.</p>
+<div class="panelMacro"><table class="tipMacro"><colgroup span="1"><col span="1" width="24"><col span="1"></colgroup><tr><td colspan="1" rowspan="1" valign="top"><img align="middle" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" alt="" border="0"></td><td colspan="1" rowspan="1"><b>Moving fieldErrors</b><br clear="none">The <tt>fieldErrors</tt>, usually caused by <a shape="rect" href="validation.html" title="Validation">Validation</a>, are printed out as a row above the HTML form element. Some people prefer that the errors display elsewhere, such as in a third column. If you wish to place these elsehwere, overriding the headers is easy, allowing you to continue to use the other features provided by this theme. See <a shape="rect" href="template-loading.html" title="Template Loading">Template Loading</a> for more information on how to do this.</td></tr></table></div>
+
+<h2><a shape="rect" name="xhtmltheme-XHTMLThemeFooter"></a>XHTML Theme Footer</h2>
+
+<p>The primary objective of <tt>controlfooter.ftl</tt> is to close the table. But, before the table closes, the template checks for an <tt>after</tt> parameter.</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;#--
+/*
+ * $Id$
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+--&gt;
+${parameters.after?if_exists}&lt;#t/&gt;
+    &lt;/td&gt;&lt;#lt/&gt;
+&lt;/tr&gt;
+&lt;#if parameters.errorposition?default("top") == 'bottom'&gt;
+&lt;#assign hasFieldErrors = parameters.name?? &amp;&amp; fieldErrors?? &amp;&amp; fieldErrors[parameters.name]??/&gt;
+&lt;#if hasFieldErrors&gt;
+&lt;#list fieldErrors[parameters.name] as error&gt;
+&lt;tr errorFor="${parameters.id}"&gt;
+    &lt;td align="center" valign="top" colspan="2"&gt;&lt;#rt/&gt;
+        &lt;span class="errorMessage"&gt;${error?html}&lt;/span&gt;&lt;#t/&gt;
+    &lt;/td&gt;&lt;#lt/&gt;
+&lt;/tr&gt;
+&lt;/#list&gt;
+&lt;/#if&gt;
+&lt;/#if&gt;
+
+]]></script>
+</div></div>
+<p>While "after" isn't an attribute supported by any of the <a shape="rect" href="struts-tags.html" title="Struts Tags">Struts Tags</a>, if you are using <a shape="rect" href="freemarker-tags.html" title="FreeMarker Tags">FreeMarker Tags</a>, <a shape="rect" href="velocity-tags.html" title="Velocity Tags">Velocity Tags</a>, or the <a shape="rect" href="param.html" title="param">param</a> tag in any template language, you can add an <tt>after</tt> parameter to place any content you like after the <a shape="rect" href="simple-theme.html" title="simple theme">simple theme</a> template renders. The <tt>after</tt> attribute makes it easier to fine-tune HTML forms for your specific environment.</p>
+
+<h2><a shape="rect" name="xhtmltheme-SpecialInterest"></a>Special Interest</h2>
+
+<p>Two xhtml templates of special interest are <tt>head</tt> and <tt>form</tt>.</p>
+
+<h3><a shape="rect" name="xhtmltheme-headtemplate"></a>head template</h3>
+
+<p>The xhtml <a shape="rect" href="head.html" title="head">head</a> template extends the <a shape="rect" href="simple-head-template.html" title="simple head template">simple head template</a> and provides an additional CSS that helps render the <a shape="rect" href="xhtml-theme.html" title="xhtml theme">xhtml theme</a> form elements.</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;#--
+/*
+ * $Id$
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+--&gt;
+&lt;link rel="stylesheet" href="&lt;@s.url value='/struts/xhtml/styles.css' includeParams='none' encode='false' /&gt;" type="text/css"/&gt;
+&lt;#include "/${parameters.templateDir}/simple/head.ftl" /&gt;
+]]></script>
+</div></div>
+<p>The head template imports a style sheet.</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+/*
+ * $Id$
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+.wwFormTable {}
+.label {font-style:italic; }
+.errorLabel {font-style:italic; color:red; }
+.errorMessage {font-weight:bold; color:red; }
+.checkboxLabel {}
+.checkboxErrorLabel {color:red; }
+.required {color:red;}
+.tdLabel {text-align:right; vertical-align:top; } 
+]]></script>
+</div></div>
+
+<h3><a shape="rect" name="xhtmltheme-formtemplate"></a>form template</h3>
+
+<p>The xhtml form template sets up the wrapping table around all the other <a shape="rect" href="xhtml-theme.html" title="xhtml theme">xhtml theme</a> form elements. In addition to creating this wrapping table, the opening and closing templates also, if the <tt>validate</tt> parameter is set to true, enable <a shape="rect" href="pure-javascript-client-side-validation.html" title="Pure JavaScript Client Side Validation">Pure JavaScript Client Side Validation</a>.</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;#--
+/*
+ * $Id$
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+--&gt;
+&lt;#include "/${parameters.templateDir}/xhtml/form-validate.ftl" /&gt;
+&lt;#include "/${parameters.templateDir}/simple/form-common.ftl" /&gt;
+&lt;#if (parameters.validate?default(false))&gt;
+  onreset="${parameters.onreset?default('clearErrorMessages(this);clearErrorLabels(this);')}"
+&lt;#else&gt;
+  &lt;#if parameters.onreset??&gt;
+  onreset="${parameters.onreset?html}"
+  &lt;/#if&gt;
+&lt;/#if&gt;
+&gt;
+&lt;#include "/${parameters.templateDir}/xhtml/control.ftl" /&gt;
+]]></script>
+</div></div>
+<p>The closing template, <tt>form-close.ftl*</tt>:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;#--
+/*
+ * $Id$
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+--&gt;
+&lt;#include "/${parameters.templateDir}/xhtml/control-close.ftl" /&gt;
+&lt;#include "/${parameters.templateDir}/simple/form-close.ftl" /&gt;
+&lt;#include "/${parameters.templateDir}/xhtml/form-close-validate.ftl" /&gt;
+&lt;#if parameters.focusElement?if_exists != ""&gt;
+&lt;script type="text/javascript"&gt;
+    StrutsUtils.addOnLoad(function() {
+        var element = document.getElementById("${parameters.focusElement?html}");
+        if(element) {
+            element.focus();
+        }
+    });
+&lt;/script&gt;
+&lt;/#if&gt;
+]]></script>
+</div></div></div>
+        </div>
+
+                    <div class="tabletitle">
+                Children
+            <span class="smalltext" id="show" style="display: inline;">
+              <a href="javascript:showChildren()">Show Children</a></span>
+            <span class="smalltext" id="hide" style="display: none;">
+              <a href="javascript:hideChildren()">Hide Children</a></span>
+            </div>
+            <div class="greybox" id="children" style="display: none;">
+                                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                            </div>
+        
+    </div>
+</div>
+<div class="footer">
+    Generated by CXF SiteExporter
+</div>
+</body>
+</html>

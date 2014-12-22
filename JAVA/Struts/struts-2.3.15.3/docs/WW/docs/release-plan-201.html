@@ -1,0 +1,413 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+<html>
+<head>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <style type="text/css">
+        .dp-highlighter {
+            width:95% !important;
+        }
+    </style>
+    <style type="text/css">
+        .footer {
+            background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+            background-repeat:     repeat-x;
+            background-position:   left top;
+            padding-top:           4px;
+            color:                 #666;
+        }
+    </style>
+    <script type="text/javascript" language="javascript">
+        var hide = null;
+        var show = null;
+        var children = null;
+
+        function init() {
+            /* Search form initialization */
+            var form = document.forms['search'];
+            if (form != null) {
+                form.elements['domains'].value = location.hostname;
+                form.elements['sitesearch'].value = location.hostname;
+            }
+
+            /* Children initialization */
+            hide = document.getElementById('hide');
+            show = document.getElementById('show');
+            children = document.all != null ?
+                    document.all['children'] :
+                    document.getElementById('children');
+            if (children != null) {
+                children.style.display = 'none';
+                show.style.display = 'inline';
+                hide.style.display = 'none';
+            }
+        }
+
+        function showChildren() {
+            children.style.display = 'block';
+            show.style.display = 'none';
+            hide.style.display = 'inline';
+        }
+
+        function hideChildren() {
+            children.style.display = 'none';
+            show.style.display = 'inline';
+            hide.style.display = 'none';
+        }
+    </script>
+    <title>Release Plan 2.0.1</title>
+</head>
+<body onload="init()">
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr class="topBar">
+        <td align="left" valign="middle" class="topBarDiv" align="left" nowrap>
+            &nbsp;<a href="home.html">Home</a>&nbsp;&gt;&nbsp;<a href="guides.html">Guides</a>&nbsp;&gt;&nbsp;<a href="migration-guide.html">Migration Guide</a>&nbsp;&gt;&nbsp;<a href="release-plan-201.html">Release Plan 2.0.1</a>
+        </td>
+        <td align="right" valign="middle" nowrap>
+            <form name="search" action="http://www.google.com/search" method="get">
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="hidden" name="oe" value="UTF-8" />
+                <input type="hidden" name="domains" value="" />
+                <input type="hidden" name="sitesearch" value="" />
+                <input type="text" name="q" maxlength="255" value="" />
+                <input type="submit" name="btnG" value="Google Search" />
+            </form>
+        </td>
+    </tr>
+</table>
+
+<div id="PageContent">
+    <div class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <div style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</div>
+        <div style="margin: 0px 10px 8px 10px"  class="pagetitle">Release Plan 2.0.1</div>
+
+        <div class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=26390">
+                <img src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Edit Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=26390">Edit Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+                <img src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=26390">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=26390">Add Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=26390">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add News"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=26390">Add News</a>
+        </div>
+    </div>
+
+    <div class="pagecontent">
+        <div class="wiki-content">
+            <div id="ConfluenceContent"><ul><li>Struts 2.0.1 is preparing a "release candidate" build.</li><li>Documentation issues remain as to migrating.</li><li>Assembly/distribution issues remain.</li></ul>
+
+
+<p><img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" height="16" width="16" alt="" border="0"> For resolved issues, see <a shape="rect" class="external-link" href="https://issues.apache.org/struts/secure/IssueNavigator.jspa?mode=hide&amp;requestId=10693">Struts 2.0.1 DONE</a> in the issue tracker. </p>
+
+<p><img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb_on.gif" height="16" width="16" alt="" border="0"> For known and pending issues (if any) see <a shape="rect" class="external-link" href="https://issues.apache.org/struts/secure/IssueNavigator.jspa?mode=hide&amp;requestId=10682">Struts 2.0.1 TODO</a> in the issue tracker. </p>
+
+<h2><a shape="rect" name="ReleasePlan2.0.1-OverallStatus"></a>Overall Status</h2>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" class="external-link" href="http://issues.apache.org/struts/browse/SITE-3">Setup Nightly Builds</a> </td><th colspan="1" rowspan="1" class="confluenceTh"> Pending </th><th colspan="1" rowspan="1" class="confluenceTh"> <img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb_on.gif" height="16" width="16" alt="" border="0"> </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <span class="error">[Utilize Cookbook format for Showcase and add Struts-Examples use cases]</span> </td><th colspan="1" rowspan="1" class="confluenceTh">&#160;</th><th colspan="1" rowspan="1" class="confluenceTh"> <img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb.gif" height="16" width="16" alt="" border="0"> </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <span class="error">[Add Struts 1 and WW2 Migration Guides]</span> </td><th colspan="1" rowspan="1" class="confluenceTh"> Initial draft added </th><th colspan="1" rowspan="1" class="confluenceTh"> <img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb_on.gif" height="16" width="16" alt="" border="0"> </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> Complete standard release plan </td><th colspan="1" rowspan="1" class="confluenceTh"> Pending </th><th colspan="1" rowspan="1" class="confluenceTh"> <img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb_on.gif" height="16" width="16" alt="" border="0"> </th></tr></tbody></table>
+</div>
+
+
+<h2><a shape="rect" name="ReleasePlan2.0.1-AdditionalBackground"></a>Additional Background</h2>
+
+<ul><li><a shape="rect" class="external-link" href="http://issues.apache.org/struts/browse/WW-1453">Struts 2.0.1 omnibus ticket</a></li><li><a shape="rect" class="external-link" href="http://wiki.apache.org/struts/StrutsTi">Struts Ti Proposal</a></li><li><a shape="rect" class="external-link" href="http://wiki.apache.org/struts/StrutsAction2">Migration Issues</a></li><li><a shape="rect" class="external-link" href="http://wiki.apache.org/struts/RoughSpots">Struts 2 Rough Spots</a></li><li><a shape="rect" class="external-link" href="http://svn.apache.org/viewcvs.cgi/struts/action2/trunk/action-api">Public API Whiteboard</a></li></ul>
+
+
+<h2><a shape="rect" name="ReleasePlan2.0.1-ReleaseManager"></a>Release Manager</h2>
+
+<p>The release manager is <b>Ted Husted</b>.</p>
+<ul><li>See also <a shape="rect" href="creating-and-signing-a-distribution.html" title="Creating and Signing a Distribution">Creating and Signing a Distribution</a></li></ul>
+
+
+<h2><a shape="rect" name="ReleasePlan2.0.1-SpecialIssues"></a>Special Issues</h2>
+
+<p>Struts 2.0 is based on the WebWork 2.2 codebase. Essentially, Struts 2.0 will be the technical equivalent of WebWork 2.3. (The WebWork 2 codebase was accepted into the Struts project through the <a shape="rect" class="external-link" href="http://incubator.apache.org/projects/webwork2.html">Apache Incubator</a>.) </p>
+
+<p>For Struts 2.0, the core goals are to repackage the codebase as an Apache Struts product and to provide migration resources for Struts 1 and WW 2 developers. A few legacy API elements will be removed, and a few new features will be added. </p>
+
+<p>The Struts 2.0 release is following the <a shape="rect" class="external-link" href="http://wiki.apache.org/struts/StrutsTi">Struts Ti Proposal</a>. Struts 2.0 is Phase 1 of the proposal. A subsequent Struts release series (either Struts 2.1 or Struts 3.0) will address Phase 2 of the proposal.</p>
+
+<p>The platform for Struts 2.0.x is Java 1.5, with Java 1.4 compatibity provided by <a shape="rect" class="external-link" href="http://retrotranslator.sourceforge.net/" rel="nofollow">RetoTranslator</a>.</p>
+
+<p>See also <a shape="rect" class="external-link" href="http://wiki.apache.org/struts/StrutsAction2">Struts 2</a>.</p>
+
+<h2><a shape="rect" name="ReleasePlan2.0.1-NewFeaturesUnderConsideration"></a>New Features Under Consideration</h2>
+
+<p>The initial list of new features is taken from the <a shape="rect" class="external-link" href="http://wiki.apache.org/struts/RoughSpots">Struts 2 Rough Spots</a> page.</p>
+
+<p>Some new features were added in <a shape="rect" href="release-plan-200.html" title="Release Plan 2.0.0">Struts 2.0.0</a>.</p>
+
+<h3><a shape="rect" name="ReleasePlan2.0.1-ReviewandRefinement"></a>Review and Refinement</h3>
+
+<ul><li>Separate classes that most applications need to use. Isolate classes that the framework uses internally or that are rarely used by applications.  (See Rough Spot #3.)</li><li>Distinguish between the published public versus private APIs. (See Rough Spot #4.)</li><li>Utilize properties (methods) instead of protected or public fields (). (See #13.)</li><li>Review exception handling. Some are still being swallowed rather than rethrown. (See #20 and <span class="error">[WW-652@ww]</span>)</li></ul>
+
+
+<h3><a shape="rect" name="ReleasePlan2.0.1-Modifications"></a>Modifications</h3>
+
+<ul><li>Simplify TextProvider. (See #15.)</li><li>Modify ParametersInterceptor to sort parameter names by depth (using bucket sort) and then map them in that order (shallowest first). (See #21.)</li><li>Use the strategy pattern to swap in different implementations of interfaces like ValidationAware. (See Tim, NTH #1.)</li></ul>
+
+
+<h3><a shape="rect" name="ReleasePlan2.0.1-Configuration"></a>Configuration</h3>
+
+<ul><li>Add support  type aliasing (a la Spring and iBATIS) to reduce or eliminate need to use fully-qualified class names, over and over. The fully-qualified type is declared once, and then a simple type "nickname" can be used instead. (See #23.)
+	<ul><li>An alternative to this issue is adding a default=action-class-ref so that packages can designate a default class other than ActionSupport.</li></ul>
+	</li><li>Combine configuration DTDs so that Actions, Messages, and Validators can be defined in a single file. (See Ted, #1.)</li><li>Use values on the stack to override/define configuration options. (See Tim, NTH #3.)</li></ul>
+
+
+<h3><a shape="rect" name="ReleasePlan2.0.1-OGNL"></a>OGNL</h3>
+
+<ul><li>On the OGNL value stack, rename #request for request parameters and #requestAttributes for request attributes. (See #17 and <span class="error">[WW-785@ww]</span>.)</li><li>Work with OGNL to add Java 5 support. (See #31.)</li><li>Work with OGNL to make it a clear superset of JSTL. (See Gabe #4.)</li></ul>
+
+
+<h3><a shape="rect" name="ReleasePlan2.0.1-Struts1FeaturestoImplementWW1347@ww"></a><span class="error">[Struts 1 Features to Implement]</span> </h3>
+
+<ul><li>Extends for action mappings (See Tim, NTH #2.)</li><li><span class="error">[Set field focus]</span></li></ul>
+
+
+<h2><a shape="rect" name="ReleasePlan2.0.1-TestingChecklist"></a>Testing Checklist</h2>
+
+<h3><a shape="rect" name="ReleasePlan2.0.1-TestingSummary"></a>Testing Summary </h3>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><th colspan="1" rowspan="1" class="confluenceTh"> # </th><th colspan="1" rowspan="1" class="confluenceTh"> Description </th><th colspan="1" rowspan="1" class="confluenceTh"> Completed </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> 1. </td><td colspan="1" rowspan="1" class="confluenceTd"> Run Unit Test targets </td><td colspan="1" rowspan="1" class="confluenceTd"> <img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb.gif" height="16" width="16" alt="" border="0"> </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> 2. </td><td colspan="1" rowspan="1" class="confluenceTd"> Play test bundled applications </td><td colspan="1" rowspan="1" class="confluenceTd"> <img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb.gif" height="16" width="16" alt="" border="0"> </td></tr></tbody></table>
+</div>
+
+
+<p>TODO: A Silenium test suite for the applications would be great!</p>
+
+<h2><a shape="rect" name="ReleasePlan2.0.1-TestBuildDistributionChecklist%28A%29"></a>Test Build Distribution Checklist (A)</h2>
+
+<p><img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb_on.gif" height="16" width="16" alt="" border="0"> See also <a shape="rect" href="creating-and-signing-a-distribution.html" title="Creating and Signing a Distribution">Creating and Signing a Distribution</a></p>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><th colspan="1" rowspan="1" class="confluenceTh"> # </th><th colspan="1" rowspan="1" class="confluenceTh"> Description </th><th colspan="1" rowspan="1" class="confluenceTh"> Completed </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> A1. </td><td colspan="1" rowspan="1" class="confluenceTd"> Setup new JIRA version level for next distribution </td><th colspan="1" rowspan="1" class="confluenceTh"> <img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb_on.gif" height="16" width="16" alt="" border="0"> </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> A2. </td><td colspan="1" rowspan="1" class="confluenceTd"> Update POM version and tag release in svn: ${STRUTS_2_0_1} </td><th colspan="1" rowspan="1" class="confluenceTh"> <img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb.gif" height="16" width="16" alt="" border="0"> </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> A3. </td><td colspan="1" rowspan="1" class="confluenceTd"> Run Distribution Target </td><th colspan="1" rowspan="1" class="confluenceTh"> <img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb.gif" height="16" width="16" alt="" border="0"> </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> A4. </td><td colspan="1" rowspan="1" class="confluenceTd"> Create Sums and Sign Distributions </td><th colspan="1" rowspan="1" class="confluenceTh"> <img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb.gif" height="16" width="16" alt="" border="0"> </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> A5. </td><td colspan="1" rowspan="1" class="confluenceTd"> Upload Distribution to <tt>people.apache.org/builds/struts/2.0.0/</tt> </td><th colspan="1" rowspan="1" class="confluenceTh"> <img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb.gif" height="16" width="16" alt="" border="0"> </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> A6. </td><td colspan="1" rowspan="1" class="confluenceTd"> Deploy JAR to Apache Java-Repository </td><th colspan="1" rowspan="1" class="confluenceTh"> <img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb.gif" height="16" width="16" alt="" border="0"> </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> A7. </td><td colspan="1" rowspan="1" class="confluenceTd"> Post release-quality vote on dev@ lists </td><th colspan="1" rowspan="1" class="confluenceTh"> <img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb.gif" height="16" width="16" alt="" border="0"> </th></tr></tbody></table>
+</div>
+
+
+<h3><a shape="rect" name="ReleasePlan2.0.1-Vote%28A%29"></a>Vote (A)</h3>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd"> ${PMC_MEMBER} </td><td colspan="1" rowspan="1" class="confluenceTd"> ${GRADE} </td></tr></tbody></table>
+</div>
+
+
+<ul><li>If release vote fails, including for a lack of quorum (3 binding +1s), remove from builds folder.</li><li>If a release vote passes (Alpha, Beta or GA), the release may be announced and mirrored, at the PMC's discretion.</li><li>If vote is GA, goto Checklist (C).</li></ul>
+
+
+<h2><a shape="rect" name="ReleasePlan2.0.1-PointReleaseDistributionChecklist%28B%29"></a>Point Release Distribution Checklist (B)</h2>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd"> B1. </td><td colspan="1" rowspan="1" class="confluenceTd"> Update "Downooads" page on website and Test Downloads </td><th colspan="1" rowspan="1" class="confluenceTh"> <img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb.gif" height="16" width="16" alt="" border="0"> </th></tr></tbody></table>
+</div>
+
+
+<h3><a shape="rect" name="ReleasePlan2.0.1-Vote%28B%29"></a>Vote (B)</h3>
+
+<p>If initial vote is Alpha or Beta, voting can continue until a GA or "withdraw" vote passes, or there is a subsequent release.</p>
+
+<h4><a shape="rect" name="ReleasePlan2.0.1-struts2all"></a>struts2-all</h4>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd"> ${PMC_MEMBER} </td><td colspan="1" rowspan="1" class="confluenceTd"> ${GRADE} </td></tr></tbody></table>
+</div>
+
+
+<h4><a shape="rect" name="ReleasePlan2.0.1-struts2api"></a>struts2-api</h4>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd"> ${PMC_MEMBER} </td><td colspan="1" rowspan="1" class="confluenceTd"> ${GRADE} </td></tr></tbody></table>
+</div>
+
+
+<h4><a shape="rect" name="ReleasePlan2.0.1-struts2core"></a>struts2-core</h4>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd"> ${PMC_MEMBER} </td><td colspan="1" rowspan="1" class="confluenceTd"> ${GRADE} </td></tr></tbody></table>
+</div>
+
+
+<h4><a shape="rect" name="ReleasePlan2.0.1-Plugins"></a>Plugins</h4>
+
+<h5><a shape="rect" name="ReleasePlan2.0.1-struts2configbrowserplugin"></a>struts2-config-browser-plugin</h5>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd"> ${PMC_MEMBER} </td><td colspan="1" rowspan="1" class="confluenceTd"> ${GRADE} </td></tr></tbody></table>
+</div>
+
+
+<h5><a shape="rect" name="ReleasePlan2.0.1-struts2jasperreportsplugin"></a>struts2-jasperreports-plugin</h5>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd"> ${PMC_MEMBER} </td><td colspan="1" rowspan="1" class="confluenceTd"> ${GRADE} </td></tr></tbody></table>
+</div>
+
+
+<h5><a shape="rect" name="ReleasePlan2.0.1-struts2jfreechartplugin"></a>struts2-jfreechart-plugin</h5>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd"> ${PMC_MEMBER} </td><td colspan="1" rowspan="1" class="confluenceTd"> ${GRADE} </td></tr></tbody></table>
+</div>
+
+
+<h5><a shape="rect" name="ReleasePlan2.0.1-struts2jsfplugin"></a>struts2-jsf-plugin</h5>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd"> ${PMC_MEMBER} </td><td colspan="1" rowspan="1" class="confluenceTd"> ${GRADE} </td></tr></tbody></table>
+</div>
+
+
+<h5><a shape="rect" name="ReleasePlan2.0.1-struts2pellmultipartplugin"></a>struts2-pell-multipart-plugin</h5>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd"> ${PMC_MEMBER} </td><td colspan="1" rowspan="1" class="confluenceTd"> ${GRADE} </td></tr></tbody></table>
+</div>
+
+
+<h5><a shape="rect" name="ReleasePlan2.0.1-struts2plexusplugin"></a>struts2-plexus-plugin</h5>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd"> ${PMC_MEMBER} </td><td colspan="1" rowspan="1" class="confluenceTd"> ${GRADE} </td></tr></tbody></table>
+</div>
+
+
+<h5><a shape="rect" name="ReleasePlan2.0.1-struts2quickstart"></a>struts2-quickstart</h5>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd"> ${PMC_MEMBER} </td><td colspan="1" rowspan="1" class="confluenceTd"> ${GRADE} </td></tr></tbody></table>
+</div>
+
+
+<h5><a shape="rect" name="ReleasePlan2.0.1-struts2sitemeshplugin"></a>struts2-sitemesh-plugin</h5>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd"> ${PMC_MEMBER} </td><td colspan="1" rowspan="1" class="confluenceTd"> ${GRADE} </td></tr></tbody></table>
+</div>
+
+
+<h5><a shape="rect" name="ReleasePlan2.0.1-struts2sitegraph"></a>struts2-sitegraph</h5>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd"> ${PMC_MEMBER} </td><td colspan="1" rowspan="1" class="confluenceTd"> ${GRADE} </td></tr></tbody></table>
+</div>
+
+
+<h5><a shape="rect" name="ReleasePlan2.0.1-struts1plugin"></a>struts1-plugin</h5>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd"> ${PMC_MEMBER} </td><td colspan="1" rowspan="1" class="confluenceTd"> ${GRADE} </td></tr></tbody></table>
+</div>
+
+
+<h5><a shape="rect" name="ReleasePlan2.0.1-struts2tilesplugin"></a>struts2-tiles-plugin</h5>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd"> ${PMC_MEMBER} </td><td colspan="1" rowspan="1" class="confluenceTd"> ${GRADE} </td></tr></tbody></table>
+</div>
+
+
+
+<h2><a shape="rect" name="ReleasePlan2.0.1-GeneralAvailabilityDistributionChecklist%28C%29"></a>General Availability Distribution Checklist (C) </h2>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><th colspan="1" rowspan="1" class="confluenceTh"><ol><li></li></ol>
+</th><th colspan="1" rowspan="1" class="confluenceTh"> Description </th><th colspan="1" rowspan="1" class="confluenceTh"> Completed </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> C1. </td><td colspan="1" rowspan="1" class="confluenceTd"> Copy Distribution to Mirrored Directories </td><th colspan="1" rowspan="1" class="confluenceTh"><img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb.gif" height="16" width="16" alt="" border="0"> </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> C2. </td><td colspan="1" rowspan="1" class="confluenceTd"> After 24 hours, update "Downloads" page on website </td><th colspan="1" rowspan="1" class="confluenceTh"> <img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb.gif" height="16" width="16" alt="" border="0"> </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> C3. </td><td colspan="1" rowspan="1" class="confluenceTd"> Post an announcement to lists and website </td><th colspan="1" rowspan="1" class="confluenceTh"> <img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb.gif" height="16" width="16" alt="" border="0"> </th></tr></tbody></table>
+</div>
+
+
+<hr>
+
+<h1><a shape="rect" name="ReleasePlan2.0.1-DraftAnnouncementforApacheCon"></a>Draft Announcement for ApacheCon </h1>
+
+<p>The Apache Struts project is pleased to announce the availability of the Struts 2.0.1 development build. </p>
+
+<p>Struts 2 was originally known as WebWork 2. After working independently for several years, the WebWork and Struts communities joined forces to create Struts 2. This new version of Struts is designed to be simpler to use and closer to how Struts was always meant to be. Some key changes are: </p>
+
+<p>Smarter! </p>
+
+<p>Improved Design - All Struts 2 classes are based on interfaces. Core interfaces are HTTP independent. </p>
+
+<p>Intelligent Defaults - Most configuration elements have a default value that we can set and forget. </p>
+
+<p>Enhanced Results - Unlike ActionForwards, Struts 2 Results can actually help prepare the response. </p>
+
+<p>Enhanced Tags - Struts 2 tags don't just output data, but provides stylesheet-driven markup, so that we can create consistent pages with less code.</p>
+
+<p>First-class AJAX support - The AJAX theme gives interactive applications a significant boost. </p>
+
+<p>Stateful Checkboxes - Struts 2 checkboxes do not require special handling for false values.</p>
+
+<p>QuickStart - Many changes can be made on the fly without restarting a web container. </p>
+
+
+<p>Easier! </p>
+
+<p>Easy-to-test Actions - Struts 2 Actions are HTTP independent and can be tested without resorting to mock objects. </p>
+
+<p>Easy-to-customize controller - Struts 1 lets us customize the request processor per module, Struts 2 lets us customize the request handling per action, if desired. </p>
+
+<p>Easy-to-tweak tags - Struts 2 tag markup can be altered by changing an underlying stylesheet. Individual tag markup can be changed by editing a FreeMarker template. No need to grok the taglib API! Both JSP and FreeMarker tags are fully supported. </p>
+
+<p>Easy cancel handling - The Struts 2 Cancel button can go directly to a different action. </p>
+
+<p>Easy Spring integration - Struts 2 Actions are Spring-aware. Just add Spring beans!</p>
+
+<p>Easy plugins - Struts 2 extensions can be added by dropping in a JAR. No manual configuration required!</p>
+
+
+<p>POJO-ier! </p>
+
+<p>POJO forms - No more ActionForms! We can use any JavaBean we like or put properties directly on our Action classes. No need to use all String properties! </p>
+
+<p>POJO Actions - Any class can be used as an Action class. We don't even have to implement an interface! </p>
+
+<p>For more, visit the Apache Struts website</p>
+
+<ul><li><a shape="rect" class="external-link" href="http://struts.apache.org/2.x/index.html">http://struts.apache.org/2.x/index.html</a></li></ul>
+
+
+<p>Three Struts related events will be hosted at ApacheCon US 2006.</p>
+
+<ul><li>Migrating to Struts 2 - Tutorial with Ted Husted, Monday, October 9 at 1:30pm in Room 3 (pre-registration required).</li><li>Struts 2.0 - Session with Don Brown, Wednesday, October 11 at 11:30am in Room 4.</li><li>Apache Struts Birds of a Feather session - Thursday, October 12 at 9pm in Room 4.</li></ul>
+
+</div>
+        </div>
+
+        
+    </div>
+</div>
+<div class="footer">
+    Generated by CXF SiteExporter
+</div>
+</body>
+</html>

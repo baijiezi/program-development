@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+<html>
+<head>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <style type="text/css">
+        .dp-highlighter {
+            width:95% !important;
+        }
+    </style>
+    <style type="text/css">
+        .footer {
+            background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+            background-repeat:     repeat-x;
+            background-position:   left top;
+            padding-top:           4px;
+            color:                 #666;
+        }
+    </style>
+    <link href='http://struts.apache.org/highlighter/styles/shCoreStruts.css' rel='stylesheet' type='text/css' />
+    <link href='http://struts.apache.org/highlighter/styles/shThemeStruts.css' rel='stylesheet' type='text/css' />
+    <script src='http://struts.apache.org/highlighter/js/shCore.js' type='text/javascript'></script>
+            <script src='http://struts.apache.org/highlighter/js/shBrushJava.js' type='text/javascript'></script>
+            <script src='http://struts.apache.org/highlighter/js/shBrushXml.js' type='text/javascript'></script>
+    
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
+    <script type="text/javascript" language="javascript">
+        var hide = null;
+        var show = null;
+        var children = null;
+
+        function init() {
+            /* Search form initialization */
+            var form = document.forms['search'];
+            if (form != null) {
+                form.elements['domains'].value = location.hostname;
+                form.elements['sitesearch'].value = location.hostname;
+            }
+
+            /* Children initialization */
+            hide = document.getElementById('hide');
+            show = document.getElementById('show');
+            children = document.all != null ?
+                    document.all['children'] :
+                    document.getElementById('children');
+            if (children != null) {
+                children.style.display = 'none';
+                show.style.display = 'inline';
+                hide.style.display = 'none';
+            }
+        }
+
+        function showChildren() {
+            children.style.display = 'block';
+            show.style.display = 'none';
+            hide.style.display = 'inline';
+        }
+
+        function hideChildren() {
+            children.style.display = 'none';
+            show.style.display = 'inline';
+            hide.style.display = 'none';
+        }
+    </script>
+    <title>Struts 1 Plugin</title>
+</head>
+<body onload="init()">
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr class="topBar">
+        <td align="left" valign="middle" class="topBarDiv" align="left" nowrap>
+            &nbsp;<a href="home.html">Home</a>&nbsp;&gt;&nbsp;<a href="guides.html">Guides</a>&nbsp;&gt;&nbsp;<a href="plugin-developers-guide.html">Plugin Developers Guide</a>&nbsp;&gt;&nbsp;<a href="struts-1-plugin.html">Struts 1 Plugin</a>
+        </td>
+        <td align="right" valign="middle" nowrap>
+            <form name="search" action="http://www.google.com/search" method="get">
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="hidden" name="oe" value="UTF-8" />
+                <input type="hidden" name="domains" value="" />
+                <input type="hidden" name="sitesearch" value="" />
+                <input type="text" name="q" maxlength="255" value="" />
+                <input type="submit" name="btnG" value="Google Search" />
+            </form>
+        </td>
+    </tr>
+</table>
+
+<div id="PageContent">
+    <div class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <div style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</div>
+        <div style="margin: 0px 10px 8px 10px"  class="pagetitle">Struts 1 Plugin</div>
+
+        <div class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=44227">
+                <img src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Edit Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=44227">Edit Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+                <img src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=44227">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=44227">Add Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=44227">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add News"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=44227">Add News</a>
+        </div>
+    </div>
+
+    <div class="pagecontent">
+        <div class="wiki-content">
+            <div id="ConfluenceContent"><p>The Struts 1 plugin allows you to use existing Struts 1 Actions and ActionForms in Struts 2 applications.</p>
+
+<p>This plugin provides a generic Struts 2 Action class to wrap an existing Struts 1 Action, <tt>org.apache.struts2.s1.Struts1Action</tt>.  The wrapper class provides the expected calls to the legacy Struts 1 Action and ActionForm, converting incoming and outgoing objects into the expected forms.  It works by using the <a shape="rect" href="scoped-model-driven-interceptor.html" title="Scoped Model Driven Interceptor">scoped model driven</a> technique that uses a single Object as the model for every page, very similar to how the Struts 1 ActionForm works.  The plugin also provides several interceptors to emulate Struts 1 logic:</p>
+<ul><li><tt>org.apache.struts2.s1.ActionFormValidatorInterceptor</tt> - Integrates the validation of ActionForms into the workflow of Struts 2</li><li><tt>org.apache.struts2.s1.ActionFormResetInterceptor</tt> - Calls the <tt>reset()</tt> method on any discovered ActionForms</li></ul>
+
+
+<div class="panelMacro"><table class="warningMacro"><colgroup span="1"><col span="1" width="24"><col span="1"></colgroup><tr><td colspan="1" rowspan="1" valign="top"><img align="middle" src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" alt="" border="0"></td><td colspan="1" rowspan="1"><b>Warning</b><br clear="none">The Struts 1 plugin is currently only intended to allow you to run Strust 1 actions inside a Struts 2 application. It DOES NOT allow you to continue to use the Struts 1 tag libraries in your JSPs. Your JSPs must be converted to use the Struts 2 tag library.
+
+<p>There is a <a shape="rect" class="external-link" href="https://issues.apache.org/struts/browse/WW-2157">JIRA ticket</a> open for enhancing this plugin to allow a more seamless transition from Struts 1 to Struts 2 by supporting continued use of the Struts 1 tag libraries in JSPs, however, there is not a scheduled time frame for that functionality to be made available. (Patches are welcomed!)</p></td></tr></table></div>
+
+<h2><a shape="rect" name="Struts1Plugin-Features"></a>Features</h2>
+
+<ul><li>Can use Struts 1 Actions and ActionForms with no code changes</li><li>Supports Commons Validator-enabled ActionForms</li></ul>
+
+
+<h2><a shape="rect" name="Struts1Plugin-Usage"></a>Usage</h2>
+
+<p>To use existing Struts 1 Actions and ActionForms in a Struts 2 application, create a normal Struts 2 configuration package in <tt>struts.xml</tt>, but have it extend <tt>struts1-default</tt>.  The <tt>struts1-default</tt> package contains several interceptors and a default interceptor stack that work the plugin into the Struts 2 request process.</p>
+
+<p>In the most simple case, where you have a Struts 1 Action that you want to use in Struts 2, configure a Struts 2 action using the wrapper:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Simple Struts 1 configuration</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;action name="myAction" class="org.apache.struts2.s1.Struts1Action"&gt;
+  &lt;param name="className"&gt;com.mycompany.myapp.MyAction&lt;/param&gt;
+  &lt;result&gt;myAction.jsp&lt;/result&gt;
+&lt;/action&gt;
+]]></script>
+</div></div>
+
+<p>Most likely, you will have an ActionForm that your Struts 1 Action expects.  To use an ActionForm, the setup is a little more complicated because you'll need an interceptor that manages the creation and scope (to support request and session scoping like Struts 1) of the ActionForm. </p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Struts 1 Action with a session-scoped ActionForm</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+
+&lt;action name="myFormAction" class="org.apache.struts2.s1.Struts1Action"&gt;
+  &lt;param name="className"&gt;com.mycompany.myapp.MyAction&lt;/param&gt;
+
+  &lt;interceptor-ref name="scopedModelDriven"&gt;
+    &lt;param name="className"&gt;com.mycompany.myapp.MyForm&lt;/param&gt;
+    &lt;param name="name"&gt;gangsterForm&lt;/param&gt;
+    &lt;param name="scope"&gt;session&lt;/param&gt;
+  &lt;/interceptor-ref&gt;
+  &lt;interceptor-ref name="struts1-default"/&gt;
+
+  &lt;result&gt;myAction.jsp&lt;/result&gt;
+&lt;/action&gt;
+]]></script>
+</div></div>
+
+<h2><a shape="rect" name="Struts1Plugin-Example"></a>Example</h2>
+
+<p>This example shows a few Struts 1 Actions, a session-scoped ActionForm, and validation that uses Commons Validator:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd"&gt;
+
+&lt;struts&gt;
+  &lt;package name="integration" extends="struts1-default" namespace="/integration"&gt;
+
+    &lt;interceptors&gt;
+      &lt;interceptor name="gangsterForm" class="com.opensymphony.xwork2.interceptor.ScopedModelDrivenInterceptor"&gt;
+        &lt;param name="className"&gt;org.apache.struts2.showcase.integration.GangsterForm&lt;/param&gt;
+        &lt;param name="name"&gt;gangsterForm&lt;/param&gt;
+      &lt;/interceptor&gt;
+      &lt;interceptor name="gangsterValidation" class="org.apache.struts2.s1.ActionFormValidationInterceptor"&gt;
+        &lt;param name="pathnames"&gt;/org/apache/struts/validator/validator-rules.xml,/WEB-INF/validation.xml&lt;/param&gt;
+      &lt;/interceptor&gt;
+
+      &lt;interceptor-stack name="integration"&gt;
+        &lt;interceptor-ref name="staticParams"/&gt;
+        &lt;interceptor-ref name="gangsterForm"/&gt;
+        &lt;interceptor-ref name="modelDriven"/&gt;
+        &lt;interceptor-ref name="actionForm-reset"/&gt;
+        &lt;interceptor-ref name="basicStack"/&gt;
+        &lt;interceptor-ref name="gangsterValidation"/&gt;
+        &lt;interceptor-ref name="workflow"/&gt;
+      &lt;/interceptor-stack&gt;
+    &lt;/interceptors&gt;
+
+    &lt;default-interceptor-ref name="integration"/&gt;
+    &lt;default-action-ref name="editGangster"/&gt;
+
+    &lt;!-- Display entry page that uses Model-Driven technique --&gt;
+    &lt;action name="editGangster" class="org.apache.struts2.s1.Struts1Action"&gt;
+      &lt;param name="className"&gt;org.apache.struts2.showcase.integration.EditGangsterAction&lt;/param&gt;
+      &lt;result&gt;modelDriven.jsp&lt;/result&gt;
+    &lt;/action&gt;
+
+    &lt;!-- Display the result page whose content is populated using the Model-Driven technique --&gt;
+    &lt;action name="saveGangster" class="org.apache.struts2.s1.Struts1Action"&gt;
+      &lt;param name="className"&gt;org.apache.struts2.showcase.integration.SaveGangsterAction&lt;/param&gt;
+      &lt;param name="validate"&gt;true&lt;/param&gt;
+      &lt;result name="input"&gt;modelDriven.jsp&lt;/result&gt;
+      &lt;result&gt;modelDrivenResult.jsp&lt;/result&gt;
+    &lt;/action&gt;
+
+  &lt;/package&gt;
+&lt;/struts&gt;
+]]></script>
+</div></div>
+
+<h2><a shape="rect" name="Struts1Plugin-Settings"></a>Settings</h2>
+
+<p>This plugin doesn't support any global settings.</p>
+
+<h2><a shape="rect" name="Struts1Plugin-Installation"></a>Installation</h2>
+
+<p>This plugin can be installed by copying the plugin jar into your application's <tt>/WEB-INF/lib</tt> directory.  It will need the Struts 1 jar in order to function correctly.</p></div>
+        </div>
+
+        
+    </div>
+</div>
+<div class="footer">
+    Generated by CXF SiteExporter
+</div>
+</body>
+</html>

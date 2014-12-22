@@ -1,0 +1,482 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>阳光医疗网</title>
+<link href="userCenter_data/usercenter.css" rel="stylesheet" type="text/css">
+<link href="userCenter_data/usermain.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="userCenter_data/jquery-1.js"></script>
+<script type="text/javascript" src="cms_files/WdatePicker.js"></script><link type="text/css" rel="stylesheet" href="cms_files/WdatePicker.css">
+<style>
+</style>
+
+<script type="text/javascript">
+var WEB_URL = 'http://www.sun309.com/';
+var SEO_URL = "http://www.sun309.com/?q=";
+var UI_URL = 'http://sun309.com/usercenter//images';
+var HTML = '.html';
+var URL_DOT = '&';
+var is_login = "";
+var currentPageCode = "";
+</script></head><body>
+<script type="text/javascript">
+var currentPageCode = 101;
+var userCombos = new Array();
+function checkForm()
+{
+	var kzCardNo = document.getElementById('kz_card_no').value;
+	kzCardNo = kzCardNo.replace(/\s/ig,'');
+	var money = document.getElementById('emoney').value;
+	if(kzCardNo==null || kzCardNo=='' || (kzCardNo.length!=16 && kzCardNo.length!=18))
+	{
+		alert("请输入正确的阳光卡/康众卡号!");
+		return false;
+	}
+	var isMoney = /^\d+(\.\d+)?$/;
+	if(money==null || money=='' || !isMoney.test(money))
+	{
+		alert("请输入正确充值金额!");
+		return false;
+	}
+	return true;
+}
+</script>
+<!--box1-->
+<div class="user_box01">
+	 <!--bg-->
+	 <div class="user_box02">
+	        <!--left-->
+			<div class="tuimg user_bg3 m_t30" style="overflow:auto;">
+				   <div class="left m_le8 font14 lineheight25 padd_t5" style="word-wrap:break-word;word-break:break-all;width:475px;">
+				        <span class="blue2">尊敬的</span> <b class="user_red2">baijiezi23</b>
+						<br>您绑定的阳光康众帐号是：<b class="blue2 fontsty">6200 8512 0128 2820</b>						<br>
+                        						<a href="http://v14.968309.com/userCenter.php?c=KzCardCharge" class="user_bg4 m_t15 blue">账户充值</a>
+						<a href="http://v14.968309.com/userCenter.php?c=kzCardBalanceCheck" class="user_bg4 m_le10 m_t15 blue">余额查询</a>
+						<a href="http://v14.968309.com/userCenter.php?c=KzCardChangePwd" class="user_bg4 m_le10 m_t15 blue">修改密码</a>
+												<div class="clear"></div>
+                        <div class="m_t20 font12 gray"></div>
+				   </div>
+			</div>
+			<!--left end-->
+ 
+			 <!--right-->
+			<div class="tuimg2">
+			     <div class="img_rbox" style="background-image: none;">
+				 <!--
+				      <a href="http://www.sun309.com/?q=pageHealthCard" target="_blank" class="user_bg5">卡使用指南</a>
+					  <a href="http://www.sun309.com/?q=pageHealthCard/cardLaw" target="_blank" class="user_bg5">卡会员章程</a>
+				 -->
+				 <a href="http://v14.968309.com/helpCenter.php?c=HelpCenter-bar&amp;typeId=10" target="_blank" class="user_bg5">卡使用指南</a>
+			     <a href="http://v14.968309.com/helpCenter.php?c=HelpCenter-bar&amp;typeId=10" target="_blank" class="user_bg5">卡会员章程</a>
+				 </div>
+			</div>
+			<!--right end-->
+	 </div>
+	 <!--bg end-->
+</div>
+<!--box1 end-->
+ <!--服务-->
+ 
+<div class="user_border2 m_t8" style="padding-bottom:30px">
+ <!--bt-->
+	 <div class="user_border3 user_bg6">
+	      <b class="blue2 font14 m_le15">您正使用的套餐</b>
+	 </div>
+	 <!--bt end-->
+ 
+	<div id="_ser_t_" style="height:600px;overflow-y:auto;overflow-x:hidden;">
+	   			 <div id="category_menu">
+			 		       <div class="ysort3 yborder4" style="padding-top: 10px; padding-bottom: 30px; border-bottom: 1px solid rgb(203, 212, 219); border-top: 1px solid rgb(190, 227, 243);"><div>
+					<h2 class="left padd_le20 blue2 "><span class="purple">套餐1：</span>
+					<b class="font14"><a target="parent" href="http://v14.968309.com/default.php?c=KzService-detail&amp;combo_code=CS0002">测试套餐1</a></b></h2>
+					<a style="display: block;" href="javascript:void(0)" class="right m_r20" onclick="showThis(this);"><img src="userCenter_data/more.gif" alt=""></a>
+			  </div><div class="clear"></div>
+	          <div class="ysort3_txt submenu" style="padding-top: 0px; display: block;">
+                <div class="gray pl26">
+                                                 有效期：
+                                   2011-05-20 ~
+                  2012-05-26 
+                                  </div>
+	            <div>
+                  <div class="ustd">
+                    <ul>
+                      <li style="width:100px; padding-left:26px; text-align:left">项目</li>
+                      <li class="bordwhit" style="width:482px; padding-left:25px; text-align:left">服务说明</li>
+                      <li class="bordwhit" style="width:97px">余额/总额</li>
+                    </ul>
+                  </div>
+	              <table class="biao" border="0" cellpadding="0" cellspacing="0" width="100%">
+	                                  <tbody><tr>
+                      <td class="bord-gray pl26 bordnone" width="100">复诊安排</td>
+                      <td class="bord-gray pl26">为预约下次复诊的时间以及挂号服务。
+</td>
+                      <td class="bord-gray" align="center" width="100">
+                    	3/3                      </td>
+                    </tr>
+                                        <tr>
+                      <td class="bord-gray pl26 bordnone" width="100">院内陪诊</td>
+                      <td class="bord-gray pl26">阳光天使一对一全程陪诊， 协助就诊期间填单、缴费、取药，并协助取出检查报告及邮寄（快递费自理），最大限度节省您的时间。</td>
+                      <td class="bord-gray" align="center" width="100">
+                    	5次/5次                      </td>
+                    </tr>
+                                      </tbody></table>
+                </div>
+				</div>
+	          
+	          <a href="javascript:;" onclick="restoreSubmenu();" class="right m_r20 m_t8" style="display: none;"><img src="userCenter_data/more2.gif"></a> 
+	          </div>
+	          		       <div class="ysort3 yborder4" style="padding-top:10px; padding-bottom:30px; border-bottom:#cbd4db 1px solid"><div>
+					<h2 class="left padd_le20 blue2 "><span class="purple">套餐2：</span>
+					<b class="font14"><a target="parent" href="http://v14.968309.com/default.php?c=KzService-detail&amp;combo_code=CS0002">测试套餐1</a></b></h2>
+					<a style="display: block;" href="javascript:void(0)" class="right m_r20" onclick="showThis(this);"><img src="userCenter_data/more.gif" alt=""></a>
+			  </div><div class="clear"></div>
+	          <div class="ysort3_txt submenu" style="padding-top: 0px; display: block;">
+                <div class="gray pl26">
+                                                 有效期：
+                                   2011-05-20 ~
+                  2012-05-26 
+                                  </div>
+	            <div>
+                  <div class="ustd">
+                    <ul>
+                      <li style="width:100px; padding-left:26px; text-align:left">项目</li>
+                      <li class="bordwhit" style="width:482px; padding-left:25px; text-align:left">服务说明</li>
+                      <li class="bordwhit" style="width:97px">余额/总额</li>
+                    </ul>
+                  </div>
+	              <table class="biao" border="0" cellpadding="0" cellspacing="0" width="100%">
+	                                  <tbody><tr>
+                      <td class="bord-gray pl26 bordnone" width="100">复诊安排</td>
+                      <td class="bord-gray pl26">为预约下次复诊的时间以及挂号服务。
+</td>
+                      <td class="bord-gray" align="center" width="100">
+                    	3/3                      </td>
+                    </tr>
+                                        <tr>
+                      <td class="bord-gray pl26 bordnone" width="100">院内陪诊</td>
+                      <td class="bord-gray pl26">阳光天使一对一全程陪诊， 协助就诊期间填单、缴费、取药，并协助取出检查报告及邮寄（快递费自理），最大限度节省您的时间。</td>
+                      <td class="bord-gray" align="center" width="100">
+                    	5次/5次                      </td>
+                    </tr>
+                                      </tbody></table>
+                </div>
+				</div>
+	          
+	          <a href="javascript:;" onclick="restoreSubmenu();" class="right m_r20 m_t8" style="display: none;"><img src="userCenter_data/more2.gif"></a> 
+	          </div>
+	          		       <div class="sort3" style="padding-top:10px; padding-bottom:30px; border-bottom:#cbd4db 1px solid"><div>
+					<h2 class="left padd_le20 blue2 "><span class="purple">套餐3：</span>
+					<b class="font14"><a target="parent" href="http://v14.968309.com/default.php?c=KzService-detail&amp;combo_code=CS0002">测试套餐1</a></b></h2>
+					<a href="javascript:void(0)" class="right m_r20" onclick="showThis(this);"><img src="userCenter_data/more.gif" alt=""></a>
+			  </div><div class="clear"></div>
+	          <div class="ysort3_txt submenu" style="padding-top: 0px; display: block;">
+                <div class="gray pl26">
+                                                 有效期：
+                                   2011-05-17 ~
+                  2012-05-23 
+                                  </div>
+	            <div>
+                  <div class="ustd">
+                    <ul>
+                      <li style="width:100px; padding-left:26px; text-align:left">项目</li>
+                      <li class="bordwhit" style="width:482px; padding-left:25px; text-align:left">服务说明</li>
+                      <li class="bordwhit" style="width:97px">余额/总额</li>
+                    </ul>
+                  </div>
+	              <table class="biao" border="0" cellpadding="0" cellspacing="0" width="100%">
+	                                  <tbody><tr>
+                      <td class="bord-gray pl26 bordnone" width="100">复诊安排</td>
+                      <td class="bord-gray pl26">为预约下次复诊的时间以及挂号服务。
+</td>
+                      <td class="bord-gray" align="center" width="100">
+                    	3/3                      </td>
+                    </tr>
+                                        <tr>
+                      <td class="bord-gray pl26 bordnone" width="100">院内陪诊</td>
+                      <td class="bord-gray pl26">阳光天使一对一全程陪诊， 协助就诊期间填单、缴费、取药，并协助取出检查报告及邮寄（快递费自理），最大限度节省您的时间。</td>
+                      <td class="bord-gray" align="center" width="100">
+                    	5次/5次                      </td>
+                    </tr>
+                                      </tbody></table>
+                </div>
+				</div>
+	          
+	          <a href="javascript:;" onclick="restoreSubmenu();" class="right m_r20 m_t8" style="display: none;"><img src="userCenter_data/more2.gif"></a> 
+	          </div>
+	          		       <div class="sort3" style="padding-top:10px; padding-bottom:30px; border-bottom:#cbd4db 1px solid"><div>
+					<h2 class="left padd_le20 blue2 "><span class="purple">套餐4：</span>
+					<b class="font14"><a target="parent" href="http://v14.968309.com/default.php?c=KzService-detail&amp;combo_code=CS0002">测试套餐1</a></b></h2>
+					<a href="javascript:void(0)" class="right m_r20" onclick="showThis(this);"><img src="userCenter_data/more.gif" alt=""></a>
+			  </div><div class="clear"></div>
+	          <div class="ysort3_txt submenu" style="padding-top: 0px; display: block;">
+                <div class="gray pl26">
+                                                 有效期：
+                                   2011-05-17 ~
+                  2012-05-23 
+                                  </div>
+	            <div>
+                  <div class="ustd">
+                    <ul>
+                      <li style="width:100px; padding-left:26px; text-align:left">项目</li>
+                      <li class="bordwhit" style="width:482px; padding-left:25px; text-align:left">服务说明</li>
+                      <li class="bordwhit" style="width:97px">余额/总额</li>
+                    </ul>
+                  </div>
+	              <table class="biao" border="0" cellpadding="0" cellspacing="0" width="100%">
+	                                  <tbody><tr>
+                      <td class="bord-gray pl26 bordnone" width="100">复诊安排</td>
+                      <td class="bord-gray pl26">为预约下次复诊的时间以及挂号服务。
+</td>
+                      <td class="bord-gray" align="center" width="100">
+                    	3/3                      </td>
+                    </tr>
+                                        <tr>
+                      <td class="bord-gray pl26 bordnone" width="100">院内陪诊</td>
+                      <td class="bord-gray pl26">阳光天使一对一全程陪诊， 协助就诊期间填单、缴费、取药，并协助取出检查报告及邮寄（快递费自理），最大限度节省您的时间。</td>
+                      <td class="bord-gray" align="center" width="100">
+                    	5次/5次                      </td>
+                    </tr>
+                                      </tbody></table>
+                </div>
+				</div>
+	          
+	          <a href="javascript:;" onclick="restoreSubmenu();" class="right m_r20 m_t8" style="display: none;"><img src="userCenter_data/more2.gif"></a> 
+	          </div>
+	          		       <div class="sort3" style="padding-top:10px; padding-bottom:30px; border-bottom:#cbd4db 1px solid"><div>
+					<h2 class="left padd_le20 blue2 "><span class="purple">套餐5：</span>
+					<b class="font14"><a target="parent" href="http://v14.968309.com/default.php?c=KzService-detail&amp;combo_code=CS0003">测试套餐2</a></b></h2>
+					<a href="javascript:void(0)" class="right m_r20" onclick="showThis(this);"><img src="userCenter_data/more.gif" alt=""></a>
+			  </div><div class="clear"></div>
+	          <div class="ysort3_txt submenu" style="padding-top: 0px; display: block;">
+                <div class="gray pl26">
+                                                 有效期：
+                                   2011-08-12 ~
+                  2012-08-18 
+                                  </div>
+	            <div>
+                  <div class="ustd">
+                    <ul>
+                      <li style="width:100px; padding-left:26px; text-align:left">项目</li>
+                      <li class="bordwhit" style="width:482px; padding-left:25px; text-align:left">服务说明</li>
+                      <li class="bordwhit" style="width:97px">余额/总额</li>
+                    </ul>
+                  </div>
+	              <table class="biao" border="0" cellpadding="0" cellspacing="0" width="100%">
+	                                </table>
+                </div>
+				</div>
+	          
+	          <a href="javascript:;" onclick="restoreSubmenu();" class="right m_r20 m_t8" style="display: none;"><img src="userCenter_data/more2.gif"></a> 
+	          </div>
+	          		       <div class="sort3" style="padding-top:10px; padding-bottom:30px; border-bottom:#cbd4db 1px solid"><div>
+					<h2 class="left padd_le20 blue2 "><span class="purple">套餐6：</span>
+					<b class="font14"><a target="parent" href="http://v14.968309.com/default.php?c=KzService-detail&amp;combo_code=CS0003">测试套餐2</a></b></h2>
+					<a href="javascript:void(0)" class="right m_r20" onclick="showThis(this);"><img src="userCenter_data/more.gif" alt=""></a>
+			  </div><div class="clear"></div>
+	          <div class="ysort3_txt submenu" style="padding-top: 0px; display: block;">
+                <div class="gray pl26">
+                                                 有效期：
+                                   2011-07-11 ~
+                  2012-07-17 
+                                  </div>
+	            <div>
+                  <div class="ustd">
+                    <ul>
+                      <li style="width:100px; padding-left:26px; text-align:left">项目</li>
+                      <li class="bordwhit" style="width:482px; padding-left:25px; text-align:left">服务说明</li>
+                      <li class="bordwhit" style="width:97px">余额/总额</li>
+                    </ul>
+                  </div>
+	              <table class="biao" border="0" cellpadding="0" cellspacing="0" width="100%">
+	                                </table>
+                </div>
+				</div>
+	          
+	          <a href="javascript:;" onclick="restoreSubmenu();" class="right m_r20 m_t8" style="display: none;"><img src="userCenter_data/more2.gif"></a> 
+	          </div>
+	          		       <div class="sort3" style="padding-top:10px; padding-bottom:30px; border-bottom:#cbd4db 1px solid"><div>
+					<h2 class="left padd_le20 blue2 "><span class="purple">套餐7：</span>
+					<b class="font14"><a target="parent" href="http://v14.968309.com/default.php?c=KzService-detail&amp;combo_code=CS0003">测试套餐2</a></b></h2>
+					<a href="javascript:void(0)" class="right m_r20" onclick="showThis(this);"><img src="userCenter_data/more.gif" alt=""></a>
+			  </div><div class="clear"></div>
+	          <div class="ysort3_txt submenu" style="padding-top: 0px; display: block;">
+                <div class="gray pl26">
+                                                 有效期：
+                                   2011-07-11 ~
+                  2012-07-17 
+                                  </div>
+	            <div>
+                  <div class="ustd">
+                    <ul>
+                      <li style="width:100px; padding-left:26px; text-align:left">项目</li>
+                      <li class="bordwhit" style="width:482px; padding-left:25px; text-align:left">服务说明</li>
+                      <li class="bordwhit" style="width:97px">余额/总额</li>
+                    </ul>
+                  </div>
+	              <table class="biao" border="0" cellpadding="0" cellspacing="0" width="100%">
+	                                </table>
+                </div>
+				</div>
+	          
+	          <a href="javascript:;" onclick="restoreSubmenu();" class="right m_r20 m_t8" style="display: none;"><img src="userCenter_data/more2.gif"></a> 
+	          </div>
+	          		       <div class="sort3" style="padding-top:10px; padding-bottom:30px; border-bottom:#cbd4db 1px solid"><div>
+					<h2 class="left padd_le20 blue2 "><span class="purple">套餐8：</span>
+					<b class="font14"><a target="parent" href="http://v14.968309.com/default.php?c=KzService-detail&amp;combo_code=CS0003">测试套餐2</a></b></h2>
+					<a href="javascript:void(0)" class="right m_r20" onclick="showThis(this);"><img src="userCenter_data/more.gif" alt=""></a>
+			  </div><div class="clear"></div>
+	          <div class="ysort3_txt submenu" style="padding-top: 0px; display: block;">
+                <div class="gray pl26">
+                                                 有效期：
+                                   2011-07-11 ~
+                  2012-07-17 
+                                  </div>
+	            <div>
+                  <div class="ustd">
+                    <ul>
+                      <li style="width:100px; padding-left:26px; text-align:left">项目</li>
+                      <li class="bordwhit" style="width:482px; padding-left:25px; text-align:left">服务说明</li>
+                      <li class="bordwhit" style="width:97px">余额/总额</li>
+                    </ul>
+                  </div>
+	              <table class="biao" border="0" cellpadding="0" cellspacing="0" width="100%">
+	                                </table>
+                </div>
+				</div>
+	          
+	          <a href="javascript:;" onclick="restoreSubmenu();" class="right m_r20 m_t8" style="display: none;"><img src="userCenter_data/more2.gif"></a> 
+	          </div>
+	          		       <div class="sort3" style="padding-top:10px; padding-bottom:30px; border-bottom:#cbd4db 1px solid"><div>
+					<h2 class="left padd_le20 blue2 "><span class="purple">套餐9：</span>
+					<b class="font14"><a target="parent" href="http://v14.968309.com/default.php?c=KzService-detail&amp;combo_code=CS0003">测试套餐2</a></b></h2>
+					<a href="javascript:void(0)" class="right m_r20" onclick="showThis(this);"><img src="userCenter_data/more.gif" alt=""></a>
+			  </div><div class="clear"></div>
+	          <div class="ysort3_txt submenu" style="padding-top: 0px; display: block;">
+                <div class="gray pl26">
+                                                 有效期：
+                                   2011-07-11 ~
+                  2012-07-17 
+                                  </div>
+	            <div>
+                  <div class="ustd">
+                    <ul>
+                      <li style="width:100px; padding-left:26px; text-align:left">项目</li>
+                      <li class="bordwhit" style="width:482px; padding-left:25px; text-align:left">服务说明</li>
+                      <li class="bordwhit" style="width:97px">余额/总额</li>
+                    </ul>
+                  </div>
+	              <table class="biao" border="0" cellpadding="0" cellspacing="0" width="100%">
+	                                </table>
+                </div>
+				</div>
+	          
+	          <a href="javascript:;" onclick="restoreSubmenu();" class="right m_r20 m_t8" style="display: none;"><img src="userCenter_data/more2.gif"></a> 
+	          </div>
+	          		       <div class="sort3" style="padding-top:10px; padding-bottom:30px; border-bottom:#cbd4db 1px solid"><div>
+					<h2 class="left padd_le20 blue2 "><span class="purple">套餐10：</span>
+					<b class="font14"><a target="parent" href="http://v14.968309.com/default.php?c=KzService-detail&amp;combo_code=ZZZZZZ">单项服务</a></b></h2>
+					<a href="javascript:void(0)" class="right m_r20" onclick="showThis(this);"><img src="userCenter_data/more.gif" alt=""></a>
+			  </div><div class="clear"></div>
+	          <div class="ysort3_txt submenu" style="padding-top: 0px; display: block;">
+                <div class="gray pl26">
+                                                 有效期：
+                 长期有效/或未设置有效期                </div>
+	            <div>
+                  <div class="ustd">
+                    <ul>
+                      <li style="width:100px; padding-left:26px; text-align:left">项目</li>
+                      <li class="bordwhit" style="width:482px; padding-left:25px; text-align:left">服务说明</li>
+                      <li class="bordwhit" style="width:97px">余额/总额</li>
+                    </ul>
+                  </div>
+	              <table class="biao" border="0" cellpadding="0" cellspacing="0" width="100%">
+	                                  <tbody><tr>
+                      <td class="bord-gray pl26 bordnone" width="100">单项购买测试</td>
+                      <td class="bord-gray pl26">不提供任何服务</td>
+                      <td class="bord-gray" align="center" width="100">
+                    	剩余总额:1次                      </td>
+                    </tr>
+                                      </tbody></table>
+                </div>
+				</div>
+	          
+	          <a href="javascript:;" onclick="restoreSubmenu();" class="right m_r20 m_t8" style="display: none;"><img src="userCenter_data/more2.gif"></a> 
+	          </div>
+	          			  		  
+			   </div>
+</div>
+ <script language="javascript">
+			  function showThis(obj)
+			  {
+				$("#category_menu").children("div").children(".submenu").animate({height:"hide", opacity:"hide"}, "fast");
+				$("#category_menu").children(".ysort3").attr("className","ysort5 yborder4");
+				$("#category_menu").children(".ysort4").attr("className","ysort5 yborder4");
+				$(obj).parent().parent().attr("className","ysort4 yborder3");
+				$(obj).parent().parent().find(".submenu").attr("className","ysort4_txt submenu");
+				$(obj).parent().parent().find(".submenu").animate({height:"show", opacity:"show"}, "fast");
+				
+				$("#category_menu").find(".m_r20").show();
+				$("#category_menu").find(".m_t8").hide();
+				
+				$(obj).parent().parent().find(".m_r20").hide();
+				$(obj).parent().parent().find(".m_t8").show();
+			  }
+			  
+			  function restoreSubmenu()
+			  {
+			  	$("#category_menu").children("div").children(".submenu").animate({height:"hide", opacity:"hide"}, "fast");
+			  	$("#category_menu").children(".ysort4").attr("className","ysort3 yborder4");
+				$("#category_menu").children(".ysort5").attr("className","ysort3 yborder4");
+				$("#category_menu").children(".yborder4:first-child").css("border-top","1px solid #BEE3F3");
+				$("#category_menu").children("div").children(".submenu").attr("className","ysort3_txt submenu");
+				$("#category_menu").children("div").children(".submenu").animate({height:"show", opacity:"show"}, "fast");
+				$("#category_menu").find(".m_r20").show();
+				$("#category_menu").find(".m_t8").hide();				
+			  }
+			  </script>
+</div>
+ <!--服务 end-->
+ <!--充值-->
+<div class="user_border2 m_t8">
+<form target="_blank" onsubmit="return checkForm();" action="http://v14.968309.com/userCenter.php?c=KzCardCharge" method="post">
+		<div class="user_chong">
+		       <div class="one left">
+			         <div class="padd_t40"><b class="blue2 font14">快速充值</b></div>
+			   </div>
+			    <div class="two left padd_le10">
+			         <ul>
+					      <li>阳光医疗卡号：</li>
+						  <li><input id="kz_card_no" name="kz_card_no" readonly="readonly" value="6200 8512 0128 2820" class="blue2 fontbold" type="text">
+						  </li>
+					 </ul>
+			   </div>
+ 
+			    <div class="two left padd_le10">
+			         <ul class="m_le8">
+					      <li>充值金额：(单位：元)</li>
+						  <li><input id="emoney" name="emoney" value="输入要充值的实际金额" onfocus="if(this.value=='输入要充值的实际金额') this.value='';" onblur="if(this.value=='') this.value='输入要充值的实际金额';" type="text">
+						  </li>
+					 </ul>
+			   </div>
+ 
+			    <div class="three left padd_le10 padd_t20">
+			    <input name="rechargeType" value="1" type="hidden">
+			    <input name="validateCode" id="validateCode" value="563376" type="hidden">
+				     <input name="" src="userCenter_data/an02.gif" class="imgalign" type="image">
+			         <a href="http://v14.968309.com/userCenter.php?c=kzCardBalanceCheck" class="m_le8 gray">查看账户余额</a>
+			   </div>
+		</div>
+</form>
+</div>
+<!--充值结束-->
+
+		   
+
+
+		   
+
+                 <!--预约结束-->
+
+
+<!--main end-->
+
+</body></html>

@@ -1,0 +1,698 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>阳光医疗网</title>
+<link href="userCenter_data/usercenter.css" rel="stylesheet" type="text/css">
+<link href="userCenter_data/usermain.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="userCenter_data/jquery-1.js"></script>
+<script type="text/javascript" src="cms_files/WdatePicker.js"></script><link type="text/css" rel="stylesheet" href="cms_files/WdatePicker.css">
+<style>
+</style>
+
+<script type="text/javascript">
+var WEB_URL = 'http://www.sun309.com/';
+var SEO_URL = "http://www.sun309.com/?q=";
+var UI_URL = 'http://sun309.com/usercenter//images';
+var HTML = '.html';
+var URL_DOT = '&';
+var is_login = "";
+var currentPageCode = "";
+</script></head><body>
+<script language="javascript">
+var currentPageCode = 104;
+
+function checkfrom(f)
+{
+	if(f.startDate.value=='选择开始时间') f.startDate.value='';
+	if(f.endDate.value=='选择结束时间') f.endDate.value='';
+	rp = /^\d{4}\-[012]?\d\-[0123]?\d$/i;
+	if( f.startDate.value && !rp.test(f.startDate.value) ) { alert('开始日期格式错误'); return false; }
+	if( f.endDate.value && !rp.test(f.endDate.value) ) { alert('结束日期格式错误'); return false; }
+	return true;
+}
+
+function beforeSubmit(obj)
+{
+	var url = obj.href + "&startDate=" + document.getElementById("startDate").value + "&endDate=" + document.getElementById("endDate").value;
+	obj.href = url;
+}
+</script>
+
+<style type="text/css">
+ul,li {list-style:none;}
+.hot{width:720px;height:32px; background:url(sun309/images/de.gif) repeat-x; margin-top:15px}
+.hot li{float:left;}
+.hot li a{ display:block;width:100px;height:25px; background:url(sun309/images/down.gif) repeat-x;line-height:25px;_line-height:25px; text-align:center;margin:auto 4px; border:#ddd 1px solid; border-bottom:none; font-size:14px; color:#339999; text-decoration:none}
+.hot li a:hover{ display:block;width:100px;height:25px; background:url(sun309/images/down.gif) repeat-x;line-height:25px;_line-height:25px; text-align:center;margin:auto 4px; border:#ddd 1px solid; border-bottom:none; font-size:14px; color:#339999; text-decoration:none}
+.hot li a.current{ display:block;width:100px;height:25px;font-weight:bold;font-size:14px; line-height:25px;_line-height:25px; background:url(sun309/images/upang.gif) repeat-x; border:#ddd 1px solid; border-bottom:none; color:#339999; text-decoration:none}
+</style>
+
+<!--产品-->
+<div class="user_border2 m_t8 user_minheight680" style="height:970px;">
+       <div class="user_box_padd user_border3">
+	        <div class="user_bg8 ">
+	             <b class="blue2 font14 m_le10">阳光医疗卡网上交易记录</b>
+			</div>
+	   </div>
+      <div class="user_box03_1 user_boxmain">
+	         <!--查询-->
+			<div class="user_border2 m_t8 user_box_padd">
+			<form method="post" action="http://v14.968309.com/userCenter.php?c=kz/SunCardTrans" onsubmit="return checkfrom(this);">
+					<input name="type" id="type" value="1" type="hidden">
+					<div class="user_notes font14 blue2 u_m_t8">
+						   <span class="padd_le15">请选择查询日期</span>
+						   <input name="startDate" id="startDate" class="imgalign txt_input" value="2011-05-11" onfocus="if(this.value=='选择开始时间') this.value='';WdatePicker();" onblur="if(this.value=='') this.value='选择开始时间';" type="text"> 至 <input name="endDate" id="endDate" class="imgalign txt_input" value="2011-08-11" onfocus="if(this.value=='选择结束时间') this.value='';WdatePicker();" onblur="if(this.value=='') this.value='选择结束时间';" type="text">
+						   <input name="submit" src="userCenter_data/an03.gif" class="imgalign" type="image">
+					</div>
+			</form>
+			</div>
+			 <!--查询结束-->
+
+			<!-- 标签头部 -->
+			<div id="tab-header" class="hot">
+				<ul>
+					<li><a id="all" name="all" class="current" onclick="beforeSubmit(this);" href="http://v14.968309.com/userCenter.php?c=kz/SunCardTrans&amp;type=1">全部记录</a></li>
+					<li><a id="consume" name="consume" onclick="beforeSubmit(this);" href="http://v14.968309.com/userCenter.php?c=kz/SunCardTrans&amp;type=2">消费记录</a></li>
+					<li><a id="charge" name="charge" onclick="beforeSubmit(this);" href="http://v14.968309.com/userCenter.php?c=kz/SunCardTrans&amp;type=3">充值记录</a></li>
+				</ul>
+			</div>
+			<!-- 标签头部结束 -->
+			
+			 <!--列表-->
+			 <div style="height:800px;overflow-y:auto;overflow-x:hidden;">
+		    <table class="m_t8 txt-align" bgcolor="#cfd8df" border="0" cellpadding="0" cellspacing="1" width="100%">
+			  <tbody><tr>
+				<td class="font14 blue2 user_bg8" bgcolor="#FFFFFF" nowrap="nowrap" width="5%">序号</td>
+				<td class="font14 blue2 user_bg8" bgcolor="#FFFFFF" nowrap="nowrap" width="24%">订单号</td>
+				<td class="font14 blue2 user_bg8" bgcolor="#FFFFFF" nowrap="nowrap" width="13%">交易类型</td>
+			    <td class="font14 blue2 user_bg8" bgcolor="#FFFFFF" nowrap="nowrap" width="25%">卡号</td>
+			    <td class="font14 blue2 user_bg8" bgcolor="#FFFFFF" nowrap="nowrap" width="13%">金额</td>
+			    <td class="font14 blue2 user_bg8" bgcolor="#FFFFFF" nowrap="nowrap" width="20%">交易时间</td>
+			  </tr>
+
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">1</td>
+				<td class="font12 blue2 u_padd3">OPCN20110623000001701</td>
+				<td class="font12 blue2 u_padd3">退货</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥+4.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-24 10:37:46</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">2</td>
+				<td class="font12 blue2 u_padd3">OPCN20110624000000687</td>
+				<td class="font12 blue2 u_padd3">撤销</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥+0.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-24 11:07:07</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">3</td>
+				<td class="font12 blue2 u_padd3">SMS201106300000514319</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-1.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-30 10:15:49</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">4</td>
+				<td class="font12 blue2 u_padd3">380</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.01</td>
+				<td class="font12 blue2 u_padd3">2011-05-17 15:06:55</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">5</td>
+				<td class="font12 blue2 u_padd3">537</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.01</td>
+				<td class="font12 blue2 u_padd3">2011-05-19 15:53:56</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">6</td>
+				<td class="font12 blue2 u_padd3">585</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.01</td>
+				<td class="font12 blue2 u_padd3">2011-05-20 13:35:33</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">7</td>
+				<td class="font12 blue2 u_padd3">OPCN20110708000001400</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-4.00</td>
+				<td class="font12 blue2 u_padd3">2011-07-08 16:18:30</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">8</td>
+				<td class="font12 blue2 u_padd3">OPCN20110708000001556</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-4.00</td>
+				<td class="font12 blue2 u_padd3">2011-07-08 17:45:53</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">9</td>
+				<td class="font12 blue2 u_padd3"></td>
+				<td class="font12 blue2 u_padd3"></td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥+396.00</td>
+				<td class="font12 blue2 u_padd3">2011-07-08 18:58:18</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">10</td>
+				<td class="font12 blue2 u_padd3">338</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.01</td>
+				<td class="font12 blue2 u_padd3">2011-05-16 11:49:27</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">11</td>
+				<td class="font12 blue2 u_padd3">32</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.02</td>
+				<td class="font12 blue2 u_padd3">2011-05-17 14:19:53</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">12</td>
+				<td class="font12 blue2 u_padd3">612</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.01</td>
+				<td class="font12 blue2 u_padd3">2011-05-20 17:15:46</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">13</td>
+				<td class="font12 blue2 u_padd3">OPCN20110623000001645</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-7.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-23 20:48:50</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">14</td>
+				<td class="font12 blue2 u_padd3">OPCN20110623000001668</td>
+				<td class="font12 blue2 u_padd3">撤销</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥+0.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-23 21:08:09</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">15</td>
+				<td class="font12 blue2 u_padd3">OPCN20110623000001684</td>
+				<td class="font12 blue2 u_padd3">撤销</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥+0.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-23 21:20:37</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">16</td>
+				<td class="font12 blue2 u_padd3">885</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.01</td>
+				<td class="font12 blue2 u_padd3">2011-06-24 20:20:41</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">17</td>
+				<td class="font12 blue2 u_padd3">OPCN20110706000001541</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-4.00</td>
+				<td class="font12 blue2 u_padd3">2011-07-06 14:58:20</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">18</td>
+				<td class="font12 blue2 u_padd3">OPCN20110707000001865</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-4.00</td>
+				<td class="font12 blue2 u_padd3">2011-07-07 16:56:14</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">19</td>
+				<td class="font12 blue2 u_padd3">1037</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.01</td>
+				<td class="font12 blue2 u_padd3">2011-07-11 15:20:56</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">20</td>
+				<td class="font12 blue2 u_padd3">OPCN20110624000000618</td>
+				<td class="font12 blue2 u_padd3">撤销</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥+0.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-24 10:51:41</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">21</td>
+				<td class="font12 blue2 u_padd3">OPCN20110624000000839</td>
+				<td class="font12 blue2 u_padd3">撤销</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥+0.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-24 11:49:12</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">22</td>
+				<td class="font12 blue2 u_padd3">OPCN20110708000001103</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-4.00</td>
+				<td class="font12 blue2 u_padd3">2011-07-08 13:32:00</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">23</td>
+				<td class="font12 blue2 u_padd3">378</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.01</td>
+				<td class="font12 blue2 u_padd3">2011-05-17 15:05:18</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">24</td>
+				<td class="font12 blue2 u_padd3">36</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.02</td>
+				<td class="font12 blue2 u_padd3">2011-05-17 16:37:59</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">25</td>
+				<td class="font12 blue2 u_padd3">584</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.01</td>
+				<td class="font12 blue2 u_padd3">2011-05-20 13:33:04</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">26</td>
+				<td class="font12 blue2 u_padd3">OPCN20110623000001621</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-7.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-23 20:31:44</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">27</td>
+				<td class="font12 blue2 u_padd3">OPCN20110708000001543</td>
+				<td class="font12 blue2 u_padd3">撤销</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥+0.00</td>
+				<td class="font12 blue2 u_padd3">2011-07-08 17:33:19</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">28</td>
+				<td class="font12 blue2 u_padd3"></td>
+				<td class="font12 blue2 u_padd3"></td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥+693.00</td>
+				<td class="font12 blue2 u_padd3">2011-07-08 18:42:04</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">29</td>
+				<td class="font12 blue2 u_padd3">30</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.02</td>
+				<td class="font12 blue2 u_padd3">2011-05-17 13:59:30</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">30</td>
+				<td class="font12 blue2 u_padd3">35</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.02</td>
+				<td class="font12 blue2 u_padd3">2011-05-17 15:06:56</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">31</td>
+				<td class="font12 blue2 u_padd3">OPCN20110623000001655</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-9.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-23 20:55:56</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">32</td>
+				<td class="font12 blue2 u_padd3">OPCN20110623000001672</td>
+				<td class="font12 blue2 u_padd3">撤销</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥+0.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-23 21:11:47</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">33</td>
+				<td class="font12 blue2 u_padd3">OPCN20110623000001714</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-4.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-23 21:49:21</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">34</td>
+				<td class="font12 blue2 u_padd3">OPCN20110630000000840</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-6.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-30 11:08:13</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">35</td>
+				<td class="font12 blue2 u_padd3">OPCN20110706000001825</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-4.00</td>
+				<td class="font12 blue2 u_padd3">2011-07-06 16:48:22</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">36</td>
+				<td class="font12 blue2 u_padd3">1033</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.01</td>
+				<td class="font12 blue2 u_padd3">2011-07-11 15:12:43</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">37</td>
+				<td class="font12 blue2 u_padd3">1306</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.01</td>
+				<td class="font12 blue2 u_padd3">2011-08-04 14:58:46</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">38</td>
+				<td class="font12 blue2 u_padd3">OPCN20110624000000618</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-6.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-24 10:38:30</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">39</td>
+				<td class="font12 blue2 u_padd3">OPCN20110624000000839</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-7.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-24 11:45:42</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">40</td>
+				<td class="font12 blue2 u_padd3">OPCN20110630000000704</td>
+				<td class="font12 blue2 u_padd3">撤销</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥+0.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-30 10:19:58</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">41</td>
+				<td class="font12 blue2 u_padd3">13</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.02</td>
+				<td class="font12 blue2 u_padd3">2011-05-16 11:30:04</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">42</td>
+				<td class="font12 blue2 u_padd3">396</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.01</td>
+				<td class="font12 blue2 u_padd3">2011-05-17 16:37:58</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">43</td>
+				<td class="font12 blue2 u_padd3">OPCN20110623000001668</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-6.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-23 21:07:14</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">44</td>
+				<td class="font12 blue2 u_padd3">OPCN20110630000000840</td>
+				<td class="font12 blue2 u_padd3">退货</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥+6.00</td>
+				<td class="font12 blue2 u_padd3">2011-07-04 14:48:53</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">45</td>
+				<td class="font12 blue2 u_padd3">OPCN20110708000001543</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-4.00</td>
+				<td class="font12 blue2 u_padd3">2011-07-08 17:33:18</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">46</td>
+				<td class="font12 blue2 u_padd3">FOF201107080000001045</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-3.00</td>
+				<td class="font12 blue2 u_padd3">2011-07-08 18:34:55</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">47</td>
+				<td class="font12 blue2 u_padd3">371</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.01</td>
+				<td class="font12 blue2 u_padd3">2011-05-17 13:59:29</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">48</td>
+				<td class="font12 blue2 u_padd3">377</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.02</td>
+				<td class="font12 blue2 u_padd3">2011-05-17 14:28:57</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">49</td>
+				<td class="font12 blue2 u_padd3">OPCN20110623000001645</td>
+				<td class="font12 blue2 u_padd3">撤销</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥+0.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-23 20:49:33</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">50</td>
+				<td class="font12 blue2 u_padd3">OPCN20110623000001672</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-7.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-23 21:10:34</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">51</td>
+				<td class="font12 blue2 u_padd3">OPCN20110623000001701</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-4.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-23 21:32:46</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">52</td>
+				<td class="font12 blue2 u_padd3">887</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.01</td>
+				<td class="font12 blue2 u_padd3">2011-06-24 21:13:07</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">53</td>
+				<td class="font12 blue2 u_padd3">OPCN20110706000001541</td>
+				<td class="font12 blue2 u_padd3">撤销</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥+0.00</td>
+				<td class="font12 blue2 u_padd3">2011-07-06 15:38:30</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">54</td>
+				<td class="font12 blue2 u_padd3"></td>
+				<td class="font12 blue2 u_padd3"></td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥+99.00</td>
+				<td class="font12 blue2 u_padd3">2011-07-11 14:54:42</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">55</td>
+				<td class="font12 blue2 u_padd3">1038</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.01</td>
+				<td class="font12 blue2 u_padd3">2011-07-11 15:21:42</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">56</td>
+				<td class="font12 blue2 u_padd3">OPCN20110624000000687</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-6.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-24 11:02:22</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">57</td>
+				<td class="font12 blue2 u_padd3">OPCN20110630000000704</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-1.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-30 10:15:42</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">58</td>
+				<td class="font12 blue2 u_padd3">OPCN20110707000001865</td>
+				<td class="font12 blue2 u_padd3">退货</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥+4.00</td>
+				<td class="font12 blue2 u_padd3">2011-07-08 16:11:51</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">59</td>
+				<td class="font12 blue2 u_padd3">34</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.02</td>
+				<td class="font12 blue2 u_padd3">2011-05-17 15:05:18</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">60</td>
+				<td class="font12 blue2 u_padd3">COMBO2011051900000196</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.01</td>
+				<td class="font12 blue2 u_padd3">2011-05-19 15:03:37</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">61</td>
+				<td class="font12 blue2 u_padd3">62</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.02</td>
+				<td class="font12 blue2 u_padd3">2011-05-20 13:33:04</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">62</td>
+				<td class="font12 blue2 u_padd3">OPCN20110623000001621</td>
+				<td class="font12 blue2 u_padd3">撤销</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥+0.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-23 20:32:47</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">63</td>
+				<td class="font12 blue2 u_padd3">OPCN20110708000001545</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-7.00</td>
+				<td class="font12 blue2 u_padd3">2011-07-08 17:34:55</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">64</td>
+				<td class="font12 blue2 u_padd3"></td>
+				<td class="font12 blue2 u_padd3"></td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥+693.00</td>
+				<td class="font12 blue2 u_padd3">2011-07-08 18:55:56</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">65</td>
+				<td class="font12 blue2 u_padd3">14</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.02</td>
+				<td class="font12 blue2 u_padd3">2011-05-16 11:49:26</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">66</td>
+				<td class="font12 blue2 u_padd3">374</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.02</td>
+				<td class="font12 blue2 u_padd3">2011-05-17 14:19:52</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">67</td>
+				<td class="font12 blue2 u_padd3">612</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.01</td>
+				<td class="font12 blue2 u_padd3">2011-05-20 17:14:45</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">68</td>
+				<td class="font12 blue2 u_padd3">OPCN20110623000001655</td>
+				<td class="font12 blue2 u_padd3">撤销</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥+0.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-23 20:56:19</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">69</td>
+				<td class="font12 blue2 u_padd3">OPCN20110623000001684</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-4.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-23 21:20:06</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">70</td>
+				<td class="font12 blue2 u_padd3">OPCN20110623000001714</td>
+				<td class="font12 blue2 u_padd3">撤销</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥+0.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-23 21:50:21</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">71</td>
+				<td class="font12 blue2 u_padd3">SMS201106300000514357</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-1.00</td>
+				<td class="font12 blue2 u_padd3">2011-06-30 11:08:20</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">72</td>
+				<td class="font12 blue2 u_padd3">OPCN20110706000001825</td>
+				<td class="font12 blue2 u_padd3">退货</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥+4.00</td>
+				<td class="font12 blue2 u_padd3">2011-07-07 16:54:16</td>
+			  </tr>
+					  <tr bgcolor="#ffffff">
+				<td class="font12 blue2 u_padd3">73</td>
+				<td class="font12 blue2 u_padd3">1034</td>
+				<td class="font12 blue2 u_padd3">消费</td>
+				<td class="font12 blue2 u_padd3">6200851201282820</td>
+				<td class="font12 blue2 u_padd3">￥-0.01</td>
+				<td class="font12 blue2 u_padd3">2011-07-11 15:15:37</td>
+			  </tr>
+		
+		</tbody></table>
+				</div>
+        <!--列表结束-->
+
+		
+
+
+		<div class="m_t15 user_tb4 m_le15" style="display:none;">
+		      请注意：此交易记录仅能查询网上交易记录，医院或是线下交易记录均无法查到。
+		</div>
+
+
+		<div class="clear"></div>
+  </div>
+</div>
+<!--产品结束-->
+
+
+
+
+</body></html>

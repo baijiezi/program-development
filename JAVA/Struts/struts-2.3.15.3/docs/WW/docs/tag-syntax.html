@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+<html>
+<head>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <style type="text/css">
+        .dp-highlighter {
+            width:95% !important;
+        }
+    </style>
+    <style type="text/css">
+        .footer {
+            background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+            background-repeat:     repeat-x;
+            background-position:   left top;
+            padding-top:           4px;
+            color:                 #666;
+        }
+    </style>
+    <link href='http://struts.apache.org/highlighter/styles/shCoreStruts.css' rel='stylesheet' type='text/css' />
+    <link href='http://struts.apache.org/highlighter/styles/shThemeStruts.css' rel='stylesheet' type='text/css' />
+    <script src='http://struts.apache.org/highlighter/js/shCore.js' type='text/javascript'></script>
+            <script src='http://struts.apache.org/highlighter/js/shBrushJava.js' type='text/javascript'></script>
+            <script src='http://struts.apache.org/highlighter/js/shBrushXml.js' type='text/javascript'></script>
+    
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
+    <script type="text/javascript" language="javascript">
+        var hide = null;
+        var show = null;
+        var children = null;
+
+        function init() {
+            /* Search form initialization */
+            var form = document.forms['search'];
+            if (form != null) {
+                form.elements['domains'].value = location.hostname;
+                form.elements['sitesearch'].value = location.hostname;
+            }
+
+            /* Children initialization */
+            hide = document.getElementById('hide');
+            show = document.getElementById('show');
+            children = document.all != null ?
+                    document.all['children'] :
+                    document.getElementById('children');
+            if (children != null) {
+                children.style.display = 'none';
+                show.style.display = 'inline';
+                hide.style.display = 'none';
+            }
+        }
+
+        function showChildren() {
+            children.style.display = 'block';
+            show.style.display = 'none';
+            hide.style.display = 'inline';
+        }
+
+        function hideChildren() {
+            children.style.display = 'none';
+            show.style.display = 'inline';
+            hide.style.display = 'none';
+        }
+    </script>
+    <title>Tag Syntax</title>
+</head>
+<body onload="init()">
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr class="topBar">
+        <td align="left" valign="middle" class="topBarDiv" align="left" nowrap>
+            &nbsp;<a href="home.html">Home</a>&nbsp;&gt;&nbsp;<a href="guides.html">Guides</a>&nbsp;&gt;&nbsp;<a href="tag-developers-guide.html">Tag Developers Guide</a>&nbsp;&gt;&nbsp;<a href="tag-syntax.html">Tag Syntax</a>
+        </td>
+        <td align="right" valign="middle" nowrap>
+            <form name="search" action="http://www.google.com/search" method="get">
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="hidden" name="oe" value="UTF-8" />
+                <input type="hidden" name="domains" value="" />
+                <input type="hidden" name="sitesearch" value="" />
+                <input type="text" name="q" maxlength="255" value="" />
+                <input type="submit" name="btnG" value="Google Search" />
+            </form>
+        </td>
+    </tr>
+</table>
+
+<div id="PageContent">
+    <div class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <div style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</div>
+        <div style="margin: 0px 10px 8px 10px"  class="pagetitle">Tag Syntax</div>
+
+        <div class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13927">
+                <img src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Edit Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13927">Edit Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+                <img src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13927">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13927">Add Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13927">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add News"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13927">Add News</a>
+        </div>
+    </div>
+
+    <div class="pagecontent">
+        <div class="wiki-content">
+            <div id="ConfluenceContent"><p>The tags are designed to display dynamic data. To create a input field that displays the property "postalCode", we'd pass the String "postalCode" to the textfield tag.</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Creating a dynamic input field</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;s:textfield name="postalCode"/&gt;
+]]></script>
+</div></div>
+<p>If there is a "postalCode" property on the value stack, its value will be set to the input field. When the field is submitted back to the framework, the value of the control will be set back to the "postalCode" property.</p>
+
+<p>Sometimes, we want to pass the dynamic data to a tag. For example, we might want to display a label with the input field, and we might want to obtain the label from the application's messages resources. Accordingly, the framework will parse expressions found in the tag attributes, so that we can merge dynamic data into the tag attributes at runtime. The expression escape sequence is "%{ ... }".  Any text embedded in the escape sequence is evalulated as an expression.</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Using an expression to set the label</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;s:textfield key="postalCode.label" name="postalCode"/&gt;
+]]></script>
+</div></div>
+<p>The expression language (<a shape="rect" href="ognl.html" title="OGNL">OGNL</a>) lets us call methods and evaluate properties. The method <tt>getText</tt> is provided by ActionSupport, which is the base class for most Actions. Since the Action is on the stack, we can call any of its methods from an expression, including <tt>getText</tt>.</p>
+
+<h2><a shape="rect" name="TagSyntax-NonStringAttributes"></a>Non-String Attributes</h2>
+
+<p>The HTTP protocol is text-based, but some tags have non-String attribute types, like <tt>bool</tt> or <tt>int</tt>. To make using non-String attributes intuitative, the framework evaulates <b>all</b> non-String attributes as an expression. In this case, you do not need to use the escape notation. (But, if you do anyway , the framework will just strip it off.)</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Evaluating booleans</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;s:select key="state.label" name="state" multiple="true"/&gt;
+]]></script>
+</div></div>
+<p>Since the attribute <tt>multiple</tt> maps to a boolean property, the framework does not interpret the value as a String. The value is evaluated as an expression and automtically converted to a boolean.</p>
+
+<p>Since it's easy to forget which attributes are String and which are non-String, you can still use the escape notation.</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Evaluating booleans (verbose)</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;s:select key="state.label" name="state" multiple="%{true}"/&gt;
+]]></script>
+</div></div>
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Evaluating booleans (with property)</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;s:select key="state.label" name="state" multiple="allowMultiple"/&gt;
+]]></script>
+</div></div>
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Evaluating booleans (verbose with property)</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;s:select key="state.label" name="state" multiple="%{allowMultiple}"/&gt;
+]]></script>
+</div></div>
+
+<h2><a shape="rect" name="TagSyntax-%7B%7Bvalue%7D%7DisanObject%5C%21"></a><tt>value</tt> is an Object!</h2>
+
+<p>Most often, the <tt>value</tt> attribute is set automatically, since <tt>name</tt> attribute usually tells the framework which property to call to set the <tt>value</tt>. But, if there is a reason to set the <tt>value</tt> directly, be advised that <tt><b>value</b></tt> <b>is an Object</b> <b><em>NOT</em></b> <b>a String</b>.</p>
+
+<p><img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" height="16" width="16" alt="" border="0"> Since <tt>value</tt> is not a String, whatever is passed to <tt>value</tt> is evaluated as an expression - <b>NOT</b> a String literal.</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Probably wrong!</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;s:textfield key="state.label" name="state" value="ca"/&gt;
+]]></script>
+</div></div>
+<p>If a <tt>textfield</tt> is passed the value attribute <tt>"ca"</tt>, the framework will look for a property named <tt>getCa</tt>. Generally, this is not what we mean. What we mean to do is pass a literal String. In the expression language, literals are placed within quotes</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Passing a literal value the right way</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;s:textfield key="state.label" name="state" value="%{'ca'}" /&gt;
+]]></script>
+</div></div>
+<p>Another approach would be to use the idiom <tt>value="'ca'"</tt>, but, in this case, using the expression notation is recommended.</p>
+
+<p>Boiled down, the tag attributes are evaluated using three rules.</p>
+<ol><li>All <em>String</em> attribute types are <em>parsed</em> for the "%{ ... }" notation.</li><li>All <em>non-String</em> attribute  types are <b>not</b> parsed, but evaluated directly as an expression</li><li>The exception to rule #2 is that if the <em>non-String</em> attribute uses the escape notion "%{}", the notation is ignored as redundant, and the content evaluated.</li></ol>
+
+
+<div class="panelMacro"><table class="noteMacro"><colgroup span="1"><col span="1" width="24"><col span="1"></colgroup><tr><td colspan="1" rowspan="1" valign="top"><img align="middle" src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" alt="" border="0"></td><td colspan="1" rowspan="1">Please remember about <em>altSyntax</em> option that can change when value is evaluated as an expression - <a shape="rect" href="alt-syntax.html" title="Alt Syntax">Alt Syntax</a></td></tr></table></div>
+
+<h2><a shape="rect" name="TagSyntax-ExpressionLanguageNotations"></a>Expression Language Notations</h2>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd"> <div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: java; gutter: false" type="syntaxhighlighter"><![CDATA[&lt;p&gt;Username: ${user.username}&lt;/p&gt;]]></script>
+</div></div> </td><td colspan="1" rowspan="1" class="confluenceTd"> A JavaBean object in a standard context in Freemarker, Velocity, or JSTL EL (Not OGNL). </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: java; gutter: false" type="syntaxhighlighter"><![CDATA[&lt;s:textfield name="username"/&gt;]]></script>
+</div></div> </td><td colspan="1" rowspan="1" class="confluenceTd"> A username property on the Value Stack. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: java; gutter: false" type="syntaxhighlighter"><![CDATA[&lt;s:url id="es" action="Hello"&gt;
+  &lt;s:param name="request_locale"&gt;
+    es
+  &lt;/s:param&gt;
+&lt;/s:url&gt;
+&lt;s:a href="%{es}"&gt;Espanol&lt;/s:a&gt;]]></script>
+</div></div> </td><td colspan="1" rowspan="1" class="confluenceTd">  Another way to refer to a property placed on the Value Stack. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: java; gutter: false" type="syntaxhighlighter"><![CDATA[&lt;s:property
+  value="#session.user.username" /&gt;]]></script>
+</div></div> </td><td colspan="1" rowspan="1" class="confluenceTd"> The username property of the User object in the Session context. </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: java; gutter: false" type="syntaxhighlighter"><![CDATA[&lt;s:select
+  label="FooBar" name="foo"
+  list="#{'username':'trillian',
+    'username':'zaphod'}" /&gt;]]></script>
+</div></div> </td><td colspan="1" rowspan="1" class="confluenceTd">  A static Map, as in put("username","trillian"). </td></tr></tbody></table>
+</div>
+
+
+<h2><a shape="rect" name="TagSyntax-Disallowedpropertynames"></a>Disallowed property names</h2>
+
+<p>The following names of property are disallowed:</p>
+<ul><li>parameters</li><li>application</li><li>session</li><li>struts</li><li>request</li><li>servletRequest</li><li>servletResponse</li></ul>
+
+
+<p>The below code will not work:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;s:iterator value="parameters"/&gt;
+]]></script>
+</div></div>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: java; gutter: false" type="syntaxhighlighter"><![CDATA[
+public class MyAction {
+
+    private String[] parameters;
+
+    public String[] getParameters() {
+        return parameters;
+    }
+
+}
+]]></script>
+</div></div>
+
+<h2><a shape="rect" name="TagSyntax-Next%3AJSP"></a>Next: <a shape="rect" href="jsp.html" title="JSP">JSP</a></h2></div>
+        </div>
+
+        
+    </div>
+</div>
+<div class="footer">
+    Generated by CXF SiteExporter
+</div>
+</body>
+</html>

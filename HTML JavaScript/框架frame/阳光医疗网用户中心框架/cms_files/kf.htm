@@ -1,0 +1,504 @@
+	function hz6d$(id)
+	{
+		return document.getElementById(id) ? document.getElementById(id) : null;
+	}var kf_success=1; var kftype=2;	// 获取cookie值 
+
+	function hz6d_getCookie(name)
+	{
+		var offset = document.cookie.indexOf(name + "=");
+		if (offset != -1)
+		{
+			offset += name.length + 1;
+			var end = document.cookie.indexOf(";", offset);
+			if (end == -1)
+			{
+				end = document.cookie.length;
+			}
+			return document.cookie.substring(offset, end);
+		}
+		else
+		{
+			return "";
+		}
+	}
+	var hz6d_from_page = hz6d_getCookie("53kf_");
+	if (hz6d_from_page == "")
+	{
+		hz6d_from_page = document.referrer;
+		document.cookie = "53kf_=" + hz6d_from_page;
+	}
+	hz6d_from_page = "&keyword=" + escape(hz6d_from_page);
+
+	function hz6d_html_replace(html)
+	{
+		var pattern = /{hz6d_keyword}/gim;
+		var str = hz6d_from_page + "&tfrom=1";
+		var hz6d_html = html.replace(pattern, str);
+		return hz6d_html;
+	}	// has defined <!DOCTYPE... > 
+
+	function hasdoctype()
+	{
+		var ret = false;
+		try
+		{
+			if (document.compatMode == "BackCompat")
+			{
+				ret = false;
+			}
+			else if (document.compatMode == "CSS1Compat")
+			{
+				ret = true;
+			}
+			else
+			{
+				ret = true;
+			}
+		}
+		catch (e)
+		{
+			ret = false;
+		}
+		return ret;
+	}
+	// ie8 =  IE8_Partner_Build [2008-12-11] 
+
+	function detectBrowser()
+	{
+		var ret = "ie6"; // default
+		var user_agent = navigator.userAgent;
+		if (user_agent.indexOf("compatible") > -1)
+		{
+			if (user_agent.indexOf("MSIE 6.0") > -1)
+			{
+				ret = "ie6";
+			}
+			else if (user_agent.indexOf("MSIE 7.0") > -1)
+			{
+				ret = "ie7";
+			}
+			else if (user_agent.indexOf("MSIE 8.0") > -1)
+			{
+				ret = "ie8";
+			}
+			if (user_agent.indexOf("360") > -1)
+			{
+				ret = "360";
+			}
+		}
+		else if (user_agent.indexOf("Gecko") > -1)
+		{
+			ret = "firefox";
+		}
+		if ("" == "TheWorld")
+		{
+			ret = "TheWorld";
+		}
+		return ret;
+	}
+	// 间距小于步进，则移动间距的距离 
+
+	function smoothMove(start, end)
+	{
+		var step = Math.abs(end - start);
+		var forword = end - start;
+		if (step > 2)
+		{
+			step = Math.ceil(step * 0.2) * (forword / Math.abs(forword));
+		}
+		else
+		{
+			step = step * (forword / Math.abs(forword));
+		}
+		posi = start + step;
+		if (step > 0)
+		{
+			if (posi > end) posi = end;
+		}
+		else
+		{
+			if (posi < end) posi = end;
+		}
+		return posi;
+	}
+	var hasdoctype = hasdoctype();
+	var browser = detectBrowser();
+	// 点击图标设置变量 
+
+	function setIsinvited()
+	{
+		try
+		{
+			onliner_zdfq = 2;
+			if (acc_autotype == 3)
+			{
+				document.cookie = "onliner_zdfq69209475=" + onliner_zdfq;
+			}
+		}
+		catch (e)
+		{}
+	}
+	var onliner_zdfq = hz6d_getCookie("onliner_zdfq69209475"); // onliner_zdfq: 0.初始值 2.点击接受 3.点击拒绝 
+	if (onliner_zdfq == "")
+	{
+		onliner_zdfq = 0;
+		document.cookie = "onliner_zdfq69209475=" + onliner_zdfq;
+	}
+	var hz6d_kf_type = 2;
+	var hz6d_pos_model = 1;
+	var hz6d_hidden = 0;
+	var hz6d_close_icon = 0;
+	// 加载ivt.php，即中间的接受邀请层 
+	if (!hz6d$("ivt_script"))
+		document.write("<scr"+"ipt src='http://www1.53kf.com/kf_ivt.php?arg=ygkj&style=1&isonline=1&kfonline=1&lang=zh-cn&resize=yes&charset=gbk&kflist=off&kf=&zdkf_type=1&referer=http%3A%2F%2Fv14.968309.com%2Fspecial.php%3Fc%3Dmcb-orderList"+hz6d_from_page+"&lytype=0&tpl_name=crystal_blue&tpl_width=703&tpl_height=473' type='text/javascript' id='ivt_script'></scr"+"ipt>");				function _createIconDivMain()
+				{
+					if (hz6d$(this.config["iconDiv"]) == null)
+					{
+						var id = this.config["id"];
+						setTimeout('kf_icons[' + id + '].createIconDivMain()', 500);
+						return;
+					}
+					if (hz6d$(this.config["iconDiv"]).innerHTML.indexOf('.gif') != -1 || hz6d$(this.config["iconDiv"]).innerHTML.indexOf('.jpg') != -1 || hz6d$(this.config["iconDiv"]).innerHTML.indexOf('.swf') != -1)
+					{
+						return;
+					}
+					if (this.config["isonline"] == 1)
+					{
+						imgsrc = this.config["img_on"];
+					}
+					else
+					{
+						imgsrc = this.config["img_off"];
+					}
+					var html = "";
+					html += "<iframe style='position:absolute;z-index:7998;width:0px;height:0px;top:0px;left:0px;' frameborder='0' ></iframe>";
+					var kf = "<div onclick=\"setIsinvited();kf_icons[" + this.config["id"] + "].wopen('" + this.setParameter() + "')\" style='width:" + this.config["width"] + "px;height:" + this.config["height"] + "px;background:url(\"" + imgsrc + "\") no-repeat;cursor:pointer;'></div>";
+					if (this.config["record_url"] != "" && this.config["isonline"] == 0)
+					{
+						kf = "<a href=\"" + this.config["record_url"] + "\" target='_blank'><div style='width:" + this.config["width"] + "px;height:" + this.config["height"] + "px;background:url(\"" + imgsrc + "\") no-repeat;cursor:pointer;'></div></a>";
+					}
+					html += "<div id='" + this.config["iconDivMain"] + "' style='z-index:7999;display:" + this.display + ";left: " + this.left + "px; top: " + this.top + "px;width:" + this.config["width"] + "px;height:" + this.config["height"] + "px; overflow:hidden;POSITION: absolute;'>" + this.closeIcon() + kf + "</div>";
+					hz6d$(this.config["iconDiv"]).innerHTML = html;
+					this.iconDivMain = hz6d$(this.config["iconDivMain"]);
+				}		if (typeof(kf_icons) == "undefined")
+		{
+			var kf_icons = new Array();
+
+			function hishow(id, img_url)
+			{
+				var divname = "hsdiv" + id;
+				if (hz6d$(divname).style.display == "none")
+				{
+					hz6d$(divname).style.display = "block";
+					hz6d$("arrow" + id).src = "http://www1.53kf.com/" + img_url + "arrow1.gif";
+				}
+				else
+				{
+					hz6d$(divname).style.display = "none";
+					hz6d$("arrow" + id).src = "http://www1.53kf.com/" + img_url + "arrow2.gif";
+				}
+			}
+
+			function kfIcon()
+			{
+				this.config = new Array();
+				this.left = -200; // 图标需要到达的 left 
+				this.top = 0;
+				this.width = 0; // 图标宽度 
+				this.height = 0; // 图标宽度 
+				this.offsetLeft = 0; // 距离左侧宽度，包括滚动过的距离 
+				this.offsetTop = 0; //距离顶部宽度，包括滚动过的距离 
+				this.scrolledX = 0; //图标水平滚动条滚动过的距离 
+				this.scrolledY = 0;
+				this.issmooth = false; //是否平滑移动 
+				this.loopmillisecond = 10; //图标循环定位的毫秒，数值越大越慢，对CPU影响越小 
+				this.Xstep = 4; //水平步进基数,数字越大越平滑，也越慢 
+				this.Ystep = 4;
+				this.pageW = 0; //页面总宽度 
+				this.pageH = 0;
+				this.display = ""; //是否显示图标,值 "none"|"" 
+				this.iconDiv = null;
+				this.iconDivMain = null;
+				this.autoScrollTimer = null;
+				this.init = _init;
+				this.autoScroll = scroll;
+				this.createIconDivMain = _createIconDivMain; // 
+				this.setParameter = _setParameter; //在 createIconDivMain 中调用 
+				this.wopen = _wopen; //同上 
+				this.closeIcon = _closeIcon; //同上 
+				this.hidden = _hidden; //同上 
+			};
+
+			function scroll()
+			{
+				//this.createIconDivMain();
+				//if(hz6d$("Xstep"))
+				//this.Xstep=hz6d$("Xstep").value;
+				//if(hz6d$("Ystep"))
+				//this.Ystep=hz6d$("Ystep").value;
+				//alert("scroll");
+				try
+				{
+					this.offsetLeft = this.iconDivMain.offsetLeft;
+					this.width = parseInt(this.iconDivMain.style.width.replace("px", ""));
+					this.height = parseInt(this.iconDivMain.style.height.replace("px", ""));
+				}
+				catch (e)
+				{
+					//this.iconDivMain=hz6d$(this.config["iconDivMain"]);
+					return;
+				}
+
+				this.scrollbarW = 20; // scrollbar width in ie6,ie7,ie8 = 20px
+				this.scrollbarH = 20; // scrollbar width in ie6,ie7,ie8 = 20px
+				this.scrolledY = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+				this.scrolledX = Math.max(document.body.scrollLeft, document.documentElement.scrollLeft);
+				if (browser == "ie6")
+				{
+					this.pageH = document.documentElement.offsetHeight;
+					this.pageW = document.documentElement.offsetWidth + 3;
+				}
+				else if (browser == "ie7")
+				{
+					this.pageH = document.documentElement.offsetHeight;
+					if (hasdoctype) this.pageW = document.documentElement.offsetWidth + 21;
+					else this.pageW = document.documentElement.offsetWidth;
+				}
+				else if (browser == "ie8")
+				{
+					this.pageH = document.documentElement.offsetHeight;
+					this.pageW = document.documentElement.offsetWidth;
+				}
+				else if (browser == "firefox")
+				{
+					this.pageH = window.innerHeight;
+					// 21=17+4
+					// 17 for document.documentElement.clientWidth in firefox 3
+					// 4 for document.documentElement.scrollLeft in firefox 3 differently from ie6,ie7
+					this.pageW = document.documentElement.clientWidth + 21;
+				}
+				else
+				{
+					this.pageH = document.documentElement.offsetHeight;
+					this.pageW = document.documentElement.offsetWidth;
+				}
+
+				if (this.config["v_showmodel"] == 1)
+				{
+					if (this.top != (this.scrolledY + this.pageH))
+					{
+						var iconDivHeight = this.scrolledY + this.config["offsetH"] - this.offsetTop;
+						iconDivHeight = (iconDivHeight > 0 ? 1 : -1) * Math.ceil(Math.abs(iconDivHeight));
+						this.top = this.offsetTop + iconDivHeight;
+					}
+				}
+				else
+				{
+					if (this.top != (this.scrolledY + this.pageH - this.height - this.config["offsetH"] - this.scrollbarH))
+					{
+						var iconDivHeight = this.scrolledY + this.pageH - this.height - this.config["offsetH"] - this.scrollbarH - this.offsetTop;
+						iconDivHeight = (iconDivHeight > 0 ? 1 : -1) * Math.ceil(Math.abs(iconDivHeight));
+						this.top = this.offsetTop + iconDivHeight;
+					}
+				}
+
+				if (this.config["showmodel"] == 1)
+				{
+					if (this.left != (this.scrolledX + this.pageW))
+					{
+						var iconDivWidth = this.scrolledX + this.config["offsetW"] - this.offsetLeft;
+						iconDivWidth = (iconDivWidth > 0 ? 1 : -1) * Math.ceil(Math.abs(iconDivWidth));
+						this.left = this.offsetLeft + iconDivWidth;
+					}
+				}
+				else
+				{
+					if (this.left != (this.scrolledX + this.pageW - this.width - this.config["offsetW"] - this.scrollbarW))
+					{
+						var iconDivWidth = this.scrolledX + this.pageW - this.width - this.config["offsetW"] - this.scrollbarW - this.offsetLeft;
+						iconDivWidth = (iconDivWidth > 0 ? 1 : -1) * Math.ceil(Math.abs(iconDivWidth));
+						this.left = this.offsetLeft + iconDivWidth;
+					}
+				}
+
+				//set kf_icon postiotn
+				//超出窗口边界，直接移动到窗口边界再平滑移动 
+				var left = parseInt(this.iconDivMain.style.left.replace("px", ""));
+				var top = parseInt(this.iconDivMain.style.top.replace("px", ""));
+
+				if (this.issmooth == true)
+				{
+					if (left != this.left)
+					{
+						if (left < (this.scrolledX - this.width)) left = this.scrolledX - this.width;
+						if (left > this.scrolledX + this.pageW) left = this.scrolledX + this.pageW;
+						left = smoothMove(left, this.left);
+					}
+					if (top != this.top)
+					{
+						if (top < (this.scrolledY - this.height)) top = this.scrolledY - this.height;
+						if (top > this.scrolledY + this.pageH) top = this.scrolledY + this.pageH;
+						top = smoothMove(top, this.top);
+					}
+				}
+				else if (this.issmooth == false)
+				{
+					left = this.left;
+					top = this.top;
+					this.issmooth = true;
+				}
+
+				this.iconDivMain.style.left = left + "px";
+				this.iconDivMain.style.top = top + "px";
+			};
+
+			function _wopen(com)
+			{
+				if (this.config["is_zdyurl"] == 1) window.open(this.config["zdyurl"], "_blank", "height=" + 473 + ",width=" + 703 + ",top=200,left=200,status=yes,toolbar=no,menubar=no,resizable=yes,scrollbars=no,location=no,titlebar=no");
+				else window.open(this.config["server_path"] + "/webCompany.php?arg=" + this.config["arg"] + com, "_blank", "height=" + 473 + ",width=" + 703 + ",top=200,left=200,status=yes,toolbar=no,menubar=no,resizable=yes,scrollbars=no,location=no,titlebar=no");
+			};
+
+			function _setParameter()
+			{
+				var params = "";
+				params += this.config["style_id"];
+				params += this.config["language"];
+				params += this.config["onurl"];
+				params += this.config["lytype"];
+				params += this.config["lyurl"];
+				params += this.config["copartner"];
+				params += this.config["username"];
+				params += this.config["userinfo"];
+				params += this.config["charset"];
+				params += this.config["introurl"];
+				params += this.config["kf"];
+				params += this.config["referer"];
+				params += this.config["keyword"];
+				params += this.config["tfrom"];
+				params += this.config["company_tpl"];
+				params += this.config["brief"];
+				params += this.config["logo"];
+				params += this.config["question"];
+				return params;
+			};
+
+			function _hidden()
+			{
+				hz6d_close_icon = 1;
+				this.display = "none";
+				hz6d$(this.config["iconDivMain"]).style.display = "none";
+				try
+				{
+					clearInterval(kf_icons[this.config["kf_icon_id"]].autoScrollTimer);
+				}
+				catch (e)
+				{}
+			};
+
+			function _closeIcon()
+			{
+				var str_onmove = "";
+				if (2 == 1 && ('blue' == "new_blue" || 'blue' == "new_red" || 'blue' == "new_yellow" || 'blue' == "new_green"))
+				{
+					str_onmove = "onmousemove='this.style.backgroundImage=\"url(http://www1.53kf.com/img/kflist/list_close_move.gif)\"' onmouseout='this.style.backgroundImage=\"url(http://www1.53kf.com/img/kflogo/close.gif)\"'";
+				}
+				if (0 == 1 || 69209475 == 600603 || 69209475 == 61393572 || 69209475 == 1413303 || 69209475 == 61389920 || 69209475 == 61420906 || 69209475 == 61578368)
+				{
+					if (2 == 1)
+					{
+						//return "<img onclick='kf_icons["+this.config["id"]+"].hidden()' style='position:absolute; right:0px;top:0px; cursor:pointer;' src='http://www1.53kf.com/img/kflogo/close.gif' "+str_onmove+" />";
+						if ('blue' == "new_blue" || 'blue' == "new_red" || 'blue' == "new_yellow" || 'blue' == "new_green")
+						{
+							var str_wh = "width:27px;height:16px;";
+						}
+						else if ('blue' == "blue")
+						{
+							var str_wh = "width:11px;height:11px;";
+						}
+						else if ('blue' == "blue2")
+						{
+							var str_wh = "width:14px;height:14px;";
+						}
+						else if ('blue' == "yellow")
+						{
+							var str_wh = "width:14px;height:14px;";
+						}
+						else if ('blue' == "yellow2")
+						{
+							var str_wh = "width:14px;height:13px;";
+						}
+						else if ('blue' == "black")
+						{
+							var str_wh = "width:14px;height:14px;";
+						}
+						else if ('blue' == "pink")
+						{
+							var str_wh = "width:18px;height:18px;";
+						}
+						else
+						{
+							var str_wh = "width:11px;height:11px;";
+						}
+						return "<div onclick='kf_icons[" + this.config["id"] + "].hidden()' style='" + str_wh + "background:url(\"http://www1.53kf.com/img/kflogo/close.gif\") no-repeat;position:absolute;right:0px;top:0px;cursor:pointer;' " + str_onmove + " ></div>";
+					}
+					//return "<img onclick='kf_icons["+this.config["id"]+"].hidden()' style='position:absolute; right:0px;top:0px; cursor:pointer;' src='http://www1.53kf.com/img/kflogo/close.gif' />";
+					return "<div onclick='kf_icons[" + this.config["id"] + "].hidden()' style='width:11px;height:11px;background:url(\"http://www1.53kf.com/img/kflogo/close.gif\") no-repeat;position:absolute;right:0px;top:0px;cursor:pointer;' ></div>";
+				}
+				return "";
+			};
+
+			function _init()
+			{
+				document.write('<div id="' + this.config["iconDiv"] + '" ></div>');
+				this.iconDiv = hz6d$(this.config["iconDiv"]);
+				this.createIconDivMain();
+			};
+		}
+		if (typeof(kf_icon_id) == "undefined") kf_icon_id = 1;
+		else kf_icon_id++;
+		kf_icons[kf_icon_id] = new kfIcon();
+		kf_icons[kf_icon_id].config["id"] = kf_icon_id;
+		kf_icons[kf_icon_id].config["arg"] = "ygkj";
+		//kf_icons[kf_icon_id].config["logo_id"]="1087";
+		kf_icons[kf_icon_id].config["style_id"] = "&style=1";
+		kf_icons[kf_icon_id].config["isonline"] = "1";
+		kf_icons[kf_icon_id].config["img_on"] = "http://www1.53kf.com//img/upload/ygkj/zdytb/on_ygkj1308302007.gif";
+		kf_icons[kf_icon_id].config["img_off"] = "http://www1.53kf.com//img/upload/ygkj/zdytb/off_ygkj1308551114.gif";
+		kf_icons[kf_icon_id].config["height"] = "213";
+		kf_icons[kf_icon_id].config["width"] = "91";
+		kf_icons[kf_icon_id].config["auto_hidden_img"] = "";
+		kf_icons[kf_icon_id].config["hidden_img_height"] = "";
+		kf_icons[kf_icon_id].config["hidden_img_width"] = "";
+		kf_icons[kf_icon_id].config["showmodel"] = parseInt("2");
+		kf_icons[kf_icon_id].config["offsetW"] = parseInt("1");
+		kf_icons[kf_icon_id].config["v_showmodel"] = parseInt("1");
+		kf_icons[kf_icon_id].config["offsetH"] = parseInt("200");
+		kf_icons[kf_icon_id].config["language"] = "&language=zh-cn";
+		kf_icons[kf_icon_id].config["username"] = "";
+		kf_icons[kf_icon_id].config["userinfo"] = "";
+		kf_icons[kf_icon_id].config["charset"] = "&charset=gbk";
+		kf_icons[kf_icon_id].config["introurl"] = "";
+		kf_icons[kf_icon_id].config["onurl"] = "";
+		kf_icons[kf_icon_id].config["lytype"] = "&lytype=0";
+		kf_icons[kf_icon_id].config["lyurl"] = "";
+		kf_icons[kf_icon_id].config["copartner"] = "";
+		kf_icons[kf_icon_id].config["kf"] = "&kflist=off&kf=&zdkf_type=1";
+		kf_icons[kf_icon_id].config["referer"] = "&referer=http%3A%2F%2Fv14.968309.com%2Fspecial.php%3Fc%3Dmcb-orderList";
+		kf_icons[kf_icon_id].config["keyword"] = hz6d_from_page;
+		kf_icons[kf_icon_id].config["tfrom"] = "&tfrom=1";
+		kf_icons[kf_icon_id].config["record_url"] = "";
+		var hz6d_zdyurl = "?arg=ygkj&style=1&kflist=off&kf=&zdkf_type=1&language=zh-cn&charset=gbk&lytype=0&referer=http%3A%2F%2Fv14.968309.com%2Fspecial.php%3Fc%3Dmcb-orderList{hz6d_keyword}&tpl=crystal_blue";
+		hz6d_zdyurl = hz6d_html_replace(hz6d_zdyurl);
+		kf_icons[kf_icon_id].config["zdyurl"] = hz6d_zdyurl;
+		kf_icons[kf_icon_id].config["is_zdyurl"] = "0";
+		kf_icons[kf_icon_id].config["path"] = "http://chat.53kf.com";
+		kf_icons[kf_icon_id].config["server_path"] = "http://www1.53kf.com";
+		kf_icons[kf_icon_id].config["company_tpl"] = "&tpl=crystal_blue";
+		kf_icons[kf_icon_id].config["brief"] = "";
+		kf_icons[kf_icon_id].config["logo"] = "";
+		kf_icons[kf_icon_id].config["iconDivMain"] = "iconDivMain" + kf_icon_id;
+		kf_icons[kf_icon_id].config["iconDiv"] = "iconDiv" + kf_icon_id;
+		kf_icons[kf_icon_id].config["question"] = "";
+		kf_icons[kf_icon_id].init();
+		kf_icons[kf_icon_id].autoScrollTimer = window.setInterval("kf_icons[" + kf_icon_id + "].autoScroll()", kf_icons[kf_icon_id].loopmillisecond);	if (!hz6d$("stat_script"))
+		document.write("<scr"+"ipt src='http://www1.53kf.com/stat.php?com_id=69209475&referer=http%3A%2F%2Fv14.968309.com%2Fspecial.php%3Fc%3Dmcb-orderList"+hz6d_from_page+"' type='text/javascript' id='stat_script'></scr"+"ipt>");

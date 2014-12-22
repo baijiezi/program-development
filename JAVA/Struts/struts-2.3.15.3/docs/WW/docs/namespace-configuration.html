@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+<html>
+<head>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <style type="text/css">
+        .dp-highlighter {
+            width:95% !important;
+        }
+    </style>
+    <style type="text/css">
+        .footer {
+            background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+            background-repeat:     repeat-x;
+            background-position:   left top;
+            padding-top:           4px;
+            color:                 #666;
+        }
+    </style>
+    <link href='http://struts.apache.org/highlighter/styles/shCoreStruts.css' rel='stylesheet' type='text/css' />
+    <link href='http://struts.apache.org/highlighter/styles/shThemeStruts.css' rel='stylesheet' type='text/css' />
+    <script src='http://struts.apache.org/highlighter/js/shCore.js' type='text/javascript'></script>
+            <script src='http://struts.apache.org/highlighter/js/shBrushJava.js' type='text/javascript'></script>
+            <script src='http://struts.apache.org/highlighter/js/shBrushXml.js' type='text/javascript'></script>
+    
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
+    <script type="text/javascript" language="javascript">
+        var hide = null;
+        var show = null;
+        var children = null;
+
+        function init() {
+            /* Search form initialization */
+            var form = document.forms['search'];
+            if (form != null) {
+                form.elements['domains'].value = location.hostname;
+                form.elements['sitesearch'].value = location.hostname;
+            }
+
+            /* Children initialization */
+            hide = document.getElementById('hide');
+            show = document.getElementById('show');
+            children = document.all != null ?
+                    document.all['children'] :
+                    document.getElementById('children');
+            if (children != null) {
+                children.style.display = 'none';
+                show.style.display = 'inline';
+                hide.style.display = 'none';
+            }
+        }
+
+        function showChildren() {
+            children.style.display = 'block';
+            show.style.display = 'none';
+            hide.style.display = 'inline';
+        }
+
+        function hideChildren() {
+            children.style.display = 'none';
+            show.style.display = 'inline';
+            hide.style.display = 'none';
+        }
+    </script>
+    <title>Namespace Configuration</title>
+</head>
+<body onload="init()">
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr class="topBar">
+        <td align="left" valign="middle" class="topBarDiv" align="left" nowrap>
+            &nbsp;<a href="home.html">Home</a>&nbsp;&gt;&nbsp;<a href="guides.html">Guides</a>&nbsp;&gt;&nbsp;<a href="core-developers-guide.html">Core Developers Guide</a>&nbsp;&gt;&nbsp;<a href="configuration-elements.html">Configuration Elements</a>&nbsp;&gt;&nbsp;<a href="namespace-configuration.html">Namespace Configuration</a>
+        </td>
+        <td align="right" valign="middle" nowrap>
+            <form name="search" action="http://www.google.com/search" method="get">
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="hidden" name="oe" value="UTF-8" />
+                <input type="hidden" name="domains" value="" />
+                <input type="hidden" name="sitesearch" value="" />
+                <input type="text" name="q" maxlength="255" value="" />
+                <input type="submit" name="btnG" value="Google Search" />
+            </form>
+        </td>
+    </tr>
+</table>
+
+<div id="PageContent">
+    <div class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <div style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</div>
+        <div style="margin: 0px 10px 8px 10px"  class="pagetitle">Namespace Configuration</div>
+
+        <div class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14276">
+                <img src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Edit Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14276">Edit Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+                <img src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14276">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14276">Add Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14276">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add News"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14276">Add News</a>
+        </div>
+    </div>
+
+    <div class="pagecontent">
+        <div class="wiki-content">
+            <div id="ConfluenceContent"><p>The namespace attribute subdivides action configurations into logical modules, each with its own identifying prefix. Namespaces avoid conflicts between action names. Each namespace can have its own "menu" or "help" action, each with its own implementation. While the prefix appears in the browser URI, the tags are "namespace aware", so the namespace prefix does not need to be embedded in forms and links.</p>
+
+<div class="panelMacro"><table class="tipMacro"><colgroup span="1"><col span="1" width="24"><col span="1"></colgroup><tr><td colspan="1" rowspan="1" valign="top"><img align="middle" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" alt="" border="0"></td><td colspan="1" rowspan="1">Struts 2 Namespaces are the equivalent of Struts Action 1 modules, but more convenient and flexible.</td></tr></table></div>
+
+<h2><a shape="rect" name="NamespaceConfiguration-DefaultNamespace"></a>Default Namespace</h2>
+
+<p>The default namespace is <tt>""</tt> - an empty string. The default namespace is used as a "catch-all" namespace. If an action configuration is not found in a specified namespace, the default namespace is also be searched. The local/global strategy allows an application to have global action configurations outside of the action element "extends" hierarchy.</p>
+
+<p>The namespace prefix can be registered with Java declarative security, to ensure only authorized users can access the actions in a given namespace.</p>
+
+<h2><a shape="rect" name="NamespaceConfiguration-RootNamespace"></a>Root Namespace</h2>
+
+<p>A root namespace ("/") is also supported. The root is the namespace when a request directly under the context path is received. As with other namespaces, it will fall back to the default ("") namespace if a local action is not found.</p>
+
+<h2><a shape="rect" name="NamespaceConfiguration-NamespaceExample"></a>Namespace Example</h2>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;package name="default"&gt;
+    &lt;action name="foo" class="mypackage.simpleAction"&gt;
+        &lt;result name="success" type="dispatcher"&gt;greeting.jsp&lt;/result&gt;
+    &lt;/action&gt;
+
+    &lt;action name="bar" class="mypackage.simpleAction"&gt;
+        &lt;result name="success" type="dispatcher"&gt;bar1.jsp&lt;/result&gt;
+    &lt;/action&gt;
+&lt;/package&gt;
+
+&lt;package name="mypackage1" namespace="/"&gt;
+    &lt;action name="moo" class="mypackage.simpleAction"&gt;
+        &lt;result name="success" type="dispatcher"&gt;moo.jsp&lt;/result&gt;
+    &lt;/action&gt;
+&lt;/package&gt;
+
+&lt;package name="mypackage2" namespace="/barspace"&gt;
+    &lt;action name="bar" class="mypackage.simpleAction"&gt;
+        &lt;result name="success" type="dispatcher"&gt;bar2.jsp&lt;/result&gt;
+    &lt;/action&gt;
+&lt;/package&gt;
+]]></script>
+</div></div>
+
+<h2><a shape="rect" name="NamespaceConfiguration-HowtheCodeWorks"></a>How the Code Works</h2>
+
+<p>If a request for <tt>/barspace/bar.action</tt> is made, the <tt>/barspace</tt> namespace is searched for the <tt>bar</tt> action. If found, the <tt>bar</tt> action is executed, else it will fall back to the default namespace. In the Namespace Example, the <tt>bar</tt> action does exist in the <tt>/barspace</tt> namespace, so the <tt>bar</tt> action will be executed, and if "success" is returned, the request will be forwarded to <tt>bar2.jsp</tt>.</p>
+
+<div class="panelMacro"><table class="tipMacro"><colgroup span="1"><col span="1" width="24"><col span="1"></colgroup><tr><td colspan="1" rowspan="1" valign="top"><img align="middle" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" alt="" border="0"></td><td colspan="1" rowspan="1"><b>Falling Back to Foo</b><br clear="none">If a request is made to <tt>/barspace/foo.action</tt>, the namespace <tt>/barspace</tt> will be checked for action <tt>foo</tt>. If a local action is not found, the default namespace is checked. In the Namespace Example, there is no action <tt>foo</tt> in the namespace <tt>/barspace</tt>, therefore the default will be checked and <tt>/foo.action</tt> will be executed.</td></tr></table></div>
+
+<p>In the Namespace Example, if a request for <tt>moo.action</tt> is made, the root namespace ('/') is searched for a <tt>moo</tt> action; if a root action is not found, the default namespace is checked. In this case, the <tt>moo</tt> action does exist and will be executed. Upon success, the request would be forwarded to <tt>bar2.jsp</tt>.</p>
+
+<div class="panelMacro"><table class="tipMacro"><colgroup span="1"><col span="1" width="24"><col span="1"></colgroup><tr><td colspan="1" rowspan="1" valign="top"><img align="middle" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" alt="" border="0"></td><td colspan="1" rowspan="1"><b>Getting to the Root</b><br clear="none">If a request is made for <tt>/foo.action</tt>, the root <tt>/</tt> namespace will be checked. If <tt>foo</tt> is found, the root action will be selected. Otherwise, the framework will check the default namespace. In the Namespace Example, the <tt>foo</tt> action does not exist in the root namespace, so the default namespace is  checked, and the default <tt>foo</tt> action is executed.</td></tr></table></div>
+
+<div class="panelMacro"><table class="noteMacro"><colgroup span="1"><col span="1" width="24"><col span="1"></colgroup><tr><td colspan="1" rowspan="1" valign="top"><img align="middle" src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" alt="" border="0"></td><td colspan="1" rowspan="1"><b>Namespaces are not a path!</b><br clear="none">Namespace are not hierarchical like a file system path. There is one namespace level. For example if the URL <tt>/barspace/myspace/bar.action</tt> is requested, the framework will first look for namespace <tt>/barspace/myspace</tt>. If the action does not exist at <tt>/barspace/myspace</tt>, the search will immediately fall back to the default namespace <tt>""</tt>. The framework will not parse the namespace into a series of "folders". In the Namespace Example, the <tt>bar</tt> action in the default namespace would be selected.</td></tr></table></div>
+</div>
+        </div>
+
+        
+    </div>
+</div>
+<div class="footer">
+    Generated by CXF SiteExporter
+</div>
+</body>
+</html>

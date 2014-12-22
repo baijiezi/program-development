@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+<html>
+<head>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <style type="text/css">
+        .dp-highlighter {
+            width:95% !important;
+        }
+    </style>
+    <style type="text/css">
+        .footer {
+            background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+            background-repeat:     repeat-x;
+            background-position:   left top;
+            padding-top:           4px;
+            color:                 #666;
+        }
+    </style>
+    <script type="text/javascript" language="javascript">
+        var hide = null;
+        var show = null;
+        var children = null;
+
+        function init() {
+            /* Search form initialization */
+            var form = document.forms['search'];
+            if (form != null) {
+                form.elements['domains'].value = location.hostname;
+                form.elements['sitesearch'].value = location.hostname;
+            }
+
+            /* Children initialization */
+            hide = document.getElementById('hide');
+            show = document.getElementById('show');
+            children = document.all != null ?
+                    document.all['children'] :
+                    document.getElementById('children');
+            if (children != null) {
+                children.style.display = 'none';
+                show.style.display = 'inline';
+                hide.style.display = 'none';
+            }
+        }
+
+        function showChildren() {
+            children.style.display = 'block';
+            show.style.display = 'none';
+            hide.style.display = 'inline';
+        }
+
+        function hideChildren() {
+            children.style.display = 'none';
+            show.style.display = 'inline';
+            hide.style.display = 'none';
+        }
+    </script>
+    <title>Tag Reference</title>
+</head>
+<body onload="init()">
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr class="topBar">
+        <td align="left" valign="middle" class="topBarDiv" align="left" nowrap>
+            &nbsp;<a href="home.html">Home</a>&nbsp;&gt;&nbsp;<a href="guides.html">Guides</a>&nbsp;&gt;&nbsp;<a href="tag-developers-guide.html">Tag Developers Guide</a>&nbsp;&gt;&nbsp;<a href="struts-tags.html">Struts Tags</a>&nbsp;&gt;&nbsp;<a href="tag-reference.html">Tag Reference</a>
+        </td>
+        <td align="right" valign="middle" nowrap>
+            <form name="search" action="http://www.google.com/search" method="get">
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="hidden" name="oe" value="UTF-8" />
+                <input type="hidden" name="domains" value="" />
+                <input type="hidden" name="sitesearch" value="" />
+                <input type="text" name="q" maxlength="255" value="" />
+                <input type="submit" name="btnG" value="Google Search" />
+            </form>
+        </td>
+    </tr>
+</table>
+
+<div id="PageContent">
+    <div class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <div style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</div>
+        <div style="margin: 0px 10px 8px 10px"  class="pagetitle">Tag Reference</div>
+
+        <div class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=19705">
+                <img src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Edit Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=19705">Edit Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+                <img src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=19705">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=19705">Add Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=19705">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add News"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=19705">Add News</a>
+        </div>
+    </div>
+
+    <div class="pagecontent">
+        <div class="wiki-content">
+            <div id="ConfluenceContent"><h3><a shape="rect" name="TagReference-GenericTags"></a>Generic Tags</h3>
+
+<p></p><div class="panel" style="border-width: 1px;"><div class="panelHeader" style="border-bottom-width: 1px;"><b>Generic Tag Reference</b></div><div class="panelContent">
+<p>Struts Generic Tags control the execution flow as pages render.</p>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><th colspan="1" rowspan="1" class="confluenceTh">Control Tags </th><td colspan="1" rowspan="1" class="confluenceTd"><ul><li><a shape="rect" href="if.html" title="if">if</a></li><li><a shape="rect" href="elseif.html" title="elseif">elseif</a></li><li><a shape="rect" href="else.html" title="else">else</a></li><li><a shape="rect" href="append.html" title="append">append</a></li><li><a shape="rect" href="generator.html" title="generator">generator</a></li><li><a shape="rect" href="iterator.html" title="iterator">iterator</a></li><li><a shape="rect" href="merge.html" title="merge">merge</a></li><li><a shape="rect" href="sort.html" title="sort">sort</a></li><li><a shape="rect" href="subset.html" title="subset">subset</a></li></ul>
+</td><th colspan="1" rowspan="1" class="confluenceTh"> Data Tags </th><td colspan="1" rowspan="1" class="confluenceTd"><ul><li><a shape="rect" href="a.html" title="a">a</a></li><li><a shape="rect" href="action.html" title="action">action</a></li><li><a shape="rect" href="bean.html" title="bean">bean</a></li><li><a shape="rect" href="date.html" title="date">date</a></li><li><a shape="rect" href="debug.html" title="debug">debug</a></li><li><a shape="rect" href="i18n.html" title="i18n">i18n</a></li><li><a shape="rect" href="include.html" title="include">include</a></li><li><a shape="rect" href="param.html" title="param">param</a></li><li><a shape="rect" href="property.html" title="property">property</a></li><li><a shape="rect" href="push.html" title="push">push</a></li><li><a shape="rect" href="set.html" title="set">set</a></li><li><a shape="rect" href="text.html" title="text">text</a></li><li><a shape="rect" href="url.html" title="url">url</a></li></ul>
+</td></tr></tbody></table>
+</div>
+</div></div>
+
+<h3><a shape="rect" name="TagReference-UITags"></a>UI Tags</h3>
+
+<p></p><div class="panel" style="border-width: 1px;"><div class="panelHeader" style="border-bottom-width: 1px;"><b>UI Tag Reference</b></div><div class="panelContent">
+<p>Struts UI Tags display data in rich and reusable HTML.</p>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><th colspan="1" rowspan="1" class="confluenceTh"> Form Tags </th><td colspan="1" rowspan="1" class="confluenceTd"><ul><li><a shape="rect" href="checkbox.html" title="checkbox">checkbox</a></li><li><a shape="rect" href="checkboxlist.html" title="checkboxlist">checkboxlist</a></li><li><a shape="rect" href="combobox.html" title="combobox">combobox</a></li><li><a shape="rect" href="doubleselect.html" title="doubleselect">doubleselect</a></li><li><a shape="rect" href="head.html" title="head">head</a></li><li><a shape="rect" href="file.html" title="file">file</a></li><li><a shape="rect" href="form.html" title="form">form</a></li><li><a shape="rect" href="hidden.html" title="hidden">hidden</a></li><li><a shape="rect" href="inputtransferselect.html" title="inputtransferselect">inputtransferselect</a></li><li><a shape="rect" href="label.html" title="label">label</a></li><li><a shape="rect" href="optiontransferselect.html" title="optiontransferselect">optiontransferselect</a></li><li><a shape="rect" href="optgroup.html" title="optgroup">optgroup</a></li><li><a shape="rect" href="password.html" title="password">password</a></li><li><a shape="rect" href="radio.html" title="radio">radio</a></li><li><a shape="rect" href="reset.html" title="reset">reset</a></li><li><a shape="rect" href="select.html" title="select">select</a></li><li><a shape="rect" href="submit.html" title="submit">submit</a></li><li><a shape="rect" href="textarea.html" title="textarea">textarea</a></li><li><a shape="rect" href="textfield.html" title="textfield">textfield</a></li><li><a shape="rect" href="token.html" title="token">token</a></li><li><a shape="rect" href="updownselect.html" title="updownselect">updownselect</a></li></ul>
+</td><th colspan="1" rowspan="1" class="confluenceTh"> Non-Form UI Tags </th><td colspan="1" rowspan="1" class="confluenceTd"><ul><li><a shape="rect" href="actionerror.html" title="actionerror">actionerror</a></li><li><a shape="rect" href="actionmessage.html" title="actionmessage">actionmessage</a></li><li><a shape="rect" href="component.html" title="component">component</a></li><li><a shape="rect" href="div.html" title="div">div</a></li><li><a shape="rect" href="fielderror.html" title="fielderror">fielderror</a></li></ul>
+</td><th colspan="1" rowspan="1" class="confluenceTh"> Ajax Tags </th><td colspan="1" rowspan="1" class="confluenceTd"><ul><li><a shape="rect" href="dojo-anchor.html" title="dojo anchor">a</a></li><li><a shape="rect" href="autocompleter.html" title="autocompleter">autocompleter</a></li><li><a shape="rect" href="bind.html" title="bind">bind</a></li><li><a shape="rect" href="datetimepicker.html" title="datetimepicker">datetimepicker</a></li><li><a shape="rect" href="dojo-div.html" title="dojo div">div</a></li><li><a shape="rect" href="dojo-head.html" title="dojo head">head</a></li><li><a shape="rect" href="dojo-submit.html" title="dojo submit">submit</a></li><li><a shape="rect" href="tabbedpanel.html" title="tabbedPanel">tabbedPanel</a></li><li><a shape="rect" href="dojo-textarea.html" title="dojo textarea">textarea</a></li><li><a shape="rect" href="tree.html" title="tree">tree</a></li><li><a shape="rect" href="treenode.html" title="treenode">treenode</a></li></ul>
+</td></tr><tr><td></td></tr></tbody></table>
+</div>
+</div></div>
+
+<h2><a shape="rect" name="TagReference-NextAjaxTags"></a>Next <a shape="rect" href="ajax-tags.html" title="Ajax Tags">Ajax Tags</a></h2></div>
+        </div>
+
+                    <div class="tabletitle">
+                Children
+            <span class="smalltext" id="show" style="display: inline;">
+              <a href="javascript:showChildren()">Show Children</a></span>
+            <span class="smalltext" id="hide" style="display: none;">
+              <a href="javascript:hideChildren()">Hide Children</a></span>
+            </div>
+            <div class="greybox" id="children" style="display: none;">
+                                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                                    $page.link($child)
+                    <span class="smalltext">(Apache Struts 2 Documentation)</span>
+                    <br>
+                            </div>
+        
+    </div>
+</div>
+<div class="footer">
+    Generated by CXF SiteExporter
+</div>
+</body>
+</html>

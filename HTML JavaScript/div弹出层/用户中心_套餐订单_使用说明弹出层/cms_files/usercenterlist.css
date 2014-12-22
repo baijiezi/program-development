@@ -1,0 +1,128 @@
+/* CSS Document */
+.listbaner{height:110px;border-top:1px solid #dbe1e6;border-bottom:1px solid #dbe1e6;}
+.listbaner2{height:130px;border-top:1px solid #dbe1e6;border-bottom:1px solid #dbe1e6;border-left:1px solid #dbe1e6;}
+
+
+
+/*box*/
+.listbox{width:653px;}
+.listbox2{width:285px;_width:285px;}
+.listbox3{width:95%;margin-left:auto;margin-right:auto;}
+.listbox4{width:651px;border-left:1px solid #dbe1e6;border-right:1px solid #dbe1e6;border-bottom:1px solid #dbe1e6;}
+.listbox5{width:651px;border:1px solid #dbe1e6;}
+
+
+
+
+.list_sort{ height:28px;line-height:28px;border-right:1px solid #dbe1e6;}
+.list_sort li{float:left;background:url(../images/usercenter/bg18.gif) repeat-x; display:block;width:225px; height:28px; }
+.list_sort li a.current{ background:url(../images/usercenter/bg17.gif) no-repeat; display:block;width:225px;}
+
+.listsortbox{width:651px;border-left:1px solid #dbe1e6;border-right:1px solid #dbe1e6;border-bottom:1px solid #dbe1e6;padding-bottom:10px;}
+.listsortbox2{width:95%;margin-left:auto;margin-right:auto;}
+.listsortbox2 li{ float:left;width:45%;height:25px;margin-left:5px;}
+
+.list_txtimg{width:97%;margin-left:auto;margin-right:auto;height:140px;padding-top:15px;line-height:25px;}
+.list_img{width:95px;height:120px; text-align:center;border:1px solid #dbe1e6;}
+.list_txt{width:420px;}
+.list_txt_a{width:65px;height:29px;margin-top:40px;margin-left:8px;}
+.list_txt_a a{width:65px;height:29px; background:url(../images/usercenter/bg21_1.gif) no-repeat;display:block; text-align:center;font-size:14px;}
+.list_txt_a a:hover{width:65px;height:29px; background:url(../images/usercenter/bg21.gif) no-repeat; display:block; text-decoration:none;}
+
+
+.list_page{ text-align:center;}
+.list_page .txta{padding:3px 6px;*padding:2px 6px;_padding:2px 6px;margin:2px 1px;background:url(../images/usercenter/page_bg.gif) repeat-x center bottom;text-align:center;font-weight:bold;border:1px solid #dbe1e6;}
+.list_page a.current {padding:3px 6px;*padding:2px 6px;_padding:2px 6px;margin:2px 1px; background:#58bbd7;border:1px solid #1b9bc1;color:#fff;text-align:center;font-weight:bold;}
+
+.list_cure{ display:block;}
+
+
+.hot{background:url(../images/usercenter/bg05.gif) no-repeat 0px 1px;_background:url(../images/usercenter/bg05.gif) no-repeat 0px 4px;height:32px;}
+.hot li{float:left;}
+.hot li a{ display:block;width:100px;height:32px; background:url(../images/usercenter/sortbg02.gif)  no-repeat bottom; _background:url(../images/usercenter/sortbg02.gif) no-repeat 0px 3px;line-height:32px;_line-height:40px; text-align:center;margin:auto 4px;}
+.hot li a:hover{ display:block;width:100px;height:32px;font-weight:bold;font-size:14px; line-height:32px;_line-height:40px; background:url(../images/usercenter/hotbg.gif)  no-repeat bottom;_background:url(../images/usercenter/hotbg.gif)  no-repeat 0px 4px;color:#fff; text-decoration:none;}
+.hot li a.current{ display:block;width:100px;height:32px;font-weight:bold;font-size:14px; line-height:30px;_line-height:40px; background:url(../images/usercenter/hotbg.gif)  no-repeat bottom;_background:url(../images/usercenter/hotbg.gif)  no-repeat 0px 4px;}
+.hotbox{width:284px;border-left:1px solid #dbe1e6;border-bottom:1px solid #dbe1e6;height:241px;_height:236px;}
+.hotbox .hottxt a{background:url(../images/usercenter/tb03.gif) no-repeat 0px 3px;padding-left:10px;height:21px;line-height:21px}
+.hotbox .hottxt a:hover{background:url(../images/usercenter/tb03.gif) no-repeat 0px -20px;padding-left:10px;}
+.hotbox .more{ background:url(../images/usercenter/morebg2.gif) no-repeat;padding-left:30px;height:36px;line-height:23px;}
+
+.hotbox2{width:284px;border-left:1px solid #dbe1e6;border-bottom:1px solid #dbe1e6;}
+.hotbox2 .hottxt a{background:url(../images/usercenter/tb03.gif) no-repeat 0px 3px;padding-left:10px;height:21px;line-height:21px}
+.hotbox2 .hottxt a:hover{background:url(../images/usercenter/tb03.gif) no-repeat 0px -20px;padding-left:10px;}
+.hotbox2 .more{ background:url(../images/usercenter/morebg2.gif) no-repeat;padding-left:30px;height:36px;line-height:23px;}
+
+.listhot{background:url(../images/usercenter/bg24.gif) no-repeat 0px 0px;_background:url(../images/usercenter/bg24.gif) no-repeat 0px 4px;height:32px;}
+.listhot li{float:left;}
+.listhot li a.current{ display:block;width:100px;height:32px;text-align:center;font-weight:bold;font-size:14px; line-height:28px;_line-height:35px; background:url(../images/usercenter/hotbg.gif)  no-repeat bottom;_background:url(../images/usercenter/hotbg.gif)  no-repeat 0px 4px;}
+
+.listhot_txt {width:98%;margin-left:auto;margin-right:auto;height:140px;line-height:25px;}
+.listhot_txt li{height:25px;line-height:25px;}
+.listhot_txt a{background:url(../images/usercenter/dian3.gif) no-repeat 0px 8px;padding-left:10px;}
+.listhot_txt a:hover{background:url(../images/usercenter/dian3.gif) no-repeat 0px -15px;}
+.listhot_txt span{color:#a2adba; font-family:Arial;}
+
+
+.listhot_txt2 {width:98%;margin-left:auto;margin-right:auto;height:140px;line-height:25px;}
+.listhot_txt2 li{height:25px;line-height:25px;}
+
+
+.ind_txtimg{width:93%;margin-left:auto;margin-right:auto;height:140px;padding-top:15px;line-height:25px;}
+
+.ind_imgbox{width:79px;height:140px; text-align:center;}
+
+.ind_img{width:79px;height:100px; text-align:center;border:1px solid #dbe1e6;}
+
+.ind_img  img{width:79px;}
+
+.ind_txt{width:170px;}
+
+.ind_txtimg2{width:93%;margin-left:auto;margin-right:auto;height:110px;padding-top:15px;line-height:25px;}
+
+.ind_img2{width:65px;height:80px; text-align:center;border:1px solid #dbe1e6;}
+
+.ind_img2  img{width:65px;}
+
+.ind_txt2{width:240px;}
+
+
+.news_sort{background:url(../images/usercenter/bg05_2.gif) no-repeat 0px 1px;_background:url(../images/usercenter/bg05_2.gif) no-repeat 0px 4px;height:32px;}
+
+.news_sort li{float:left;}
+
+.news_sort li a{ display:block;width:100px;height:32px; background:url(../images/usercenter/sortbg02.gif)  no-repeat bottom; _background:url(../images/usercenter/sortbg02.gif) no-repeat 0px 3px;line-height:35px;_line-height:38px; text-align:center;margin:auto 4px;}
+
+.news_sort li a:hover{display:block;width:100px;height:32px;font-weight:bold;font-size:14px; line-height:30px;_line-height:35px; background:url(../images/usercenter/sortbg.gif)  no-repeat bottom;color:#fff; text-decoration:none;}
+
+.news_sort li a.current{ display:block;width:100px;height:32px;font-weight:bold;font-size:14px; line-height:30px;_line-height:35px; background:url(../images/usercenter/sortbg.gif)  no-repeat bottom;}
+
+
+
+
+
+/*tb*/
+.listtb{ background:url(../images/usercenter/tb07.gif) no-repeat 10px 5px;padding-left:45px;}
+.listtb2{ background:url(../images/usercenter/tb08.gif) no-repeat 0px 6px;padding-left:15px;display:block;width:65px; float:left;}
+.listtb3{ background:url(../images/usercenter/tb21.gif) no-repeat 15px 3px;padding-left:39px;}
+.listtb4{ background:url(../images/usercenter/tb20.gif) no-repeat 15px 0px;padding-left:39px;}
+.listtb5{background:url(../images/usercenter/dian3.gif) no-repeat 0px 8px;padding-left:10px;}
+
+
+
+.listpostion{ background-position:0px -38px;}
+.listpostion2{ background-position:0px -60px;}
+.listpostion3{ background-position:0px -15px;}
+
+
+/*bg*/
+.listbg{background:url(../images/usercenter/bg19.gif) repeat-x bottom; }
+.listbg2{background:url(../images/usercenter/bg20.gif) no-repeat  center 29px; height:45px;}
+.listbg3{background:url(../images/usercenter/bg18.gif) repeat-x;height:28px;line-height:28px;}
+
+
+/*xiangxi*/
+.xiangxi h2{font-size:16px;line-height:18px;padding:0px;margin:0px;}
+.xiangxi .txt{font-size:12px;color:#6d6d6d;}
+.xiangxi .txt_p{ text-indent:2em;line-height:25px;padding:18px 0px;}
+
+.listbox4 h3 { font-weight:400; font-size:14px; display:inline;}

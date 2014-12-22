@@ -1,0 +1,479 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+<html>
+<head>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <style type="text/css">
+        .dp-highlighter {
+            width:95% !important;
+        }
+    </style>
+    <style type="text/css">
+        .footer {
+            background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+            background-repeat:     repeat-x;
+            background-position:   left top;
+            padding-top:           4px;
+            color:                 #666;
+        }
+    </style>
+    <link href='http://struts.apache.org/highlighter/styles/shCoreStruts.css' rel='stylesheet' type='text/css' />
+    <link href='http://struts.apache.org/highlighter/styles/shThemeStruts.css' rel='stylesheet' type='text/css' />
+    <script src='http://struts.apache.org/highlighter/js/shCore.js' type='text/javascript'></script>
+            <script src='http://struts.apache.org/highlighter/js/shBrushJava.js' type='text/javascript'></script>
+            <script src='http://struts.apache.org/highlighter/js/shBrushXml.js' type='text/javascript'></script>
+            <script src='http://struts.apache.org/highlighter/js/shBrushPlain.js' type='text/javascript'></script>
+    
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
+    <script type="text/javascript" language="javascript">
+        var hide = null;
+        var show = null;
+        var children = null;
+
+        function init() {
+            /* Search form initialization */
+            var form = document.forms['search'];
+            if (form != null) {
+                form.elements['domains'].value = location.hostname;
+                form.elements['sitesearch'].value = location.hostname;
+            }
+
+            /* Children initialization */
+            hide = document.getElementById('hide');
+            show = document.getElementById('show');
+            children = document.all != null ?
+                    document.all['children'] :
+                    document.getElementById('children');
+            if (children != null) {
+                children.style.display = 'none';
+                show.style.display = 'inline';
+                hide.style.display = 'none';
+            }
+        }
+
+        function showChildren() {
+            children.style.display = 'block';
+            show.style.display = 'none';
+            hide.style.display = 'inline';
+        }
+
+        function hideChildren() {
+            children.style.display = 'none';
+            show.style.display = 'inline';
+            hide.style.display = 'none';
+        }
+    </script>
+    <title>Documentation Style Guide</title>
+</head>
+<body onload="init()">
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr class="topBar">
+        <td align="left" valign="middle" class="topBarDiv" align="left" nowrap>
+            &nbsp;<a href="home.html">Home</a>&nbsp;&gt;&nbsp;<a href="guides.html">Guides</a>&nbsp;&gt;&nbsp;<a href="contributors-guide.html">Contributors Guide</a>&nbsp;&gt;&nbsp;<a href="documentation-style-guide.html">Documentation Style Guide</a>
+        </td>
+        <td align="right" valign="middle" nowrap>
+            <form name="search" action="http://www.google.com/search" method="get">
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="hidden" name="oe" value="UTF-8" />
+                <input type="hidden" name="domains" value="" />
+                <input type="hidden" name="sitesearch" value="" />
+                <input type="text" name="q" maxlength="255" value="" />
+                <input type="submit" name="btnG" value="Google Search" />
+            </form>
+        </td>
+    </tr>
+</table>
+
+<div id="PageContent">
+    <div class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <div style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</div>
+        <div style="margin: 0px 10px 8px 10px"  class="pagetitle">Documentation Style Guide</div>
+
+        <div class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14055">
+                <img src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Edit Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14055">Edit Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+                <img src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14055">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14055">Add Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14055">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add News"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14055">Add News</a>
+        </div>
+    </div>
+
+    <div class="pagecontent">
+        <div class="wiki-content">
+            <div id="ConfluenceContent"><p>It's well-known that a consistent user interface is easier to use. Consistency helps users focus on the task rather than the user interface. Likewise, a consistent documentation style helps users focus on the information, rather than the formatting.</p>
+
+<p>A related goal is to design the documentation so that it is easy to maintain, so that it tends to remain internally consistent with the framework itself.</p>
+
+<h2><a shape="rect" name="DocumentationStyleGuide-Doitnow.Doitonce.Doitwell."></a>Do it now. Do it once. Do it well.</h2>
+
+<p>Overall, there are three goals for the documentation system.</p>
+<ul><li>Say it all</li><li>Say it once</li><li>Say it well</li></ul>
+
+
+<p>First, we want the documentation to be both complete and concise. This is job one! The documentation should also be a quick but practical introduction to the framework, so newcomers can get started as easily as possible. To keep people coming back, the documentation should also be a repository of the tips and tricks we use in our own applications, so that people can find it here instead of asking over and over again on the list.  </p>
+
+<p>Second, the documentation should be easy to maintain. Ideally, we should cover the detail of each topic once, and draw as much detail from the source code and examples as possible (using the <a shape="rect" href="#DocumentationStyleGuide-Singlesourcingwithsnippets">snippet macro</a>).</p>
+
+<p>Third, the documentation should be text-book quality; if not in the first draft, then in the next. Don't hesitate to hack in a new page. Better that we have the page than we don't. (See Job One!) But, as time allows, we should try to make each page the best that it can be. A great many people access the documentation, and it's worth the effort to make the "documentation experience" productive and enjoyable.</p>
+
+<h2><a shape="rect" name="DocumentationStyleGuide-Capitalizationofcommonterms"></a>Capitalization of common terms</h2>
+
+<ul><li>Java</li><li>Javadoc</li><li>HTML</li><li>XML</li></ul>
+
+
+<h2><a shape="rect" name="DocumentationStyleGuide-GeneralPunctuationandGrammar"></a>General Punctuation and Grammar</h2>
+
+<p>Good online resources for punctuation, grammar, and text style include</p>
+<ul><li><a shape="rect" class="external-link" href="http://lilt.ilstu.edu/golson/punctuation/" rel="nofollow">Punctuation Made Simple</a></li><li><a shape="rect" class="external-link" href="http://www.wwu.edu/depts/journalism/207labmanUL.htm" rel="nofollow">Associated Press Style Guide Essentials</a></li><li><a shape="rect" class="external-link" href="http://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style" rel="nofollow">Wikipedia Manual of Style</a></li></ul>
+
+
+<p>In print, two excellent (and inexpensive!) resources are</p>
+<ul><li><a shape="rect" class="external-link" href="http://www.amazon.com/exec/obidos/tg/detail/-/020530902X/apachesoftwar-20/" rel="nofollow">The Elements of Style</a></li><li><a shape="rect" class="external-link" href="http://www.amazon.com/exec/obidos/tg/detail/-/0465004881/apachesoftwar-20/" rel="nofollow">Associated Press Stylebook</a></li></ul>
+
+
+<p>Also excellent, but more expensive: </p>
+<ul><li><a shape="rect" class="external-link" href="http://www.chicagomanualofstyle.org/" rel="nofollow">Chicago Manual of Style</a></li></ul>
+
+
+<h2><a shape="rect" name="DocumentationStyleGuide-QuickTips"></a>Quick Tips</h2>
+
+<ul><li>Use as few words as possible. Instead of "but there are some quirks about it" try "but there are quirks".</li><li>If a list of items includes both a term and an explanation, consider using a table instead of bullets.</li><li>Avoid using "This" by itself. Instead of "This lets us" try "This strategy lets us".
+	<ul><li>Ask yourself: "This what?"</li></ul>
+	</li><li>References to other wiki pages can be unqualified. For example: "See <a shape="rect" href="documentation-style-guide.html" title="Documentation Style Guide">Documentation Style Guide</a>."</li></ul>
+
+
+<h2><a shape="rect" name="DocumentationStyleGuide-Don%27tbesmurfy%5C%21"></a>Don't be smurfy!</h2>
+
+<p>A lot of API members use the term "action". We have</p>
+<ul><li>action extensions on pages,</li><li>action attributes in forms,</li><li>action elements in configuration files, and</li><li>Action Java classes, some of which may implement the</li><li>Action interface.</li></ul>
+
+
+<p>Here are some terms that can be used to help clarify which action is which.</p>
+<ul><li>Use "the framework" or "Struts 2" to refer to the codebase as a whole, including any frameworks we use internally, like XWork and OGNL.</li><li>Use "Action class" or "action handler" to refer to the Java class incorporated by the action element.</li><li>Use "action mapping" to refer to the object created by the action element.</li></ul>
+
+
+<h2><a shape="rect" name="DocumentationStyleGuide-PageSaveComment"></a>Page Save Comment</h2>
+
+<p>Try to include a brief description of a change when saving a page. The comments are included in the page's history. The comments are also included on the daily change report. In a group environment, it's important to help each other follow along.</p>
+
+<h2><a shape="rect" name="DocumentationStyleGuide-ParentPages"></a>Parent Pages </h2>
+
+<p>Use the Parent Page feature to create a hierarchy of pages. The parent pages are reflected in the "bread crumb" menu. If properly used, parent pages can help browsers "visualize" the documentation as an outline. </p>
+
+<p>The root of the documentation is the "Home" page, which is also the "Welcome" page. The documentation is ordered into three main areas: Tutorials, FAQs, and Guides. Each area has a contents page, whose parent is Home. Other pages within each section can also serve as parents, to help organize the documentation into a coherent outline. </p>
+
+<h2><a shape="rect" name="DocumentationStyleGuide-Labels"></a>Labels </h2>
+
+<p>Pages can be cross-indexed with the Label feature. Labels are not be used much yet, except for internal authoring. </p>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><th colspan="1" rowspan="1" class="confluenceTh"> FIXME </th><td colspan="1" rowspan="1" class="confluenceTd"> A page that mentions a problem in the distribution that we intend to fix. Review these pages before tagging a distribution to see if the issue has been resolved. </td></tr><tr><th colspan="1" rowspan="1" class="confluenceTh"> TODO </th><td colspan="1" rowspan="1" class="confluenceTd"> A page that is incomplete. Try to complete these pages before tagging a distribution </td></tr></tbody></table>
+</div>
+
+
+<h2><a shape="rect" name="DocumentationStyleGuide-ShortcutsLinks"></a>Shortcuts Links</h2>
+
+<p>The Shortcut Link feature should be used for any external reference that may be used elsewhere.<br clear="none">
+Shortcuts being used include </p>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><th colspan="1" rowspan="1" class="confluenceTh">Shortcut </th><th colspan="1" rowspan="1" class="confluenceTh"> Purpose </th><th colspan="1" rowspan="1" class="confluenceTh"> Usage </th><th colspan="1" rowspan="1" class="confluenceTh"> Result </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd">primer</td><td colspan="1" rowspan="1" class="confluenceTd"> A bookmark in our Key Technologies Primer </td><td colspan="1" rowspan="1" class="confluenceTd"> [javabeans@primer] </td><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="http://struts.apache.org/primer.html#javabeans">javabeans@primer</a> </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd">jira</td><td colspan="1" rowspan="1" class="confluenceTd"> A ticket in our issue tracker </td><td colspan="1" rowspan="1" class="confluenceTd"> [WW-2111@jira] </td><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="http://issues.apache.org/jira/browse/WW-2111">WW-2111@jira</a> </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd">s2plugins</td><td colspan="1" rowspan="1" class="confluenceTd"> S2 Plugin Repository </td><td colspan="1" rowspan="1" class="confluenceTd"> [tiles-plugin.html@s2plugins] </td><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="http://cwiki.apache.org/S2PLUGINS/tiles-plugin.html">tiles-plugin.html@s2plugins</a> </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd">s2site</td><td colspan="1" rowspan="1" class="confluenceTd"> The Struts 2 website </td><td colspan="1" rowspan="1" class="confluenceTd"> [docs/home.html@s2site] </td><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="http://struts.apache.org/2.x/docs/home.html">docs/home.html@s2site</a> </td></tr></tbody></table>
+</div>
+
+
+<h2><a shape="rect" name="DocumentationStyleGuide-AboutHeadings"></a>About Headings</h2>
+
+<p><img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" height="16" width="16" alt="" border="0"> This section refers to: <a shape="rect" class="external-link" href="http://cwiki.apache.org/confluence/renderer/notationhelp.action?section=headings">Notation Guide &gt;&gt; Headings</a>.</p>
+
+<h3><a shape="rect" name="DocumentationStyleGuide-Abouth1"></a>About h1</h3>
+
+<p>Don't use <tt>h1.</tt> at the top of each page. The page title serves as the "top level header". This is not as obvious online, but it is very apparent when the documentation is exported to HTML or PDF.</p>
+
+<p>Try to start each page with some introductory text, to separate the page title from the rest of content.</p>
+
+<p>Likewise, try to have some content between all page headings. Avoid placing headings one after the other.</p>
+
+<h3><a shape="rect" name="DocumentationStyleGuide-Documentsections"></a>Document sections</h3>
+
+<p>Headings can help you divide your document in sections, subsections, sub-subsections and so forth.</p>
+
+<h4><a shape="rect" name="DocumentationStyleGuide-Advantages"></a>Advantages</h4>
+
+<p>Your document becomes more organized.</p>
+
+<h4><a shape="rect" name="DocumentationStyleGuide-Disadvantages"></a>Disadvantages</h4>
+
+<p>Too many headings can fragment the text.</p>
+<div class="panelMacro"><table class="warningMacro"><colgroup span="1"><col span="1" width="24"><col span="1"></colgroup><tr><td colspan="1" rowspan="1" valign="top"><img align="middle" src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" alt="" border="0"></td><td colspan="1" rowspan="1"><b>Here we go again!</b><br clear="none">This segment is an example of overusing headings. This whole "Headings" section has so few paragraphs that it really should have been written in just one section. The "advantages" and "disadvantages" would be just as easy to render as a table.</td></tr></table></div>
+
+<h3><a shape="rect" name="DocumentationStyleGuide-Headingscapitalization"></a>Headings capitalization</h3>
+
+<p>Try to use initial capitals for <tt>h1</tt> and <tt>h2</tt> headers.</p>
+
+<p>For <tt>h3</tt> and smaller headings, try to capitalize only the first word, and any proper nouns.</p>
+
+<p>By using different capitalization styles, we emphasize the importance of bigger headings.</p>
+
+<h3><a shape="rect" name="DocumentationStyleGuide-Avoidskippingheaders"></a>Avoid skipping headers</h3>
+
+<p>The headers form an outline for the page. When writing term papers, it is not a good practice to skip outline levels. When writing hypertext, it is not a good practice to skip heading levels either. Try not to skip from a <tt>h2</tt> to a <tt>h4</tt>.</p>
+<div class="panelMacro"><table class="tipMacro"><colgroup span="1"><col span="1" width="24"><col span="1"></colgroup><tr><td colspan="1" rowspan="1" valign="top"><img align="middle" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" alt="" border="0"></td><td colspan="1" rowspan="1"><b>Too many headings?</b><br clear="none">If you find yourself writing too many <tt>h2</tt> headings in a single page, consider breaking the page into child pages.</td></tr></table></div>
+
+<h2><a shape="rect" name="DocumentationStyleGuide-MoreonTextEffects"></a>More on Text Effects</h2>
+
+<p><img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/star_yellow.gif" height="16" width="16" alt="" border="0"> This section refers to: <a shape="rect" class="external-link" href="http://cwiki.apache.org/confluence/renderer/notationhelp.action?section=texteffects">Notation Guide &gt;&gt; Text Effects</a>.</p>
+
+<p>Text effects like <b>strong</b>, <em>emphasis</em>, and <ins>inserted</ins> can be used in the usual way to denote important parts of a sentence.</p>
+
+<p><tt>Monospaced</tt> should be used to files, tags, and methods, like <tt>struts.xml</tt>, <tt>&lt;xmltag /&gt;</tt>, and <tt>execute</tt>. Class and Interface names may be left in normal face, like Action and Interceptor.</p>
+
+<p>A panel should be preferred to a block quote.</p>
+
+<p>The color fonts should be avoided or used only with great care. Some people have difficulty seeing some colors, and the colors may not be apparent if the page is printed.</p>
+
+<h2><a shape="rect" name="DocumentationStyleGuide-TextBreaks"></a>Text Breaks</h2>
+
+<p><img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/star_yellow.gif" height="16" width="16" alt="" border="0"> This section refers to: <a shape="rect" class="external-link" href="http://cwiki.apache.org/confluence/renderer/notationhelp.action?section=breaks">Notation Guide &gt;&gt; Text Breaks</a>.</p>
+
+<p>Text breaks should not be used to format blocks on the screen. If there is an issue with the way paragraphs or headings are being rendered, we should customize the stylesheet.</p>
+
+<h2><a shape="rect" name="DocumentationStyleGuide-Lists"></a>Lists</h2>
+
+<p><img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/star_yellow.gif" height="16" width="16" alt="" border="0"> This section refers to: <a shape="rect" class="external-link" href="http://cwiki.apache.org/confluence/renderer/notationhelp.action?section=lists">Notation Guide &gt;&gt; Lists</a>.</p>
+
+<p>Unordered lists should be created only with the <tt>*</tt> (star) notation.</p>
+
+<p>Ordered list should be used when numbering the items is important. Otherwise, prefer unordered lists.</p>
+<ul><li>This is an unordered list in star notation;</li><li>Items can have sub-items
+	<ul><li>That can have sub-items
+		<ul><li>That can have sub-items ...
+			<ul><li>What is the limit?</li></ul>
+			</li></ul>
+		</li></ul>
+	</li><li>Mixing ordered and unordered lists is possible:
+	<ol><li>One;</li><li>Two;</li><li>Three.</li></ol>
+	</li></ul>
+
+
+<h2><a shape="rect" name="DocumentationStyleGuide-Images"></a>Images</h2>
+
+<p><img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/star_yellow.gif" height="16" width="16" alt="" border="0"> This section refers to: <a shape="rect" class="external-link" href="http://cwiki.apache.org/confluence/renderer/notationhelp.action?section=images">Notation Guide &gt;&gt; Images</a> and <a shape="rect" class="external-link" href="http://cwiki.apache.org/confluence/renderer/notationhelp.action?section=miscellaneous">Notation Guide &gt;&gt; Misc</a>.</p>
+
+<p>Avoid using external images for bullets or icons. Prefer the equivalents provided with Confluence.</p>
+
+<p>Images can be included by URL or annexing the binary to the page. Prefer annexing when possible, since URLs are subject to change.</p>
+
+<p>Always observe copyright issues. Do not annex images unless it an original or public domain work, or the author has donated the image to the foundation.</p>
+
+<p>Example: <span class="image-wrap" style=""><img src="http://struts.apache.org/images/struts-power.gif" style="border: 0px solid black"></span></p>
+
+<h2><a shape="rect" name="DocumentationStyleGuide-Icons"></a>Icons</h2>
+
+<p>Use <img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" height="16" width="16" alt="" border="0">, <img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/help_16.gif" height="16" width="16" alt="" border="0">, <img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" height="16" width="16" alt="" border="0">, and <img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" height="16" width="16" alt="" border="0"> to bullet important one-liners. Use <img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb_on.gif" height="16" width="16" alt="" border="0"> to highlight cross references.</p>
+
+<p>Used carefully, icons can make the content easier to read and understand.</p>
+
+<p>However, if icons are overused, they lose impact (and can make a page look like a ransom note).</p>
+
+<p>Casual icons like <img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/smile.gif" height="20" width="20" alt="" border="0"> and <img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/thumbs_up.gif" height="19" width="19" alt="" border="0"> should be used with care or avoided.</p>
+
+<h2><a shape="rect" name="DocumentationStyleGuide-Tables"></a>Tables</h2>
+
+<p><img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/star_yellow.gif" height="16" width="16" alt="" border="0"> This section refers to: <a shape="rect" class="external-link" href="http://cwiki.apache.org/confluence/renderer/notationhelp.action?section=tables">Notation Guide &gt;&gt; Tables</a>.</p>
+
+<p>Prefer lists for single-value entries. Prefer tables for lists with multiple columns.</p>
+
+<p>Tables are very useful when lists just don't do it. Meaning: don't write a table when a list suffices. Tables are more organized, because you can align the text in columns. Since the markup text for tables in Confluence is not easy to read, complex and big tables can be hard to maintain.</p>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><th colspan="1" rowspan="1" class="confluenceTh"> File </th><th colspan="1" rowspan="1" class="confluenceTh"> Optional </th><th colspan="1" rowspan="1" class="confluenceTh"> Location (relative to webapp) </th><th colspan="1" rowspan="1" class="confluenceTh"> Purpose </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="webxml.html" title="web.xml">web.xml</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> no </td><td colspan="1" rowspan="1" class="confluenceTd"> /WEB-INF/ </td><td colspan="1" rowspan="1" class="confluenceTd"> Web deployment descriptor to include all necessary WebWork components </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" href="strutsxml.html" title="struts.xml">struts.xml</a> </td><td colspan="1" rowspan="1" class="confluenceTd"> no </td><td colspan="1" rowspan="1" class="confluenceTd"> /WEB-INF/classes/ </td><td colspan="1" rowspan="1" class="confluenceTd"> Main configuration, contains result/view types, action mappings, interceptors, and so forth </td></tr></tbody></table>
+</div>
+
+
+<h2><a shape="rect" name="DocumentationStyleGuide-AdvancedFormatting"></a>Advanced Formatting</h2>
+
+<p><img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/star_yellow.gif" height="16" width="16" alt="" border="0"> This section refers to: <a shape="rect" class="external-link" href="http://cwiki.apache.org/confluence/renderer/notationhelp.action?section=advanced">Notation Guide &gt;&gt; Advanced Formatting</a>.</p>
+
+<p>Panels should be used as needed. Try to select the right panel for the content.</p>
+
+<p>Try to give all panels and {code} blocks meaningful titles. People scan the pages looking for likely tips and examples.</p>
+
+<p>Avoid generic titles like "Warning" or "Example". Style the headings like they were h3. or smaller.</p>
+
+<p>When a panel contains a file or a class, the panel title should refer to the filename or classname.</p>
+
+<p>Try to specify the language for {code} blocks.</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>HelloWorld.java</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: java; gutter: false" type="syntaxhighlighter"><![CDATA[
+/** Hello World class. */
+public class HelloWorld {
+  /** Main method. */
+  public static void main(String[] args) {
+    System.out.println("Hello, World!");
+  }
+}
+]]></script>
+</div></div>
+<p><img align="middle" class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" height="16" width="16" alt="" border="0"> Try to use <a shape="rect" href="#DocumentationStyleGuide-Singlesourcingwithsnippets">snippets</a> for code blocks whenever possible!</p>
+
+<p>Avoid tabs in code blocks, use two spaces instead. Long lines should be formatted to fit in a 800x600 resolution screen, without resorting to horizontal scrolling.</p>
+
+<p>A typical example of <tt>noformat</tt> would be the command line statements to compile and run the code above.</p>
+
+<p>Either the code or noformat block can be used to represent command line windows. The terminal notation ({$}} should be used to represent a system prompt.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Compiling and Running Hello World</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: java; gutter: false" type="syntaxhighlighter"><![CDATA[
+$ javac HelloWorld.java
+
+$ java HelloWorld
+Hello, World!
+]]></script>
+</div></div>
+
+<h2><a shape="rect" name="DocumentationStyleGuide-ChangeHappens"></a>Change Happens</h2>
+
+<p>Anyone who has worked with databases knows the value of normalizing the schema. Ideally, we want to store each fact exactly once, and then use query system to retrieve that fact whereever it is needed. If we store a fact once, we only need to update it once, and we avoid inconsistencies in our data set.</p>
+
+<p>To the extent possible, we want to "normalize" our technical documentation. Like a database, all technical documentation is subject to change. When change happens, we want the documentation to be as easy to update as possible. One way to do that is to try and minimize redundancy (without sacrificing ease of use).</p>
+
+<h3><a shape="rect" name="DocumentationStyleGuide-Singlesourcingwithsnippets"></a>Single sourcing with snippets</h3>
+
+<p>The "holy grail" of technical documentation is <a shape="rect" class="external-link" href="http://en.wikipedia.org/wiki/Single_source_publishing" rel="nofollow">single sourcing</a>. One way we try to single-source documentation is to pull content directly from the <a shape="rect" class="external-link" href="http://en.wikipedia.org/wiki/Javadoc" rel="nofollow">Javadocs</a> and source code into the documentation.</p>
+
+<p>Using a <b><a shape="rect" class="external-link" href="http://confluence.atlassian.com/display/CONFEXT/Snippet+Plugin" rel="nofollow">snippet macro</a></b>, we are able to tag portions of any file for reuse. The macro fetches those snippets from a repository and merges the content into the documentation.</p>
+<div class="panelMacro"><table class="tipMacro"><colgroup span="1"><col span="1" width="24"><col span="1"></colgroup><tr><td colspan="1" rowspan="1" valign="top"><img align="middle" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" alt="" border="0"></td><td colspan="1" rowspan="1"><b>Use the Source!</b><br clear="none">Before writing any new content, ask yourself if we could place the content in the repository in either one of the example applications or the Javadocs. Rather than contrive an example, can you pull a snippet from one of the applications? Rather than reiterate Javadoc, could we update the Javadoc and make it a snippet? It is preferable to use snippets from the Struts example apps over Javadoc snippets for anything except plain text content as this ensures that the content's syntax has been validated.</td></tr></table></div>
+
+
+<h3><a shape="rect" name="DocumentationStyleGuide-Examplesnippetusage"></a>Example snippet usage</h3>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Snippet usage example</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: plain; gutter: false" type="syntaxhighlighter"><![CDATA[
+{snippet:id=example|lang=xml|javadoc=true|url=struts2/core/src/main/java/org/apache/struts2/components/If.java}
+]]></script>
+</div></div>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><th colspan="1" rowspan="1" class="confluenceTh">&#160;</th><th colspan="1" rowspan="1" class="confluenceTh"> Snippet Attributes </th></tr><tr><th colspan="1" rowspan="1" class="confluenceTh"> id </th><td colspan="1" rowspan="1" class="confluenceTd"> The <em>name</em> of the snippet (optional - defaults to "all", meaning the entire file). </td></tr><tr><th colspan="1" rowspan="1" class="confluenceTh"> url </th><td colspan="1" rowspan="1" class="confluenceTd"> The URL where the snippet can be found (<b>required</b>). </td></tr><tr><th colspan="1" rowspan="1" class="confluenceTh"> linenumbers </th><td colspan="1" rowspan="1" class="confluenceTd"> If true line numbers are displayed. Numbering always starts at 1. </td></tr><tr><th colspan="1" rowspan="1" class="confluenceTh"> lang </th><td colspan="1" rowspan="1" class="confluenceTd"> lang=java would surround the snippet with {code:java}snippet{code}. If this snippet is simply text, don't include this parameter and the content will be printed outside of a code block. </td></tr><tr><th colspan="1" rowspan="1" class="confluenceTh"> javadoc </th><td colspan="1" rowspan="1" class="confluenceTd"> If true, the content is within a Javadoc block. If this is set to true, then the preceeding "* " (asterisk-space) characters will be stripped before merging the content. Also, the content is assumed to be already HTML escaped and  won't be escaped again. </td></tr></tbody></table>
+</div>
+
+<p>All snippets are marked off by the pattern <tt>START SNIPPET: XXX</tt> and <tt>END SNIPPET: XXX</tt> where <tt>XXX</tt> is the <tt>name</tt> of the snippet that is assigned in the <tt>id</tt> attribute of the macro. The URL is typically a location that points to the project's source control contents. |</p>
+
+<h3><a shape="rect" name="DocumentationStyleGuide-AboutURLs"></a>About URLs</h3>
+
+<p>A URL must start with a valid prefix. There are two types of prefixes:</p>
+<ul><li><b>com.opensymphony.xwork2.</b> Notice the period. This syntax is better when you want to include content from a class because they allow you to use the fully qualified classname as the URL.</li><li><b>struts2/</b> Notice the trailing slash. This syntax better when you want to include content content from non-class files such as xml or properties files. They may also be needed if a class based prefix for a sub-project has not be setup.</li></ul>
+
+
+<p>To include a snippet from <a shape="rect" class="external-link" href="http://svn.apache.org/repos/asf/struts/struts2/trunk/apps/showcase/src/main/java/org/apache/struts2/showcase/DateAction.java">http://svn.apache.org/repos/asf/struts/struts2/trunk/apps/showcase/src/main/java/org/apache/struts2/showcase/DateAction.java</a> the two possible methods are:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: java; gutter: false" type="syntaxhighlighter"><![CDATA[
+{snippet:lang=java|url=struts2/apps/showcase/src/main/java/org/apache/struts2/showcase/DateAction.java}
+{snippet:lang=java|url=struts2/apps.showcase.src.main.java.org.apache.struts2.showcase.DateAction}
+]]></script>
+</div></div>
+
+<p>To include a snippet from  <a shape="rect" class="external-link" href="https://svn.apache.org/repos/asf/struts/struts2/trunk/xwork-core/src/main/java/com/opensymphony/xwork2/validator/validators/StringLengthFieldValidator.java">https://svn.apache.org/repos/asf/struts/struts2/trunk/xwork-core/src/main/java/com/opensymphony/xwork2/validator/validators/StringLengthFieldValidator.java</a> the two possible methods are:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: java; gutter: false" type="syntaxhighlighter"><![CDATA[
+{snippet:id=javadoc|javadoc=true|url=com.opensymphony.xwork2.validator.validators.StringLengthFieldValidator}
+{snippet:id=javadoc|javadoc=true|url=com.opensymphony.xwork2.validator/validators/StringLengthFieldValidator.java}
+]]></script>
+</div></div>
+
+<p>The list of available prefixes:</p>
+<div class="table-wrap">
+<table class="confluenceTable"><tbody><tr><th colspan="1" rowspan="1" class="confluenceTh"> Prefix </th><th colspan="1" rowspan="1" class="confluenceTh"> Destination </th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <b>xwork2/</b> </td><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" class="external-link" href="http://svn.apache.org/repos/asf/struts/struts2/trunk/xwork-core/src/main/java/">http://svn.apache.org/repos/asf/struts/struts2/trunk/xwork-core/src/main/java/</a> </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <b>struts2/</b> </td><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" class="external-link" href="http://svn.apache.org/repos/asf/struts/struts2/trunk/">http://svn.apache.org/repos/asf/struts/struts2/trunk/</a> </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <b>rest-plugin/</b> </td><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" class="external-link" href="http://svn.apache.org/repos/asf/struts/struts2/trunk/plugins/rest/">http://svn.apache.org/repos/asf/struts/struts2/trunk/plugins/rest/</a> </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <b>struts2-tags/</b> </td><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" class="external-link" href="http://svn.apache.org/repos/asf/struts/struts2/trunk/core/src/site/resources/tags/">http://svn.apache.org/repos/asf/struts/struts2/trunk/core/src/site/resources/tags/</a> </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <b>com.opensymphony.xwork2.</b> </td><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" class="external-link" href="http://svn.apache.org/repos/asf/struts/struts2/trunk/xwork-core/src/main/java/com/opensymphony/xwork2/">http://svn.apache.org/repos/asf/struts/struts2/trunk/xwork-core/src/main/java/com/opensymphony/xwork2/</a> </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <b>org.apache.struts2.</b> </td><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" class="external-link" href="http://svn.apache.org/repos/asf/struts/struts2/trunk/core/src/main/java/org/apache/struts2/">http://svn.apache.org/repos/asf/struts/struts2/trunk/core/src/main/java/org/apache/struts2/</a> </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <b>org.apache.struts2.dojo.</b> </td><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" class="external-link" href="http://svn.apache.org/repos/asf/struts/struts2/trunk/plugins/dojo/src/main/java/org/apache/struts2/dojo/">http://svn.apache.org/repos/asf/struts/struts2/trunk/plugins/dojo/src/main/java/org/apache/struts2/dojo/</a> </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <b>org.apache.struts2.sitegraph.</b> </td><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" class="external-link" href="http://svn.apache.org/repos/asf/struts/struts2/trunk/plugins/sitegraph/src/main/java/org/apache/struts2/sitegraph/">http://svn.apache.org/repos/asf/struts/struts2/trunk/plugins/sitegraph/src/main/java/org/apache/struts2/sitegraph/</a> </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <b>org.apache.struts2.sitemesh.</b> </td><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" class="external-link" href="http://svn.apache.org/repos/asf/struts/struts2/trunk/plugins/sitemesh/src/main/java/org/apache/struts2/sitemesh/">http://svn.apache.org/repos/asf/struts/struts2/trunk/plugins/sitemesh/src/main/java/org/apache/struts2/sitemesh/</a> </td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"> <b>org.apache.struts2.views.tiles.</b> </td><td colspan="1" rowspan="1" class="confluenceTd"> <a shape="rect" class="external-link" href="http://svn.apache.org/repos/asf/struts/struts2/trunk/plugins/tiles/src/main/java/org/apache/struts2/views/tiles/">http://svn.apache.org/repos/asf/struts/struts2/trunk/plugins/tiles/src/main/java/org/apache/struts2/views/tiles/</a> </td></tr></tbody></table>
+</div>
+
+
+
+<h3><a shape="rect" name="DocumentationStyleGuide-Aboutsnippetmarkers"></a>About snippet markers</h3>
+
+<p>When possible, all snippet markers should be in comment blocks. How they are commented depends on where the snippet is being embedded.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Commenting HTML or XML snippets</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;!-- START SNIPPET: xxx --&gt;
+...
+&lt;!-- END SNIPPET: xxx --&gt;
+]]></script>
+</div></div>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Commenting snippets in Java code</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: java; gutter: false" type="syntaxhighlighter"><![CDATA[
+if (true != false) {
+    // START SNIPPET: xxx
+    System.out.println("This is some silly code!");
+    // END SNIPPET: xxx
+}
+]]></script>
+</div></div>
+
+<p>If the snippet is embedded within Javadoc comments use HTML comments to declare the snippet as they won't render in the Javadocs.</p>
+
+<p>When using the <tt>&lt;pre&gt;</tt> tag within Javadoc comments embed the snippet markers <em>inside</em> the <tt>&lt;pre&gt;</tt> tag.</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Snipping XML examples from Javadoc content</b></div><div class="codeContent panelContent">
+<script class="theme: Default; brush: plain; gutter: false" type="syntaxhighlighter"><![CDATA[
+* &lt;pre&gt;
+* &lt;!-- START SNIPPET: example --&gt;
+* &amp;lt;!-- records only the action's execution time --&amp;gt;
+* &amp;lt;action name="someAction" class="com.examples.SomeAction"&amp;gt;
+*     &amp;lt;interceptor-ref name="completeStack"/&amp;gt;
+*     &amp;lt;interceptor-ref name="timer"/&amp;gt;
+*     &amp;lt;result name="success"&amp;gt;good_result.ftl&amp;lt;/result&amp;gt;
+* &amp;lt;/action&amp;gt;
+* &lt;!-- END SNIPPET: example --&gt;
+* &lt;/pre&gt;
+]]></script>
+</div></div>
+
+<p>A <tt>&lt;pre&gt;</tt> tag within a Javadoc comment would be escaped and rendered as part of the snippet. See <a shape="rect" class="external-link" href="https://svn.apache.org/repos/asf/struts/struts2/trunk/xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/TimerInterceptor.java">TimerInterceptor.java</a> for an complete example.</p>
+
+<h2><a shape="rect" name="DocumentationStyleGuide-Back%3AContributorsGuide"></a>Back: <a shape="rect" href="contributors-guide.html" title="Contributors Guide">Contributors Guide</a></h2></div>
+        </div>
+
+        
+    </div>
+</div>
+<div class="footer">
+    Generated by CXF SiteExporter
+</div>
+</body>
+</html>

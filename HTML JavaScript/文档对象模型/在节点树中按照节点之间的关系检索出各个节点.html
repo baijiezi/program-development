@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC  "-//W3C//DTD HTML 4.0//EN" 
+"http://www.w3.org/TR/REC-html140/strict.dtd"> 
+<html> 
+<head> 
+<meta http-equiv=content-type content="text/html; charset=gb2312"> 
+<title> First Page!</title> 
+</head> 
+<body> 
+<p id="p1">Welcome to<B> DOM </B>World! </p> 
+<script language="JavaScript" type="text/javascript"> 
+<!-- 
+//输出节点属性 
+function nodeStatus(node) 
+{ 
+  var temp=""; 
+  if(node.nodeName!=null) 
+  { 
+    temp+="nodeName: "+node.nodeName+"\n"; 
+  } 
+  else temp+="nodeName: null!\n"; 
+  if(node.nodeType!=null) 
+  { 
+    temp+="nodeType: "+node.nodeType+"\n"; 
+  } 
+  else temp+="nodeType: null\n"; 
+  if(node.nodeValue!=null) 
+  { 
+    temp+="nodeValue: "+node.nodeValue+"\n\n"; 
+  } 
+  else temp+="nodeValue: null\n\n"; 
+  return temp; 
+} 
+//处理并输出节点信息 
+//返回id属性值为p1的元素节点 
+var currentElement=document.getElementById('p1'); 
+var msg=nodeStatus(currentElement); 
+//返回p1的第一个孩子，即文本节点“Welcome to” 
+currentElement=currentElement.firstChild; 
+msg+=nodeStatus(currentElement); 
+//返回文本节点“Welcome to”的下一个同父节点，即元素节点B 
+currentElement=currentElement.nextSibling; 
+msg+=nodeStatus(currentElement); 
+//返回元素节点B的第一个孩子，即文本节点“DOM” 
+currentElement=currentElement.firstChild; 
+msg+=nodeStatus(currentElement); 
+//返回文本节点“DOM”的父节点，即元素节点B 
+currentElement=currentElement.parentNode; 
+msg+=nodeStatus(currentElement); 
+//返回元素节点B的同父节点，即文本节点“Welcome to” 
+currentElement=currentElement.previousSibling; 
+msg+=nodeStatus(currentElement); 
+//返回文本节点“Welcome to”的父节点，即元素节点P 
+currentElement=currentElement.parentNode; 
+msg+=nodeStatus(currentElement); 
+//返回元素节点P的最后一个孩子，即文本节点“World!” 
+currentElement=currentElement.lastChild; 
+msg+=nodeStatus(currentElement); 
+//输出节点属性 
+alert(msg); 
+currentElement=document.getElementById('p1'); 
+alert(currentElement.data);
+//--> 
+</script> 
+</body> 
+</html> 

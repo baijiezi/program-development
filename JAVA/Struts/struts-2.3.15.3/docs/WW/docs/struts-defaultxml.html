@@ -1,0 +1,498 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+<html>
+<head>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <style type="text/css">
+        .dp-highlighter {
+            width:95% !important;
+        }
+    </style>
+    <style type="text/css">
+        .footer {
+            background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+            background-repeat:     repeat-x;
+            background-position:   left top;
+            padding-top:           4px;
+            color:                 #666;
+        }
+    </style>
+    <link href='http://struts.apache.org/highlighter/styles/shCoreStruts.css' rel='stylesheet' type='text/css' />
+    <link href='http://struts.apache.org/highlighter/styles/shThemeStruts.css' rel='stylesheet' type='text/css' />
+    <script src='http://struts.apache.org/highlighter/js/shCore.js' type='text/javascript'></script>
+            <script src='http://struts.apache.org/highlighter/js/shBrushXml.js' type='text/javascript'></script>
+    
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
+    <script type="text/javascript" language="javascript">
+        var hide = null;
+        var show = null;
+        var children = null;
+
+        function init() {
+            /* Search form initialization */
+            var form = document.forms['search'];
+            if (form != null) {
+                form.elements['domains'].value = location.hostname;
+                form.elements['sitesearch'].value = location.hostname;
+            }
+
+            /* Children initialization */
+            hide = document.getElementById('hide');
+            show = document.getElementById('show');
+            children = document.all != null ?
+                    document.all['children'] :
+                    document.getElementById('children');
+            if (children != null) {
+                children.style.display = 'none';
+                show.style.display = 'inline';
+                hide.style.display = 'none';
+            }
+        }
+
+        function showChildren() {
+            children.style.display = 'block';
+            show.style.display = 'none';
+            hide.style.display = 'inline';
+        }
+
+        function hideChildren() {
+            children.style.display = 'none';
+            show.style.display = 'inline';
+            hide.style.display = 'none';
+        }
+    </script>
+    <title>struts-default.xml</title>
+</head>
+<body onload="init()">
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr class="topBar">
+        <td align="left" valign="middle" class="topBarDiv" align="left" nowrap>
+            &nbsp;<a href="home.html">Home</a>&nbsp;&gt;&nbsp;<a href="guides.html">Guides</a>&nbsp;&gt;&nbsp;<a href="core-developers-guide.html">Core Developers Guide</a>&nbsp;&gt;&nbsp;<a href="configuration-files.html">Configuration Files</a>&nbsp;&gt;&nbsp;<a href="struts-defaultxml.html">struts-default.xml</a>
+        </td>
+        <td align="right" valign="middle" nowrap>
+            <form name="search" action="http://www.google.com/search" method="get">
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="hidden" name="oe" value="UTF-8" />
+                <input type="hidden" name="domains" value="" />
+                <input type="hidden" name="sitesearch" value="" />
+                <input type="text" name="q" maxlength="255" value="" />
+                <input type="submit" name="btnG" value="Google Search" />
+            </form>
+        </td>
+    </tr>
+</table>
+
+<div id="PageContent">
+    <div class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <div style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</div>
+        <div style="margin: 0px 10px 8px 10px"  class="pagetitle">struts-default.xml</div>
+
+        <div class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13819">
+                <img src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Edit Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13819">Edit Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+                <img src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13819">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13819">Add Page</a>
+            &nbsp;
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13819">
+                <img src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif"
+                     height="16" width="16" border="0" align="absmiddle" title="Add News"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13819">Add News</a>
+        </div>
+    </div>
+
+    <div class="pagecontent">
+        <div class="wiki-content">
+            <div id="ConfluenceContent">
+<p>A base configuration file named <tt>struts-default.xml</tt> is included in the <tt>struts2.jar</tt> file. This file is automatically included into <tt>struts.xml</tt> file to  provide the standard configuration settings without having to copy them. </p>
+
+<div class="panelMacro"><table class="tipMacro"><colgroup span="1"><col span="1" width="24"><col span="1"></colgroup><tr><td colspan="1" rowspan="1" valign="top"><img align="middle" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" alt="" border="0"></td><td colspan="1" rowspan="1">To exclude the <tt>struts-default.xml</tt> or to provide your own version, see the <tt>struts.configuration.files</tt> setting in <a shape="rect" href="strutsproperties.html" title="struts.properties">struts.properties</a>.</td></tr></table></div>
+
+<p>The contents of struts-default.xml are here:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<script class="theme: Default; brush: xml; gutter: false" type="syntaxhighlighter"><![CDATA[
+&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;!--
+/*
+ * $Id$
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+--&gt;
+&lt;!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd"&gt;
+
+&lt;struts&gt;
+    &lt;bean class="com.opensymphony.xwork2.ObjectFactory" name="xwork" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.ObjectFactory" name="struts" class="org.apache.struts2.impl.StrutsObjectFactory" /&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.factory.ResultFactory" name="xwork" class="org.apache.struts2.factory.StrutsResultFactory" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.factory.ResultFactory" name="struts" class="org.apache.struts2.factory.StrutsResultFactory" /&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.factory.ActionFactory" name="xwork" class="com.opensymphony.xwork2.factory.DefaultActionFactory" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.factory.ActionFactory" name="struts" class="com.opensymphony.xwork2.factory.DefaultActionFactory" /&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.factory.ConverterFactory" name="xwork" class="com.opensymphony.xwork2.factory.DefaultConverterFactory" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.factory.ConverterFactory" name="struts" class="com.opensymphony.xwork2.factory.DefaultConverterFactory" /&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.factory.InterceptorFactory" name="xwork" class="com.opensymphony.xwork2.factory.DefaultInterceptorFactory" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.factory.InterceptorFactory" name="struts" class="com.opensymphony.xwork2.factory.DefaultInterceptorFactory" /&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.factory.ValidatorFactory" name="xwork" class="com.opensymphony.xwork2.factory.DefaultValidatorFactory" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.factory.ValidatorFactory" name="struts" class="com.opensymphony.xwork2.factory.DefaultValidatorFactory" /&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.FileManager" class="com.opensymphony.xwork2.util.fs.DefaultFileManager" name="system" scope="singleton"/&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.FileManagerFactory" class="com.opensymphony.xwork2.util.fs.DefaultFileManagerFactory" name="xwork" scope="singleton"/&gt;
+    &lt;bean type="com.opensymphony.xwork2.FileManagerFactory" class="com.opensymphony.xwork2.util.fs.DefaultFileManagerFactory" name="struts" scope="singleton"/&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.ActionProxyFactory" name="xwork" class="com.opensymphony.xwork2.DefaultActionProxyFactory"/&gt;
+    &lt;bean type="com.opensymphony.xwork2.ActionProxyFactory" name="struts" class="org.apache.struts2.impl.StrutsActionProxyFactory"/&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.conversion.ObjectTypeDeterminer" name="tiger" class="com.opensymphony.xwork2.conversion.impl.DefaultObjectTypeDeterminer"/&gt;
+    &lt;bean type="com.opensymphony.xwork2.conversion.ObjectTypeDeterminer" name="notiger" class="com.opensymphony.xwork2.conversion.impl.DefaultObjectTypeDeterminer"/&gt;
+    &lt;bean type="com.opensymphony.xwork2.conversion.ObjectTypeDeterminer" name="struts" class="com.opensymphony.xwork2.conversion.impl.DefaultObjectTypeDeterminer"/&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.util.PatternMatcher" name="struts" class="com.opensymphony.xwork2.util.WildcardHelper" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.util.PatternMatcher" name="namedVariable" class="com.opensymphony.xwork2.util.NamedVariablePatternMatcher"/&gt;
+    &lt;bean type="com.opensymphony.xwork2.util.PatternMatcher" name="regex" class="org.apache.struts2.util.RegexPatternMatcher"/&gt;
+
+    &lt;bean type="org.apache.struts2.dispatcher.mapper.ActionMapper" name="struts" class="org.apache.struts2.dispatcher.mapper.DefaultActionMapper" /&gt;
+    &lt;bean type="org.apache.struts2.dispatcher.mapper.ActionMapper" name="composite" class="org.apache.struts2.dispatcher.mapper.CompositeActionMapper" /&gt;
+    &lt;bean type="org.apache.struts2.dispatcher.mapper.ActionMapper" name="restful" class="org.apache.struts2.dispatcher.mapper.RestfulActionMapper" /&gt;
+    &lt;bean type="org.apache.struts2.dispatcher.mapper.ActionMapper" name="restful2" class="org.apache.struts2.dispatcher.mapper.Restful2ActionMapper" /&gt;
+
+    &lt;bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest" name="struts" class="org.apache.struts2.dispatcher.multipart.JakartaMultiPartRequest" scope="default"/&gt;
+    &lt;bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest" name="jakarta" class="org.apache.struts2.dispatcher.multipart.JakartaMultiPartRequest" scope="default" /&gt;
+    &lt;constant name="struts.multipart.parser" value="jakarta" /&gt;
+
+    &lt;bean type="org.apache.struts2.views.TagLibrary" name="s" class="org.apache.struts2.views.DefaultTagLibrary" /&gt;
+
+    &lt;bean class="org.apache.struts2.views.freemarker.FreemarkerManager" name="struts" /&gt;
+    &lt;bean class="org.apache.struts2.views.velocity.VelocityManager" name="struts" optional="true" /&gt;
+
+    &lt;bean class="org.apache.struts2.components.template.TemplateEngineManager" /&gt;
+    &lt;bean type="org.apache.struts2.components.template.TemplateEngine" name="ftl" class="org.apache.struts2.components.template.FreemarkerTemplateEngine" /&gt;
+    &lt;bean type="org.apache.struts2.components.template.TemplateEngine" name="vm" class="org.apache.struts2.components.template.VelocityTemplateEngine" /&gt;
+    &lt;bean type="org.apache.struts2.components.template.TemplateEngine" name="jsp" class="org.apache.struts2.components.template.JspTemplateEngine" /&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.conversion.impl.XWorkConverter" name="struts" class="com.opensymphony.xwork2.conversion.impl.XWorkConverter" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.conversion.ConversionPropertiesProcessor" name="struts" class="com.opensymphony.xwork2.conversion.impl.DefaultConversionPropertiesProcessor" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.conversion.ConversionFileProcessor" name="struts" class="com.opensymphony.xwork2.conversion.impl.DefaultConversionFileProcessor" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.conversion.ConversionAnnotationProcessor" name="struts" class="com.opensymphony.xwork2.conversion.impl.DefaultConversionAnnotationProcessor" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.conversion.TypeConverterCreator" name="struts" class="com.opensymphony.xwork2.conversion.impl.DefaultTypeConverterCreator" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.conversion.TypeConverterHolder" name="struts" class="com.opensymphony.xwork2.conversion.impl.DefaultTypeConverterHolder" /&gt;
+
+    &lt;bean class="com.opensymphony.xwork2.conversion.impl.XWorkBasicConverter" /&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.conversion.impl.CollectionConverter" name="struts" class="com.opensymphony.xwork2.conversion.impl.CollectionConverter" scope="singleton"/&gt;
+    &lt;bean type="com.opensymphony.xwork2.conversion.impl.ArrayConverter" name="struts" class="com.opensymphony.xwork2.conversion.impl.ArrayConverter" scope="singleton"/&gt;
+    &lt;bean type="com.opensymphony.xwork2.conversion.impl.DateConverter" name="struts" class="com.opensymphony.xwork2.conversion.impl.DateConverter" scope="singleton"/&gt;
+    &lt;bean type="com.opensymphony.xwork2.conversion.impl.NumberConverter" name="struts" class="com.opensymphony.xwork2.conversion.impl.NumberConverter" scope="singleton"/&gt;
+    &lt;bean type="com.opensymphony.xwork2.conversion.impl.StringConverter" name="struts" class="com.opensymphony.xwork2.conversion.impl.StringConverter" scope="singleton"/&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.TextProvider" name="struts" class="com.opensymphony.xwork2.TextProviderSupport" scope="default" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.LocaleProvider" name="struts" class="com.opensymphony.xwork2.DefaultLocaleProvider" scope="singleton" /&gt;
+
+    &lt;bean type="org.apache.struts2.components.UrlRenderer" name="struts" class="org.apache.struts2.components.ServletUrlRenderer"/&gt;
+    &lt;bean type="org.apache.struts2.views.util.UrlHelper" name="struts" class="org.apache.struts2.views.util.DefaultUrlHelper"/&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.util.ValueStackFactory" name="struts" class="com.opensymphony.xwork2.ognl.OgnlValueStackFactory" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.util.reflection.ReflectionProvider" name="struts" class="com.opensymphony.xwork2.ognl.OgnlReflectionProvider" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.util.reflection.ReflectionContextFactory" name="struts" class="com.opensymphony.xwork2.ognl.OgnlReflectionContextFactory" /&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.TextProvider" name="system" class="com.opensymphony.xwork2.DefaultTextProvider" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.conversion.NullHandler" name="java.lang.Object" class="com.opensymphony.xwork2.conversion.impl.InstantiatingNullHandler" /&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.validator.ActionValidatorManager" name="struts" class="com.opensymphony.xwork2.validator.AnnotationActionValidatorManager" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.validator.ActionValidatorManager" name="no-annotations" class="com.opensymphony.xwork2.validator.DefaultActionValidatorManager" /&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.validator.ValidatorFactory" class="com.opensymphony.xwork2.validator.DefaultValidatorFactory"/&gt;
+    &lt;bean type="com.opensymphony.xwork2.validator.ValidatorFileParser" class="com.opensymphony.xwork2.validator.DefaultValidatorFileParser" /&gt;
+
+    &lt;bean class="com.opensymphony.xwork2.ognl.OgnlUtil" /&gt;
+
+    &lt;bean type="com.opensymphony.xwork2.util.TextParser" name="struts" class="com.opensymphony.xwork2.util.OgnlTextParser" scope="singleton"/&gt;
+
+    &lt;bean type="ognl.PropertyAccessor" name="com.opensymphony.xwork2.util.CompoundRoot" class="com.opensymphony.xwork2.ognl.accessor.CompoundRootAccessor" /&gt;
+    &lt;bean type="ognl.PropertyAccessor" name="java.lang.Object" class="com.opensymphony.xwork2.ognl.accessor.ObjectAccessor" /&gt;
+    &lt;bean type="ognl.PropertyAccessor" name="java.util.Iterator" class="com.opensymphony.xwork2.ognl.accessor.XWorkIteratorPropertyAccessor" /&gt;
+    &lt;bean type="ognl.PropertyAccessor" name="java.util.Enumeration" class="com.opensymphony.xwork2.ognl.accessor.XWorkEnumerationAccessor" /&gt;
+    &lt;bean type="ognl.PropertyAccessor" name="java.util.List" class="com.opensymphony.xwork2.ognl.accessor.XWorkListPropertyAccessor" /&gt;
+    &lt;bean type="ognl.PropertyAccessor" name="java.util.Set" class="com.opensymphony.xwork2.ognl.accessor.XWorkCollectionPropertyAccessor" /&gt;
+    &lt;bean type="ognl.PropertyAccessor" name="java.util.Map" class="com.opensymphony.xwork2.ognl.accessor.XWorkMapPropertyAccessor" /&gt;
+    &lt;bean type="ognl.PropertyAccessor" name="java.util.Collection" class="com.opensymphony.xwork2.ognl.accessor.XWorkCollectionPropertyAccessor" /&gt;
+    &lt;bean type="ognl.PropertyAccessor" name="com.opensymphony.xwork2.ognl.ObjectProxy" class="com.opensymphony.xwork2.ognl.accessor.ObjectProxyPropertyAccessor" /&gt;
+
+    &lt;bean type="ognl.MethodAccessor" name="java.lang.Object" class="com.opensymphony.xwork2.ognl.accessor.XWorkMethodAccessor" /&gt;
+    &lt;bean type="ognl.MethodAccessor" name="com.opensymphony.xwork2.util.CompoundRoot" class="com.opensymphony.xwork2.ognl.accessor.CompoundRootAccessor" /&gt;
+
+    &lt;bean class="org.apache.struts2.views.jsp.ui.OgnlTool" /&gt;
+
+    &lt;bean type="org.apache.struts2.dispatcher.StaticContentLoader" class="org.apache.struts2.dispatcher.DefaultStaticContentLoader" name="struts" /&gt;
+    &lt;bean type="com.opensymphony.xwork2.UnknownHandlerManager" class="com.opensymphony.xwork2.DefaultUnknownHandlerManager" name="struts" /&gt;
+
+    &lt;!--  Silly workarounds for OGNL since there is currently no way to flush its internal caches --&gt;
+    &lt;bean type="ognl.PropertyAccessor" name="java.util.ArrayList" class="com.opensymphony.xwork2.ognl.accessor.XWorkListPropertyAccessor" /&gt;
+    &lt;bean type="ognl.PropertyAccessor" name="java.util.HashSet" class="com.opensymphony.xwork2.ognl.accessor.XWorkCollectionPropertyAccessor" /&gt;
+    &lt;bean type="ognl.PropertyAccessor" name="java.util.HashMap" class="com.opensymphony.xwork2.ognl.accessor.XWorkMapPropertyAccessor" /&gt;
+
+    &lt;package name="struts-default" abstract="true"&gt;
+        &lt;result-types&gt;
+            &lt;result-type name="chain" class="com.opensymphony.xwork2.ActionChainResult"/&gt;
+            &lt;result-type name="dispatcher" class="org.apache.struts2.dispatcher.ServletDispatcherResult" default="true"/&gt;
+            &lt;result-type name="freemarker" class="org.apache.struts2.views.freemarker.FreemarkerResult"/&gt;
+            &lt;result-type name="httpheader" class="org.apache.struts2.dispatcher.HttpHeaderResult"/&gt;
+            &lt;result-type name="redirect" class="org.apache.struts2.dispatcher.ServletRedirectResult"/&gt;
+            &lt;result-type name="redirectAction" class="org.apache.struts2.dispatcher.ServletActionRedirectResult"/&gt;
+            &lt;result-type name="stream" class="org.apache.struts2.dispatcher.StreamResult"/&gt;
+            &lt;result-type name="velocity" class="org.apache.struts2.dispatcher.VelocityResult"/&gt;
+            &lt;result-type name="xslt" class="org.apache.struts2.views.xslt.XSLTResult"/&gt;
+            &lt;result-type name="plainText" class="org.apache.struts2.dispatcher.PlainTextResult" /&gt;
+        &lt;/result-types&gt;
+
+        &lt;interceptors&gt;
+            &lt;interceptor name="alias" class="com.opensymphony.xwork2.interceptor.AliasInterceptor"/&gt;
+            &lt;interceptor name="autowiring" class="com.opensymphony.xwork2.spring.interceptor.ActionAutowiringInterceptor"/&gt;
+            &lt;interceptor name="chain" class="com.opensymphony.xwork2.interceptor.ChainingInterceptor"/&gt;
+            &lt;interceptor name="conversionError" class="org.apache.struts2.interceptor.StrutsConversionErrorInterceptor"/&gt;
+            &lt;interceptor name="cookie" class="org.apache.struts2.interceptor.CookieInterceptor"/&gt;
+            &lt;interceptor name="cookieProvider" class="org.apache.struts2.interceptor.CookieProviderInterceptor"/&gt;
+            &lt;interceptor name="clearSession" class="org.apache.struts2.interceptor.ClearSessionInterceptor" /&gt;
+            &lt;interceptor name="createSession" class="org.apache.struts2.interceptor.CreateSessionInterceptor" /&gt;
+            &lt;interceptor name="debugging" class="org.apache.struts2.interceptor.debugging.DebuggingInterceptor" /&gt;
+            &lt;interceptor name="execAndWait" class="org.apache.struts2.interceptor.ExecuteAndWaitInterceptor"/&gt;
+            &lt;interceptor name="exception" class="com.opensymphony.xwork2.interceptor.ExceptionMappingInterceptor"/&gt;
+            &lt;interceptor name="fileUpload" class="org.apache.struts2.interceptor.FileUploadInterceptor"/&gt;
+            &lt;interceptor name="i18n" class="com.opensymphony.xwork2.interceptor.I18nInterceptor"/&gt;
+            &lt;interceptor name="logger" class="com.opensymphony.xwork2.interceptor.LoggingInterceptor"/&gt;
+            &lt;interceptor name="modelDriven" class="com.opensymphony.xwork2.interceptor.ModelDrivenInterceptor"/&gt;
+            &lt;interceptor name="scopedModelDriven" class="com.opensymphony.xwork2.interceptor.ScopedModelDrivenInterceptor"/&gt;
+            &lt;interceptor name="params" class="com.opensymphony.xwork2.interceptor.ParametersInterceptor"/&gt;
+            &lt;interceptor name="actionMappingParams" class="org.apache.struts2.interceptor.ActionMappingParametersInteceptor"/&gt;
+            &lt;interceptor name="prepare" class="com.opensymphony.xwork2.interceptor.PrepareInterceptor"/&gt;
+            &lt;interceptor name="staticParams" class="com.opensymphony.xwork2.interceptor.StaticParametersInterceptor"/&gt;
+            &lt;interceptor name="scope" class="org.apache.struts2.interceptor.ScopeInterceptor"/&gt;
+            &lt;interceptor name="servletConfig" class="org.apache.struts2.interceptor.ServletConfigInterceptor"/&gt;
+            &lt;interceptor name="timer" class="com.opensymphony.xwork2.interceptor.TimerInterceptor"/&gt;
+            &lt;interceptor name="token" class="org.apache.struts2.interceptor.TokenInterceptor"/&gt;
+            &lt;interceptor name="tokenSession" class="org.apache.struts2.interceptor.TokenSessionStoreInterceptor"/&gt;
+            &lt;interceptor name="validation" class="org.apache.struts2.interceptor.validation.AnnotationValidationInterceptor"/&gt;
+            &lt;interceptor name="workflow" class="com.opensymphony.xwork2.interceptor.DefaultWorkflowInterceptor"/&gt;
+            &lt;interceptor name="store" class="org.apache.struts2.interceptor.MessageStoreInterceptor" /&gt;
+            &lt;interceptor name="checkbox" class="org.apache.struts2.interceptor.CheckboxInterceptor" /&gt;
+            &lt;interceptor name="profiling" class="org.apache.struts2.interceptor.ProfilingActivationInterceptor" /&gt;
+            &lt;interceptor name="roles" class="org.apache.struts2.interceptor.RolesInterceptor" /&gt;
+            &lt;interceptor name="annotationWorkflow" class="com.opensymphony.xwork2.interceptor.annotations.AnnotationWorkflowInterceptor" /&gt;
+            &lt;interceptor name="multiselect" class="org.apache.struts2.interceptor.MultiselectInterceptor" /&gt;
+
+            &lt;!-- Basic stack --&gt;
+            &lt;interceptor-stack name="basicStack"&gt;
+                &lt;interceptor-ref name="exception"/&gt;
+                &lt;interceptor-ref name="servletConfig"/&gt;
+                &lt;interceptor-ref name="prepare"/&gt;
+                &lt;interceptor-ref name="checkbox"/&gt;
+                &lt;interceptor-ref name="multiselect"/&gt;
+                &lt;interceptor-ref name="actionMappingParams"/&gt;
+                &lt;interceptor-ref name="params"&gt;
+                    &lt;param name="excludeParams"&gt;dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*&lt;/param&gt;
+                &lt;/interceptor-ref&gt;
+                &lt;interceptor-ref name="conversionError"/&gt;
+            &lt;/interceptor-stack&gt;
+
+            &lt;!-- Sample validation and workflow stack --&gt;
+            &lt;interceptor-stack name="validationWorkflowStack"&gt;
+                &lt;interceptor-ref name="basicStack"/&gt;
+                &lt;interceptor-ref name="validation"/&gt;
+                &lt;interceptor-ref name="workflow"/&gt;
+            &lt;/interceptor-stack&gt;
+
+            &lt;!-- Sample file upload stack --&gt;
+            &lt;interceptor-stack name="fileUploadStack"&gt;
+                &lt;interceptor-ref name="fileUpload"/&gt;
+                &lt;interceptor-ref name="basicStack"/&gt;
+            &lt;/interceptor-stack&gt;
+
+            &lt;!-- Sample model-driven stack  --&gt;
+            &lt;interceptor-stack name="modelDrivenStack"&gt;
+                &lt;interceptor-ref name="modelDriven"/&gt;
+                &lt;interceptor-ref name="basicStack"/&gt;
+            &lt;/interceptor-stack&gt;
+
+            &lt;!-- Sample action chaining stack --&gt;
+            &lt;interceptor-stack name="chainStack"&gt;
+                &lt;interceptor-ref name="chain"/&gt;
+                &lt;interceptor-ref name="basicStack"/&gt;
+            &lt;/interceptor-stack&gt;
+
+            &lt;!-- Sample i18n stack --&gt;
+            &lt;interceptor-stack name="i18nStack"&gt;
+                &lt;interceptor-ref name="i18n"/&gt;
+                &lt;interceptor-ref name="basicStack"/&gt;
+            &lt;/interceptor-stack&gt;
+
+            &lt;!-- An example of the paramsPrepareParams trick. This stack
+                 is exactly the same as the defaultStack, except that it
+                 includes one extra interceptor before the prepare interceptor:
+                 the params interceptor.
+
+                 This is useful for when you wish to apply parameters directly
+                 to an object that you wish to load externally (such as a DAO
+                 or database or service layer), but can't load that object
+                 until at least the ID parameter has been loaded. By loading
+                 the parameters twice, you can retrieve the object in the
+                 prepare() method, allowing the second params interceptor to
+                 apply the values on the object. --&gt;
+            &lt;interceptor-stack name="paramsPrepareParamsStack"&gt;
+                &lt;interceptor-ref name="exception"/&gt;
+                &lt;interceptor-ref name="alias"/&gt;
+                &lt;interceptor-ref name="i18n"/&gt;
+                &lt;interceptor-ref name="checkbox"/&gt;
+                &lt;interceptor-ref name="multiselect"/&gt;
+                &lt;interceptor-ref name="params"&gt;
+                    &lt;param name="excludeParams"&gt;dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*&lt;/param&gt;
+                &lt;/interceptor-ref&gt;
+                &lt;interceptor-ref name="servletConfig"/&gt;
+                &lt;interceptor-ref name="prepare"/&gt;
+                &lt;interceptor-ref name="chain"/&gt;
+                &lt;interceptor-ref name="modelDriven"/&gt;
+                &lt;interceptor-ref name="fileUpload"/&gt;
+                &lt;interceptor-ref name="staticParams"/&gt;
+                &lt;interceptor-ref name="actionMappingParams"/&gt;
+                &lt;interceptor-ref name="params"&gt;
+                    &lt;param name="excludeParams"&gt;dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*&lt;/param&gt;
+                &lt;/interceptor-ref&gt;
+                &lt;interceptor-ref name="conversionError"/&gt;
+                &lt;interceptor-ref name="validation"&gt;
+                    &lt;param name="excludeMethods"&gt;input,back,cancel,browse&lt;/param&gt;
+                &lt;/interceptor-ref&gt;
+                &lt;interceptor-ref name="workflow"&gt;
+                    &lt;param name="excludeMethods"&gt;input,back,cancel,browse&lt;/param&gt;
+                &lt;/interceptor-ref&gt;
+            &lt;/interceptor-stack&gt;
+
+            &lt;!-- A complete stack with all the common interceptors in place.
+                 Generally, this stack should be the one you use, though it
+                 may do more than you need. Also, the ordering can be
+                 switched around (ex: if you wish to have your servlet-related
+                 objects applied before prepare() is called, you'd need to move
+                 servletConfig interceptor up.
+
+                 This stack also excludes from the normal validation and workflow
+                 the method names input, back, and cancel. These typically are
+                 associated with requests that should not be validated.
+                 --&gt;
+            &lt;interceptor-stack name="defaultStack"&gt;
+                &lt;interceptor-ref name="exception"/&gt;
+                &lt;interceptor-ref name="alias"/&gt;
+                &lt;interceptor-ref name="servletConfig"/&gt;
+                &lt;interceptor-ref name="i18n"/&gt;
+                &lt;interceptor-ref name="prepare"/&gt;
+                &lt;interceptor-ref name="chain"/&gt;
+                &lt;interceptor-ref name="scopedModelDriven"/&gt;
+                &lt;interceptor-ref name="modelDriven"/&gt;
+                &lt;interceptor-ref name="fileUpload"/&gt;
+                &lt;interceptor-ref name="checkbox"/&gt;
+                &lt;interceptor-ref name="multiselect"/&gt;
+                &lt;interceptor-ref name="staticParams"/&gt;
+                &lt;interceptor-ref name="actionMappingParams"/&gt;
+                &lt;interceptor-ref name="params"&gt;
+                    &lt;param name="excludeParams"&gt;dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*&lt;/param&gt;
+                &lt;/interceptor-ref&gt;
+                &lt;interceptor-ref name="conversionError"/&gt;
+                &lt;interceptor-ref name="validation"&gt;
+                    &lt;param name="excludeMethods"&gt;input,back,cancel,browse&lt;/param&gt;
+                &lt;/interceptor-ref&gt;
+                &lt;interceptor-ref name="workflow"&gt;
+                    &lt;param name="excludeMethods"&gt;input,back,cancel,browse&lt;/param&gt;
+                &lt;/interceptor-ref&gt;
+                &lt;interceptor-ref name="debugging"/&gt;
+            &lt;/interceptor-stack&gt;
+
+            &lt;!-- The completeStack is here for backwards compatibility for
+                 applications that still refer to the defaultStack by the
+                 old name --&gt;
+            &lt;interceptor-stack name="completeStack"&gt;
+                &lt;interceptor-ref name="defaultStack"/&gt;
+            &lt;/interceptor-stack&gt;
+
+            &lt;!-- Sample execute and wait stack.
+                 Note: execAndWait should always be the *last* interceptor. --&gt;
+            &lt;interceptor-stack name="executeAndWaitStack"&gt;
+                &lt;interceptor-ref name="execAndWait"&gt;
+                    &lt;param name="excludeMethods"&gt;input,back,cancel&lt;/param&gt;
+                &lt;/interceptor-ref&gt;
+                &lt;interceptor-ref name="defaultStack"/&gt;
+                &lt;interceptor-ref name="execAndWait"&gt;
+                    &lt;param name="excludeMethods"&gt;input,back,cancel&lt;/param&gt;
+                &lt;/interceptor-ref&gt;
+            &lt;/interceptor-stack&gt;
+
+       &lt;/interceptors&gt;
+
+        &lt;default-interceptor-ref name="defaultStack"/&gt;
+
+        &lt;default-class-ref class="com.opensymphony.xwork2.ActionSupport" /&gt;
+    &lt;/package&gt;
+
+&lt;/struts&gt;
+]]></script>
+</div></div>
+<p>This file defines all of the default bundled results and interceptors and many interceptor stacks which you can use either as-is or as a basis for your own application-specific interceptor stacks. <b>Notice the name of the package is "struts-default"</b>.</p></div>
+        </div>
+
+        
+    </div>
+</div>
+<div class="footer">
+    Generated by CXF SiteExporter
+</div>
+</body>
+</html>
